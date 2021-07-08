@@ -3,13 +3,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from './modules/theme';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppAppBar from './modules/views/AppAppBar';
+import Home from './Home.js';
+
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppAppBar />
+      <Home />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
