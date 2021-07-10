@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import AppBar from '../components/AppBar';
-import Toolbar from '../components/Toolbar';
+import Toolbar, { styles as toolbarStyles } from '../components/Toolbar';
 
 const styles = (theme) => ({
   title: {
@@ -18,6 +18,7 @@ const styles = (theme) => ({
   toolbar: {
     justifyContent: 'space-between',
   },
+  placeholder: toolbarStyles(theme).root,
   left: {
     flex: 1,
   },
@@ -42,6 +43,7 @@ const styles = (theme) => ({
 
 function AppAppBar(props) {
   const { classes } = props;
+  console.log(classes)
 
   return (
     <div>
