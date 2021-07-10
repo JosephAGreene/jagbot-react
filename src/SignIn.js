@@ -1,10 +1,10 @@
 import React from 'react';
-import AppAppBar from './modules/views/AppAppBar';
+import AppAppBar from './views/AppAppBar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Typography from './modules/components/Typography';
+import Typography from './components/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import AppAppBar from './modules/views/AppAppBar';
-import MainLanding from './modules/views/MainLanding';
+import AppAppBar from './views/AppAppBar';
+import MainLanding from './views/MainLanding';
 
 export default function Home() {
     return (
