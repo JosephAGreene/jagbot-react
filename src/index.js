@@ -9,7 +9,7 @@ import {
 
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import theme from './css/theme';
+import {theme} from './jss/theme';
 import Home from './Home.js';
 import SignIn from './SignIn.js';
 
