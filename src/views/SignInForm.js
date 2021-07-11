@@ -32,17 +32,19 @@ const schema = Joi.object({
       .required()
       .messages({
         "string.base": `"Password" should be a type of 'text'`,
-        "string.empty": `"Password" is required`
+        "string.empty": `"Password" is required`,
+        "any.required": `"Password" is required`,
       }),
     email: Joi.string().required().email({tlds: {allow: false }})
       .messages({
         "string.empty": `"Email" is required`,
-        "string.email": `"Email" must be a valid e-mail`
+        "any.required": `"Email" is required`,
+        "string.email": `"Email" must be a valid e-mail`,
       })
   });
 
 export default function SignIn() {
-    const { register, handleSubmit, formState:{ errors } } = useForm({ resolver: joiResolver(schema)});
+    const { register, handleSubmit, formState:{ errors } } = useForm({resolver: joiResolver(schema)});
     const classes = useStyles();
 
     const onSubmit = (data) => {
@@ -55,9 +57,10 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
               Sign in
           </Typography>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} >
               <OutlinedInput
                 labelText="E-Mail"
+                id="email"
                 name="email"
                 formControlProps={{fullWidth: true}}
                 inputProps={{...register("email")}}
@@ -65,9 +68,11 @@ export default function SignIn() {
               />
               <OutlinedInput
                 labelText="Password"
+                id="password"
                 name="password"
+                type="password"
                 formControlProps={{fullWidth: true}}
-                inputProps={({type: 'password'}, {...register("password")})}
+                inputProps={{...register("password")}}
                 error={errors}
               />
               <Button

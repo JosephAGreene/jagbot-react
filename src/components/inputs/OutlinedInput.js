@@ -17,6 +17,7 @@ const classes = useStyles();
   const {
     formControlProps,
     labelText,
+    id,
     name,
     type,
     labelProps,
@@ -34,7 +35,7 @@ const classes = useStyles();
     >
       <InputLabel
         className={classes.labelRoot }
-        htmlFor={name}
+        htmlFor={id}
         {...labelProps}
       >
         {labelText}
@@ -55,9 +56,10 @@ const classes = useStyles();
   );
 }
 
-OutlinedInput.propTypes = {
+CustomOutlinedInput.propTypes = {
   labelText: PropTypes.node,
   labelProps: PropTypes.object,
+  id: PropTypes.string,
   name: PropTypes.string,
   inputProps: PropTypes.object,
   formControlProps: PropTypes.object,
