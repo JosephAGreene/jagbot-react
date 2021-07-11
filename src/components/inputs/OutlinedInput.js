@@ -18,8 +18,6 @@ const classes = useStyles();
     formControlProps,
     labelText,
     name,
-    id,
-    refObject,
     type,
     labelProps,
     inputProps,
@@ -36,7 +34,7 @@ const classes = useStyles();
     >
       <InputLabel
         className={classes.labelRoot }
-        htmlFor={id}
+        htmlFor={name}
         {...labelProps}
       >
         {labelText}
@@ -44,10 +42,8 @@ const classes = useStyles();
       <OutlinedInput
         multiline={multiline ? true : false}
         rows={multiline && rows ? rows : 1}
-        name={name}
-        id={id}
-        inputRef={refObject}
         type={type}
+        name={name}
         {...inputProps}
         label={labelText}
         error={error[name] ? true : false}
@@ -63,7 +59,6 @@ OutlinedInput.propTypes = {
   labelText: PropTypes.node,
   labelProps: PropTypes.object,
   name: PropTypes.string,
-  id: PropTypes.string,
   inputProps: PropTypes.object,
   formControlProps: PropTypes.object,
   error: PropTypes.object,

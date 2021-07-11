@@ -43,7 +43,6 @@ const styles = (theme) => ({
 
 function AppAppBar(props) {
   const { classes } = props;
-  console.log(classes)
 
   return (
     <div>
