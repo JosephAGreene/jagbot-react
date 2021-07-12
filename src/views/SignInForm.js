@@ -9,6 +9,7 @@ import OutlinedInput from '../components/inputs/OutlinedInput';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
+import AuthService from "../services/AuthService.js";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -48,7 +49,14 @@ export default function SignIn() {
     const classes = useStyles();
 
     const onSubmit = (data) => {
-        console.log(data);
+        AuthService.login(data.email, data.password)
+          .then( (res) => {
+            if(res.status === 200) {
+              console.log('success');
+            } else {
+              console.log(res.status);
+            }
+          });
     }
 
     return (
