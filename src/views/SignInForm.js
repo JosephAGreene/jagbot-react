@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
 import AuthService from "../services/AuthService.js";
+import { Redirect } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -45,14 +46,20 @@ const schema = Joi.object({
   });
 
 export default function SignIn() {
+    const user = AuthService.getCurrentUser();
+    const [isLoggedIn, setIsLoggedIn] = React.useState((user ? true : false));
     const { register, handleSubmit, formState:{ errors } } = useForm({resolver: joiResolver(schema)});
     const classes = useStyles();
+
+    if (isLoggedIn) {
+      return <Redirect to="/dashboard" />;
+    }
 
     const onSubmit = (data) => {
         AuthService.login(data.email, data.password)
           .then( (res) => {
             if(res.status === 200) {
-              console.log('success');
+              setIsLoggedIn(true);
             } else {
               console.log(res.status);
             }
