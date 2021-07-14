@@ -10,9 +10,37 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {styles} from "./../jss/headerStyle.js";
 import { withStyles } from '@material-ui/core/styles';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import AuthService from "../../services/AuthService.js";
+import { useHistory } from "react-router-dom";
+import SettingsIcon from '@material-ui/icons/Settings';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 function Header(props) {
   const { classes, onDrawerToggle } = props;
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const history = useHistory();
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleAccountSettings = () => {
+    handleClose();
+    history.push("/dashboard/accountsettings")
+  }
+
+  const handleLogout = () => {
+    AuthService.logout();
+    handleClose();
+    history.push("/home");
+  };
 
   return (
     <React.Fragment>
@@ -50,9 +78,29 @@ function Header(props) {
               </Typography>
             </Grid>
             <Grid item>
-              <IconButton color="inherit" className={classes.iconButtonAvatar}>
+              <IconButton color="inherit" className={classes.iconButtonAvatar} onClick={handleClick}>
                 <PersonIcon />
               </IconButton>
+              <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                getContentAnchorEl={null}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                classes={{paper: classes.menuPaper}}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <MenuItem classes={{root: classes.menuItemRoot}} onClick={handleAccountSettings}>
+                  <SettingsIcon classes={{root: classes.menuIcon}} /> Account Settings
+                </MenuItem>
+                <MenuItem classes={{root: classes.menuItemRoot}} onClick={handleLogout}>
+                  <ExitToAppIcon classes={{root: classes.menuIcon}} /> Logout
+                </MenuItem>
+              </Menu>
             </Grid>
           </Grid>
         </Toolbar>
