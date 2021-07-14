@@ -1,6 +1,10 @@
-import { createTheme } from '@material-ui/core/styles';
+//import { createTheme } from '@material-ui/core/styles';
+import { unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-ui/core';
 
-let theme = createTheme({
+// Creating theme with unstable_createMuiStrictModeTheme version, as material UI stable release is currenlty
+// behind React's strict mode rules. Consider changing back to standard createTheme for production as 
+// findDomNode warnings in strict mode do not show during production.
+let theme = createMuiTheme({
     palette: {
       gray: {
         light: '#282c34',
