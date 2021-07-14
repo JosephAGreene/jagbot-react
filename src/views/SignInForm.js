@@ -11,6 +11,7 @@ import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
 import AuthService from "../services/AuthService.js";
 import { Redirect } from 'react-router-dom';
+import Alert from '../components/alerts/alert';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -48,7 +49,9 @@ const schema = Joi.object({
 export default function SignIn() {
     const user = AuthService.getCurrentUser();
     const [isLoggedIn, setIsLoggedIn] = React.useState((user ? true : false));
-    const { register, handleSubmit, formState:{ errors } } = useForm({resolver: joiResolver(schema)});
+    const { register, handleSubmit, setError, formState:{ errors } } = useForm({resolver: joiResolver(schema)});
+    const [ failureOpen, setFailureOpen ] = React.useState(false);
+    
     const classes = useStyles();
 
     if (isLoggedIn) {
@@ -60,10 +63,25 @@ export default function SignIn() {
           .then( (res) => {
             if(res.status === 200) {
               setIsLoggedIn(true);
-            } else {
-              console.log(res.status);
+            } 
+            else if(res.status === 400) {
+              setError("email", {
+                type: "manual",
+                message: "Invalid Email and/or Passowrd"
+              });
+              setError("password", {
+                type: "manual",
+                message: "Invalid Email and/or Password"
+              });
+            } 
+            else {
+              setFailureOpen(true);
             }
           });
+    }
+
+    const failureClose= () => {
+      setFailureOpen(false);
     }
 
     return (
@@ -113,6 +131,9 @@ export default function SignIn() {
               </Grid>
           </form>
         </div>
+        <Alert open={failureOpen} autoHideDuration={4000} onClose={failureClose} severity='error'>
+          Server busy or offline, try again later!
+        </Alert>
       </Container>
     );
 }
