@@ -11,6 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom';
 import {styles} from "./../jss/navigatorStyle.js";
+import AdbIcon from '@material-ui/icons/Adb';
 
 function Navigator(props) {
   const [activeStatus, setActiveStatus] = React.useState({"parentPos" : 0, "childPos": 0});
@@ -26,7 +27,7 @@ function Navigator(props) {
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-          JagBot
+          <AdbIcon style={{"color": "#98c379", "marginRight": "15px"}} /> Jag<span style={{"color": "#98c379"}}>Bot</span>
         </ListItem>
         <ListItem className={clsx(classes.item, classes.itemCategory)}>
           <ListItemIcon className={classes.itemIcon}>

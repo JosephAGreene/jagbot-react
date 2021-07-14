@@ -1,6 +1,9 @@
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
 const styles = (theme) => ({
+  bar: {
+    backgroundColor: theme.palette.gray.main,
+  },
   secondaryBar: {
     zIndex: 0,
   },
@@ -9,6 +12,7 @@ const styles = (theme) => ({
   },
   iconButtonAvatar: {
     padding: 4,
+    color: theme.palette.yellow.main,
   },
   link: {
     textDecoration: 'none',
@@ -16,9 +20,6 @@ const styles = (theme) => ({
     '&:hover': {
       color: theme.palette.common.white,
     },
-  },
-  button: {
-    borderColor: lightColor,
   },
 });
 

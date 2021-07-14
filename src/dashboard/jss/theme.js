@@ -2,11 +2,23 @@ import { createTheme } from '@material-ui/core/styles';
 
 let theme = createTheme({
     palette: {
-      primary: {
-        light: '#63ccff',
-        main: '#009be5',
-        dark: '#006db3',
+      gray: {
+        light: '#282c34',
+        main: '#23272e',
+        dark: '#171a1f',
       },
+      green: {
+        main: '#98c379',
+      },
+      purple: {
+        main: '#c678DD',
+      }, 
+      teal: {
+        main: '#4fc3f7',
+      },
+      yellow: {
+        main: '#edc374',
+      }
     },
     typography: {
       h5: {
@@ -35,7 +47,7 @@ let theme = createTheme({
     overrides: {
       MuiDrawer: {
         paper: {
-          backgroundColor: '#18202c',
+          backgroundColor: theme.palette.gray.dark,
         },
       },
       MuiButton: {
@@ -84,7 +96,7 @@ let theme = createTheme({
       },
       MuiDivider: {
         root: {
-          backgroundColor: '#404854',
+          backgroundColor: theme.palette.gray.light,
         },
       },
       MuiListItemText: {
