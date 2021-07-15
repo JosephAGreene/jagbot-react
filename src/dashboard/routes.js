@@ -17,20 +17,20 @@ const routes = [
   {
     id: 'Develop',
     children: [
-      { id: 'content', icon: <PeopleIcon />, component: Content, active: true },
-      { id: 'content2', icon: <DnsRoundedIcon />, component: Content2 },
-      { id: 'Storage', icon: <PermMediaOutlinedIcon />, component: Content2 },
-      { id: 'Hosting', icon: <PublicIcon />, component: Content2 },
-      { id: 'Functions', icon: <SettingsEthernetIcon />, component: Content2 },
-      { id: 'ML Kit', icon: <SettingsInputComponentIcon />, component: Content2},
+      { path: 'content', name: 'Content', icon: <PeopleIcon />, component: Content },
+      { path: 'content2', name: 'Content2', icon: <DnsRoundedIcon />, component: Content2 },
+      { path: 'storage', name: 'Storage', icon: <PermMediaOutlinedIcon />, component: Content2 },
+      { path: 'hosting', name: 'Hosting', icon: <PublicIcon />, component: Content2 },
+      { path: 'functions', name: 'Functions', icon: <SettingsEthernetIcon />, component: Content2 },
+      { path: 'mlkit', name: 'ML KIT', icon: <SettingsInputComponentIcon />, component: Content2},
     ],
   },
   {
     id: 'Quality',
     children: [
-      { id: 'Analytics', icon: <SettingsIcon />, component: Content },
-      { id: 'Performance', icon: <TimerIcon />, component: Content2 },
-      { id: 'Test Lab', icon: <PhonelinkSetupIcon />, component: Content2 },
+      { path: 'analytics', name: 'Analytics', icon: <SettingsIcon />, component: Content },
+      { path: 'performance', name: 'Performance', icon: <TimerIcon />, component: Content2 },
+      { path: 'testlab', name: 'Test Lab', icon: <PhonelinkSetupIcon />, component: Content2 },
     ],
   },
 ];

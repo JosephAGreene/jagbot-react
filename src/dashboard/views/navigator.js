@@ -14,14 +14,7 @@ import {styles} from "./../jss/navigatorStyle.js";
 import AdbIcon from '@material-ui/icons/Adb';
 
 function Navigator(props) {
-  const [activeStatus, setActiveStatus] = React.useState({"parentPos" : 0, "childPos": 0});
-  const { classes, routes, ...other } = props;
-
-  function handleNavigation (id, childId) {
-    delete routes[activeStatus.parentPos].children[activeStatus.childPos].active;
-    routes[id].children[childId].active = true;
-    setActiveStatus({"parentPos" : id, "childPos" : childId});
-  } 
+  const { classes, routes, activePath, ...other } = props;
 
   return (
     <Drawer variant="permanent" {...other}>
@@ -52,13 +45,12 @@ function Navigator(props) {
                 {id}
               </ListItemText>
             </ListItem>
-            {children.map(({ id: childId, icon, active }, childPos) => (
+            {children.map(({ path: childPath, icon }, childPos) => (
               <ListItem
-                key={childId}
-                className={clsx(classes.item, active && classes.itemActiveItem)}
-                onClick={() => handleNavigation(idPos, childPos)}
+                key={childPath}
+                className={clsx(classes.item, childPath === activePath && classes.itemActiveItem )}
                 component={Link}
-                to={`/dashboard/${childId}`}
+                to={`/dashboard/${childPath}`}
               >
                 <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
                 <ListItemText
@@ -66,7 +58,7 @@ function Navigator(props) {
                     primary: classes.itemPrimary,
                   }}
                 >
-                  {childId}
+                  {childPath}
                 </ListItemText>
               </ListItem>
             ))}

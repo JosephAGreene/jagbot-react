@@ -10,7 +10,8 @@ import Header from './../views/header';
 import {
   Switch,
   Route, 
-  Redirect
+  Redirect,
+  useLocation
 } from 'react-router-dom';
 import routes from "../routes";
 import AuthService from "../../services/AuthService.js";
@@ -31,7 +32,7 @@ function buildSwitchRoutes () {
       {routeArray.map((route, key) => {
         return (
           <Route 
-            path={`/dashboard/${route.id}`}
+            path={`/dashboard/${route.path}`}
             component={route.component}
             key={key}
           />
@@ -45,6 +46,10 @@ function buildSwitchRoutes () {
 function Dashboard(props) {
   const { classes } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  // Sets active path to the last sub directory. 
+  // I.E. The same pathname acquired from 'path' keys in the routes array.
+  const activePath = useLocation().pathname.split('/').filter(param => param).slice(-1)[0];
 
   if(!AuthService.getCurrentUser()) {
     return <Redirect to="/home" />
@@ -63,13 +68,18 @@ function Dashboard(props) {
             <Navigator
               PaperProps={{ style: { width: drawerWidth } }}
               routes={routes}
+              activePath={activePath}
               variant="temporary"
               open={mobileOpen}
               onClose={handleDrawerToggle}
             />
           </Hidden>
           <Hidden xsDown implementation="css">
-            <Navigator routes={routes} PaperProps={{ style: { width: drawerWidth } }} />
+            <Navigator 
+              routes={routes} 
+              activePath={activePath} 
+              PaperProps={{ style: { width: drawerWidth } }} 
+            />
           </Hidden>
         </nav>
         <div className={classes.app}>
