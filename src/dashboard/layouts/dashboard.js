@@ -43,6 +43,18 @@ function buildSwitchRoutes () {
   );
 }
 
+// Returns the name of the active route the from the corresponsding values in routes.js.
+// Nested for loops used over forEach due to better performance and early return.
+function getActiveName (routes, path) {
+  for (let i = 0; i < routes.length; i++) {
+    for (let j = 0; j < routes[i].children.length; j++) {
+      if (routes[i].children[j].path === path) {
+        return routes[i].children[j].name;
+      } 
+    }
+  }
+}
+
 function Dashboard(props) {
   const { classes } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -50,6 +62,8 @@ function Dashboard(props) {
   // Sets active path to the last sub directory. 
   // I.E. The same pathname acquired from 'path' keys in the routes array.
   const activePath = useLocation().pathname.split('/').filter(param => param).slice(-1)[0];
+  
+  const name = getActiveName(routes, activePath);
 
   if(!AuthService.getCurrentUser()) {
     return <Redirect to="/home" />
@@ -83,7 +97,7 @@ function Dashboard(props) {
           </Hidden>
         </nav>
         <div className={classes.app}>
-          <Header onDrawerToggle={handleDrawerToggle} />
+          <Header name={name} onDrawerToggle={handleDrawerToggle} />
           <main className={classes.main}>
             {buildSwitchRoutes()}
           </main>

@@ -18,7 +18,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 function Header(props) {
-  const { classes, onDrawerToggle } = props;
+  const { classes, name, onDrawerToggle } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const history = useHistory();
@@ -74,7 +74,7 @@ function Header(props) {
           <Grid container alignItems="center" spacing={1}>
             <Grid item xs>
               <Typography style={{"color" : "#4fc3f7"}} variant="h5" component="h1">
-                Authentication
+                {name}
               </Typography>
             </Grid>
             <Grid item>

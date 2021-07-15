@@ -45,7 +45,7 @@ function Navigator(props) {
                 {id}
               </ListItemText>
             </ListItem>
-            {children.map(({ path: childPath, icon }, childPos) => (
+            {children.map(({ path: childPath, name, icon }, childPos) => (
               <ListItem
                 key={childPath}
                 className={clsx(classes.item, childPath === activePath && classes.itemActiveItem )}
@@ -58,7 +58,7 @@ function Navigator(props) {
                     primary: classes.itemPrimary,
                   }}
                 >
-                  {childPath}
+                  {name}
                 </ListItemText>
               </ListItem>
             ))}
