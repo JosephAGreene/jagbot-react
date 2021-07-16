@@ -12,13 +12,14 @@ import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup'
 // Components
 import Content from "./views/content.js";
 import Content2 from "./views/content2.js";
+import CreateBot from "./views/createBot.js";
 
 const routes = [
   {
     id: 'Develop',
     children: [
       { path: 'content', name: 'Content', icon: <PeopleIcon />, component: Content },
-      { path: 'content2', name: 'Content2', icon: <DnsRoundedIcon />, component: Content2 },
+      { path: 'createbot', name: 'Create Bot', icon: <DnsRoundedIcon />, component: CreateBot},
       { path: 'storage', name: 'Storage', icon: <PermMediaOutlinedIcon />, component: Content2 },
       { path: 'hosting', name: 'Hosting', icon: <PublicIcon />, component: Content2 },
       { path: 'functions', name: 'Functions', icon: <SettingsEthernetIcon />, component: Content2 },

@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider, withStyles } from '@material-ui/core/styles';
-import {theme} from '../jss/theme';
+import { withStyles } from '@material-ui/core/styles';
 import {styles, drawerWidth} from "../jss/dashboardStyle.js";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
 import Navigator from '../views/navigator';
-import Header from './../views/header';
+import Header from '../views/header';
 import {
   Switch,
   Route, 
@@ -14,7 +13,7 @@ import {
   useLocation
 } from 'react-router-dom';
 import routes from "../routes";
-import AuthService from "../../services/AuthService.js";
+import AuthService from "../services/AuthService.js";
 
 // Returns react routes inside a switch based on routes.js routes
 function buildSwitchRoutes () {
@@ -74,7 +73,6 @@ function Dashboard(props) {
   };
 
   return (
-    <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <CssBaseline />
         <nav className={classes.drawer}>
@@ -103,7 +101,6 @@ function Dashboard(props) {
           </main>
         </div>
       </div>
-    </ThemeProvider>
   );
 }
 

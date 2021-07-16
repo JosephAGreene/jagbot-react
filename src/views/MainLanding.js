@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '../components/Button';
 import Typography from '../components/Typography';
-import MainLandingLayout from './MainLandingLayout';
+import MainLandingLayout from '../layouts/MainLandingLayout';
 
 const backgroundImage = 'images/bot1.jpg';
 

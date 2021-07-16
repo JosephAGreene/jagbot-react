@@ -1,30 +1,59 @@
 import React from "react";
 import PropTypes from "prop-types";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import OutlinedInput from '@material-ui/core/OutlinedInput';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import TextField from '@material-ui/core/TextField';
+import {
+  withStyles,
+} from '@material-ui/core/styles';
 
-// core components
-import styles from "../../jss/outlinedInputStyle.js";
+const styles = (theme) => ({
+  labelRootError: {
+    color: theme.palette.error.main
+  },
+  marginTop: {
+    marginTop: "16px"
+  },
+  formControl: {
+    paddingBottom: "10px",
+    margin: "27px 0 0 0",
+    position: "relative",
+    verticalAlign: "unset",
+  },
+});
 
-const useStyles = makeStyles(styles);
+const OutlinedInput = withStyles((theme) => ({
+  root: {
+    '& label.Mui-focused': {
+      color: theme.palette.gray.main,
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: theme.palette.gray.light,
+      },
+      '&:hover fieldset': {
+        borderColor: theme.palette.teal.main,
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: theme.palette.teal.main,
+      },
+    },
+  },
+}))(TextField);
 
-export default function CustomOutlinedInput(props) {
-const classes = useStyles();
+function CustomOutlinedInput(props) {
   const {
     formControlProps,
     labelText,
     id,
     name,
     type,
-    labelProps,
     inputProps,
     error,
     multiline,
     rows,
+    classes
   } = props;
 
   return (
@@ -33,14 +62,8 @@ const classes = useStyles();
       className={formControlProps.className + " " + classes.formControl }
       variant="outlined"
     >
-      <InputLabel
-        className={classes.labelRoot }
-        htmlFor={id}
-        {...labelProps}
-      >
-        {labelText}
-      </InputLabel>
       <OutlinedInput
+        id={id}
         multiline={multiline ? true : false}
         rows={multiline && rows ? rows : 1}
         type={type}
@@ -48,9 +71,10 @@ const classes = useStyles();
         {...inputProps}
         label={labelText}
         error={error[name] ? true : false}
+        variant="outlined"
       />
-      {error[name] ? (
-        <FormHelperText className={classes.labelRootError} id={`error-message-${name}`}>{error[name].message}</FormHelperText>
+          {error[name] ? (
+    <FormHelperText className={classes.labelRootError} id={`error-message-${name}`}>{error[name].message}</FormHelperText>
       ) : <FormHelperText> </FormHelperText> }
     </FormControl>
   );
@@ -68,3 +92,5 @@ CustomOutlinedInput.propTypes = {
   multiline: PropTypes.bool,
   rows: PropTypes.number,
 };
+
+export default withStyles(styles)(CustomOutlinedInput);
