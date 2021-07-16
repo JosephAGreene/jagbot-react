@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '../components/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import OutlinedInput from '../components/inputs/OutlinedInput';
+import OutlinedInput from '../components/inputs/OutlinedInputLight';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';

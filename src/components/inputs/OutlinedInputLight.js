@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from '@material-ui/core/FormHelperText';
 import TextField from '@material-ui/core/TextField';
-import {
-  withStyles,
-} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 
 const styles = (theme) => ({
   labelRootError: {
@@ -25,24 +23,27 @@ const styles = (theme) => ({
 
 const OutlinedInput = withStyles((theme) => ({
   root: {
-    '& label.Mui-focused': {
-      color: theme.palette.gray.main,
+    '& label.Mui-error': {
+      color: theme.palette.error.main,
     },
     '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: theme.palette.gray.light,
+      "& .MuiOutlinedInput-notchedOutline": {
+        borderColor: theme.palette.teal.dark,
       },
-      '&:hover fieldset': {
-        borderColor: theme.palette.teal.main,
+      '&:hover .MuiOutlinedInput-notchedOutline': {
+        borderColor: theme.palette.teal.light,
       },
-      '&.Mui-focused fieldset': {
-        borderColor: theme.palette.teal.main,
+      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+        borderColor: theme.palette.teal.main
       },
+      "&.Mui-error .MuiOutlinedInput-notchedOutline": {
+        borderColor: theme.palette.error.main
+      }
     },
   },
 }))(TextField);
 
-function CustomOutlinedInput(props) {
+function CustomOutlinedInputLight(props) {
   const {
     formControlProps,
     labelText,
@@ -68,19 +69,20 @@ function CustomOutlinedInput(props) {
         rows={multiline && rows ? rows : 1}
         type={type}
         name={name}
-        {...inputProps}
+        inputProps={{...inputProps}}
         label={labelText}
         error={error[name] ? true : false}
         variant="outlined"
       />
-          {error[name] ? (
-    <FormHelperText className={classes.labelRootError} id={`error-message-${name}`}>{error[name].message}</FormHelperText>
-      ) : <FormHelperText> </FormHelperText> }
+      {error[name] ? 
+        <FormHelperText className={classes.labelRootError} id={`error-message-${name}`}>{error[name].message}</FormHelperText>
+        : <FormHelperText> </FormHelperText> 
+      }
     </FormControl>
   );
 }
 
-CustomOutlinedInput.propTypes = {
+CustomOutlinedInputLight.propTypes = {
   labelText: PropTypes.node,
   labelProps: PropTypes.object,
   id: PropTypes.string,
@@ -93,4 +95,4 @@ CustomOutlinedInput.propTypes = {
   rows: PropTypes.number,
 };
 
-export default withStyles(styles)(CustomOutlinedInput);
+export default withStyles(styles)(CustomOutlinedInputLight);

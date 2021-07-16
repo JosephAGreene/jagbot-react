@@ -37,11 +37,17 @@ let theme = createMuiTheme({
         main: '#c678DD',
       }, 
       teal: {
+        light: '#72cff9',
         main: '#4fc3f7',
+        dark: '#3f9cc6',
       },
       yellow: {
         main: '#edc374',
-      }
+      }, 
+      white: {
+        main: '#ffffff',
+        dark: '#babbbc'
+      },
     },
     typography: {
       h5: {

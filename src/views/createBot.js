@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import { useForm } from 'react-hook-form';
-import OutlinedInput from '../components/inputs/OutlinedInput';
+import OutlinedInput from '../components/inputs/OutlinedInputDark';
 
 const styles = (theme) => ({
   paper: {
@@ -30,7 +30,7 @@ function CreateBot(props) {
   return (
     <Paper className={classes.paper}>
       <div className={classes.contentWrapper}>
-        <form onSubmit={handleSubmit(onSubmit)} >
+        <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
           <OutlinedInput
             labelText="E-Mail"
             id="email"
