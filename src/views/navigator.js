@@ -18,11 +18,11 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import {styles} from "./../jss/navigatorStyle.js";
 
 function Navigator(props) {
-  const { classes, routes, activePath, selectedBot, setSelectedBot, ...other } = props;
+  const { classes, routes, activePath, activeSubDirectory, selectedBot, setSelectedBot, ...other } = props;
 
   const history = useHistory();
 
-  const bannedSubDirectory = selectedBot ? 'garage' : 'develop';
+  const bannedSubDirectory = (activeSubDirectory === 'develop') ? 'garage' : 'develop';
 
   const handleBackToGarage = () => {
     history.push("/dashboard/garage/mybots");
@@ -35,7 +35,7 @@ function Navigator(props) {
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
           <AiOutlineRobot style={{"color": "#98c379", "marginRight": "15px"}} /> Jag<span style={{"color": "#98c379"}}>Bot</span>
         </ListItem>
-        {selectedBot &&
+        {(selectedBot && activeSubDirectory === 'develop') &&
           <React.Fragment>
             <ListItem 
               className={clsx(classes.item, classes.itemCategory)}
@@ -59,7 +59,7 @@ function Navigator(props) {
                   primary: classes.itemPrimary,
                 }}
               >
-                Select Menu Goes Here
+                Current Bot: {selectedBot.name}
               </ListItemText>
             </ListItem>
           </React.Fragment>

@@ -3,18 +3,23 @@ import {
   Switch,
   Route, 
   Redirect,
-  useLocation
+  useLocation,
+  useHistory
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // Import API service
 import AuthService from "../services/AuthService.js";
+import UserService from "../services/UserService.js";
 
 // Import MUI components
 import { withStyles } from '@material-ui/core/styles';
 import {styles, drawerWidth} from "../jss/dashboardStyle.js";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
+
+// Import custom components
+import Alert from '../components/alerts/alert';
 
 // Import Views
 import Navigator from '../views/navigator';
@@ -24,7 +29,7 @@ import routes from "../routes";
 
 
 // Returns react routes inside a switch based on routes.js routes
-function buildSwitchRoutes () {
+function buildSwitchRoutes (bots, handleBotSelection) {
   let routeArray = [];
 
   // Separate child routes from their parent into their own array
@@ -40,9 +45,13 @@ function buildSwitchRoutes () {
         return (
           <Route 
             path={`/dashboard/${route.path}`}
-            component={route.component}
             key={key}
-          />
+          >
+            {route.path === 'garage/mybots' 
+              ? <route.component bots={bots} handleBotSelection={handleBotSelection}/>
+              : <route.component />
+            }
+          </Route>
         );
       })}
       <Redirect from="/dashboard" to="/dashboard/home" />
@@ -50,7 +59,7 @@ function buildSwitchRoutes () {
   );
 }
 
-// Returns the name of the active route the from the corresponsding values in routes.js.
+// Returns the name of the active route from the corresponsding values in routes.js.
 // Nested for loops used over forEach due to better performance and early return.
 function getActiveName (routes, path) {
   for (let i = 0; i < routes.length; i++) {
@@ -65,7 +74,37 @@ function getActiveName (routes, path) {
 function Dashboard(props) {
   const { classes } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [selectedBot, setSelectedBot] = React.useState(true);
+  const [bots, setBots] = React.useState([]);
+  const [selectedBot, setSelectedBot] = React.useState(false);
+  const [ failureAlert, setFailureAlert ] = React.useState({status: false});
+
+  const history = useHistory();
+
+  React.useEffect(() => {
+    fetchBots();
+  }, []);
+
+  // fetch bots that belong to user
+  const fetchBots = async () => {
+
+    const res = await UserService.getBots();
+
+    if (res.status === 200) {
+      setBots(res.data);
+    } 
+    else if (res.status === 'dead') {
+      setFailureAlert({
+        status: true,
+        message: 'Server is down or busy. Try again later.'
+      });
+    } else {
+      console.log(res.status);
+      setFailureAlert({
+        status: true,
+        message: 'Something went wrong. Hint: Check the console.'
+      });
+    }
+  }
 
   // Sets active path to the last sub directory. 
   // I.E. The same pathname acquired from 'path' keys in the routes array.
@@ -81,6 +120,15 @@ function Dashboard(props) {
     return <Redirect to="/home" />
   }
 
+  const failureAlertClose= () => {
+    setFailureAlert({status: false});
+  }
+
+  const handleBotSelection = (bot) => {
+    history.push("/dashboard/develop/modules");
+    setSelectedBot(bot);
+  }
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -94,6 +142,7 @@ function Dashboard(props) {
               PaperProps={{ style: { width: drawerWidth }}}
               routes={routes}
               activePath={activePath}
+              activeSubDirectory={activeSubDirectory}
               selectedBot={selectedBot} 
               setSelectedBot={setSelectedBot}
               variant="temporary"
@@ -105,6 +154,7 @@ function Dashboard(props) {
             <Navigator 
               routes={routes} 
               activePath={activePath}
+              activeSubDirectory={activeSubDirectory}
               selectedBot={selectedBot} 
               setSelectedBot={setSelectedBot}
               PaperProps={{ style: { width: drawerWidth } }} 
@@ -114,9 +164,12 @@ function Dashboard(props) {
         <div className={classes.app}>
           <Header name={name} onDrawerToggle={handleDrawerToggle} />
           <main className={classes.main}>
-            {buildSwitchRoutes()}
+            {buildSwitchRoutes(bots, handleBotSelection)}
           </main>
         </div>
+        <Alert open={failureAlert.status} autoHideDuration={5000} onClose={failureAlertClose} severity='error'>
+          {failureAlert.message}
+        </Alert>
       </div>
   );
 }
