@@ -1,19 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import {styles, drawerWidth} from "../jss/dashboardStyle.js";
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Hidden from '@material-ui/core/Hidden';
-import Navigator from '../views/navigator';
-import Header from '../views/header';
 import {
   Switch,
   Route, 
   Redirect,
   useLocation
 } from 'react-router-dom';
-import routes from "../routes";
+import PropTypes from 'prop-types';
+
+// Import API service
 import AuthService from "../services/AuthService.js";
+
+// Import MUI components
+import { withStyles } from '@material-ui/core/styles';
+import {styles, drawerWidth} from "../jss/dashboardStyle.js";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Hidden from '@material-ui/core/Hidden';
+
+// Import Views
+import Navigator from '../views/navigator';
+import Header from '../views/header';
+
+import routes from "../routes";
+
 
 // Returns react routes inside a switch based on routes.js routes
 function buildSwitchRoutes () {
@@ -57,12 +65,17 @@ function getActiveName (routes, path) {
 function Dashboard(props) {
   const { classes } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [selectedBot, setSelectedBot] = React.useState(true);
 
   // Sets active path to the last sub directory. 
   // I.E. The same pathname acquired from 'path' keys in the routes array.
-  const activePath = useLocation().pathname.split('/').filter(param => param).slice(-1)[0];
-  
+  const activePath = useLocation().pathname.split('/').filter(param => param).slice(-2).join('/');
+  const activeSubDirectory = activePath.split('/').slice(0, 1)[0];  
   const name = getActiveName(routes, activePath);
+   
+  if (activeSubDirectory === 'develop' && !selectedBot) {
+    return <Redirect to="/dashboard" />;
+  }
 
   if(!AuthService.getCurrentUser()) {
     return <Redirect to="/home" />
@@ -78,9 +91,11 @@ function Dashboard(props) {
         <nav className={classes.drawer}>
           <Hidden smUp implementation="js">
             <Navigator
-              PaperProps={{ style: { width: drawerWidth } }}
+              PaperProps={{ style: { width: drawerWidth }}}
               routes={routes}
               activePath={activePath}
+              selectedBot={selectedBot} 
+              setSelectedBot={setSelectedBot}
               variant="temporary"
               open={mobileOpen}
               onClose={handleDrawerToggle}
@@ -89,7 +104,9 @@ function Dashboard(props) {
           <Hidden xsDown implementation="css">
             <Navigator 
               routes={routes} 
-              activePath={activePath} 
+              activePath={activePath}
+              selectedBot={selectedBot} 
+              setSelectedBot={setSelectedBot}
               PaperProps={{ style: { width: drawerWidth } }} 
             />
           </Hidden>
