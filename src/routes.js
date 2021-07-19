@@ -27,6 +27,15 @@ const routes = [
     ],
   },
   {
+    name: 'Documentation',
+    path: "garage",
+    children: [
+      { path: 'garage/documentation/analytics', name: 'Analytics', icon: <SettingsIcon />, component: Content },
+      { path: 'garage/documentation/performance', name: 'Performance', icon: <TimerIcon />, component: Content2 },
+      { path: 'garage/documentation/testlab', name: 'Test Lab', icon: <PhonelinkSetupIcon />, component: Content2 },
+    ],
+  },
+  {
     name: "Develop",
     path: 'develop',
     children: [
@@ -35,15 +44,6 @@ const routes = [
       { path: 'develop/hosting', name: 'Hosting', icon: <PublicIcon />, component: Content2 },
       { path: 'develop/functions', name: 'Functions', icon: <SettingsEthernetIcon />, component: Content2 },
       { path: 'develop/mlkit', name: 'ML KIT', icon: <SettingsInputComponentIcon />, component: Content2},
-    ],
-  },
-  {
-    name: 'Documentation',
-    path: "documentation",
-    children: [
-      { path: 'documentation/analytics', name: 'Analytics', icon: <SettingsIcon />, component: Content },
-      { path: 'documentation/performance', name: 'Performance', icon: <TimerIcon />, component: Content2 },
-      { path: 'documentation/testlab', name: 'Test Lab', icon: <PhonelinkSetupIcon />, component: Content2 },
     ],
   },
 ];
