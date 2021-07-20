@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
+import GridContainer from '../components/grid/GridContainer';
+import BotPanel from '../components/BotPanel';
 
 
 const styles = (theme) => ({
@@ -24,14 +26,15 @@ function Garage(props) {
   return (
     <Paper className={classes.paper}>
       <div className={classes.contentWrapper}>
+        <GridContainer>
         {bots && bots.map((bot, key) => {
-         return <button
+         return <BotPanel 
                   key={key}
+                  bot={bot}
                   onClick={() => handleBotSelection(bot)}
-                >
-                    {bot.name}
-                </button>
+                />
         })}
+        </GridContainer>
       </div>
     </Paper>
   );

@@ -20,9 +20,6 @@ const styles = (theme) => ({
     margin: '40px 16px',
     color: '#fff'
   },
-  moduleWrapper: {
-    display: 'flex'
-  },
 });
 
 function Modules(props) {
