@@ -1,6 +1,5 @@
 // Import Icons
 import PeopleIcon from '@material-ui/icons/People';
-import PermMediaOutlinedIcon from '@material-ui/icons/PhotoSizeSelectActual';
 import PublicIcon from '@material-ui/icons/Public';
 import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
 import SettingsInputComponentIcon from '@material-ui/icons/SettingsInputComponent';
@@ -9,6 +8,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup';
 import BuildIcon from '@material-ui/icons/Build';
 import {FaRobot } from 'react-icons/fa';
+import HomeIcon from '@material-ui/icons/Home';
 
 // Import Components
 import Garage from "./views/garage.js";
@@ -36,11 +36,18 @@ const routes = [
     ],
   },
   {
+    name: 'hidden', // Do not display header/name
+    path: 'develop',
+    children: [
+      { path: 'develop/modules', name: 'Modules', icon: <HomeIcon />, component: Modules },
+      { path: 'develop/settings', name: 'Settings', icon: <SettingsIcon />, component: Content2 },
+    ]
+  },
+  {
     name: "Develop",
     path: 'develop',
     children: [
       { path: 'develop/content', name: 'Content', icon: <PeopleIcon />, component: Content },
-      { path: 'develop/modules', name: 'Bot Modules', icon: <PermMediaOutlinedIcon />, component: Modules },
       { path: 'develop/hosting', name: 'Hosting', icon: <PublicIcon />, component: Content2 },
       { path: 'develop/functions', name: 'Functions', icon: <SettingsEthernetIcon />, component: Content2 },
       { path: 'develop/mlkit', name: 'ML KIT', icon: <SettingsInputComponentIcon />, component: Content2},

@@ -11,11 +11,19 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import { ListItemAvatar } from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
+
+// Import Icons
 import { AiOutlineRobot } from 'react-icons/ai';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
+// Impot default discord avatar image
+import defaultDiscord from '../assets/images/defaultDiscord.png';
+
 // Import navigator styles
 import {styles} from "./../jss/navigatorStyle.js";
+
 
 function Navigator(props) {
   const { classes, routes, activePath, activeSubDirectory, selectedBot, setSelectedBot, ...other } = props;
@@ -53,13 +61,19 @@ function Navigator(props) {
                 Back To Garage 
               </ListItemText>
             </ListItem>
-            <ListItem className={clsx(classes.item, classes.itemCategory)}>
+            <ListItem className={clsx(classes.selectedBot, classes.itemCategory)}>
+              <ListItemAvatar>
+                {selectedBot.avatar
+                  ? <Avatar className={classes.avatar} src={selectedBot.avatar} />
+                  : <Avatar className={classes.avatar} src={defaultDiscord} />
+                }
+              </ListItemAvatar>
               <ListItemText
                 classes={{
                   primary: classes.itemPrimary,
                 }}
               >
-                Current Bot: {selectedBot.name}
+               {selectedBot.name} 
               </ListItemText>
             </ListItem>
           </React.Fragment>
@@ -67,15 +81,18 @@ function Navigator(props) {
         {routes.map(({ name, path, children }, pos) => (
           (path !== bannedSubDirectory && 
             <React.Fragment key={name + pos}>
-              <ListItem className={classes.categoryHeader}>
-                <ListItemText
-                  classes={{
-                    primary: classes.categoryHeaderPrimary,
-                  }}
-                >
-                  {name}
-                </ListItemText>
-              </ListItem>
+              {(name === 'hidden')
+                ? <div className={classes.spacingHeader} />
+                : <ListItem className={classes.categoryHeader}>
+                    <ListItemText
+                      classes={{
+                        primary: classes.categoryHeaderPrimary,
+                      }}
+                    >
+                      {name}
+                    </ListItemText>
+                  </ListItem>
+              }
               {children.map(({ path: childPath, name, icon }, pos) => (
                 <ListItem
                   key={childPath + pos}

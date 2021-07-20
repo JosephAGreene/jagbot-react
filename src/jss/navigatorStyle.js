@@ -5,6 +5,9 @@ const navigatorStyle = {
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
   },
+  spacingHeader: {
+    paddingBottom: theme.spacing(2),
+  },
   categoryHeaderPrimary: {
     color: theme.palette.common.white,
   },
@@ -15,6 +18,16 @@ const navigatorStyle = {
     '&:hover,&:focus': {
       backgroundColor: 'rgba(255, 255, 255, 0.08)',
     },
+  },
+  selectedBot: {
+    paddingTop: 1,
+    paddingBottom: 1,
+    color: 'rgba(255, 255, 255, 0.7)',
+  },
+  avatar: {
+    width: theme.spacing(5),
+    height: theme.spacing(5),
+    backgroundColor: theme.palette.gray.dark,
   },
   itemCategory: {
     backgroundColor: theme.palette.gray.dark,
