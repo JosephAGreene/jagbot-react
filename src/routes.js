@@ -19,10 +19,10 @@ import Modules from "./views/modules.js";
 
 const routes = [
   {
-    name: 'The Garage',
+    name: 'hidden', // Do not display header/name
     path: 'garage',
     children: [
-      { path: 'garage/mybots', name: 'My Bots', icon: <FaRobot />, component: Garage },
+      { path: 'garage/mybots', name: 'Stashed Bots', icon: <FaRobot />, component: Garage },
       { path: 'garage/createbot', name: 'Build New Bot', icon: <BuildIcon />, component: CreateBot},
     ],
   },

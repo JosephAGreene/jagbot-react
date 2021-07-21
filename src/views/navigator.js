@@ -14,8 +14,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { ListItemAvatar } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 
+import Headline from '../components/Headline.js';
+
 // Import Icons
-import { AiOutlineRobot } from 'react-icons/ai';
+import { GoBeaker } from 'react-icons/go';
+import { FaWarehouse } from 'react-icons/fa';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 // Impot default discord avatar image
@@ -41,7 +44,21 @@ function Navigator(props) {
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-          <AiOutlineRobot style={{"color": "#98c379", "marginRight": "15px"}} /> Jag<span style={{"color": "#98c379"}}>Bot</span>
+        {(selectedBot && activeSubDirectory === 'develop') 
+          ? <Headline 
+              iconComponent={GoBeaker}
+              start="The"
+              end="Lab"
+              color="#edc374"
+            />
+          : <Headline 
+              iconComponent={FaWarehouse}
+              start="The"
+              end="Bunker"
+              color="#4fc3f7"
+            />
+        }
+          
         </ListItem>
         {(selectedBot && activeSubDirectory === 'develop') &&
           <React.Fragment>
@@ -58,7 +75,7 @@ function Navigator(props) {
                   primary: classes.itemPrimary,
                 }}
               >
-                Back To Garage 
+                Back To Bunker 
               </ListItemText>
             </ListItem>
             <ListItem className={clsx(classes.selectedBot, classes.itemCategory)}>

@@ -12,7 +12,7 @@ const styles = (theme) => ({
   },
   iconButtonAvatar: {
     padding: 4,
-    color: theme.palette.yellow.main,
+    color: theme.palette.orange.main,
   },
   link: {
     textDecoration: 'none',

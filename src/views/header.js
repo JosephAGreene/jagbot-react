@@ -7,7 +7,6 @@ import IconButton from '@material-ui/core/IconButton';
 import PersonIcon from '@material-ui/icons/Person';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import {styles} from "../jss/headerStyle.js";
 import { withStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
@@ -16,9 +15,13 @@ import AuthService from "../services/AuthService.js";
 import { useHistory } from "react-router-dom";
 import SettingsIcon from '@material-ui/icons/Settings';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Headline from '../components/Headline.js';
+
+// Import Icons
+import { AiOutlineRobot } from 'react-icons/ai';
 
 function Header(props) {
-  const { classes, name, onDrawerToggle } = props;
+  const { classes, onDrawerToggle } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const history = useHistory();
@@ -44,9 +47,15 @@ function Header(props) {
 
   return (
     <React.Fragment>
-      <AppBar className={classes.bar} color="primary" position="sticky" elevation={0}>
+      <AppBar
+        component="div"
+        className={(classes.secondaryBar, classes.bar)}
+        color="primary"
+        position="static"
+        elevation={0}
+      >
         <Toolbar>
-          <Grid container spacing={1} alignItems="center">
+          <Grid container justifyContent="space-between" alignItems="flex-end">
             <Hidden smUp>
               <Grid item>
                 <IconButton
@@ -59,23 +68,17 @@ function Header(props) {
                 </IconButton>
               </Grid>
             </Hidden>
-            <Grid item xs />
-          </Grid>
-        </Toolbar>
-      </AppBar>
-      <AppBar
-        component="div"
-        className={(classes.secondaryBar, classes.bar)}
-        color="primary"
-        position="static"
-        elevation={0}
-      >
-        <Toolbar>
-          <Grid container alignItems="center" spacing={1}>
-            <Grid item xs>
-              <Typography style={{"color" : "#4fc3f7"}} variant="h5" component="h1">
-                {name}
-              </Typography>
+            <Hidden xsDown>
+              <Grid item />
+            </Hidden>
+            <Grid item>
+              <Headline 
+                iconComponent={AiOutlineRobot}
+                start="Jag"
+                end="Bot"
+                color="#98c379"
+                title
+              />
             </Grid>
             <Grid item>
               <IconButton color="inherit" className={classes.iconButtonAvatar} onClick={handleClick}>
