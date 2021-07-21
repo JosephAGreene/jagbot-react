@@ -41,7 +41,7 @@ function Navigator(props) {
   }
 
   return (
-    <Drawer variant="permanent" {...other}>
+    <Drawer variant="permanent" onClick={other.onClose} {...other}>
       <List disablePadding>
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
         {(selectedBot && activeSubDirectory === 'develop') 
