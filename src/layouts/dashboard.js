@@ -47,7 +47,7 @@ function buildSwitchRoutes (bots, handleBotSelection) {
             path={`/dashboard/${route.path}`}
             key={key}
           >
-            {route.path === 'garage/mybots' 
+            {route.path === 'bunker/mybots' 
               ? <route.component bots={bots} handleBotSelection={handleBotSelection}/>
               : <route.component />
             }
@@ -148,6 +148,7 @@ function Dashboard(props) {
               variant="temporary"
               open={mobileOpen}
               onClose={handleDrawerToggle}
+
             />
           </Hidden>
           <Hidden xsDown implementation="css">

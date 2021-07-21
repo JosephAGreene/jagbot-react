@@ -33,10 +33,10 @@ function Navigator(props) {
 
   const history = useHistory();
 
-  const bannedSubDirectory = (activeSubDirectory === 'develop') ? 'garage' : 'develop';
+  const bannedSubDirectory = (activeSubDirectory === 'develop') ? 'bunker' : 'develop';
 
-  const handleBackToGarage = () => {
-    history.push("/dashboard/garage/mybots");
+  const handleBackToBunker = () => {
+    history.push("/dashboard/bunker/mybots");
     setSelectedBot(false);
   }
 
@@ -44,27 +44,26 @@ function Navigator(props) {
     <Drawer variant="permanent" onClick={other.onClose} {...other}>
       <List disablePadding>
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-        {(selectedBot && activeSubDirectory === 'develop') 
-          ? <Headline 
-              iconComponent={GoBeaker}
-              start="The"
-              end="Lab"
-              color="#edc374"
-            />
-          : <Headline 
-              iconComponent={FaWarehouse}
-              start="The"
-              end="Bunker"
-              color="#4fc3f7"
-            />
-        }
-          
+          {(selectedBot && activeSubDirectory === 'develop') 
+            ? <Headline 
+                iconComponent={GoBeaker}
+                start="The"
+                end="Lab"
+                color="#edc374"
+              />
+            : <Headline 
+                iconComponent={FaWarehouse}
+                start="The"
+                end="Bunker"
+                color="#4fc3f7"
+              />
+          }
         </ListItem>
         {(selectedBot && activeSubDirectory === 'develop') &&
           <React.Fragment>
             <ListItem 
               className={clsx(classes.item, classes.itemCategory)}
-              onClick={handleBackToGarage}
+              onClick={handleBackToBunker}
               button
             >
               <ListItemIcon className={classes.itemIcon}>

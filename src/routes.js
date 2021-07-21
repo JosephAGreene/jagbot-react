@@ -20,19 +20,19 @@ import Modules from "./views/modules.js";
 const routes = [
   {
     name: 'hidden', // Do not display header/name
-    path: 'garage',
+    path: 'bunker',
     children: [
-      { path: 'garage/mybots', name: 'Stashed Bots', icon: <FaRobot />, component: Garage },
-      { path: 'garage/createbot', name: 'Build New Bot', icon: <BuildIcon />, component: CreateBot},
+      { path: 'bunker/mybots', name: 'Stashed Bots', icon: <FaRobot />, component: Garage },
+      { path: 'bunker/createbot', name: 'Build New Bot', icon: <BuildIcon />, component: CreateBot},
     ],
   },
   {
     name: 'Documentation',
-    path: "garage",
+    path: "bunker",
     children: [
-      { path: 'garage/documentation/analytics', name: 'Analytics', icon: <SettingsIcon />, component: Content },
-      { path: 'garage/documentation/performance', name: 'Performance', icon: <TimerIcon />, component: Content2 },
-      { path: 'garage/documentation/testlab', name: 'Test Lab', icon: <PhonelinkSetupIcon />, component: Content2 },
+      { path: 'bunker/documentation/analytics', name: 'Analytics', icon: <SettingsIcon />, component: Content },
+      { path: 'bunker/documentation/performance', name: 'Performance', icon: <TimerIcon />, component: Content2 },
+      { path: 'bunker/documentation/testlab', name: 'Test Lab', icon: <PhonelinkSetupIcon />, component: Content2 },
     ],
   },
   {
