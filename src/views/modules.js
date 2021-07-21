@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import GridContainer from '../components/grid/GridContainer';
-import ModulePanel from '../components/ModulePanel';
+import ModulePanel from '../components/panels/ModulePanel';
 import { FiCommand } from 'react-icons/fi';
 import { SiSteam } from 'react-icons/si';
 import autoModerator from '../assets/images/automoderator.png';
