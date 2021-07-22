@@ -22,11 +22,14 @@ const styles = (theme) => ({
     backgroundColor: theme.palette.gray.main,
     overflow: "hidden",
     color: theme.palette.white.main,
+    '&:hover' : {
+      boxShadow: '0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)',
+    }
   },
   avatar: {
     width: theme.spacing(7),
     height: theme.spacing(7),
-    backgroundColor: theme.palette.gray.main,
+    backgroundColor: 'inherit',
   },
   description: {
     color: theme.palette.white.dark,
