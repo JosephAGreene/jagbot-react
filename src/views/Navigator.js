@@ -14,9 +14,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { ListItemAvatar } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 
+// Import custom components
 import Headline from '../components/Headline.js';
 
-// Import Icons
+// Import icons
 import { GoBeaker } from 'react-icons/go';
 import { FaWarehouse } from 'react-icons/fa';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
@@ -24,8 +25,59 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 // Impot default discord avatar image
 import defaultDiscord from '../assets/images/defaultDiscord.png';
 
-// Import navigator styles
-import {styles} from "./../jss/navigatorStyle.js";
+const styles = (theme) => ({
+  categoryHeader: {
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+  },
+  spacingHeader: {
+    paddingBottom: theme.spacing(2),
+  },
+  categoryHeaderPrimary: {
+    color: theme.palette.common.white,
+  },
+  item: {
+    paddingTop: 1,
+    paddingBottom: 1,
+    color: 'rgba(255, 255, 255, 0.7)',
+    '&:hover,&:focus': {
+      backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    },
+  },
+  selectedBot: {
+    paddingTop: 1,
+    paddingBottom: 1,
+    color: 'rgba(255, 255, 255, 0.7)',
+  },
+  avatar: {
+    width: theme.spacing(5),
+    height: theme.spacing(5),
+    backgroundColor: theme.palette.gray.dark,
+  },
+  itemCategory: {
+    backgroundColor: theme.palette.gray.dark,
+    boxShadow: '0 -1px 0 #404854 inset',
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+  },
+  firebase: {
+    fontSize: 24,
+    color: theme.palette.common.white,
+  },
+  itemActiveItem: {
+    color: theme.palette.purple.main,
+  },
+  itemPrimary: {
+    fontSize: 'inherit',
+  },
+  itemIcon: {
+    minWidth: 'auto',
+    marginRight: theme.spacing(2),
+  },
+  divider: {
+    marginTop: theme.spacing(2),
+  },
+});
 
 
 function Navigator(props) {
@@ -33,10 +85,10 @@ function Navigator(props) {
 
   const history = useHistory();
 
-  const bannedSubDirectory = (activeSubDirectory === 'develop') ? 'bunker' : 'develop';
+  const bannedSubDirectory = (activeSubDirectory === 'develop') ? 'stash' : 'develop';
 
-  const handleBackToBunker = () => {
-    history.push("/dashboard/bunker/mybots");
+  const handleBackToStash = () => {
+    history.push("/dashboard/stash/mybots");
     setSelectedBot(false);
   }
 
@@ -54,7 +106,7 @@ function Navigator(props) {
             : <Headline 
                 iconComponent={FaWarehouse}
                 start="The"
-                end="Bunker"
+                end="Stash"
                 color="#4fc3f7"
               />
           }
@@ -63,7 +115,7 @@ function Navigator(props) {
           <React.Fragment>
             <ListItem 
               className={clsx(classes.item, classes.itemCategory)}
-              onClick={handleBackToBunker}
+              onClick={handleBackToStash}
               button
             >
               <ListItemIcon className={classes.itemIcon}>
@@ -74,7 +126,7 @@ function Navigator(props) {
                   primary: classes.itemPrimary,
                 }}
               >
-                Back To Bunker 
+                Back To The Stash
               </ListItemText>
             </ListItem>
             <ListItem className={clsx(classes.selectedBot, classes.itemCategory)}>

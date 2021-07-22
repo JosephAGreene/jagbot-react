@@ -11,7 +11,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import {theme} from './jss/theme';
 import Home from './Home.js';
 import SignIn from './SignIn.js';
-import Dashboard from './layouts/dashboard.js';
+import Dashboard from './layouts/Dashboard.js';
 
 ReactDOM.render(
   <React.StrictMode>

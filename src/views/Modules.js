@@ -1,34 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Paper from '@material-ui/core/Paper';
-import { withStyles } from '@material-ui/core/styles';
+
+// Import layouts
+import ContentWrapper from '../layouts/ContentWrapper';
+
+// Import custom components
 import GridContainer from '../components/grid/GridContainer';
 import ModulePanel from '../components/panels/ModulePanel';
+
+// Import icons
 import { FiCommand } from 'react-icons/fi';
 import { SiSteam } from 'react-icons/si';
+
+// Temporary flat image/icon for testing
 import autoModerator from '../assets/images/automoderator.png';
 
-const styles = (theme) => ({
-  paper: {
-    maxWidth: 1200,
-    margin: 'auto',
-    overflow: 'hidden',
-    background: theme.palette.gray.light,
-    boxShadow: "none",
-  },
-  contentWrapper: {
-    margin: '40px 16px',
-    color: '#fff'
-  },
-});
-
-function Modules(props) {
-  const { classes } = props;
+function Modules() {
 
   return (
-    <Paper className={classes.paper}>
-      <div className={classes.contentWrapper}>
-        <GridContainer>
+    <ContentWrapper>
+      <GridContainer>
         <ModulePanel 
           title="Custom Commands"
           description="Set up your own custom commands. Both single and library response options available." 
@@ -77,14 +67,9 @@ function Modules(props) {
           description="Use this space to describe what the module does."
           path="/dashboard" 
         />
-        </GridContainer>
-      </div>
-    </Paper>
+      </GridContainer>
+    </ContentWrapper>
   );
 }
 
-Modules.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Modules);
+export default Modules;

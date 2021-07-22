@@ -14,7 +14,6 @@ import UserService from "../services/UserService.js";
 
 // Import MUI components
 import { withStyles } from '@material-ui/core/styles';
-import {styles, drawerWidth} from "../jss/dashboardStyle.js";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
 
@@ -22,11 +21,35 @@ import Hidden from '@material-ui/core/Hidden';
 import Alert from '../components/alerts/alert';
 
 // Import Views
-import Navigator from '../views/navigator';
-import Header from '../views/header';
+import Navigator from '../views/Navigator';
+import Header from '../views/Header';
 
 import routes from "../routes";
 
+const drawerWidth = 256;
+
+const styles = (theme) => ({
+  root: {
+    display: 'flex',
+    minHeight: '100vh',
+  },
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  app: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  main: {
+    flex: 1,
+    padding: theme.spacing(6, 4),
+    background: theme.palette.gray.light,
+  },
+});
 
 // Returns react routes inside a switch based on routes.js routes
 function buildSwitchRoutes (bots, handleBotSelection) {
@@ -47,7 +70,7 @@ function buildSwitchRoutes (bots, handleBotSelection) {
             path={`/dashboard/${route.path}`}
             key={key}
           >
-            {route.path === 'bunker/mybots' 
+            {route.path === 'stash/mybots' 
               ? <route.component bots={bots} handleBotSelection={handleBotSelection}/>
               : <route.component />
             }

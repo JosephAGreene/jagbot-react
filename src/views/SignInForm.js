@@ -1,16 +1,24 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Typography from '../components/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import OutlinedInput from '../components/inputs/OutlinedInputLight';
+import { Redirect } from 'react-router-dom';
+
+// Import react-hook-form
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
+
+// Import API services
 import AuthService from "../services/AuthService.js";
-import { Redirect } from 'react-router-dom';
+
+// Import MUI components
+import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
+// Import custom components
+import Typography from '../components/Typography';
+import OutlinedInput from '../components/inputs/OutlinedInputLight';
 import Alert from '../components/alerts/alert';
 
 const useStyles = makeStyles((theme) => ({

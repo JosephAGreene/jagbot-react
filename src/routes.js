@@ -11,28 +11,27 @@ import {FaRobot } from 'react-icons/fa';
 import HomeIcon from '@material-ui/icons/Home';
 
 // Import Components
-import Garage from "./views/garage.js";
-import Content from "./views/content.js";
-import Content2 from "./views/content2.js";
-import CreateBot from "./views/createBot.js";
-import Modules from "./views/modules.js";
+import Stash from "./views/Stash.js";
+import Content from "./views/Content.js";
+import CreateBot from "./views/CreateBot.js";
+import Modules from "./views/Modules.js";
 
 const routes = [
   {
     name: 'hidden', // Do not display header/name
-    path: 'bunker',
+    path: 'stash',
     children: [
-      { path: 'bunker/mybots', name: 'Stashed Bots', icon: <FaRobot />, component: Garage },
-      { path: 'bunker/createbot', name: 'Build New Bot', icon: <BuildIcon />, component: CreateBot},
+      { path: 'stash/mybots', name: 'Stashed Bots', icon: <FaRobot />, component: Stash },
+      { path: 'stash/createbot', name: 'Build New Bot', icon: <BuildIcon />, component: CreateBot},
     ],
   },
   {
     name: 'Documentation',
-    path: "bunker",
+    path: "stash",
     children: [
-      { path: 'bunker/documentation/analytics', name: 'Analytics', icon: <SettingsIcon />, component: Content },
-      { path: 'bunker/documentation/performance', name: 'Performance', icon: <TimerIcon />, component: Content2 },
-      { path: 'bunker/documentation/testlab', name: 'Test Lab', icon: <PhonelinkSetupIcon />, component: Content2 },
+      { path: 'stash/documentation/analytics', name: 'Analytics', icon: <SettingsIcon />, component: Content },
+      { path: 'stash/documentation/performance', name: 'Performance', icon: <TimerIcon />, component: Content },
+      { path: 'stash/documentation/testlab', name: 'Test Lab', icon: <PhonelinkSetupIcon />, component: Content },
     ],
   },
   {
@@ -40,7 +39,7 @@ const routes = [
     path: 'develop',
     children: [
       { path: 'develop/modules', name: 'Modules', icon: <HomeIcon />, component: Modules },
-      { path: 'develop/settings', name: 'Settings', icon: <SettingsIcon />, component: Content2 },
+      { path: 'develop/settings', name: 'Settings', icon: <SettingsIcon />, component: Content },
     ]
   },
   {
@@ -48,9 +47,9 @@ const routes = [
     path: 'develop',
     children: [
       { path: 'develop/content', name: 'Content', icon: <PeopleIcon />, component: Content },
-      { path: 'develop/hosting', name: 'Hosting', icon: <PublicIcon />, component: Content2 },
-      { path: 'develop/functions', name: 'Functions', icon: <SettingsEthernetIcon />, component: Content2 },
-      { path: 'develop/mlkit', name: 'ML KIT', icon: <SettingsInputComponentIcon />, component: Content2},
+      { path: 'develop/hosting', name: 'Hosting', icon: <PublicIcon />, component: Content },
+      { path: 'develop/functions', name: 'Functions', icon: <SettingsEthernetIcon />, component: Content },
+      { path: 'develop/mlkit', name: 'ML KIT', icon: <SettingsInputComponentIcon />, component: Content},
     ],
   },
 ];

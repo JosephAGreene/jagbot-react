@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+// Import MUI components
 import { withStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
+
+// Import custom components
 import AppBar from '../components/AppBar';
 import Toolbar, { styles as toolbarStyles } from '../components/Toolbar';
 

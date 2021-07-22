@@ -1,8 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+// Import MUI components
 import { withStyles } from '@material-ui/core/styles';
+
+// Import custom components
 import Button from '../components/Button';
 import Typography from '../components/Typography';
+
+// Import layouts
 import MainLandingLayout from '../layouts/MainLandingLayout';
 
 const backgroundImage = 'images/bot1.jpg';
