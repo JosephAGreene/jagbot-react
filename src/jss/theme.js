@@ -7,14 +7,14 @@ import { unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-u
 let theme = createMuiTheme({
     palette: {
       primary: {
-        light: '#69696a',
-        main: '#222629',
-        dark: '#1e1e1f',
+        light: '#757ce8',
+        main: '#3f50b5',
+        dark: '#002884',
       },
       secondary: {
-        light: '#6ec0c1',
-        main: '#86c232',
-        dark: '#61892f',
+        light: '#f73378',
+        main: '#f50057',
+        dark: '#ab003c',
       },
       warning: {
         main: '#ffc071',
@@ -31,15 +31,19 @@ let theme = createMuiTheme({
         dark: '#171a1f',
       },
       green: {
+        light: '#a2c986',
         main: '#98c379',
+        dark: '#7a961',
       },
       purple: {
-        main: '#c678DD',
+        light: '#7e57c2',
+        main: '#c67ab7',
+        dark: '#512da8',
       }, 
       teal: {
         light: '#72cff9',
         main: '#4fc3f7',
-        dark: '#3f9cc6',
+        dark: '#3789ad',
       },
       orange: {
         light: '#de8f4d',
@@ -47,7 +51,9 @@ let theme = createMuiTheme({
         dark: '#d67320',
       },
       yellow: {
+        light: '#efc982',
         main: '#edc374',
+        dark: '#d5b068',
       }, 
       white: {
         main: '#ffffff',
