@@ -68,12 +68,18 @@ function CustomCommands(props) {
       <div className={classes.categoryHeader}>
         Assigned Commands
       </div>
-      <GridContainer>
+      <AssignedCommandPanel 
+          command="!Test"
+          description="This is a description of the test command, foo!"
+        />
         <AssignedCommandPanel 
           command="!Test"
           description="This is a description of the test command, foo!"
         />
-      </GridContainer>
+        <AssignedCommandPanel 
+          command="!Test"
+          description="This is a description of the test command, foo!"
+        />
     </ContentWrapper>
   );
 }

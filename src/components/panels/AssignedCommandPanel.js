@@ -11,9 +11,6 @@ import GridItem from '../grid/GridItem';
 import Button from '../buttons/Button';
 
 const styles = (theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   paper: {
     padding: "20px",
     marginBottom: theme.spacing(3),
@@ -21,16 +18,15 @@ const styles = (theme) => ({
     overflow: "hidden",
   },
   command: {
-    marginLeft: theme.spacing(2),
     fontSize: 18,
     letterSpacing: 0.5,
     color: theme.palette.white.main,
   },
   description: {
-    marginLeft: theme.spacing(2),
     color: theme.palette.white.dark,
   },
   buttons: {
+    marginTop: theme.spacing(1),
     marginLeft: theme.spacing(1),
   },
 });
@@ -39,32 +35,34 @@ function AssignedCommandPanel(props) {
   const {classes, command, description} = props;
 
   return (
-    <GridItem classes={{root: classes.root}}>
-      <Paper elevation={2} className={classes.paper} >
-        <GridContainer>
-          <GridContainer item sm={12} md={8} lg={6} direction="column">
-            <GridItem>
-              <div className={classes.command}>
-                {command}
-              </div>
+    <GridContainer>
+      <GridItem sm={12}>
+        <Paper elevation={2} className={classes.paper} >
+          <GridContainer>
+            <GridItem sm={12} md={10} lg={8}>
+              <GridContainer>
+                <GridItem xs>
+                  <div className={classes.command}>
+                    {command}
+                  </div>
+                  <div className={classes.description}>
+                    {description}
+                  </div>
+                </GridItem>
+              </GridContainer>
             </GridItem>
-            <GridItem>
-              <div className={classes.description}>
-                {description}
+            <GridItem xs right>
+              <div className={classes.buttons}>
+                <Button color="purple">Edit</Button>
+              </div>
+              <div className={classes.buttons}>
+                <Button color="danger">Delete</Button>
               </div>
             </GridItem>
           </GridContainer>
-          <GridItem xs right>
-            <div className={classes.buttons}>
-              <Button color="purple">Edit</Button>
-            </div>
-            <div className={classes.buttons}>
-              <Button color="danger">Delete</Button>
-            </div>
-          </GridItem>
-        </GridContainer>
-      </Paper>
-    </GridItem>
+        </Paper>
+      </GridItem>
+    </GridContainer>
   );
 }
 
