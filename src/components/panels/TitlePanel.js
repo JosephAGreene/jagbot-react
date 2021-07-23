@@ -11,6 +11,9 @@ import GridContainer from '../grid/GridContainer';
 import GridItem from '../grid/GridItem';
 import Button from '../buttons/Button';
 
+// Import icons
+import { SiReadthedocs } from 'react-icons/si';
+
 const styles = (theme) => ({
   paper: {
     padding: "20px",
@@ -38,7 +41,7 @@ const styles = (theme) => ({
 });
 
 function TitlePanel(props) {
-  const {classes, title, description, Icon, image, color} = props;
+  const {classes, title, description, Icon, image, docs, color} = props;
 
   return (
     <GridContainer>
@@ -64,21 +67,23 @@ function TitlePanel(props) {
               </GridContainer>
             </GridItem>
             <GridItem xs right>
-              <div className={classes.button}>
-                <Button color="teal">Documents</Button>
-              </div>
+              {docs &&
+                <div className={classes.button}>
+                  <Button justIcon round color="teal"><SiReadthedocs /></Button>
+                </div>
+              }
             </GridItem>
           </GridContainer>
         </Paper>
       </GridItem>
     </GridContainer>
-
   );
 }
 
 TitlePanel.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  docs: PropTypes.bool,
   Icon: PropTypes.elementType,
   image: PropTypes.string,
   color: PropTypes.string,

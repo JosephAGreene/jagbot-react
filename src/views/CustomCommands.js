@@ -37,6 +37,7 @@ function CustomCommands(props) {
         title="Custom Commands"
         description="Assign custom commands to make your bot unique."
         Icon={FiCommand}
+        docs={true}
         color="#F45142"
       />
       <div className={classes.categoryHeader}>
