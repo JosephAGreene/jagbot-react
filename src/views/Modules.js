@@ -22,7 +22,7 @@ function Modules() {
         <ModulePanel 
           title="Custom Commands"
           description="Set up your own custom commands. Both single and library response options available." 
-          path="/dashboard/content"
+          path="/dashboard/develop/customcommands"
           Icon={FiCommand}
           color="#F45142"
         />
@@ -54,13 +54,11 @@ function Modules() {
           title="Generic Module"
           description="Use this space to describe what the module does."
           path="/dashboard" 
-
         />
         <ModulePanel 
           title="Generic Module"
           description="Use this space to describe what the module does."
           path="/dashboard" 
-
         />
         <ModulePanel 
           title="Generic Module"

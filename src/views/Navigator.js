@@ -44,6 +44,10 @@ const styles = (theme) => ({
       backgroundColor: 'rgba(255, 255, 255, 0.08)',
     },
   },
+  psuedoItem: {
+    paddingTop: 1,
+    paddingBottom: 1,
+  },
   selectedBot: {
     paddingTop: 1,
     paddingBottom: 1,
@@ -79,7 +83,6 @@ const styles = (theme) => ({
   },
 });
 
-
 function Navigator(props) {
   const { classes, routes, activePath, activeSubDirectory, selectedBot, setSelectedBot, ...other } = props;
 
@@ -95,7 +98,7 @@ function Navigator(props) {
   return (
     <Drawer variant="permanent" onClick={other.onClose} {...other}>
       <List disablePadding>
-        <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
+        <ListItem className={clsx(classes.firebase, classes.psuedoItem, classes.itemCategory)}>
           {(selectedBot && activeSubDirectory === 'develop') 
             ? <Headline 
                 iconComponent={GoBeaker}
@@ -146,8 +149,8 @@ function Navigator(props) {
             </ListItem>
           </React.Fragment>
         }
-        {routes.map(({ name, path, children }, pos) => (
-          (path !== bannedSubDirectory && 
+        {routes.map(({ name, path, internal, children }, pos) => (
+          ((path !== bannedSubDirectory && !internal) && 
             <React.Fragment key={name + pos}>
               {(name === 'hidden')
                 ? <div className={classes.spacingHeader} />
