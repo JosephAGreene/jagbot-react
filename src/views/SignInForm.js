@@ -10,7 +10,7 @@ import Joi from 'joi';
 import AuthService from "../services/AuthService.js";
 
 // Import MUI components
-import Button from '@material-ui/core/Button';
+//import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -20,6 +20,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '../components/Typography';
 import OutlinedInput from '../components/inputs/OutlinedInputLight';
 import Alert from '../components/alerts/alert';
+import Button from '../components/buttons/Button';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -120,7 +121,7 @@ export default function SignIn() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="secondary"
+                color="teal"
                 className={classes.submit}
               >
                 Sign In

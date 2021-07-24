@@ -17,7 +17,7 @@ const styles = (theme) => ({
     color: theme.palette.common.white,
   },
   titleRight: {
-    color: theme.palette.secondary.main,
+    color: theme.palette.green.main,
   },
   toolbar: {
     justifyContent: 'space-between',
@@ -41,7 +41,7 @@ const styles = (theme) => ({
   },
   linkSecondary: {
     fontSize: 16,
-    color: theme.palette.secondary.main,
+    color: theme.palette.teal.main,
   },
 });
 

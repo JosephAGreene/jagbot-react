@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 // Import custom components
-import Button from '../components/Button';
+import Button from '../components/buttons/Button';
 import Typography from '../components/Typography';
 
 // Import layouts
@@ -48,9 +48,9 @@ function MainLanding(props) {
         
   </Typography> 
       <Button
-        color="secondary"
+        color="teal"
         variant="contained"
-        size="large"
+        size="lg"
         className={classes.button}
         component="a"
         href=""
