@@ -86,8 +86,8 @@ function Header(props) {
     history.push("/dashboard/accountsettings")
   }
 
-  const handleLogout = () => {
-    AuthService.logout();
+  const handleLogout = async () => {
+    await AuthService.logout();
     handleClose();
     history.push("/home");
   };

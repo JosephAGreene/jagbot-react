@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 
 // Import API service
 import AuthService from "../services/AuthService.js";
-import UserService from "../services/UserService.js";
 
 // Import MUI components
 import { withStyles } from '@material-ui/core/styles';
@@ -93,30 +92,21 @@ function Dashboard(props) {
   const history = useHistory();
 
   React.useEffect(() => {
-    fetchBots();
-  }, []);
-
-  // fetch bots that belong to user
-  const fetchBots = async () => {
-
-    const res = await UserService.getBots();
-
-    if (res.status === 200) {
-      setBots(res.data);
-    } 
-    else if (res.status === 'dead') {
-      setFailureAlert({
-        status: true,
-        message: 'Server is down or busy. Try again later.'
-      });
-    } else {
-      console.log(res.status);
-      setFailureAlert({
-        status: true,
-        message: 'Something went wrong. Hint: Check the console.'
-      });
+    const authenticateUser = async () => {
+      const res = await AuthService.getCurrentUser();
+  
+      if (res.status === 200) {
+        setBots(res.data.bots);
+      } else {
+        console.log('else');
+        history.push('/');
+      }
     }
-  }
+
+    authenticateUser();
+  }, [history]);
+
+
 
   // Sets active path to the last sub directory. 
   // I.E. The same pathname acquired from 'path' keys in the routes array.
@@ -125,10 +115,6 @@ function Dashboard(props) {
    
   if (activeSubDirectory === 'develop' && !selectedBot) {
     return <Redirect to="/dashboard" />;
-  }
-
-  if(!AuthService.getCurrentUser()) {
-    return <Redirect to="/home" />
   }
 
   const failureAlertClose= () => {

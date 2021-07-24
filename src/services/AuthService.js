@@ -2,34 +2,41 @@ import axios from "axios";
 import { AUTH } from "./apiVariables.js";
 
 class AuthService {
-  login(email, password) {
-    return axios
-      .post(AUTH + 'signin', {
-        email,
-        password
-      })
-      .then(response => {
-        if (response.data.accessToken) {
-          localStorage.setItem('user', JSON.stringify(response.data));
-        }
-        return response;
-      })
-      .catch(error => {
-        const networkIssue = {status: 'dead'};
-        if (error.response) {
-          return error.response;
-        } else {
-          return networkIssue;
-        }
-      });
-  }
 
-  logout() {
-    localStorage.removeItem('user');
+  constructor() {
+    // Generic response to give API experiences internal issues.
+    this.networkIssue = {status: 'dead'};
   }
 
   getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user'));
+    return axios
+    .get(AUTH, {
+      withCredentials: true
+    })
+    .then(response => {
+      return response;
+    })
+    .catch(error => {
+      if (error.response) {
+        return error.response;
+      } else {
+        return this.networkIssue;
+      }
+    });
+  }
+
+  logout() {
+    return axios
+    .get(`${AUTH}/logout`, {
+      withCredentials: true
+    })
+    .catch(error => {
+      if (error.response) {
+        return error.response;
+      } else {
+        return this.networkIssue;
+      }
+    });
   }
 }
 

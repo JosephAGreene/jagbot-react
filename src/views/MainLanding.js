@@ -37,6 +37,8 @@ const styles = (theme) => ({
 function MainLanding(props) {
   const { classes } = props;
 
+  const login = () => window.location.href = 'http://localhost:3900/api/auth/discord';
+
   return (
     <MainLandingLayout backgroundClassName={classes.background}>
       {/* Increase the network loading priority of the background image. */}
@@ -48,14 +50,14 @@ function MainLanding(props) {
         
   </Typography> 
       <Button
-        color="teal"
+        color="purple"
         variant="contained"
         size="lg"
         className={classes.button}
         component="a"
-        href=""
+        onClick={login}
       >
-        Sign Up
+        Login With Discord
       </Button>
       <Typography variant="body2" color="inherit" className={classes.more}>
         Build your own bot
