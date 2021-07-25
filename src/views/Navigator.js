@@ -16,6 +16,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 // Import custom components
 import Headline from '../components/Headline.js';
+import AvatarFooter from './AvatarFooter';
 
 // Import icons
 import { GoBeaker } from 'react-icons/go';
@@ -84,7 +85,7 @@ const styles = (theme) => ({
 });
 
 function Navigator(props) {
-  const { classes, routes, activePath, activeSubDirectory, selectedBot, setSelectedBot, ...other } = props;
+  const { classes, routes, activePath, activeSubDirectory, selectedBot, setSelectedBot, user, ...other } = props;
 
   const history = useHistory();
 
@@ -186,6 +187,7 @@ function Navigator(props) {
           )
         ))}
       </List>
+      <AvatarFooter user={user}/>
     </Drawer>
   );
 }

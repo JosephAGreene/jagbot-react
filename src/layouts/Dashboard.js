@@ -84,7 +84,9 @@ function buildSwitchRoutes (bots, handleBotSelection) {
 
 function Dashboard(props) {
   const { classes } = props;
+  const [loading, setLoading] = React.useState(true);
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [user, setUser] = React.useState(null);
   const [bots, setBots] = React.useState([]);
   const [selectedBot, setSelectedBot] = React.useState(false);
   const [ failureAlert, setFailureAlert ] = React.useState({status: false});
@@ -96,13 +98,19 @@ function Dashboard(props) {
       const res = await AuthService.getCurrentUser();
   
       if (res.status === 200) {
+        setUser({
+          discordTag: res.data.discordTag,
+          avatar: res.data.avatarURL,
+        });
         setBots(res.data.bots);
+        setLoading(false);
       } else {
-        console.log('else');
+        setLoading(false);
         history.push('/');
       }
     }
 
+    setLoading(true);
     authenticateUser();
   }, [history]);
 
@@ -130,6 +138,12 @@ function Dashboard(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  if(loading || !user) {
+    return (
+      <div>Loading...</div>
+    );
+  }
+
   return (
       <div className={classes.root}>
         <CssBaseline />
@@ -142,10 +156,10 @@ function Dashboard(props) {
               activeSubDirectory={activeSubDirectory}
               selectedBot={selectedBot} 
               setSelectedBot={setSelectedBot}
+              user={user} 
               variant="temporary"
               open={mobileOpen}
               onClose={handleDrawerToggle}
-
             />
           </Hidden>
           <Hidden xsDown implementation="css">
@@ -155,7 +169,8 @@ function Dashboard(props) {
               activeSubDirectory={activeSubDirectory}
               selectedBot={selectedBot} 
               setSelectedBot={setSelectedBot}
-              PaperProps={{ style: { width: drawerWidth } }} 
+              user={user} 
+              PaperProps={{ style: { width: drawerWidth } }}
             />
           </Hidden>
         </nav>
