@@ -85,7 +85,15 @@ const styles = (theme) => ({
 });
 
 function Navigator(props) {
-  const { classes, routes, activePath, activeSubDirectory, selectedBot, setSelectedBot, user, ...other } = props;
+  const { classes, 
+          routes, 
+          activePath,
+          activeSubDirectory, 
+          selectedBot, 
+          setSelectedBot, 
+          user,
+          handleLogoutDialogOpen, 
+          ...other } = props;
 
   const history = useHistory();
 
@@ -187,7 +195,7 @@ function Navigator(props) {
           )
         ))}
       </List>
-      <AvatarFooter user={user}/>
+      <AvatarFooter handleLogoutDialogOpen={handleLogoutDialogOpen} user={user}/>
     </Drawer>
   );
 }

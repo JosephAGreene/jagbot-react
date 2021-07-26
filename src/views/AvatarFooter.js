@@ -1,8 +1,5 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
-
-// Import API services
-import AuthService from '../services/AuthService';
+import PropTypes from 'prop-types';
 
 // Import MUI components
 import { withStyles } from '@material-ui/core/styles';
@@ -55,18 +52,11 @@ function getUserId(discordTag) {
 }
 
 function AvatarFooter(props) {
-  const {classes, user} = props;
+  const {classes, user, handleLogoutDialogOpen} = props;
   const {discordTag, avatar} = user;
 
-  const history = useHistory();
-
-  const handleLogOut = async () => {
-    await AuthService.logout();
-    history.push('/');
-  }
-
   return (
-    <div onClick={handleLogOut} className={classes.bottomPush}>
+    <div onClick={handleLogoutDialogOpen} className={classes.bottomPush}>
       <GridContainer alignContent="space-between">
         <GridItem>
           <Avatar src={avatar} className={classes.avatar} />
@@ -86,5 +76,11 @@ function AvatarFooter(props) {
     </div>
   );
 }
+
+Navigator.propTypes = {
+  classes: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  handleLogoutDialogOpen: PropTypes.func.isRequired,
+};
 
 export default withStyles(styles)(AvatarFooter);

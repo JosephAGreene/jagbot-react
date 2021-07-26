@@ -15,9 +15,13 @@ import AuthService from "../services/AuthService.js";
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 // Import custom components
 import Alert from '../components/alerts/alert';
+import Button from '../components/buttons/Button';
 
 // Import Views
 import Navigator from '../views/Navigator';
@@ -48,6 +52,10 @@ const styles = (theme) => ({
     padding: theme.spacing(6, 4),
     background: theme.palette.gray.light,
   },
+  logoutDialog: {
+    color: theme.palette.white.main,
+    backgroundColor: theme.palette.gray.light,
+  }
 });
 
 // Returns react routes inside a switch based on routes.js routes
@@ -89,7 +97,8 @@ function Dashboard(props) {
   const [user, setUser] = React.useState(null);
   const [bots, setBots] = React.useState([]);
   const [selectedBot, setSelectedBot] = React.useState(false);
-  const [ failureAlert, setFailureAlert ] = React.useState({status: false});
+  const [failureAlert, setFailureAlert] = React.useState({status: false});
+  const [logoutDialog, setLogoutDialog] = React.useState(false);
 
   const history = useHistory();
 
@@ -138,6 +147,19 @@ function Dashboard(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  const handleLogoutDialogOpen = () => {
+    setLogoutDialog(true);
+  }
+
+  const handleLogoutDialogClose = () => {
+    setLogoutDialog(false);
+  }
+
+  const handleLogout = async () => {
+    await AuthService.logout();
+    history.push('/');
+  }
+
   if(loading || !user) {
     return (
       <div>Loading...</div>
@@ -157,6 +179,7 @@ function Dashboard(props) {
               selectedBot={selectedBot} 
               setSelectedBot={setSelectedBot}
               user={user} 
+              handleLogoutDialogOpen={handleLogoutDialogOpen}
               variant="temporary"
               open={mobileOpen}
               onClose={handleDrawerToggle}
@@ -170,6 +193,7 @@ function Dashboard(props) {
               selectedBot={selectedBot} 
               setSelectedBot={setSelectedBot}
               user={user} 
+              handleLogoutDialogOpen={handleLogoutDialogOpen}
               PaperProps={{ style: { width: drawerWidth } }}
             />
           </Hidden>
@@ -183,6 +207,23 @@ function Dashboard(props) {
         <Alert open={failureAlert.status} autoHideDuration={5000} onClose={failureAlertClose} severity='error'>
           {failureAlert.message}
         </Alert>
+        <Dialog
+          PaperProps={{className: classes.logoutDialog}}
+          open={logoutDialog}
+          onClose={handleLogoutDialogClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+        <DialogTitle id="alert-dialog-title">{"Confirm Logout"}</DialogTitle>
+        <DialogActions>
+          <Button onClick={handleLogoutDialogClose} color="purple">
+            Cancel
+          </Button>
+          <Button onClick={handleLogout} color="danger">
+            Confirm
+          </Button>
+        </DialogActions>
+      </Dialog>
       </div>
   );
 }
