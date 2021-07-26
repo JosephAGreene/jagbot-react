@@ -9,7 +9,7 @@ const styles = (theme) => ({
     overflow: 'hidden',
   },
   innerWrapper: {
-    margin: '10px 16px',
+    margin: '60px 16px',
     color: '#fff'
   },
 });

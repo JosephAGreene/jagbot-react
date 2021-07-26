@@ -58,7 +58,7 @@ function Header(props) {
         component="div"
         className={(classes.secondaryBar, classes.bar)}
         color="primary"
-        position="static"
+        position="fixed"
         elevation={0}
       >
         <Toolbar>
