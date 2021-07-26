@@ -15,7 +15,8 @@ import Stash from "./views/Stash.js";
 import Content from "./views/Content.js";
 import CreateBot from "./views/CreateBot.js";
 import Modules from "./views/Modules.js";
-import CustomCommands from './views/CustomCommands.js';
+import CustomCommands from './views/modules/CustomCommands.js';
+import CustomCommandSingle from './views/modules/CustomCommandSingle.js';
 
 const routes = [
   {
@@ -58,7 +59,7 @@ const routes = [
     path: 'develop', 
     internal: true,  // Denotes internal routes, will not automatically display on any visible navigation
     children: [
-      { path: 'develop/customcommands/single', component: Content },
+      { path: 'develop/customcommands/single', component: CustomCommandSingle },
     ]
   }
 ];

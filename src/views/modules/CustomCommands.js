@@ -1,16 +1,16 @@
 import React from 'react';
 
 // Import layouts
-import ContentWrapper from '../layouts/ContentWrapper';
+import ContentWrapper from '../../layouts/ContentWrapper';
 
 // Import MUI components
 import { withStyles } from '@material-ui/core/styles';
 
 // Import custom components
-import TitlePanel from '../components/panels/TitlePanel';
-import ModulePanel from '../components/panels/ModulePanel';
-import AssignedCommandPanel from '../components/panels/AssignedCommandPanel';
-import GridContainer from '../components/grid/GridContainer';
+import TitlePanel from '../../components/panels/TitlePanel';
+import ModulePanel from '../../components/panels/ModulePanel';
+import AssignedCommandPanel from '../../components/panels/AssignedCommandPanel';
+import GridContainer from '../../components/grid/GridContainer';
 
 // Import icons
 import { FiCommand } from 'react-icons/fi';

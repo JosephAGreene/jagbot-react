@@ -10,14 +10,16 @@ const styles = (theme) => ({
   labelRootError: {
     color: theme.palette.error.main
   },
-  marginTop: {
-    marginTop: "16px"
-  },
   formControl: {
-    paddingBottom: "10px",
-    margin: "27px 0 0 0",
+    paddingBottom: "5px",
+    margin: "5px 0 0 0",
     position: "relative",
     verticalAlign: "unset",
+  },
+  description: {
+    color: theme.palette.white.dark,
+    margin: "0 0 10px 10px",
+    fontSize: "16px",
   },
 });
 
@@ -55,6 +57,7 @@ function CustomOutlinedInputDark(props) {
   const {
     formControlProps,
     labelText,
+    description,
     id,
     name,
     type,
@@ -71,6 +74,9 @@ function CustomOutlinedInputDark(props) {
       className={formControlProps.className + " " + classes.formControl }
       variant="outlined"
     >
+      <div className={classes.description}>
+        {description}
+      </div>
       <OutlinedInput
         id={id}
         multiline={multiline ? true : false}
@@ -92,6 +98,7 @@ function CustomOutlinedInputDark(props) {
 
 CustomOutlinedInputDark.propTypes = {
   labelText: PropTypes.node,
+  description: PropTypes.string,
   labelProps: PropTypes.object,
   id: PropTypes.string,
   name: PropTypes.string,
