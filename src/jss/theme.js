@@ -81,10 +81,25 @@ let theme = createMuiTheme({
       },
     },
   });
-  
+
   theme = {
     ...theme,
     overrides: {
+      MuiCssBaseline: {
+        '@global': {
+          '*::-webkit-scrollbar': {
+            width: '10px',
+            height: '2px',
+          },
+          '*::-webkit-scrollbar-track': {
+            backgroundColor: theme.palette.gray.dark,
+          },
+          '*::-webkit-scrollbar-thumb': {
+            backgroundColor: "#dfdfdf",
+            borderRadius: "10px",
+          },
+        },
+      },
       MuiDrawer: {
         paper: {
           backgroundColor: theme.palette.gray.dark,
