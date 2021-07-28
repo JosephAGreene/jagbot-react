@@ -52,6 +52,11 @@ const styles = (theme) => ({
     padding: theme.spacing(6, 4),
     background: theme.palette.gray.light,
   },
+  [theme.breakpoints.down('sm')]: {
+    main: {
+      padding: theme.spacing(6, 1),
+    },
+  },
   logoutDialog: {
     color: theme.palette.white.main,
     backgroundColor: theme.palette.gray.light,

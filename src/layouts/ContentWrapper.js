@@ -12,6 +12,11 @@ const styles = (theme) => ({
     margin: '60px 16px',
     color: '#fff'
   },
+  [theme.breakpoints.down('sm')]: {
+    innerWrapper: {
+      margin: '60px 10px',
+    },
+  },
 });
 
 function ContentWrapper(props) {
