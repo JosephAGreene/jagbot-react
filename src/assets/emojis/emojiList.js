@@ -6,8 +6,7 @@ const emojiList = {
         "1F600"
       ],
       "toned": false,
-      "name": "grinning face",
-      "flagged": false
+      "name": "grinning face"
     },
     {
       "emoji": "😃",
@@ -15,8 +14,7 @@ const emojiList = {
         "1F603"
       ],
       "toned": false,
-      "name": "grinning face with big eyes",
-      "flagged": false
+      "name": "grinning face with big eyes"
     },
     {
       "emoji": "😄",
@@ -24,8 +22,7 @@ const emojiList = {
         "1F604"
       ],
       "toned": false,
-      "name": "grinning face with smiling eyes",
-      "flagged": false
+      "name": "grinning face with smiling eyes"
     },
     {
       "emoji": "😁",
@@ -33,8 +30,7 @@ const emojiList = {
         "1F601"
       ],
       "toned": false,
-      "name": "beaming face with smiling eyes",
-      "flagged": false
+      "name": "beaming face with smiling eyes"
     },
     {
       "emoji": "😆",
@@ -42,8 +38,7 @@ const emojiList = {
         "1F606"
       ],
       "toned": false,
-      "name": "grinning squinting face",
-      "flagged": false
+      "name": "grinning squinting face"
     },
     {
       "emoji": "😅",
@@ -51,8 +46,7 @@ const emojiList = {
         "1F605"
       ],
       "toned": false,
-      "name": "grinning face with sweat",
-      "flagged": false
+      "name": "grinning face with sweat"
     },
     {
       "emoji": "🤣",
@@ -60,8 +54,7 @@ const emojiList = {
         "1F923"
       ],
       "toned": false,
-      "name": "rolling on the floor laughing",
-      "flagged": false
+      "name": "rolling on the floor laughing"
     },
     {
       "emoji": "😂",
@@ -69,8 +62,7 @@ const emojiList = {
         "1F602"
       ],
       "toned": false,
-      "name": "face with tears of joy",
-      "flagged": false
+      "name": "face with tears of joy"
     },
     {
       "emoji": "🙂",
@@ -78,8 +70,7 @@ const emojiList = {
         "1F642"
       ],
       "toned": false,
-      "name": "slightly smiling face",
-      "flagged": false
+      "name": "slightly smiling face"
     },
     {
       "emoji": "🙃",
@@ -87,8 +78,7 @@ const emojiList = {
         "1F643"
       ],
       "toned": false,
-      "name": "upside-down face",
-      "flagged": false
+      "name": "upside-down face"
     },
     {
       "emoji": "😉",
@@ -96,8 +86,7 @@ const emojiList = {
         "1F609"
       ],
       "toned": false,
-      "name": "winking face",
-      "flagged": false
+      "name": "winking face"
     },
     {
       "emoji": "😊",
@@ -105,8 +94,7 @@ const emojiList = {
         "1F60A"
       ],
       "toned": false,
-      "name": "smiling face with smiling eyes",
-      "flagged": false
+      "name": "smiling face with smiling eyes"
     },
     {
       "emoji": "😇",
@@ -114,8 +102,7 @@ const emojiList = {
         "1F607"
       ],
       "toned": false,
-      "name": "smiling face with halo",
-      "flagged": false
+      "name": "smiling face with halo"
     },
     {
       "emoji": "🥰",
@@ -123,8 +110,7 @@ const emojiList = {
         "1F970"
       ],
       "toned": false,
-      "name": "smiling face with hearts",
-      "flagged": false
+      "name": "smiling face with hearts"
     },
     {
       "emoji": "😍",
@@ -132,8 +118,7 @@ const emojiList = {
         "1F60D"
       ],
       "toned": false,
-      "name": "smiling face with heart-eyes",
-      "flagged": false
+      "name": "smiling face with heart-eyes"
     },
     {
       "emoji": "🤩",
@@ -141,8 +126,7 @@ const emojiList = {
         "1F929"
       ],
       "toned": false,
-      "name": "star-struck",
-      "flagged": false
+      "name": "star-struck"
     },
     {
       "emoji": "😘",
@@ -150,8 +134,7 @@ const emojiList = {
         "1F618"
       ],
       "toned": false,
-      "name": "face blowing a kiss",
-      "flagged": false
+      "name": "face blowing a kiss"
     },
     {
       "emoji": "😗",
@@ -159,8 +142,7 @@ const emojiList = {
         "1F617"
       ],
       "toned": false,
-      "name": "kissing face",
-      "flagged": false
+      "name": "kissing face"
     },
     {
       "emoji": "☺",
@@ -168,8 +150,7 @@ const emojiList = {
         "263A"
       ],
       "toned": false,
-      "name": "smiling face",
-      "flagged": false
+      "name": "smiling face"
     },
     {
       "emoji": "😚",
@@ -177,8 +158,7 @@ const emojiList = {
         "1F61A"
       ],
       "toned": false,
-      "name": "kissing face with closed eyes",
-      "flagged": false
+      "name": "kissing face with closed eyes"
     },
     {
       "emoji": "😙",
@@ -186,17 +166,7 @@ const emojiList = {
         "1F619"
       ],
       "toned": false,
-      "name": "kissing face with smiling eyes",
-      "flagged": false
-    },
-    {
-      "emoji": "🥲",
-      "code": [
-        "1F972"
-      ],
-      "toned": false,
-      "name": "smiling face with tear",
-      "flagged": true
+      "name": "kissing face with smiling eyes"
     },
     {
       "emoji": "😋",
@@ -204,8 +174,7 @@ const emojiList = {
         "1F60B"
       ],
       "toned": false,
-      "name": "face savoring food",
-      "flagged": false
+      "name": "face savoring food"
     },
     {
       "emoji": "😛",
@@ -213,8 +182,7 @@ const emojiList = {
         "1F61B"
       ],
       "toned": false,
-      "name": "face with tongue",
-      "flagged": false
+      "name": "face with tongue"
     },
     {
       "emoji": "😜",
@@ -222,8 +190,7 @@ const emojiList = {
         "1F61C"
       ],
       "toned": false,
-      "name": "winking face with tongue",
-      "flagged": false
+      "name": "winking face with tongue"
     },
     {
       "emoji": "🤪",
@@ -231,8 +198,7 @@ const emojiList = {
         "1F92A"
       ],
       "toned": false,
-      "name": "zany face",
-      "flagged": false
+      "name": "zany face"
     },
     {
       "emoji": "😝",
@@ -240,8 +206,7 @@ const emojiList = {
         "1F61D"
       ],
       "toned": false,
-      "name": "squinting face with tongue",
-      "flagged": false
+      "name": "squinting face with tongue"
     },
     {
       "emoji": "🤑",
@@ -249,8 +214,7 @@ const emojiList = {
         "1F911"
       ],
       "toned": false,
-      "name": "money-mouth face",
-      "flagged": false
+      "name": "money-mouth face"
     },
     {
       "emoji": "🤗",
@@ -258,8 +222,7 @@ const emojiList = {
         "1F917"
       ],
       "toned": false,
-      "name": "hugging face",
-      "flagged": false
+      "name": "hugging face"
     },
     {
       "emoji": "🤭",
@@ -267,8 +230,7 @@ const emojiList = {
         "1F92D"
       ],
       "toned": false,
-      "name": "face with hand over mouth",
-      "flagged": false
+      "name": "face with hand over mouth"
     },
     {
       "emoji": "🤫",
@@ -276,8 +238,7 @@ const emojiList = {
         "1F92B"
       ],
       "toned": false,
-      "name": "shushing face",
-      "flagged": false
+      "name": "shushing face"
     },
     {
       "emoji": "🤔",
@@ -285,8 +246,7 @@ const emojiList = {
         "1F914"
       ],
       "toned": false,
-      "name": "thinking face",
-      "flagged": false
+      "name": "thinking face"
     },
     {
       "emoji": "🤐",
@@ -294,8 +254,7 @@ const emojiList = {
         "1F910"
       ],
       "toned": false,
-      "name": "zipper-mouth face",
-      "flagged": false
+      "name": "zipper-mouth face"
     },
     {
       "emoji": "🤨",
@@ -303,8 +262,7 @@ const emojiList = {
         "1F928"
       ],
       "toned": false,
-      "name": "face with raised eyebrow",
-      "flagged": false
+      "name": "face with raised eyebrow"
     },
     {
       "emoji": "😐",
@@ -312,8 +270,7 @@ const emojiList = {
         "1F610"
       ],
       "toned": false,
-      "name": "neutral face",
-      "flagged": false
+      "name": "neutral face"
     },
     {
       "emoji": "😑",
@@ -321,8 +278,7 @@ const emojiList = {
         "1F611"
       ],
       "toned": false,
-      "name": "expressionless face",
-      "flagged": false
+      "name": "expressionless face"
     },
     {
       "emoji": "😶",
@@ -330,8 +286,7 @@ const emojiList = {
         "1F636"
       ],
       "toned": false,
-      "name": "face without mouth",
-      "flagged": false
+      "name": "face without mouth"
     },
     {
       "emoji": "😶‍🌫️",
@@ -342,8 +297,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": false,
-      "name": "⊛ face in clouds",
-      "flagged": false
+      "name": "⊛ face in clouds"
     },
     {
       "emoji": "😏",
@@ -351,8 +305,7 @@ const emojiList = {
         "1F60F"
       ],
       "toned": false,
-      "name": "smirking face",
-      "flagged": false
+      "name": "smirking face"
     },
     {
       "emoji": "😒",
@@ -360,8 +313,7 @@ const emojiList = {
         "1F612"
       ],
       "toned": false,
-      "name": "unamused face",
-      "flagged": false
+      "name": "unamused face"
     },
     {
       "emoji": "🙄",
@@ -369,8 +321,7 @@ const emojiList = {
         "1F644"
       ],
       "toned": false,
-      "name": "face with rolling eyes",
-      "flagged": false
+      "name": "face with rolling eyes"
     },
     {
       "emoji": "😬",
@@ -378,8 +329,7 @@ const emojiList = {
         "1F62C"
       ],
       "toned": false,
-      "name": "grimacing face",
-      "flagged": false
+      "name": "grimacing face"
     },
     {
       "emoji": "😮‍💨",
@@ -389,8 +339,7 @@ const emojiList = {
         "1F4A8"
       ],
       "toned": false,
-      "name": "⊛ face exhaling",
-      "flagged": false
+      "name": "⊛ face exhaling"
     },
     {
       "emoji": "🤥",
@@ -398,8 +347,7 @@ const emojiList = {
         "1F925"
       ],
       "toned": false,
-      "name": "lying face",
-      "flagged": false
+      "name": "lying face"
     },
     {
       "emoji": "😌",
@@ -407,8 +355,7 @@ const emojiList = {
         "1F60C"
       ],
       "toned": false,
-      "name": "relieved face",
-      "flagged": false
+      "name": "relieved face"
     },
     {
       "emoji": "😔",
@@ -416,8 +363,7 @@ const emojiList = {
         "1F614"
       ],
       "toned": false,
-      "name": "pensive face",
-      "flagged": false
+      "name": "pensive face"
     },
     {
       "emoji": "😪",
@@ -425,8 +371,7 @@ const emojiList = {
         "1F62A"
       ],
       "toned": false,
-      "name": "sleepy face",
-      "flagged": false
+      "name": "sleepy face"
     },
     {
       "emoji": "🤤",
@@ -434,8 +379,7 @@ const emojiList = {
         "1F924"
       ],
       "toned": false,
-      "name": "drooling face",
-      "flagged": false
+      "name": "drooling face"
     },
     {
       "emoji": "😴",
@@ -443,8 +387,7 @@ const emojiList = {
         "1F634"
       ],
       "toned": false,
-      "name": "sleeping face",
-      "flagged": false
+      "name": "sleeping face"
     },
     {
       "emoji": "😷",
@@ -452,8 +395,7 @@ const emojiList = {
         "1F637"
       ],
       "toned": false,
-      "name": "face with medical mask",
-      "flagged": false
+      "name": "face with medical mask"
     },
     {
       "emoji": "🤒",
@@ -461,8 +403,7 @@ const emojiList = {
         "1F912"
       ],
       "toned": false,
-      "name": "face with thermometer",
-      "flagged": false
+      "name": "face with thermometer"
     },
     {
       "emoji": "🤕",
@@ -470,8 +411,7 @@ const emojiList = {
         "1F915"
       ],
       "toned": false,
-      "name": "face with head-bandage",
-      "flagged": false
+      "name": "face with head-bandage"
     },
     {
       "emoji": "🤢",
@@ -479,8 +419,7 @@ const emojiList = {
         "1F922"
       ],
       "toned": false,
-      "name": "nauseated face",
-      "flagged": false
+      "name": "nauseated face"
     },
     {
       "emoji": "🤮",
@@ -488,8 +427,7 @@ const emojiList = {
         "1F92E"
       ],
       "toned": false,
-      "name": "face vomiting",
-      "flagged": false
+      "name": "face vomiting"
     },
     {
       "emoji": "🤧",
@@ -497,8 +435,7 @@ const emojiList = {
         "1F927"
       ],
       "toned": false,
-      "name": "sneezing face",
-      "flagged": false
+      "name": "sneezing face"
     },
     {
       "emoji": "🥵",
@@ -506,8 +443,7 @@ const emojiList = {
         "1F975"
       ],
       "toned": false,
-      "name": "hot face",
-      "flagged": false
+      "name": "hot face"
     },
     {
       "emoji": "🥶",
@@ -515,8 +451,7 @@ const emojiList = {
         "1F976"
       ],
       "toned": false,
-      "name": "cold face",
-      "flagged": false
+      "name": "cold face"
     },
     {
       "emoji": "🥴",
@@ -524,8 +459,7 @@ const emojiList = {
         "1F974"
       ],
       "toned": false,
-      "name": "woozy face",
-      "flagged": false
+      "name": "woozy face"
     },
     {
       "emoji": "😵",
@@ -533,8 +467,7 @@ const emojiList = {
         "1F635"
       ],
       "toned": false,
-      "name": "knocked-out face",
-      "flagged": false
+      "name": "knocked-out face"
     },
     {
       "emoji": "😵‍💫",
@@ -544,8 +477,7 @@ const emojiList = {
         "1F4AB"
       ],
       "toned": false,
-      "name": "⊛ face with spiral eyes",
-      "flagged": false
+      "name": "⊛ face with spiral eyes"
     },
     {
       "emoji": "🤯",
@@ -553,8 +485,7 @@ const emojiList = {
         "1F92F"
       ],
       "toned": false,
-      "name": "exploding head",
-      "flagged": false
+      "name": "exploding head"
     },
     {
       "emoji": "🤠",
@@ -562,8 +493,7 @@ const emojiList = {
         "1F920"
       ],
       "toned": false,
-      "name": "cowboy hat face",
-      "flagged": false
+      "name": "cowboy hat face"
     },
     {
       "emoji": "🥳",
@@ -571,17 +501,7 @@ const emojiList = {
         "1F973"
       ],
       "toned": false,
-      "name": "partying face",
-      "flagged": false
-    },
-    {
-      "emoji": "🥸",
-      "code": [
-        "1F978"
-      ],
-      "toned": false,
-      "name": "disguised face",
-      "flagged": true
+      "name": "partying face"
     },
     {
       "emoji": "😎",
@@ -589,8 +509,7 @@ const emojiList = {
         "1F60E"
       ],
       "toned": false,
-      "name": "smiling face with sunglasses",
-      "flagged": false
+      "name": "smiling face with sunglasses"
     },
     {
       "emoji": "🤓",
@@ -598,8 +517,7 @@ const emojiList = {
         "1F913"
       ],
       "toned": false,
-      "name": "nerd face",
-      "flagged": false
+      "name": "nerd face"
     },
     {
       "emoji": "🧐",
@@ -607,8 +525,7 @@ const emojiList = {
         "1F9D0"
       ],
       "toned": false,
-      "name": "face with monocle",
-      "flagged": false
+      "name": "face with monocle"
     },
     {
       "emoji": "😕",
@@ -616,8 +533,7 @@ const emojiList = {
         "1F615"
       ],
       "toned": false,
-      "name": "confused face",
-      "flagged": false
+      "name": "confused face"
     },
     {
       "emoji": "😟",
@@ -625,8 +541,7 @@ const emojiList = {
         "1F61F"
       ],
       "toned": false,
-      "name": "worried face",
-      "flagged": false
+      "name": "worried face"
     },
     {
       "emoji": "🙁",
@@ -634,8 +549,7 @@ const emojiList = {
         "1F641"
       ],
       "toned": false,
-      "name": "slightly frowning face",
-      "flagged": false
+      "name": "slightly frowning face"
     },
     {
       "emoji": "☹",
@@ -643,8 +557,7 @@ const emojiList = {
         "2639"
       ],
       "toned": false,
-      "name": "frowning face",
-      "flagged": false
+      "name": "frowning face"
     },
     {
       "emoji": "😮",
@@ -652,8 +565,7 @@ const emojiList = {
         "1F62E"
       ],
       "toned": false,
-      "name": "face with open mouth",
-      "flagged": false
+      "name": "face with open mouth"
     },
     {
       "emoji": "😯",
@@ -661,8 +573,7 @@ const emojiList = {
         "1F62F"
       ],
       "toned": false,
-      "name": "hushed face",
-      "flagged": false
+      "name": "hushed face"
     },
     {
       "emoji": "😲",
@@ -670,8 +581,7 @@ const emojiList = {
         "1F632"
       ],
       "toned": false,
-      "name": "astonished face",
-      "flagged": false
+      "name": "astonished face"
     },
     {
       "emoji": "😳",
@@ -679,8 +589,7 @@ const emojiList = {
         "1F633"
       ],
       "toned": false,
-      "name": "flushed face",
-      "flagged": false
+      "name": "flushed face"
     },
     {
       "emoji": "🥺",
@@ -688,8 +597,7 @@ const emojiList = {
         "1F97A"
       ],
       "toned": false,
-      "name": "pleading face",
-      "flagged": false
+      "name": "pleading face"
     },
     {
       "emoji": "😦",
@@ -697,8 +605,7 @@ const emojiList = {
         "1F626"
       ],
       "toned": false,
-      "name": "frowning face with open mouth",
-      "flagged": false
+      "name": "frowning face with open mouth"
     },
     {
       "emoji": "😧",
@@ -706,8 +613,7 @@ const emojiList = {
         "1F627"
       ],
       "toned": false,
-      "name": "anguished face",
-      "flagged": false
+      "name": "anguished face"
     },
     {
       "emoji": "😨",
@@ -715,8 +621,7 @@ const emojiList = {
         "1F628"
       ],
       "toned": false,
-      "name": "fearful face",
-      "flagged": false
+      "name": "fearful face"
     },
     {
       "emoji": "😰",
@@ -724,8 +629,7 @@ const emojiList = {
         "1F630"
       ],
       "toned": false,
-      "name": "anxious face with sweat",
-      "flagged": false
+      "name": "anxious face with sweat"
     },
     {
       "emoji": "😥",
@@ -733,8 +637,7 @@ const emojiList = {
         "1F625"
       ],
       "toned": false,
-      "name": "sad but relieved face",
-      "flagged": false
+      "name": "sad but relieved face"
     },
     {
       "emoji": "😢",
@@ -742,8 +645,7 @@ const emojiList = {
         "1F622"
       ],
       "toned": false,
-      "name": "crying face",
-      "flagged": false
+      "name": "crying face"
     },
     {
       "emoji": "😭",
@@ -751,8 +653,7 @@ const emojiList = {
         "1F62D"
       ],
       "toned": false,
-      "name": "loudly crying face",
-      "flagged": false
+      "name": "loudly crying face"
     },
     {
       "emoji": "😱",
@@ -760,8 +661,7 @@ const emojiList = {
         "1F631"
       ],
       "toned": false,
-      "name": "face screaming in fear",
-      "flagged": false
+      "name": "face screaming in fear"
     },
     {
       "emoji": "😖",
@@ -769,8 +669,7 @@ const emojiList = {
         "1F616"
       ],
       "toned": false,
-      "name": "confounded face",
-      "flagged": false
+      "name": "confounded face"
     },
     {
       "emoji": "😣",
@@ -778,8 +677,7 @@ const emojiList = {
         "1F623"
       ],
       "toned": false,
-      "name": "persevering face",
-      "flagged": false
+      "name": "persevering face"
     },
     {
       "emoji": "😞",
@@ -787,8 +685,7 @@ const emojiList = {
         "1F61E"
       ],
       "toned": false,
-      "name": "disappointed face",
-      "flagged": false
+      "name": "disappointed face"
     },
     {
       "emoji": "😓",
@@ -796,8 +693,7 @@ const emojiList = {
         "1F613"
       ],
       "toned": false,
-      "name": "downcast face with sweat",
-      "flagged": false
+      "name": "downcast face with sweat"
     },
     {
       "emoji": "😩",
@@ -805,8 +701,7 @@ const emojiList = {
         "1F629"
       ],
       "toned": false,
-      "name": "weary face",
-      "flagged": false
+      "name": "weary face"
     },
     {
       "emoji": "😫",
@@ -814,8 +709,7 @@ const emojiList = {
         "1F62B"
       ],
       "toned": false,
-      "name": "tired face",
-      "flagged": false
+      "name": "tired face"
     },
     {
       "emoji": "🥱",
@@ -823,8 +717,7 @@ const emojiList = {
         "1F971"
       ],
       "toned": false,
-      "name": "yawning face",
-      "flagged": false
+      "name": "yawning face"
     },
     {
       "emoji": "😤",
@@ -832,8 +725,7 @@ const emojiList = {
         "1F624"
       ],
       "toned": false,
-      "name": "face with steam from nose",
-      "flagged": false
+      "name": "face with steam from nose"
     },
     {
       "emoji": "😡",
@@ -841,8 +733,7 @@ const emojiList = {
         "1F621"
       ],
       "toned": false,
-      "name": "pouting face",
-      "flagged": false
+      "name": "pouting face"
     },
     {
       "emoji": "😠",
@@ -850,8 +741,7 @@ const emojiList = {
         "1F620"
       ],
       "toned": false,
-      "name": "angry face",
-      "flagged": false
+      "name": "angry face"
     },
     {
       "emoji": "🤬",
@@ -859,8 +749,7 @@ const emojiList = {
         "1F92C"
       ],
       "toned": false,
-      "name": "face with symbols on mouth",
-      "flagged": false
+      "name": "face with symbols on mouth"
     },
     {
       "emoji": "😈",
@@ -868,8 +757,7 @@ const emojiList = {
         "1F608"
       ],
       "toned": false,
-      "name": "smiling face with horns",
-      "flagged": false
+      "name": "smiling face with horns"
     },
     {
       "emoji": "👿",
@@ -877,8 +765,7 @@ const emojiList = {
         "1F47F"
       ],
       "toned": false,
-      "name": "angry face with horns",
-      "flagged": false
+      "name": "angry face with horns"
     },
     {
       "emoji": "💀",
@@ -886,8 +773,7 @@ const emojiList = {
         "1F480"
       ],
       "toned": false,
-      "name": "skull",
-      "flagged": false
+      "name": "skull"
     },
     {
       "emoji": "☠",
@@ -895,8 +781,7 @@ const emojiList = {
         "2620"
       ],
       "toned": false,
-      "name": "skull and crossbones",
-      "flagged": false
+      "name": "skull and crossbones"
     },
     {
       "emoji": "💩",
@@ -904,8 +789,7 @@ const emojiList = {
         "1F4A9"
       ],
       "toned": false,
-      "name": "pile of poo",
-      "flagged": false
+      "name": "pile of poo"
     },
     {
       "emoji": "🤡",
@@ -913,8 +797,7 @@ const emojiList = {
         "1F921"
       ],
       "toned": false,
-      "name": "clown face",
-      "flagged": false
+      "name": "clown face"
     },
     {
       "emoji": "👹",
@@ -922,8 +805,7 @@ const emojiList = {
         "1F479"
       ],
       "toned": false,
-      "name": "ogre",
-      "flagged": false
+      "name": "ogre"
     },
     {
       "emoji": "👺",
@@ -931,8 +813,7 @@ const emojiList = {
         "1F47A"
       ],
       "toned": false,
-      "name": "goblin",
-      "flagged": false
+      "name": "goblin"
     },
     {
       "emoji": "👻",
@@ -940,8 +821,7 @@ const emojiList = {
         "1F47B"
       ],
       "toned": false,
-      "name": "ghost",
-      "flagged": false
+      "name": "ghost"
     },
     {
       "emoji": "👽",
@@ -949,8 +829,7 @@ const emojiList = {
         "1F47D"
       ],
       "toned": false,
-      "name": "alien",
-      "flagged": false
+      "name": "alien"
     },
     {
       "emoji": "👾",
@@ -958,8 +837,7 @@ const emojiList = {
         "1F47E"
       ],
       "toned": false,
-      "name": "alien monster",
-      "flagged": false
+      "name": "alien monster"
     },
     {
       "emoji": "🤖",
@@ -967,8 +845,7 @@ const emojiList = {
         "1F916"
       ],
       "toned": false,
-      "name": "robot",
-      "flagged": false
+      "name": "robot"
     },
     {
       "emoji": "😺",
@@ -976,8 +853,7 @@ const emojiList = {
         "1F63A"
       ],
       "toned": false,
-      "name": "grinning cat",
-      "flagged": false
+      "name": "grinning cat"
     },
     {
       "emoji": "😸",
@@ -985,8 +861,7 @@ const emojiList = {
         "1F638"
       ],
       "toned": false,
-      "name": "grinning cat with smiling eyes",
-      "flagged": false
+      "name": "grinning cat with smiling eyes"
     },
     {
       "emoji": "😹",
@@ -994,8 +869,7 @@ const emojiList = {
         "1F639"
       ],
       "toned": false,
-      "name": "cat with tears of joy",
-      "flagged": false
+      "name": "cat with tears of joy"
     },
     {
       "emoji": "😻",
@@ -1003,8 +877,7 @@ const emojiList = {
         "1F63B"
       ],
       "toned": false,
-      "name": "smiling cat with heart-eyes",
-      "flagged": false
+      "name": "smiling cat with heart-eyes"
     },
     {
       "emoji": "😼",
@@ -1012,8 +885,7 @@ const emojiList = {
         "1F63C"
       ],
       "toned": false,
-      "name": "cat with wry smile",
-      "flagged": false
+      "name": "cat with wry smile"
     },
     {
       "emoji": "😽",
@@ -1021,8 +893,7 @@ const emojiList = {
         "1F63D"
       ],
       "toned": false,
-      "name": "kissing cat",
-      "flagged": false
+      "name": "kissing cat"
     },
     {
       "emoji": "🙀",
@@ -1030,8 +901,7 @@ const emojiList = {
         "1F640"
       ],
       "toned": false,
-      "name": "weary cat",
-      "flagged": false
+      "name": "weary cat"
     },
     {
       "emoji": "😿",
@@ -1039,8 +909,7 @@ const emojiList = {
         "1F63F"
       ],
       "toned": false,
-      "name": "crying cat",
-      "flagged": false
+      "name": "crying cat"
     },
     {
       "emoji": "😾",
@@ -1048,8 +917,7 @@ const emojiList = {
         "1F63E"
       ],
       "toned": false,
-      "name": "pouting cat",
-      "flagged": false
+      "name": "pouting cat"
     },
     {
       "emoji": "🙈",
@@ -1057,8 +925,7 @@ const emojiList = {
         "1F648"
       ],
       "toned": false,
-      "name": "see-no-evil monkey",
-      "flagged": false
+      "name": "see-no-evil monkey"
     },
     {
       "emoji": "🙉",
@@ -1066,8 +933,7 @@ const emojiList = {
         "1F649"
       ],
       "toned": false,
-      "name": "hear-no-evil monkey",
-      "flagged": false
+      "name": "hear-no-evil monkey"
     },
     {
       "emoji": "🙊",
@@ -1075,19 +941,15 @@ const emojiList = {
         "1F64A"
       ],
       "toned": false,
-      "name": "speak-no-evil monkey",
-      "flagged": false
-    }
-  ],
-  "Emotions": [
+      "name": "speak-no-evil monkey"
+    },
     {
       "emoji": "💋",
       "code": [
         "1F48B"
       ],
       "toned": false,
-      "name": "kiss mark",
-      "flagged": false
+      "name": "kiss mark"
     },
     {
       "emoji": "💌",
@@ -1095,17 +957,17 @@ const emojiList = {
         "1F48C"
       ],
       "toned": false,
-      "name": "love letter",
-      "flagged": false
-    },
+      "name": "love letter"
+    }
+  ],
+  "Emotions": [
     {
       "emoji": "💘",
       "code": [
         "1F498"
       ],
       "toned": false,
-      "name": "heart with arrow",
-      "flagged": false
+      "name": "heart with arrow"
     },
     {
       "emoji": "💝",
@@ -1113,8 +975,7 @@ const emojiList = {
         "1F49D"
       ],
       "toned": false,
-      "name": "heart with ribbon",
-      "flagged": false
+      "name": "heart with ribbon"
     },
     {
       "emoji": "💖",
@@ -1122,8 +983,7 @@ const emojiList = {
         "1F496"
       ],
       "toned": false,
-      "name": "sparkling heart",
-      "flagged": false
+      "name": "sparkling heart"
     },
     {
       "emoji": "💗",
@@ -1131,8 +991,7 @@ const emojiList = {
         "1F497"
       ],
       "toned": false,
-      "name": "growing heart",
-      "flagged": false
+      "name": "growing heart"
     },
     {
       "emoji": "💓",
@@ -1140,8 +999,7 @@ const emojiList = {
         "1F493"
       ],
       "toned": false,
-      "name": "beating heart",
-      "flagged": false
+      "name": "beating heart"
     },
     {
       "emoji": "💞",
@@ -1149,8 +1007,7 @@ const emojiList = {
         "1F49E"
       ],
       "toned": false,
-      "name": "revolving hearts",
-      "flagged": false
+      "name": "revolving hearts"
     },
     {
       "emoji": "💕",
@@ -1158,8 +1015,7 @@ const emojiList = {
         "1F495"
       ],
       "toned": false,
-      "name": "two hearts",
-      "flagged": false
+      "name": "two hearts"
     },
     {
       "emoji": "💟",
@@ -1167,8 +1023,7 @@ const emojiList = {
         "1F49F"
       ],
       "toned": false,
-      "name": "heart decoration",
-      "flagged": false
+      "name": "heart decoration"
     },
     {
       "emoji": "❣",
@@ -1176,8 +1031,7 @@ const emojiList = {
         "2763"
       ],
       "toned": false,
-      "name": "heart exclamation",
-      "flagged": false
+      "name": "heart exclamation"
     },
     {
       "emoji": "💔",
@@ -1185,8 +1039,7 @@ const emojiList = {
         "1F494"
       ],
       "toned": false,
-      "name": "broken heart",
-      "flagged": false
+      "name": "broken heart"
     },
     {
       "emoji": "❤️‍🔥",
@@ -1197,8 +1050,7 @@ const emojiList = {
         "1F525"
       ],
       "toned": false,
-      "name": "⊛ heart on fire",
-      "flagged": false
+      "name": "⊛ heart on fire"
     },
     {
       "emoji": "❤️‍🩹",
@@ -1209,8 +1061,7 @@ const emojiList = {
         "1FA79"
       ],
       "toned": false,
-      "name": "⊛ mending heart",
-      "flagged": false
+      "name": "⊛ mending heart"
     },
     {
       "emoji": "❤",
@@ -1218,8 +1069,7 @@ const emojiList = {
         "2764"
       ],
       "toned": false,
-      "name": "red heart",
-      "flagged": false
+      "name": "red heart"
     },
     {
       "emoji": "🧡",
@@ -1227,8 +1077,7 @@ const emojiList = {
         "1F9E1"
       ],
       "toned": false,
-      "name": "orange heart",
-      "flagged": false
+      "name": "orange heart"
     },
     {
       "emoji": "💛",
@@ -1236,8 +1085,7 @@ const emojiList = {
         "1F49B"
       ],
       "toned": false,
-      "name": "yellow heart",
-      "flagged": false
+      "name": "yellow heart"
     },
     {
       "emoji": "💚",
@@ -1245,8 +1093,7 @@ const emojiList = {
         "1F49A"
       ],
       "toned": false,
-      "name": "green heart",
-      "flagged": false
+      "name": "green heart"
     },
     {
       "emoji": "💙",
@@ -1254,8 +1101,7 @@ const emojiList = {
         "1F499"
       ],
       "toned": false,
-      "name": "blue heart",
-      "flagged": false
+      "name": "blue heart"
     },
     {
       "emoji": "💜",
@@ -1263,8 +1109,7 @@ const emojiList = {
         "1F49C"
       ],
       "toned": false,
-      "name": "purple heart",
-      "flagged": false
+      "name": "purple heart"
     },
     {
       "emoji": "🤎",
@@ -1272,8 +1117,7 @@ const emojiList = {
         "1F90E"
       ],
       "toned": false,
-      "name": "brown heart",
-      "flagged": false
+      "name": "brown heart"
     },
     {
       "emoji": "🖤",
@@ -1281,8 +1125,7 @@ const emojiList = {
         "1F5A4"
       ],
       "toned": false,
-      "name": "black heart",
-      "flagged": false
+      "name": "black heart"
     },
     {
       "emoji": "🤍",
@@ -1290,8 +1133,7 @@ const emojiList = {
         "1F90D"
       ],
       "toned": false,
-      "name": "white heart",
-      "flagged": false
+      "name": "white heart"
     },
     {
       "emoji": "💯",
@@ -1299,8 +1141,7 @@ const emojiList = {
         "1F4AF"
       ],
       "toned": false,
-      "name": "hundred points",
-      "flagged": false
+      "name": "hundred points"
     },
     {
       "emoji": "💢",
@@ -1308,8 +1149,7 @@ const emojiList = {
         "1F4A2"
       ],
       "toned": false,
-      "name": "anger symbol",
-      "flagged": false
+      "name": "anger symbol"
     },
     {
       "emoji": "💥",
@@ -1317,8 +1157,7 @@ const emojiList = {
         "1F4A5"
       ],
       "toned": false,
-      "name": "collision",
-      "flagged": false
+      "name": "collision"
     },
     {
       "emoji": "💫",
@@ -1326,8 +1165,7 @@ const emojiList = {
         "1F4AB"
       ],
       "toned": false,
-      "name": "dizzy",
-      "flagged": false
+      "name": "dizzy"
     },
     {
       "emoji": "💦",
@@ -1335,8 +1173,7 @@ const emojiList = {
         "1F4A6"
       ],
       "toned": false,
-      "name": "sweat droplets",
-      "flagged": false
+      "name": "sweat droplets"
     },
     {
       "emoji": "💨",
@@ -1344,8 +1181,7 @@ const emojiList = {
         "1F4A8"
       ],
       "toned": false,
-      "name": "dashing away",
-      "flagged": false
+      "name": "dashing away"
     },
     {
       "emoji": "🕳",
@@ -1353,8 +1189,7 @@ const emojiList = {
         "1F573"
       ],
       "toned": false,
-      "name": "hole",
-      "flagged": false
+      "name": "hole"
     },
     {
       "emoji": "💣",
@@ -1362,8 +1197,7 @@ const emojiList = {
         "1F4A3"
       ],
       "toned": false,
-      "name": "bomb",
-      "flagged": false
+      "name": "bomb"
     },
     {
       "emoji": "💬",
@@ -1371,8 +1205,7 @@ const emojiList = {
         "1F4AC"
       ],
       "toned": false,
-      "name": "speech balloon",
-      "flagged": false
+      "name": "speech balloon"
     },
     {
       "emoji": "👁️‍🗨️",
@@ -1384,8 +1217,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": false,
-      "name": "eye in speech bubble",
-      "flagged": false
+      "name": "eye in speech bubble"
     },
     {
       "emoji": "🗨",
@@ -1393,8 +1225,7 @@ const emojiList = {
         "1F5E8"
       ],
       "toned": false,
-      "name": "left speech bubble",
-      "flagged": false
+      "name": "left speech bubble"
     },
     {
       "emoji": "🗯",
@@ -1402,8 +1233,7 @@ const emojiList = {
         "1F5EF"
       ],
       "toned": false,
-      "name": "right anger bubble",
-      "flagged": false
+      "name": "right anger bubble"
     },
     {
       "emoji": "💭",
@@ -1411,8 +1241,7 @@ const emojiList = {
         "1F4AD"
       ],
       "toned": false,
-      "name": "thought balloon",
-      "flagged": false
+      "name": "thought balloon"
     },
     {
       "emoji": "💤",
@@ -1420,19 +1249,15 @@ const emojiList = {
         "1F4A4"
       ],
       "toned": false,
-      "name": "zzz",
-      "flagged": false
-    }
-  ],
-  "Body Parts": [
+      "name": "zzz"
+    },
     {
       "emoji": "👋",
       "code": [
         "1F44B"
       ],
       "toned": true,
-      "name": "waving hand",
-      "flagged": false
+      "name": "waving hand"
     },
     {
       "emoji": "🤚",
@@ -1440,17 +1265,17 @@ const emojiList = {
         "1F91A"
       ],
       "toned": true,
-      "name": "raised back of hand",
-      "flagged": false
-    },
+      "name": "raised back of hand"
+    }
+  ],
+  "Body Parts": [
     {
       "emoji": "🖐",
       "code": [
         "1F590"
       ],
       "toned": true,
-      "name": "hand with fingers splayed",
-      "flagged": false
+      "name": "hand with fingers splayed"
     },
     {
       "emoji": "✋",
@@ -1458,8 +1283,7 @@ const emojiList = {
         "270B"
       ],
       "toned": true,
-      "name": "raised hand",
-      "flagged": false
+      "name": "raised hand"
     },
     {
       "emoji": "🖖",
@@ -1467,8 +1291,7 @@ const emojiList = {
         "1F596"
       ],
       "toned": true,
-      "name": "vulcan salute",
-      "flagged": false
+      "name": "vulcan salute"
     },
     {
       "emoji": "👌",
@@ -1476,17 +1299,7 @@ const emojiList = {
         "1F44C"
       ],
       "toned": true,
-      "name": "OK hand",
-      "flagged": false
-    },
-    {
-      "emoji": "🤌",
-      "code": [
-        "1F90C"
-      ],
-      "toned": true,
-      "name": "pinched fingers",
-      "flagged": true
+      "name": "OK hand"
     },
     {
       "emoji": "🤏",
@@ -1494,8 +1307,7 @@ const emojiList = {
         "1F90F"
       ],
       "toned": true,
-      "name": "pinching hand",
-      "flagged": false
+      "name": "pinching hand"
     },
     {
       "emoji": "✌",
@@ -1503,8 +1315,7 @@ const emojiList = {
         "270C"
       ],
       "toned": true,
-      "name": "victory hand",
-      "flagged": false
+      "name": "victory hand"
     },
     {
       "emoji": "🤞",
@@ -1512,8 +1323,7 @@ const emojiList = {
         "1F91E"
       ],
       "toned": true,
-      "name": "crossed fingers",
-      "flagged": false
+      "name": "crossed fingers"
     },
     {
       "emoji": "🤟",
@@ -1521,8 +1331,7 @@ const emojiList = {
         "1F91F"
       ],
       "toned": true,
-      "name": "love-you gesture",
-      "flagged": false
+      "name": "love-you gesture"
     },
     {
       "emoji": "🤘",
@@ -1530,8 +1339,7 @@ const emojiList = {
         "1F918"
       ],
       "toned": true,
-      "name": "sign of the horns",
-      "flagged": false
+      "name": "sign of the horns"
     },
     {
       "emoji": "🤙",
@@ -1539,8 +1347,7 @@ const emojiList = {
         "1F919"
       ],
       "toned": true,
-      "name": "call me hand",
-      "flagged": false
+      "name": "call me hand"
     },
     {
       "emoji": "👈",
@@ -1548,8 +1355,7 @@ const emojiList = {
         "1F448"
       ],
       "toned": true,
-      "name": "backhand index pointing left",
-      "flagged": false
+      "name": "backhand index pointing left"
     },
     {
       "emoji": "👉",
@@ -1557,8 +1363,7 @@ const emojiList = {
         "1F449"
       ],
       "toned": true,
-      "name": "backhand index pointing right",
-      "flagged": false
+      "name": "backhand index pointing right"
     },
     {
       "emoji": "👆",
@@ -1566,8 +1371,7 @@ const emojiList = {
         "1F446"
       ],
       "toned": true,
-      "name": "backhand index pointing up",
-      "flagged": false
+      "name": "backhand index pointing up"
     },
     {
       "emoji": "🖕",
@@ -1575,8 +1379,7 @@ const emojiList = {
         "1F595"
       ],
       "toned": true,
-      "name": "middle finger",
-      "flagged": false
+      "name": "middle finger"
     },
     {
       "emoji": "👇",
@@ -1584,8 +1387,7 @@ const emojiList = {
         "1F447"
       ],
       "toned": true,
-      "name": "backhand index pointing down",
-      "flagged": false
+      "name": "backhand index pointing down"
     },
     {
       "emoji": "☝",
@@ -1593,8 +1395,7 @@ const emojiList = {
         "261D"
       ],
       "toned": true,
-      "name": "index pointing up",
-      "flagged": false
+      "name": "index pointing up"
     },
     {
       "emoji": "👍",
@@ -1602,8 +1403,7 @@ const emojiList = {
         "1F44D"
       ],
       "toned": true,
-      "name": "thumbs up",
-      "flagged": false
+      "name": "thumbs up"
     },
     {
       "emoji": "👎",
@@ -1611,8 +1411,7 @@ const emojiList = {
         "1F44E"
       ],
       "toned": true,
-      "name": "thumbs down",
-      "flagged": false
+      "name": "thumbs down"
     },
     {
       "emoji": "✊",
@@ -1620,8 +1419,7 @@ const emojiList = {
         "270A"
       ],
       "toned": true,
-      "name": "raised fist",
-      "flagged": false
+      "name": "raised fist"
     },
     {
       "emoji": "👊",
@@ -1629,8 +1427,7 @@ const emojiList = {
         "1F44A"
       ],
       "toned": true,
-      "name": "oncoming fist",
-      "flagged": false
+      "name": "oncoming fist"
     },
     {
       "emoji": "🤛",
@@ -1638,8 +1435,7 @@ const emojiList = {
         "1F91B"
       ],
       "toned": true,
-      "name": "left-facing fist",
-      "flagged": false
+      "name": "left-facing fist"
     },
     {
       "emoji": "🤜",
@@ -1647,8 +1443,7 @@ const emojiList = {
         "1F91C"
       ],
       "toned": true,
-      "name": "right-facing fist",
-      "flagged": false
+      "name": "right-facing fist"
     },
     {
       "emoji": "👏",
@@ -1656,8 +1451,7 @@ const emojiList = {
         "1F44F"
       ],
       "toned": true,
-      "name": "clapping hands",
-      "flagged": false
+      "name": "clapping hands"
     },
     {
       "emoji": "🙌",
@@ -1665,8 +1459,7 @@ const emojiList = {
         "1F64C"
       ],
       "toned": true,
-      "name": "raising hands",
-      "flagged": false
+      "name": "raising hands"
     },
     {
       "emoji": "👐",
@@ -1674,8 +1467,7 @@ const emojiList = {
         "1F450"
       ],
       "toned": true,
-      "name": "open hands",
-      "flagged": false
+      "name": "open hands"
     },
     {
       "emoji": "🤲",
@@ -1683,8 +1475,7 @@ const emojiList = {
         "1F932"
       ],
       "toned": true,
-      "name": "palms up together",
-      "flagged": false
+      "name": "palms up together"
     },
     {
       "emoji": "🤝",
@@ -1692,8 +1483,7 @@ const emojiList = {
         "1F91D"
       ],
       "toned": false,
-      "name": "handshake",
-      "flagged": false
+      "name": "handshake"
     },
     {
       "emoji": "🙏",
@@ -1701,8 +1491,7 @@ const emojiList = {
         "1F64F"
       ],
       "toned": true,
-      "name": "folded hands",
-      "flagged": false
+      "name": "folded hands"
     },
     {
       "emoji": "✍",
@@ -1710,8 +1499,7 @@ const emojiList = {
         "270D"
       ],
       "toned": true,
-      "name": "writing hand",
-      "flagged": false
+      "name": "writing hand"
     },
     {
       "emoji": "💅",
@@ -1719,8 +1507,7 @@ const emojiList = {
         "1F485"
       ],
       "toned": true,
-      "name": "nail polish",
-      "flagged": false
+      "name": "nail polish"
     },
     {
       "emoji": "🤳",
@@ -1728,8 +1515,7 @@ const emojiList = {
         "1F933"
       ],
       "toned": true,
-      "name": "selfie",
-      "flagged": false
+      "name": "selfie"
     },
     {
       "emoji": "💪",
@@ -1737,8 +1523,7 @@ const emojiList = {
         "1F4AA"
       ],
       "toned": true,
-      "name": "flexed biceps",
-      "flagged": false
+      "name": "flexed biceps"
     },
     {
       "emoji": "🦾",
@@ -1746,8 +1531,7 @@ const emojiList = {
         "1F9BE"
       ],
       "toned": false,
-      "name": "mechanical arm",
-      "flagged": false
+      "name": "mechanical arm"
     },
     {
       "emoji": "🦿",
@@ -1755,8 +1539,7 @@ const emojiList = {
         "1F9BF"
       ],
       "toned": false,
-      "name": "mechanical leg",
-      "flagged": false
+      "name": "mechanical leg"
     },
     {
       "emoji": "🦵",
@@ -1764,8 +1547,7 @@ const emojiList = {
         "1F9B5"
       ],
       "toned": true,
-      "name": "leg",
-      "flagged": false
+      "name": "leg"
     },
     {
       "emoji": "🦶",
@@ -1773,8 +1555,7 @@ const emojiList = {
         "1F9B6"
       ],
       "toned": true,
-      "name": "foot",
-      "flagged": false
+      "name": "foot"
     },
     {
       "emoji": "👂",
@@ -1782,8 +1563,7 @@ const emojiList = {
         "1F442"
       ],
       "toned": true,
-      "name": "ear",
-      "flagged": false
+      "name": "ear"
     },
     {
       "emoji": "🦻",
@@ -1791,8 +1571,7 @@ const emojiList = {
         "1F9BB"
       ],
       "toned": true,
-      "name": "ear with hearing aid",
-      "flagged": false
+      "name": "ear with hearing aid"
     },
     {
       "emoji": "👃",
@@ -1800,8 +1579,7 @@ const emojiList = {
         "1F443"
       ],
       "toned": true,
-      "name": "nose",
-      "flagged": false
+      "name": "nose"
     },
     {
       "emoji": "🧠",
@@ -1809,26 +1587,7 @@ const emojiList = {
         "1F9E0"
       ],
       "toned": false,
-      "name": "brain",
-      "flagged": false
-    },
-    {
-      "emoji": "🫀",
-      "code": [
-        "1FAC0"
-      ],
-      "toned": false,
-      "name": "anatomical heart",
-      "flagged": true
-    },
-    {
-      "emoji": "🫁",
-      "code": [
-        "1FAC1"
-      ],
-      "toned": false,
-      "name": "lungs",
-      "flagged": true
+      "name": "brain"
     },
     {
       "emoji": "🦷",
@@ -1836,8 +1595,7 @@ const emojiList = {
         "1F9B7"
       ],
       "toned": false,
-      "name": "tooth",
-      "flagged": false
+      "name": "tooth"
     },
     {
       "emoji": "🦴",
@@ -1845,8 +1603,7 @@ const emojiList = {
         "1F9B4"
       ],
       "toned": false,
-      "name": "bone",
-      "flagged": false
+      "name": "bone"
     },
     {
       "emoji": "👀",
@@ -1854,8 +1611,7 @@ const emojiList = {
         "1F440"
       ],
       "toned": false,
-      "name": "eyes",
-      "flagged": false
+      "name": "eyes"
     },
     {
       "emoji": "👁",
@@ -1863,8 +1619,7 @@ const emojiList = {
         "1F441"
       ],
       "toned": false,
-      "name": "eye",
-      "flagged": false
+      "name": "eye"
     },
     {
       "emoji": "👅",
@@ -1872,8 +1627,7 @@ const emojiList = {
         "1F445"
       ],
       "toned": false,
-      "name": "tongue",
-      "flagged": false
+      "name": "tongue"
     },
     {
       "emoji": "👄",
@@ -1881,19 +1635,15 @@ const emojiList = {
         "1F444"
       ],
       "toned": false,
-      "name": "mouth",
-      "flagged": false
-    }
-  ],
-  "People": [
+      "name": "mouth"
+    },
     {
       "emoji": "👶",
       "code": [
         "1F476"
       ],
       "toned": true,
-      "name": "baby",
-      "flagged": false
+      "name": "baby"
     },
     {
       "emoji": "🧒",
@@ -1901,8 +1651,7 @@ const emojiList = {
         "1F9D2"
       ],
       "toned": true,
-      "name": "child",
-      "flagged": false
+      "name": "child"
     },
     {
       "emoji": "👦",
@@ -1910,8 +1659,7 @@ const emojiList = {
         "1F466"
       ],
       "toned": true,
-      "name": "boy",
-      "flagged": false
+      "name": "boy"
     },
     {
       "emoji": "👧",
@@ -1919,8 +1667,7 @@ const emojiList = {
         "1F467"
       ],
       "toned": true,
-      "name": "girl",
-      "flagged": false
+      "name": "girl"
     },
     {
       "emoji": "🧑",
@@ -1928,17 +1675,17 @@ const emojiList = {
         "1F9D1"
       ],
       "toned": true,
-      "name": "person",
-      "flagged": false
-    },
+      "name": "person"
+    }
+  ],
+  "People": [
     {
       "emoji": "👱",
       "code": [
         "1F471"
       ],
       "toned": true,
-      "name": "person: blond hair",
-      "flagged": false
+      "name": "person: blond hair"
     },
     {
       "emoji": "👨",
@@ -1946,8 +1693,7 @@ const emojiList = {
         "1F468"
       ],
       "toned": true,
-      "name": "man",
-      "flagged": false
+      "name": "man"
     },
     {
       "emoji": "🧔",
@@ -1955,8 +1701,7 @@ const emojiList = {
         "1F9D4"
       ],
       "toned": true,
-      "name": "person: beard",
-      "flagged": false
+      "name": "person: beard"
     },
     {
       "emoji": "🧔‍♂️",
@@ -1967,8 +1712,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "⊛ man: beard",
-      "flagged": false
+      "name": "⊛ man: beard"
     },
     {
       "emoji": "🧔‍♀️",
@@ -1979,8 +1723,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "⊛ woman: beard",
-      "flagged": false
+      "name": "⊛ woman: beard"
     },
     {
       "emoji": "👨‍🦰",
@@ -1990,8 +1733,7 @@ const emojiList = {
         "1F9B0"
       ],
       "toned": true,
-      "name": "man: red hair",
-      "flagged": false
+      "name": "man: red hair"
     },
     {
       "emoji": "👨‍🦱",
@@ -2001,8 +1743,7 @@ const emojiList = {
         "1F9B1"
       ],
       "toned": true,
-      "name": "man: curly hair",
-      "flagged": false
+      "name": "man: curly hair"
     },
     {
       "emoji": "👨‍🦳",
@@ -2012,8 +1753,7 @@ const emojiList = {
         "1F9B3"
       ],
       "toned": true,
-      "name": "man: white hair",
-      "flagged": false
+      "name": "man: white hair"
     },
     {
       "emoji": "👨‍🦲",
@@ -2023,8 +1763,7 @@ const emojiList = {
         "1F9B2"
       ],
       "toned": true,
-      "name": "man: bald",
-      "flagged": false
+      "name": "man: bald"
     },
     {
       "emoji": "👩",
@@ -2032,8 +1771,7 @@ const emojiList = {
         "1F469"
       ],
       "toned": true,
-      "name": "woman",
-      "flagged": false
+      "name": "woman"
     },
     {
       "emoji": "👩‍🦰",
@@ -2043,8 +1781,7 @@ const emojiList = {
         "1F9B0"
       ],
       "toned": true,
-      "name": "woman: red hair",
-      "flagged": false
+      "name": "woman: red hair"
     },
     {
       "emoji": "🧑‍🦰",
@@ -2054,8 +1791,7 @@ const emojiList = {
         "1F9B0"
       ],
       "toned": true,
-      "name": "person: red hair",
-      "flagged": false
+      "name": "person: red hair"
     },
     {
       "emoji": "👩‍🦱",
@@ -2065,8 +1801,7 @@ const emojiList = {
         "1F9B1"
       ],
       "toned": true,
-      "name": "woman: curly hair",
-      "flagged": false
+      "name": "woman: curly hair"
     },
     {
       "emoji": "🧑‍🦱",
@@ -2076,8 +1811,7 @@ const emojiList = {
         "1F9B1"
       ],
       "toned": true,
-      "name": "person: curly hair",
-      "flagged": false
+      "name": "person: curly hair"
     },
     {
       "emoji": "👩‍🦳",
@@ -2087,8 +1821,7 @@ const emojiList = {
         "1F9B3"
       ],
       "toned": true,
-      "name": "woman: white hair",
-      "flagged": false
+      "name": "woman: white hair"
     },
     {
       "emoji": "🧑‍🦳",
@@ -2098,8 +1831,7 @@ const emojiList = {
         "1F9B3"
       ],
       "toned": true,
-      "name": "person: white hair",
-      "flagged": false
+      "name": "person: white hair"
     },
     {
       "emoji": "👩‍🦲",
@@ -2109,8 +1841,7 @@ const emojiList = {
         "1F9B2"
       ],
       "toned": true,
-      "name": "woman: bald",
-      "flagged": false
+      "name": "woman: bald"
     },
     {
       "emoji": "🧑‍🦲",
@@ -2120,8 +1851,7 @@ const emojiList = {
         "1F9B2"
       ],
       "toned": true,
-      "name": "person: bald",
-      "flagged": false
+      "name": "person: bald"
     },
     {
       "emoji": "👱‍♀️",
@@ -2132,8 +1862,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman: blond hair",
-      "flagged": false
+      "name": "woman: blond hair"
     },
     {
       "emoji": "👱‍♂️",
@@ -2144,8 +1873,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man: blond hair",
-      "flagged": false
+      "name": "man: blond hair"
     },
     {
       "emoji": "🧓",
@@ -2153,8 +1881,7 @@ const emojiList = {
         "1F9D3"
       ],
       "toned": true,
-      "name": "older person",
-      "flagged": false
+      "name": "older person"
     },
     {
       "emoji": "👴",
@@ -2162,8 +1889,7 @@ const emojiList = {
         "1F474"
       ],
       "toned": true,
-      "name": "old man",
-      "flagged": false
+      "name": "old man"
     },
     {
       "emoji": "👵",
@@ -2171,8 +1897,7 @@ const emojiList = {
         "1F475"
       ],
       "toned": true,
-      "name": "old woman",
-      "flagged": false
+      "name": "old woman"
     },
     {
       "emoji": "🙍",
@@ -2180,8 +1905,7 @@ const emojiList = {
         "1F64D"
       ],
       "toned": true,
-      "name": "person frowning",
-      "flagged": false
+      "name": "person frowning"
     },
     {
       "emoji": "🙍‍♂️",
@@ -2192,8 +1916,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man frowning",
-      "flagged": false
+      "name": "man frowning"
     },
     {
       "emoji": "🙍‍♀️",
@@ -2204,8 +1927,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman frowning",
-      "flagged": false
+      "name": "woman frowning"
     },
     {
       "emoji": "🙎",
@@ -2213,8 +1935,7 @@ const emojiList = {
         "1F64E"
       ],
       "toned": true,
-      "name": "person pouting",
-      "flagged": false
+      "name": "person pouting"
     },
     {
       "emoji": "🙎‍♂️",
@@ -2225,8 +1946,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man pouting",
-      "flagged": false
+      "name": "man pouting"
     },
     {
       "emoji": "🙎‍♀️",
@@ -2237,8 +1957,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman pouting",
-      "flagged": false
+      "name": "woman pouting"
     },
     {
       "emoji": "🙅",
@@ -2246,8 +1965,7 @@ const emojiList = {
         "1F645"
       ],
       "toned": true,
-      "name": "person gesturing NO",
-      "flagged": false
+      "name": "person gesturing NO"
     },
     {
       "emoji": "🙅‍♂️",
@@ -2258,8 +1976,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man gesturing NO",
-      "flagged": false
+      "name": "man gesturing NO"
     },
     {
       "emoji": "🙅‍♀️",
@@ -2270,8 +1987,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman gesturing NO",
-      "flagged": false
+      "name": "woman gesturing NO"
     },
     {
       "emoji": "🙆",
@@ -2279,8 +1995,7 @@ const emojiList = {
         "1F646"
       ],
       "toned": true,
-      "name": "person gesturing OK",
-      "flagged": false
+      "name": "person gesturing OK"
     },
     {
       "emoji": "🙆‍♂️",
@@ -2291,8 +2006,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man gesturing OK",
-      "flagged": false
+      "name": "man gesturing OK"
     },
     {
       "emoji": "🙆‍♀️",
@@ -2303,8 +2017,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman gesturing OK",
-      "flagged": false
+      "name": "woman gesturing OK"
     },
     {
       "emoji": "💁",
@@ -2312,8 +2025,7 @@ const emojiList = {
         "1F481"
       ],
       "toned": true,
-      "name": "person tipping hand",
-      "flagged": false
+      "name": "person tipping hand"
     },
     {
       "emoji": "💁‍♂️",
@@ -2324,8 +2036,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man tipping hand",
-      "flagged": false
+      "name": "man tipping hand"
     },
     {
       "emoji": "💁‍♀️",
@@ -2336,8 +2047,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman tipping hand",
-      "flagged": false
+      "name": "woman tipping hand"
     },
     {
       "emoji": "🙋",
@@ -2345,8 +2055,7 @@ const emojiList = {
         "1F64B"
       ],
       "toned": true,
-      "name": "person raising hand",
-      "flagged": false
+      "name": "person raising hand"
     },
     {
       "emoji": "🙋‍♂️",
@@ -2357,8 +2066,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man raising hand",
-      "flagged": false
+      "name": "man raising hand"
     },
     {
       "emoji": "🙋‍♀️",
@@ -2369,8 +2077,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman raising hand",
-      "flagged": false
+      "name": "woman raising hand"
     },
     {
       "emoji": "🧏",
@@ -2378,8 +2085,7 @@ const emojiList = {
         "1F9CF"
       ],
       "toned": true,
-      "name": "deaf person",
-      "flagged": false
+      "name": "deaf person"
     },
     {
       "emoji": "🧏‍♂️",
@@ -2390,8 +2096,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "deaf man",
-      "flagged": false
+      "name": "deaf man"
     },
     {
       "emoji": "🧏‍♀️",
@@ -2402,8 +2107,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "deaf woman",
-      "flagged": false
+      "name": "deaf woman"
     },
     {
       "emoji": "🙇",
@@ -2411,8 +2115,7 @@ const emojiList = {
         "1F647"
       ],
       "toned": true,
-      "name": "person bowing",
-      "flagged": false
+      "name": "person bowing"
     },
     {
       "emoji": "🙇‍♂️",
@@ -2423,8 +2126,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man bowing",
-      "flagged": false
+      "name": "man bowing"
     },
     {
       "emoji": "🙇‍♀️",
@@ -2435,8 +2137,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman bowing",
-      "flagged": false
+      "name": "woman bowing"
     },
     {
       "emoji": "🤦",
@@ -2444,8 +2145,7 @@ const emojiList = {
         "1F926"
       ],
       "toned": true,
-      "name": "person facepalming",
-      "flagged": false
+      "name": "person facepalming"
     },
     {
       "emoji": "🤦‍♂️",
@@ -2456,8 +2156,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man facepalming",
-      "flagged": false
+      "name": "man facepalming"
     },
     {
       "emoji": "🤦‍♀️",
@@ -2468,8 +2167,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman facepalming",
-      "flagged": false
+      "name": "woman facepalming"
     },
     {
       "emoji": "🤷",
@@ -2477,8 +2175,7 @@ const emojiList = {
         "1F937"
       ],
       "toned": true,
-      "name": "person shrugging",
-      "flagged": false
+      "name": "person shrugging"
     },
     {
       "emoji": "🤷‍♂️",
@@ -2489,8 +2186,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man shrugging",
-      "flagged": false
+      "name": "man shrugging"
     },
     {
       "emoji": "🤷‍♀️",
@@ -2501,8 +2197,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman shrugging",
-      "flagged": false
+      "name": "woman shrugging"
     },
     {
       "emoji": "🧑‍⚕️",
@@ -2513,8 +2208,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "health worker",
-      "flagged": false
+      "name": "health worker"
     },
     {
       "emoji": "👨‍⚕️",
@@ -2525,8 +2219,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man health worker",
-      "flagged": false
+      "name": "man health worker"
     },
     {
       "emoji": "👩‍⚕️",
@@ -2537,8 +2230,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman health worker",
-      "flagged": false
+      "name": "woman health worker"
     },
     {
       "emoji": "🧑‍🎓",
@@ -2548,8 +2240,7 @@ const emojiList = {
         "1F393"
       ],
       "toned": true,
-      "name": "student",
-      "flagged": false
+      "name": "student"
     },
     {
       "emoji": "👨‍🎓",
@@ -2559,8 +2250,7 @@ const emojiList = {
         "1F393"
       ],
       "toned": true,
-      "name": "man student",
-      "flagged": false
+      "name": "man student"
     },
     {
       "emoji": "👩‍🎓",
@@ -2570,8 +2260,7 @@ const emojiList = {
         "1F393"
       ],
       "toned": true,
-      "name": "woman student",
-      "flagged": false
+      "name": "woman student"
     },
     {
       "emoji": "🧑‍🏫",
@@ -2581,8 +2270,7 @@ const emojiList = {
         "1F3EB"
       ],
       "toned": true,
-      "name": "teacher",
-      "flagged": false
+      "name": "teacher"
     },
     {
       "emoji": "👨‍🏫",
@@ -2592,8 +2280,7 @@ const emojiList = {
         "1F3EB"
       ],
       "toned": true,
-      "name": "man teacher",
-      "flagged": false
+      "name": "man teacher"
     },
     {
       "emoji": "👩‍🏫",
@@ -2603,8 +2290,7 @@ const emojiList = {
         "1F3EB"
       ],
       "toned": true,
-      "name": "woman teacher",
-      "flagged": false
+      "name": "woman teacher"
     },
     {
       "emoji": "🧑‍⚖️",
@@ -2615,8 +2301,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "judge",
-      "flagged": false
+      "name": "judge"
     },
     {
       "emoji": "👨‍⚖️",
@@ -2627,8 +2312,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man judge",
-      "flagged": false
+      "name": "man judge"
     },
     {
       "emoji": "👩‍⚖️",
@@ -2639,8 +2323,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman judge",
-      "flagged": false
+      "name": "woman judge"
     },
     {
       "emoji": "🧑‍🌾",
@@ -2650,8 +2333,7 @@ const emojiList = {
         "1F33E"
       ],
       "toned": true,
-      "name": "farmer",
-      "flagged": false
+      "name": "farmer"
     },
     {
       "emoji": "👨‍🌾",
@@ -2661,8 +2343,7 @@ const emojiList = {
         "1F33E"
       ],
       "toned": true,
-      "name": "man farmer",
-      "flagged": false
+      "name": "man farmer"
     },
     {
       "emoji": "👩‍🌾",
@@ -2672,8 +2353,7 @@ const emojiList = {
         "1F33E"
       ],
       "toned": true,
-      "name": "woman farmer",
-      "flagged": false
+      "name": "woman farmer"
     },
     {
       "emoji": "🧑‍🍳",
@@ -2683,8 +2363,7 @@ const emojiList = {
         "1F373"
       ],
       "toned": true,
-      "name": "cook",
-      "flagged": false
+      "name": "cook"
     },
     {
       "emoji": "👨‍🍳",
@@ -2694,8 +2373,7 @@ const emojiList = {
         "1F373"
       ],
       "toned": true,
-      "name": "man cook",
-      "flagged": false
+      "name": "man cook"
     },
     {
       "emoji": "👩‍🍳",
@@ -2705,8 +2383,7 @@ const emojiList = {
         "1F373"
       ],
       "toned": true,
-      "name": "woman cook",
-      "flagged": false
+      "name": "woman cook"
     },
     {
       "emoji": "🧑‍🔧",
@@ -2716,8 +2393,7 @@ const emojiList = {
         "1F527"
       ],
       "toned": true,
-      "name": "mechanic",
-      "flagged": false
+      "name": "mechanic"
     },
     {
       "emoji": "👨‍🔧",
@@ -2727,8 +2403,7 @@ const emojiList = {
         "1F527"
       ],
       "toned": true,
-      "name": "man mechanic",
-      "flagged": false
+      "name": "man mechanic"
     },
     {
       "emoji": "👩‍🔧",
@@ -2738,8 +2413,7 @@ const emojiList = {
         "1F527"
       ],
       "toned": true,
-      "name": "woman mechanic",
-      "flagged": false
+      "name": "woman mechanic"
     },
     {
       "emoji": "🧑‍🏭",
@@ -2749,8 +2423,7 @@ const emojiList = {
         "1F3ED"
       ],
       "toned": true,
-      "name": "factory worker",
-      "flagged": false
+      "name": "factory worker"
     },
     {
       "emoji": "👨‍🏭",
@@ -2760,8 +2433,7 @@ const emojiList = {
         "1F3ED"
       ],
       "toned": true,
-      "name": "man factory worker",
-      "flagged": false
+      "name": "man factory worker"
     },
     {
       "emoji": "👩‍🏭",
@@ -2771,8 +2443,7 @@ const emojiList = {
         "1F3ED"
       ],
       "toned": true,
-      "name": "woman factory worker",
-      "flagged": false
+      "name": "woman factory worker"
     },
     {
       "emoji": "🧑‍💼",
@@ -2782,8 +2453,7 @@ const emojiList = {
         "1F4BC"
       ],
       "toned": true,
-      "name": "office worker",
-      "flagged": false
+      "name": "office worker"
     },
     {
       "emoji": "👨‍💼",
@@ -2793,8 +2463,7 @@ const emojiList = {
         "1F4BC"
       ],
       "toned": true,
-      "name": "man office worker",
-      "flagged": false
+      "name": "man office worker"
     },
     {
       "emoji": "👩‍💼",
@@ -2804,8 +2473,7 @@ const emojiList = {
         "1F4BC"
       ],
       "toned": true,
-      "name": "woman office worker",
-      "flagged": false
+      "name": "woman office worker"
     },
     {
       "emoji": "🧑‍🔬",
@@ -2815,8 +2483,7 @@ const emojiList = {
         "1F52C"
       ],
       "toned": true,
-      "name": "scientist",
-      "flagged": false
+      "name": "scientist"
     },
     {
       "emoji": "👨‍🔬",
@@ -2826,8 +2493,7 @@ const emojiList = {
         "1F52C"
       ],
       "toned": true,
-      "name": "man scientist",
-      "flagged": false
+      "name": "man scientist"
     },
     {
       "emoji": "👩‍🔬",
@@ -2837,8 +2503,7 @@ const emojiList = {
         "1F52C"
       ],
       "toned": true,
-      "name": "woman scientist",
-      "flagged": false
+      "name": "woman scientist"
     },
     {
       "emoji": "🧑‍💻",
@@ -2848,8 +2513,7 @@ const emojiList = {
         "1F4BB"
       ],
       "toned": true,
-      "name": "technologist",
-      "flagged": false
+      "name": "technologist"
     },
     {
       "emoji": "👨‍💻",
@@ -2859,8 +2523,7 @@ const emojiList = {
         "1F4BB"
       ],
       "toned": true,
-      "name": "man technologist",
-      "flagged": false
+      "name": "man technologist"
     },
     {
       "emoji": "👩‍💻",
@@ -2870,8 +2533,7 @@ const emojiList = {
         "1F4BB"
       ],
       "toned": true,
-      "name": "woman technologist",
-      "flagged": false
+      "name": "woman technologist"
     },
     {
       "emoji": "🧑‍🎤",
@@ -2881,8 +2543,7 @@ const emojiList = {
         "1F3A4"
       ],
       "toned": true,
-      "name": "singer",
-      "flagged": false
+      "name": "singer"
     },
     {
       "emoji": "👨‍🎤",
@@ -2892,8 +2553,7 @@ const emojiList = {
         "1F3A4"
       ],
       "toned": true,
-      "name": "man singer",
-      "flagged": false
+      "name": "man singer"
     },
     {
       "emoji": "👩‍🎤",
@@ -2903,8 +2563,7 @@ const emojiList = {
         "1F3A4"
       ],
       "toned": true,
-      "name": "woman singer",
-      "flagged": false
+      "name": "woman singer"
     },
     {
       "emoji": "🧑‍🎨",
@@ -2914,8 +2573,7 @@ const emojiList = {
         "1F3A8"
       ],
       "toned": true,
-      "name": "artist",
-      "flagged": false
+      "name": "artist"
     },
     {
       "emoji": "👨‍🎨",
@@ -2925,8 +2583,7 @@ const emojiList = {
         "1F3A8"
       ],
       "toned": true,
-      "name": "man artist",
-      "flagged": false
+      "name": "man artist"
     },
     {
       "emoji": "👩‍🎨",
@@ -2936,8 +2593,7 @@ const emojiList = {
         "1F3A8"
       ],
       "toned": true,
-      "name": "woman artist",
-      "flagged": false
+      "name": "woman artist"
     },
     {
       "emoji": "🧑‍✈️",
@@ -2948,8 +2604,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "pilot",
-      "flagged": false
+      "name": "pilot"
     },
     {
       "emoji": "👨‍✈️",
@@ -2960,8 +2615,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man pilot",
-      "flagged": false
+      "name": "man pilot"
     },
     {
       "emoji": "👩‍✈️",
@@ -2972,8 +2626,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman pilot",
-      "flagged": false
+      "name": "woman pilot"
     },
     {
       "emoji": "🧑‍🚀",
@@ -2983,8 +2636,7 @@ const emojiList = {
         "1F680"
       ],
       "toned": true,
-      "name": "astronaut",
-      "flagged": false
+      "name": "astronaut"
     },
     {
       "emoji": "👨‍🚀",
@@ -2994,8 +2646,7 @@ const emojiList = {
         "1F680"
       ],
       "toned": true,
-      "name": "man astronaut",
-      "flagged": false
+      "name": "man astronaut"
     },
     {
       "emoji": "👩‍🚀",
@@ -3005,8 +2656,7 @@ const emojiList = {
         "1F680"
       ],
       "toned": true,
-      "name": "woman astronaut",
-      "flagged": false
+      "name": "woman astronaut"
     },
     {
       "emoji": "🧑‍🚒",
@@ -3016,8 +2666,7 @@ const emojiList = {
         "1F692"
       ],
       "toned": true,
-      "name": "firefighter",
-      "flagged": false
+      "name": "firefighter"
     },
     {
       "emoji": "👨‍🚒",
@@ -3027,8 +2676,7 @@ const emojiList = {
         "1F692"
       ],
       "toned": true,
-      "name": "man firefighter",
-      "flagged": false
+      "name": "man firefighter"
     },
     {
       "emoji": "👩‍🚒",
@@ -3038,8 +2686,7 @@ const emojiList = {
         "1F692"
       ],
       "toned": true,
-      "name": "woman firefighter",
-      "flagged": false
+      "name": "woman firefighter"
     },
     {
       "emoji": "👮",
@@ -3047,8 +2694,7 @@ const emojiList = {
         "1F46E"
       ],
       "toned": true,
-      "name": "police officer",
-      "flagged": false
+      "name": "police officer"
     },
     {
       "emoji": "👮‍♂️",
@@ -3059,8 +2705,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man police officer",
-      "flagged": false
+      "name": "man police officer"
     },
     {
       "emoji": "👮‍♀️",
@@ -3071,8 +2716,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman police officer",
-      "flagged": false
+      "name": "woman police officer"
     },
     {
       "emoji": "🕵",
@@ -3080,8 +2724,7 @@ const emojiList = {
         "1F575"
       ],
       "toned": true,
-      "name": "detective",
-      "flagged": false
+      "name": "detective"
     },
     {
       "emoji": "🕵️‍♂️",
@@ -3093,8 +2736,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man detective",
-      "flagged": false
+      "name": "man detective"
     },
     {
       "emoji": "🕵️‍♀️",
@@ -3106,8 +2748,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman detective",
-      "flagged": false
+      "name": "woman detective"
     },
     {
       "emoji": "💂",
@@ -3115,8 +2756,7 @@ const emojiList = {
         "1F482"
       ],
       "toned": true,
-      "name": "guard",
-      "flagged": false
+      "name": "guard"
     },
     {
       "emoji": "💂‍♂️",
@@ -3127,8 +2767,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man guard",
-      "flagged": false
+      "name": "man guard"
     },
     {
       "emoji": "💂‍♀️",
@@ -3139,17 +2778,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman guard",
-      "flagged": false
-    },
-    {
-      "emoji": "🥷",
-      "code": [
-        "1F977"
-      ],
-      "toned": true,
-      "name": "ninja",
-      "flagged": true
+      "name": "woman guard"
     },
     {
       "emoji": "👷",
@@ -3157,8 +2786,7 @@ const emojiList = {
         "1F477"
       ],
       "toned": true,
-      "name": "construction worker",
-      "flagged": false
+      "name": "construction worker"
     },
     {
       "emoji": "👷‍♂️",
@@ -3169,8 +2797,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man construction worker",
-      "flagged": false
+      "name": "man construction worker"
     },
     {
       "emoji": "👷‍♀️",
@@ -3181,8 +2808,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman construction worker",
-      "flagged": false
+      "name": "woman construction worker"
     },
     {
       "emoji": "🤴",
@@ -3190,8 +2816,7 @@ const emojiList = {
         "1F934"
       ],
       "toned": true,
-      "name": "prince",
-      "flagged": false
+      "name": "prince"
     },
     {
       "emoji": "👸",
@@ -3199,8 +2824,7 @@ const emojiList = {
         "1F478"
       ],
       "toned": true,
-      "name": "princess",
-      "flagged": false
+      "name": "princess"
     },
     {
       "emoji": "👳",
@@ -3208,8 +2832,7 @@ const emojiList = {
         "1F473"
       ],
       "toned": true,
-      "name": "person wearing turban",
-      "flagged": false
+      "name": "person wearing turban"
     },
     {
       "emoji": "👳‍♂️",
@@ -3220,8 +2843,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man wearing turban",
-      "flagged": false
+      "name": "man wearing turban"
     },
     {
       "emoji": "👳‍♀️",
@@ -3232,8 +2854,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman wearing turban",
-      "flagged": false
+      "name": "woman wearing turban"
     },
     {
       "emoji": "👲",
@@ -3241,8 +2862,7 @@ const emojiList = {
         "1F472"
       ],
       "toned": true,
-      "name": "person with skullcap",
-      "flagged": false
+      "name": "person with skullcap"
     },
     {
       "emoji": "🧕",
@@ -3250,8 +2870,7 @@ const emojiList = {
         "1F9D5"
       ],
       "toned": true,
-      "name": "woman with headscarf",
-      "flagged": false
+      "name": "woman with headscarf"
     },
     {
       "emoji": "🤵",
@@ -3259,8 +2878,7 @@ const emojiList = {
         "1F935"
       ],
       "toned": true,
-      "name": "person in tuxedo",
-      "flagged": false
+      "name": "person in tuxedo"
     },
     {
       "emoji": "🤵‍♂️",
@@ -3271,8 +2889,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man in tuxedo",
-      "flagged": false
+      "name": "man in tuxedo"
     },
     {
       "emoji": "🤵‍♀️",
@@ -3283,8 +2900,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman in tuxedo",
-      "flagged": false
+      "name": "woman in tuxedo"
     },
     {
       "emoji": "👰",
@@ -3292,8 +2908,7 @@ const emojiList = {
         "1F470"
       ],
       "toned": true,
-      "name": "person with veil",
-      "flagged": false
+      "name": "person with veil"
     },
     {
       "emoji": "👰‍♂️",
@@ -3304,8 +2919,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man with veil",
-      "flagged": false
+      "name": "man with veil"
     },
     {
       "emoji": "👰‍♀️",
@@ -3316,8 +2930,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman with veil",
-      "flagged": false
+      "name": "woman with veil"
     },
     {
       "emoji": "🤰",
@@ -3325,8 +2938,7 @@ const emojiList = {
         "1F930"
       ],
       "toned": true,
-      "name": "pregnant woman",
-      "flagged": false
+      "name": "pregnant woman"
     },
     {
       "emoji": "🤱",
@@ -3334,8 +2946,7 @@ const emojiList = {
         "1F931"
       ],
       "toned": true,
-      "name": "breast-feeding",
-      "flagged": false
+      "name": "breast-feeding"
     },
     {
       "emoji": "👩‍🍼",
@@ -3345,8 +2956,7 @@ const emojiList = {
         "1F37C"
       ],
       "toned": true,
-      "name": "woman feeding baby",
-      "flagged": false
+      "name": "woman feeding baby"
     },
     {
       "emoji": "👨‍🍼",
@@ -3356,8 +2966,7 @@ const emojiList = {
         "1F37C"
       ],
       "toned": true,
-      "name": "man feeding baby",
-      "flagged": false
+      "name": "man feeding baby"
     },
     {
       "emoji": "🧑‍🍼",
@@ -3367,8 +2976,7 @@ const emojiList = {
         "1F37C"
       ],
       "toned": true,
-      "name": "person feeding baby",
-      "flagged": false
+      "name": "person feeding baby"
     },
     {
       "emoji": "👼",
@@ -3376,8 +2984,7 @@ const emojiList = {
         "1F47C"
       ],
       "toned": true,
-      "name": "baby angel",
-      "flagged": false
+      "name": "baby angel"
     },
     {
       "emoji": "🎅",
@@ -3385,8 +2992,7 @@ const emojiList = {
         "1F385"
       ],
       "toned": true,
-      "name": "Santa Claus",
-      "flagged": false
+      "name": "Santa Claus"
     },
     {
       "emoji": "🤶",
@@ -3394,8 +3000,7 @@ const emojiList = {
         "1F936"
       ],
       "toned": true,
-      "name": "Mrs. Claus",
-      "flagged": false
+      "name": "Mrs. Claus"
     },
     {
       "emoji": "🧑‍🎄",
@@ -3405,8 +3010,7 @@ const emojiList = {
         "1F384"
       ],
       "toned": true,
-      "name": "mx claus",
-      "flagged": false
+      "name": "mx claus"
     },
     {
       "emoji": "🦸",
@@ -3414,8 +3018,7 @@ const emojiList = {
         "1F9B8"
       ],
       "toned": true,
-      "name": "superhero",
-      "flagged": false
+      "name": "superhero"
     },
     {
       "emoji": "🦸‍♂️",
@@ -3426,8 +3029,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man superhero",
-      "flagged": false
+      "name": "man superhero"
     },
     {
       "emoji": "🦸‍♀️",
@@ -3438,8 +3040,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman superhero",
-      "flagged": false
+      "name": "woman superhero"
     },
     {
       "emoji": "🦹",
@@ -3447,8 +3048,7 @@ const emojiList = {
         "1F9B9"
       ],
       "toned": true,
-      "name": "supervillain",
-      "flagged": false
+      "name": "supervillain"
     },
     {
       "emoji": "🦹‍♂️",
@@ -3459,8 +3059,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man supervillain",
-      "flagged": false
+      "name": "man supervillain"
     },
     {
       "emoji": "🦹‍♀️",
@@ -3471,8 +3070,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman supervillain",
-      "flagged": false
+      "name": "woman supervillain"
     },
     {
       "emoji": "🧙",
@@ -3480,8 +3078,7 @@ const emojiList = {
         "1F9D9"
       ],
       "toned": true,
-      "name": "mage",
-      "flagged": false
+      "name": "mage"
     },
     {
       "emoji": "🧙‍♂️",
@@ -3492,8 +3089,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man mage",
-      "flagged": false
+      "name": "man mage"
     },
     {
       "emoji": "🧙‍♀️",
@@ -3504,8 +3100,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman mage",
-      "flagged": false
+      "name": "woman mage"
     },
     {
       "emoji": "🧚",
@@ -3513,8 +3108,7 @@ const emojiList = {
         "1F9DA"
       ],
       "toned": true,
-      "name": "fairy",
-      "flagged": false
+      "name": "fairy"
     },
     {
       "emoji": "🧚‍♂️",
@@ -3525,8 +3119,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man fairy",
-      "flagged": false
+      "name": "man fairy"
     },
     {
       "emoji": "🧚‍♀️",
@@ -3537,8 +3130,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman fairy",
-      "flagged": false
+      "name": "woman fairy"
     },
     {
       "emoji": "🧛",
@@ -3546,8 +3138,7 @@ const emojiList = {
         "1F9DB"
       ],
       "toned": true,
-      "name": "vampire",
-      "flagged": false
+      "name": "vampire"
     },
     {
       "emoji": "🧛‍♂️",
@@ -3558,8 +3149,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man vampire",
-      "flagged": false
+      "name": "man vampire"
     },
     {
       "emoji": "🧛‍♀️",
@@ -3570,8 +3160,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman vampire",
-      "flagged": false
+      "name": "woman vampire"
     },
     {
       "emoji": "🧜",
@@ -3579,8 +3168,7 @@ const emojiList = {
         "1F9DC"
       ],
       "toned": true,
-      "name": "merperson",
-      "flagged": false
+      "name": "merperson"
     },
     {
       "emoji": "🧜‍♂️",
@@ -3591,8 +3179,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "merman",
-      "flagged": false
+      "name": "merman"
     },
     {
       "emoji": "🧜‍♀️",
@@ -3603,8 +3190,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "mermaid",
-      "flagged": false
+      "name": "mermaid"
     },
     {
       "emoji": "🧝",
@@ -3612,8 +3198,7 @@ const emojiList = {
         "1F9DD"
       ],
       "toned": true,
-      "name": "elf",
-      "flagged": false
+      "name": "elf"
     },
     {
       "emoji": "🧝‍♂️",
@@ -3624,8 +3209,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man elf",
-      "flagged": false
+      "name": "man elf"
     },
     {
       "emoji": "🧝‍♀️",
@@ -3636,8 +3220,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman elf",
-      "flagged": false
+      "name": "woman elf"
     },
     {
       "emoji": "🧞",
@@ -3645,8 +3228,7 @@ const emojiList = {
         "1F9DE"
       ],
       "toned": false,
-      "name": "genie",
-      "flagged": false
+      "name": "genie"
     },
     {
       "emoji": "🧞‍♂️",
@@ -3657,8 +3239,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": false,
-      "name": "man genie",
-      "flagged": false
+      "name": "man genie"
     },
     {
       "emoji": "🧞‍♀️",
@@ -3669,8 +3250,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": false,
-      "name": "woman genie",
-      "flagged": false
+      "name": "woman genie"
     },
     {
       "emoji": "🧟",
@@ -3678,8 +3258,7 @@ const emojiList = {
         "1F9DF"
       ],
       "toned": false,
-      "name": "zombie",
-      "flagged": false
+      "name": "zombie"
     },
     {
       "emoji": "🧟‍♂️",
@@ -3690,8 +3269,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": false,
-      "name": "man zombie",
-      "flagged": false
+      "name": "man zombie"
     },
     {
       "emoji": "🧟‍♀️",
@@ -3702,8 +3280,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": false,
-      "name": "woman zombie",
-      "flagged": false
+      "name": "woman zombie"
     },
     {
       "emoji": "💆",
@@ -3711,8 +3288,7 @@ const emojiList = {
         "1F486"
       ],
       "toned": true,
-      "name": "person getting massage",
-      "flagged": false
+      "name": "person getting massage"
     },
     {
       "emoji": "💆‍♂️",
@@ -3723,8 +3299,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man getting massage",
-      "flagged": false
+      "name": "man getting massage"
     },
     {
       "emoji": "💆‍♀️",
@@ -3735,8 +3310,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman getting massage",
-      "flagged": false
+      "name": "woman getting massage"
     },
     {
       "emoji": "💇",
@@ -3744,8 +3318,7 @@ const emojiList = {
         "1F487"
       ],
       "toned": true,
-      "name": "person getting haircut",
-      "flagged": false
+      "name": "person getting haircut"
     },
     {
       "emoji": "💇‍♂️",
@@ -3756,8 +3329,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man getting haircut",
-      "flagged": false
+      "name": "man getting haircut"
     },
     {
       "emoji": "💇‍♀️",
@@ -3768,8 +3340,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman getting haircut",
-      "flagged": false
+      "name": "woman getting haircut"
     },
     {
       "emoji": "🚶",
@@ -3777,8 +3348,7 @@ const emojiList = {
         "1F6B6"
       ],
       "toned": true,
-      "name": "person walking",
-      "flagged": false
+      "name": "person walking"
     },
     {
       "emoji": "🚶‍♂️",
@@ -3789,8 +3359,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man walking",
-      "flagged": false
+      "name": "man walking"
     },
     {
       "emoji": "🚶‍♀️",
@@ -3801,8 +3370,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman walking",
-      "flagged": false
+      "name": "woman walking"
     },
     {
       "emoji": "🧍",
@@ -3810,8 +3378,7 @@ const emojiList = {
         "1F9CD"
       ],
       "toned": true,
-      "name": "person standing",
-      "flagged": false
+      "name": "person standing"
     },
     {
       "emoji": "🧍‍♂️",
@@ -3822,8 +3389,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man standing",
-      "flagged": false
+      "name": "man standing"
     },
     {
       "emoji": "🧍‍♀️",
@@ -3834,8 +3400,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman standing",
-      "flagged": false
+      "name": "woman standing"
     },
     {
       "emoji": "🧎",
@@ -3843,8 +3408,7 @@ const emojiList = {
         "1F9CE"
       ],
       "toned": true,
-      "name": "person kneeling",
-      "flagged": false
+      "name": "person kneeling"
     },
     {
       "emoji": "🧎‍♂️",
@@ -3855,8 +3419,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man kneeling",
-      "flagged": false
+      "name": "man kneeling"
     },
     {
       "emoji": "🧎‍♀️",
@@ -3867,8 +3430,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman kneeling",
-      "flagged": false
+      "name": "woman kneeling"
     },
     {
       "emoji": "🧑‍🦯",
@@ -3878,8 +3440,7 @@ const emojiList = {
         "1F9AF"
       ],
       "toned": true,
-      "name": "person with white cane",
-      "flagged": false
+      "name": "person with white cane"
     },
     {
       "emoji": "👨‍🦯",
@@ -3889,8 +3450,7 @@ const emojiList = {
         "1F9AF"
       ],
       "toned": true,
-      "name": "man with white cane",
-      "flagged": false
+      "name": "man with white cane"
     },
     {
       "emoji": "👩‍🦯",
@@ -3900,8 +3460,7 @@ const emojiList = {
         "1F9AF"
       ],
       "toned": true,
-      "name": "woman with white cane",
-      "flagged": false
+      "name": "woman with white cane"
     },
     {
       "emoji": "🧑‍🦼",
@@ -3911,8 +3470,7 @@ const emojiList = {
         "1F9BC"
       ],
       "toned": true,
-      "name": "person in motorized wheelchair",
-      "flagged": false
+      "name": "person in motorized wheelchair"
     },
     {
       "emoji": "👨‍🦼",
@@ -3922,8 +3480,7 @@ const emojiList = {
         "1F9BC"
       ],
       "toned": true,
-      "name": "man in motorized wheelchair",
-      "flagged": false
+      "name": "man in motorized wheelchair"
     },
     {
       "emoji": "👩‍🦼",
@@ -3933,8 +3490,7 @@ const emojiList = {
         "1F9BC"
       ],
       "toned": true,
-      "name": "woman in motorized wheelchair",
-      "flagged": false
+      "name": "woman in motorized wheelchair"
     },
     {
       "emoji": "🧑‍🦽",
@@ -3944,8 +3500,7 @@ const emojiList = {
         "1F9BD"
       ],
       "toned": true,
-      "name": "person in manual wheelchair",
-      "flagged": false
+      "name": "person in manual wheelchair"
     },
     {
       "emoji": "👨‍🦽",
@@ -3955,8 +3510,7 @@ const emojiList = {
         "1F9BD"
       ],
       "toned": true,
-      "name": "man in manual wheelchair",
-      "flagged": false
+      "name": "man in manual wheelchair"
     },
     {
       "emoji": "👩‍🦽",
@@ -3966,8 +3520,7 @@ const emojiList = {
         "1F9BD"
       ],
       "toned": true,
-      "name": "woman in manual wheelchair",
-      "flagged": false
+      "name": "woman in manual wheelchair"
     },
     {
       "emoji": "🏃",
@@ -3975,8 +3528,7 @@ const emojiList = {
         "1F3C3"
       ],
       "toned": true,
-      "name": "person running",
-      "flagged": false
+      "name": "person running"
     },
     {
       "emoji": "🏃‍♂️",
@@ -3987,8 +3539,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man running",
-      "flagged": false
+      "name": "man running"
     },
     {
       "emoji": "🏃‍♀️",
@@ -3999,8 +3550,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman running",
-      "flagged": false
+      "name": "woman running"
     },
     {
       "emoji": "💃",
@@ -4008,8 +3558,7 @@ const emojiList = {
         "1F483"
       ],
       "toned": true,
-      "name": "woman dancing",
-      "flagged": false
+      "name": "woman dancing"
     },
     {
       "emoji": "🕺",
@@ -4017,8 +3566,7 @@ const emojiList = {
         "1F57A"
       ],
       "toned": true,
-      "name": "man dancing",
-      "flagged": false
+      "name": "man dancing"
     },
     {
       "emoji": "🕴",
@@ -4026,8 +3574,7 @@ const emojiList = {
         "1F574"
       ],
       "toned": true,
-      "name": "person in suit levitating",
-      "flagged": false
+      "name": "person in suit levitating"
     },
     {
       "emoji": "👯",
@@ -4035,8 +3582,7 @@ const emojiList = {
         "1F46F"
       ],
       "toned": false,
-      "name": "people with bunny ears",
-      "flagged": false
+      "name": "people with bunny ears"
     },
     {
       "emoji": "👯‍♂️",
@@ -4047,8 +3593,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": false,
-      "name": "men with bunny ears",
-      "flagged": false
+      "name": "men with bunny ears"
     },
     {
       "emoji": "👯‍♀️",
@@ -4059,8 +3604,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": false,
-      "name": "women with bunny ears",
-      "flagged": false
+      "name": "women with bunny ears"
     },
     {
       "emoji": "🧖",
@@ -4068,8 +3612,7 @@ const emojiList = {
         "1F9D6"
       ],
       "toned": true,
-      "name": "person in steamy room",
-      "flagged": false
+      "name": "person in steamy room"
     },
     {
       "emoji": "🧖‍♂️",
@@ -4080,8 +3623,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man in steamy room",
-      "flagged": false
+      "name": "man in steamy room"
     },
     {
       "emoji": "🧖‍♀️",
@@ -4092,8 +3634,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman in steamy room",
-      "flagged": false
+      "name": "woman in steamy room"
     },
     {
       "emoji": "🧗",
@@ -4101,8 +3642,7 @@ const emojiList = {
         "1F9D7"
       ],
       "toned": true,
-      "name": "person climbing",
-      "flagged": false
+      "name": "person climbing"
     },
     {
       "emoji": "🧗‍♂️",
@@ -4113,8 +3653,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man climbing",
-      "flagged": false
+      "name": "man climbing"
     },
     {
       "emoji": "🧗‍♀️",
@@ -4125,8 +3664,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman climbing",
-      "flagged": false
+      "name": "woman climbing"
     },
     {
       "emoji": "🤺",
@@ -4134,8 +3672,7 @@ const emojiList = {
         "1F93A"
       ],
       "toned": false,
-      "name": "person fencing",
-      "flagged": false
+      "name": "person fencing"
     },
     {
       "emoji": "🏇",
@@ -4143,8 +3680,7 @@ const emojiList = {
         "1F3C7"
       ],
       "toned": true,
-      "name": "horse racing",
-      "flagged": false
+      "name": "horse racing"
     },
     {
       "emoji": "⛷",
@@ -4152,8 +3688,7 @@ const emojiList = {
         "26F7"
       ],
       "toned": false,
-      "name": "skier",
-      "flagged": false
+      "name": "skier"
     },
     {
       "emoji": "🏂",
@@ -4161,8 +3696,7 @@ const emojiList = {
         "1F3C2"
       ],
       "toned": true,
-      "name": "snowboarder",
-      "flagged": false
+      "name": "snowboarder"
     },
     {
       "emoji": "🏌",
@@ -4170,8 +3704,7 @@ const emojiList = {
         "1F3CC"
       ],
       "toned": true,
-      "name": "person golfing",
-      "flagged": false
+      "name": "person golfing"
     },
     {
       "emoji": "🏌️‍♂️",
@@ -4183,8 +3716,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man golfing",
-      "flagged": false
+      "name": "man golfing"
     },
     {
       "emoji": "🏌️‍♀️",
@@ -4196,8 +3728,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman golfing",
-      "flagged": false
+      "name": "woman golfing"
     },
     {
       "emoji": "🏄",
@@ -4205,8 +3736,7 @@ const emojiList = {
         "1F3C4"
       ],
       "toned": true,
-      "name": "person surfing",
-      "flagged": false
+      "name": "person surfing"
     },
     {
       "emoji": "🏄‍♂️",
@@ -4217,8 +3747,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man surfing",
-      "flagged": false
+      "name": "man surfing"
     },
     {
       "emoji": "🏄‍♀️",
@@ -4229,8 +3758,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman surfing",
-      "flagged": false
+      "name": "woman surfing"
     },
     {
       "emoji": "🚣",
@@ -4238,8 +3766,7 @@ const emojiList = {
         "1F6A3"
       ],
       "toned": true,
-      "name": "person rowing boat",
-      "flagged": false
+      "name": "person rowing boat"
     },
     {
       "emoji": "🚣‍♂️",
@@ -4250,8 +3777,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man rowing boat",
-      "flagged": false
+      "name": "man rowing boat"
     },
     {
       "emoji": "🚣‍♀️",
@@ -4262,8 +3788,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman rowing boat",
-      "flagged": false
+      "name": "woman rowing boat"
     },
     {
       "emoji": "🏊",
@@ -4271,8 +3796,7 @@ const emojiList = {
         "1F3CA"
       ],
       "toned": true,
-      "name": "person swimming",
-      "flagged": false
+      "name": "person swimming"
     },
     {
       "emoji": "🏊‍♂️",
@@ -4283,8 +3807,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man swimming",
-      "flagged": false
+      "name": "man swimming"
     },
     {
       "emoji": "🏊‍♀️",
@@ -4295,8 +3818,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman swimming",
-      "flagged": false
+      "name": "woman swimming"
     },
     {
       "emoji": "⛹",
@@ -4304,8 +3826,7 @@ const emojiList = {
         "26F9"
       ],
       "toned": true,
-      "name": "person bouncing ball",
-      "flagged": false
+      "name": "person bouncing ball"
     },
     {
       "emoji": "⛹️‍♂️",
@@ -4317,8 +3838,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man bouncing ball",
-      "flagged": false
+      "name": "man bouncing ball"
     },
     {
       "emoji": "⛹️‍♀️",
@@ -4330,8 +3850,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman bouncing ball",
-      "flagged": false
+      "name": "woman bouncing ball"
     },
     {
       "emoji": "🏋",
@@ -4339,8 +3858,7 @@ const emojiList = {
         "1F3CB"
       ],
       "toned": true,
-      "name": "person lifting weights",
-      "flagged": false
+      "name": "person lifting weights"
     },
     {
       "emoji": "🏋️‍♂️",
@@ -4352,8 +3870,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man lifting weights",
-      "flagged": false
+      "name": "man lifting weights"
     },
     {
       "emoji": "🏋️‍♀️",
@@ -4365,8 +3882,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman lifting weights",
-      "flagged": false
+      "name": "woman lifting weights"
     },
     {
       "emoji": "🚴",
@@ -4374,8 +3890,7 @@ const emojiList = {
         "1F6B4"
       ],
       "toned": true,
-      "name": "person biking",
-      "flagged": false
+      "name": "person biking"
     },
     {
       "emoji": "🚴‍♂️",
@@ -4386,8 +3901,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man biking",
-      "flagged": false
+      "name": "man biking"
     },
     {
       "emoji": "🚴‍♀️",
@@ -4398,8 +3912,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman biking",
-      "flagged": false
+      "name": "woman biking"
     },
     {
       "emoji": "🚵",
@@ -4407,8 +3920,7 @@ const emojiList = {
         "1F6B5"
       ],
       "toned": true,
-      "name": "person mountain biking",
-      "flagged": false
+      "name": "person mountain biking"
     },
     {
       "emoji": "🚵‍♂️",
@@ -4419,8 +3931,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man mountain biking",
-      "flagged": false
+      "name": "man mountain biking"
     },
     {
       "emoji": "🚵‍♀️",
@@ -4431,8 +3942,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman mountain biking",
-      "flagged": false
+      "name": "woman mountain biking"
     },
     {
       "emoji": "🤸",
@@ -4440,8 +3950,7 @@ const emojiList = {
         "1F938"
       ],
       "toned": true,
-      "name": "person cartwheeling",
-      "flagged": false
+      "name": "person cartwheeling"
     },
     {
       "emoji": "🤸‍♂️",
@@ -4452,8 +3961,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man cartwheeling",
-      "flagged": false
+      "name": "man cartwheeling"
     },
     {
       "emoji": "🤸‍♀️",
@@ -4464,8 +3972,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman cartwheeling",
-      "flagged": false
+      "name": "woman cartwheeling"
     },
     {
       "emoji": "🤼",
@@ -4473,8 +3980,7 @@ const emojiList = {
         "1F93C"
       ],
       "toned": false,
-      "name": "people wrestling",
-      "flagged": false
+      "name": "people wrestling"
     },
     {
       "emoji": "🤼‍♂️",
@@ -4485,8 +3991,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": false,
-      "name": "men wrestling",
-      "flagged": false
+      "name": "men wrestling"
     },
     {
       "emoji": "🤼‍♀️",
@@ -4497,8 +4002,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": false,
-      "name": "women wrestling",
-      "flagged": false
+      "name": "women wrestling"
     },
     {
       "emoji": "🤽",
@@ -4506,8 +4010,7 @@ const emojiList = {
         "1F93D"
       ],
       "toned": true,
-      "name": "person playing water polo",
-      "flagged": false
+      "name": "person playing water polo"
     },
     {
       "emoji": "🤽‍♂️",
@@ -4518,8 +4021,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man playing water polo",
-      "flagged": false
+      "name": "man playing water polo"
     },
     {
       "emoji": "🤽‍♀️",
@@ -4530,8 +4032,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman playing water polo",
-      "flagged": false
+      "name": "woman playing water polo"
     },
     {
       "emoji": "🤾",
@@ -4539,8 +4040,7 @@ const emojiList = {
         "1F93E"
       ],
       "toned": true,
-      "name": "person playing handball",
-      "flagged": false
+      "name": "person playing handball"
     },
     {
       "emoji": "🤾‍♂️",
@@ -4551,8 +4051,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man playing handball",
-      "flagged": false
+      "name": "man playing handball"
     },
     {
       "emoji": "🤾‍♀️",
@@ -4563,8 +4062,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman playing handball",
-      "flagged": false
+      "name": "woman playing handball"
     },
     {
       "emoji": "🤹",
@@ -4572,8 +4070,7 @@ const emojiList = {
         "1F939"
       ],
       "toned": true,
-      "name": "person juggling",
-      "flagged": false
+      "name": "person juggling"
     },
     {
       "emoji": "🤹‍♂️",
@@ -4584,8 +4081,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man juggling",
-      "flagged": false
+      "name": "man juggling"
     },
     {
       "emoji": "🤹‍♀️",
@@ -4596,8 +4092,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman juggling",
-      "flagged": false
+      "name": "woman juggling"
     },
     {
       "emoji": "🧘",
@@ -4605,8 +4100,7 @@ const emojiList = {
         "1F9D8"
       ],
       "toned": true,
-      "name": "person in lotus position",
-      "flagged": false
+      "name": "person in lotus position"
     },
     {
       "emoji": "🧘‍♂️",
@@ -4617,8 +4111,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "man in lotus position",
-      "flagged": false
+      "name": "man in lotus position"
     },
     {
       "emoji": "🧘‍♀️",
@@ -4629,8 +4122,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": true,
-      "name": "woman in lotus position",
-      "flagged": false
+      "name": "woman in lotus position"
     },
     {
       "emoji": "🛀",
@@ -4638,8 +4130,7 @@ const emojiList = {
         "1F6C0"
       ],
       "toned": true,
-      "name": "person taking bath",
-      "flagged": false
+      "name": "person taking bath"
     },
     {
       "emoji": "🛌",
@@ -4647,74 +4138,69 @@ const emojiList = {
         "1F6CC"
       ],
       "toned": true,
-      "name": "person in bed",
-      "flagged": false
+      "name": "person in bed"
+    },
+    {
+      "emoji": "🧑‍🤝‍🧑",
+      "code": [
+        "1F9D1",
+        "200D",
+        "1F91D",
+        "200D",
+        "1F9D1"
+      ],
+      "toned": true,
+      "name": "people holding hands"
+    },
+    {
+      "emoji": "👭",
+      "code": [
+        "1F46D"
+      ],
+      "toned": true,
+      "name": "women holding hands"
+    },
+    {
+      "emoji": "👫",
+      "code": [
+        "1F46B"
+      ],
+      "toned": true,
+      "name": "woman and man holding hands"
+    },
+    {
+      "emoji": "👬",
+      "code": [
+        "1F46C"
+      ],
+      "toned": true,
+      "name": "men holding hands"
+    },
+    {
+      "emoji": "💏",
+      "code": [
+        "1F48F"
+      ],
+      "toned": true,
+      "name": "kiss"
+    },
+    {
+      "emoji": "👩‍❤️‍💋‍👨",
+      "code": [
+        "1F469",
+        "200D",
+        "2764",
+        "FE0F",
+        "200D",
+        "1F48B",
+        "200D",
+        "1F468"
+      ],
+      "toned": true,
+      "name": "kiss: woman, man"
     }
   ],
   "Animals & Nature": [
-    {
-      "emoji": "🐵",
-      "code": [
-        "1F435"
-      ],
-      "toned": false,
-      "name": "monkey face",
-      "flagged": false
-    },
-    {
-      "emoji": "🐒",
-      "code": [
-        "1F412"
-      ],
-      "toned": false,
-      "name": "monkey",
-      "flagged": false
-    },
-    {
-      "emoji": "🦍",
-      "code": [
-        "1F98D"
-      ],
-      "toned": false,
-      "name": "gorilla",
-      "flagged": false
-    },
-    {
-      "emoji": "🦧",
-      "code": [
-        "1F9A7"
-      ],
-      "toned": false,
-      "name": "orangutan",
-      "flagged": false
-    },
-    {
-      "emoji": "🐶",
-      "code": [
-        "1F436"
-      ],
-      "toned": false,
-      "name": "dog face",
-      "flagged": false
-    },
-    {
-      "emoji": "🐕",
-      "code": [
-        "1F415"
-      ],
-      "toned": false,
-      "name": "dog",
-      "flagged": false
-    },
-    {
-      "emoji": "🦮",
-      "code": [
-        "1F9AE"
-      ],
-      "toned": false,
-      "name": "guide dog",
-      "flagged": false
-    },
     {
       "emoji": "🐕‍🦺",
       "code": [
@@ -4723,8 +4209,7 @@ const emojiList = {
         "1F9BA"
       ],
       "toned": false,
-      "name": "service dog",
-      "flagged": false
+      "name": "service dog"
     },
     {
       "emoji": "🐩",
@@ -4732,8 +4217,7 @@ const emojiList = {
         "1F429"
       ],
       "toned": false,
-      "name": "poodle",
-      "flagged": false
+      "name": "poodle"
     },
     {
       "emoji": "🐺",
@@ -4741,8 +4225,7 @@ const emojiList = {
         "1F43A"
       ],
       "toned": false,
-      "name": "wolf",
-      "flagged": false
+      "name": "wolf"
     },
     {
       "emoji": "🦊",
@@ -4750,8 +4233,7 @@ const emojiList = {
         "1F98A"
       ],
       "toned": false,
-      "name": "fox",
-      "flagged": false
+      "name": "fox"
     },
     {
       "emoji": "🦝",
@@ -4759,8 +4241,7 @@ const emojiList = {
         "1F99D"
       ],
       "toned": false,
-      "name": "raccoon",
-      "flagged": false
+      "name": "raccoon"
     },
     {
       "emoji": "🐱",
@@ -4768,8 +4249,7 @@ const emojiList = {
         "1F431"
       ],
       "toned": false,
-      "name": "cat face",
-      "flagged": false
+      "name": "cat face"
     },
     {
       "emoji": "🐈",
@@ -4777,8 +4257,7 @@ const emojiList = {
         "1F408"
       ],
       "toned": false,
-      "name": "cat",
-      "flagged": false
+      "name": "cat"
     },
     {
       "emoji": "🐈‍⬛",
@@ -4788,8 +4267,7 @@ const emojiList = {
         "2B1B"
       ],
       "toned": false,
-      "name": "black cat",
-      "flagged": false
+      "name": "black cat"
     },
     {
       "emoji": "🦁",
@@ -4797,8 +4275,7 @@ const emojiList = {
         "1F981"
       ],
       "toned": false,
-      "name": "lion",
-      "flagged": false
+      "name": "lion"
     },
     {
       "emoji": "🐯",
@@ -4806,8 +4283,7 @@ const emojiList = {
         "1F42F"
       ],
       "toned": false,
-      "name": "tiger face",
-      "flagged": false
+      "name": "tiger face"
     },
     {
       "emoji": "🐅",
@@ -4815,8 +4291,7 @@ const emojiList = {
         "1F405"
       ],
       "toned": false,
-      "name": "tiger",
-      "flagged": false
+      "name": "tiger"
     },
     {
       "emoji": "🐆",
@@ -4824,8 +4299,7 @@ const emojiList = {
         "1F406"
       ],
       "toned": false,
-      "name": "leopard",
-      "flagged": false
+      "name": "leopard"
     },
     {
       "emoji": "🐴",
@@ -4833,8 +4307,7 @@ const emojiList = {
         "1F434"
       ],
       "toned": false,
-      "name": "horse face",
-      "flagged": false
+      "name": "horse face"
     },
     {
       "emoji": "🐎",
@@ -4842,8 +4315,7 @@ const emojiList = {
         "1F40E"
       ],
       "toned": false,
-      "name": "horse",
-      "flagged": false
+      "name": "horse"
     },
     {
       "emoji": "🦄",
@@ -4851,8 +4323,7 @@ const emojiList = {
         "1F984"
       ],
       "toned": false,
-      "name": "unicorn",
-      "flagged": false
+      "name": "unicorn"
     },
     {
       "emoji": "🦓",
@@ -4860,8 +4331,7 @@ const emojiList = {
         "1F993"
       ],
       "toned": false,
-      "name": "zebra",
-      "flagged": false
+      "name": "zebra"
     },
     {
       "emoji": "🦌",
@@ -4869,17 +4339,7 @@ const emojiList = {
         "1F98C"
       ],
       "toned": false,
-      "name": "deer",
-      "flagged": false
-    },
-    {
-      "emoji": "🦬",
-      "code": [
-        "1F9AC"
-      ],
-      "toned": false,
-      "name": "bison",
-      "flagged": true
+      "name": "deer"
     },
     {
       "emoji": "🐮",
@@ -4887,8 +4347,7 @@ const emojiList = {
         "1F42E"
       ],
       "toned": false,
-      "name": "cow face",
-      "flagged": false
+      "name": "cow face"
     },
     {
       "emoji": "🐂",
@@ -4896,8 +4355,7 @@ const emojiList = {
         "1F402"
       ],
       "toned": false,
-      "name": "ox",
-      "flagged": false
+      "name": "ox"
     },
     {
       "emoji": "🐃",
@@ -4905,8 +4363,7 @@ const emojiList = {
         "1F403"
       ],
       "toned": false,
-      "name": "water buffalo",
-      "flagged": false
+      "name": "water buffalo"
     },
     {
       "emoji": "🐄",
@@ -4914,8 +4371,7 @@ const emojiList = {
         "1F404"
       ],
       "toned": false,
-      "name": "cow",
-      "flagged": false
+      "name": "cow"
     },
     {
       "emoji": "🐷",
@@ -4923,8 +4379,7 @@ const emojiList = {
         "1F437"
       ],
       "toned": false,
-      "name": "pig face",
-      "flagged": false
+      "name": "pig face"
     },
     {
       "emoji": "🐖",
@@ -4932,8 +4387,7 @@ const emojiList = {
         "1F416"
       ],
       "toned": false,
-      "name": "pig",
-      "flagged": false
+      "name": "pig"
     },
     {
       "emoji": "🐗",
@@ -4941,8 +4395,7 @@ const emojiList = {
         "1F417"
       ],
       "toned": false,
-      "name": "boar",
-      "flagged": false
+      "name": "boar"
     },
     {
       "emoji": "🐽",
@@ -4950,8 +4403,7 @@ const emojiList = {
         "1F43D"
       ],
       "toned": false,
-      "name": "pig nose",
-      "flagged": false
+      "name": "pig nose"
     },
     {
       "emoji": "🐏",
@@ -4959,8 +4411,7 @@ const emojiList = {
         "1F40F"
       ],
       "toned": false,
-      "name": "ram",
-      "flagged": false
+      "name": "ram"
     },
     {
       "emoji": "🐑",
@@ -4968,8 +4419,7 @@ const emojiList = {
         "1F411"
       ],
       "toned": false,
-      "name": "ewe",
-      "flagged": false
+      "name": "ewe"
     },
     {
       "emoji": "🐐",
@@ -4977,8 +4427,7 @@ const emojiList = {
         "1F410"
       ],
       "toned": false,
-      "name": "goat",
-      "flagged": false
+      "name": "goat"
     },
     {
       "emoji": "🐪",
@@ -4986,8 +4435,7 @@ const emojiList = {
         "1F42A"
       ],
       "toned": false,
-      "name": "camel",
-      "flagged": false
+      "name": "camel"
     },
     {
       "emoji": "🐫",
@@ -4995,8 +4443,7 @@ const emojiList = {
         "1F42B"
       ],
       "toned": false,
-      "name": "two-hump camel",
-      "flagged": false
+      "name": "two-hump camel"
     },
     {
       "emoji": "🦙",
@@ -5004,8 +4451,7 @@ const emojiList = {
         "1F999"
       ],
       "toned": false,
-      "name": "llama",
-      "flagged": false
+      "name": "llama"
     },
     {
       "emoji": "🦒",
@@ -5013,8 +4459,7 @@ const emojiList = {
         "1F992"
       ],
       "toned": false,
-      "name": "giraffe",
-      "flagged": false
+      "name": "giraffe"
     },
     {
       "emoji": "🐘",
@@ -5022,17 +4467,7 @@ const emojiList = {
         "1F418"
       ],
       "toned": false,
-      "name": "elephant",
-      "flagged": false
-    },
-    {
-      "emoji": "🦣",
-      "code": [
-        "1F9A3"
-      ],
-      "toned": false,
-      "name": "mammoth",
-      "flagged": true
+      "name": "elephant"
     },
     {
       "emoji": "🦏",
@@ -5040,8 +4475,7 @@ const emojiList = {
         "1F98F"
       ],
       "toned": false,
-      "name": "rhinoceros",
-      "flagged": false
+      "name": "rhinoceros"
     },
     {
       "emoji": "🦛",
@@ -5049,8 +4483,7 @@ const emojiList = {
         "1F99B"
       ],
       "toned": false,
-      "name": "hippopotamus",
-      "flagged": false
+      "name": "hippopotamus"
     },
     {
       "emoji": "🐭",
@@ -5058,8 +4491,7 @@ const emojiList = {
         "1F42D"
       ],
       "toned": false,
-      "name": "mouse face",
-      "flagged": false
+      "name": "mouse face"
     },
     {
       "emoji": "🐁",
@@ -5067,8 +4499,7 @@ const emojiList = {
         "1F401"
       ],
       "toned": false,
-      "name": "mouse",
-      "flagged": false
+      "name": "mouse"
     },
     {
       "emoji": "🐀",
@@ -5076,8 +4507,7 @@ const emojiList = {
         "1F400"
       ],
       "toned": false,
-      "name": "rat",
-      "flagged": false
+      "name": "rat"
     },
     {
       "emoji": "🐹",
@@ -5085,8 +4515,7 @@ const emojiList = {
         "1F439"
       ],
       "toned": false,
-      "name": "hamster",
-      "flagged": false
+      "name": "hamster"
     },
     {
       "emoji": "🐰",
@@ -5094,8 +4523,7 @@ const emojiList = {
         "1F430"
       ],
       "toned": false,
-      "name": "rabbit face",
-      "flagged": false
+      "name": "rabbit face"
     },
     {
       "emoji": "🐇",
@@ -5103,8 +4531,7 @@ const emojiList = {
         "1F407"
       ],
       "toned": false,
-      "name": "rabbit",
-      "flagged": false
+      "name": "rabbit"
     },
     {
       "emoji": "🐿",
@@ -5112,17 +4539,7 @@ const emojiList = {
         "1F43F"
       ],
       "toned": false,
-      "name": "chipmunk",
-      "flagged": false
-    },
-    {
-      "emoji": "🦫",
-      "code": [
-        "1F9AB"
-      ],
-      "toned": false,
-      "name": "beaver",
-      "flagged": true
+      "name": "chipmunk"
     },
     {
       "emoji": "🦔",
@@ -5130,8 +4547,7 @@ const emojiList = {
         "1F994"
       ],
       "toned": false,
-      "name": "hedgehog",
-      "flagged": false
+      "name": "hedgehog"
     },
     {
       "emoji": "🦇",
@@ -5139,8 +4555,7 @@ const emojiList = {
         "1F987"
       ],
       "toned": false,
-      "name": "bat",
-      "flagged": false
+      "name": "bat"
     },
     {
       "emoji": "🐻",
@@ -5148,8 +4563,7 @@ const emojiList = {
         "1F43B"
       ],
       "toned": false,
-      "name": "bear",
-      "flagged": false
+      "name": "bear"
     },
     {
       "emoji": "🐻‍❄️",
@@ -5160,8 +4574,7 @@ const emojiList = {
         "FE0F"
       ],
       "toned": false,
-      "name": "polar bear",
-      "flagged": false
+      "name": "polar bear"
     },
     {
       "emoji": "🐨",
@@ -5169,8 +4582,7 @@ const emojiList = {
         "1F428"
       ],
       "toned": false,
-      "name": "koala",
-      "flagged": false
+      "name": "koala"
     },
     {
       "emoji": "🐼",
@@ -5178,8 +4590,7 @@ const emojiList = {
         "1F43C"
       ],
       "toned": false,
-      "name": "panda",
-      "flagged": false
+      "name": "panda"
     },
     {
       "emoji": "🦥",
@@ -5187,8 +4598,7 @@ const emojiList = {
         "1F9A5"
       ],
       "toned": false,
-      "name": "sloth",
-      "flagged": false
+      "name": "sloth"
     },
     {
       "emoji": "🦦",
@@ -5196,8 +4606,7 @@ const emojiList = {
         "1F9A6"
       ],
       "toned": false,
-      "name": "otter",
-      "flagged": false
+      "name": "otter"
     },
     {
       "emoji": "🦨",
@@ -5205,8 +4614,7 @@ const emojiList = {
         "1F9A8"
       ],
       "toned": false,
-      "name": "skunk",
-      "flagged": false
+      "name": "skunk"
     },
     {
       "emoji": "🦘",
@@ -5214,8 +4622,7 @@ const emojiList = {
         "1F998"
       ],
       "toned": false,
-      "name": "kangaroo",
-      "flagged": false
+      "name": "kangaroo"
     },
     {
       "emoji": "🦡",
@@ -5223,8 +4630,7 @@ const emojiList = {
         "1F9A1"
       ],
       "toned": false,
-      "name": "badger",
-      "flagged": false
+      "name": "badger"
     },
     {
       "emoji": "🐾",
@@ -5232,8 +4638,7 @@ const emojiList = {
         "1F43E"
       ],
       "toned": false,
-      "name": "paw prints",
-      "flagged": false
+      "name": "paw prints"
     },
     {
       "emoji": "🦃",
@@ -5241,8 +4646,7 @@ const emojiList = {
         "1F983"
       ],
       "toned": false,
-      "name": "turkey",
-      "flagged": false
+      "name": "turkey"
     },
     {
       "emoji": "🐔",
@@ -5250,8 +4654,7 @@ const emojiList = {
         "1F414"
       ],
       "toned": false,
-      "name": "chicken",
-      "flagged": false
+      "name": "chicken"
     },
     {
       "emoji": "🐓",
@@ -5259,8 +4662,7 @@ const emojiList = {
         "1F413"
       ],
       "toned": false,
-      "name": "rooster",
-      "flagged": false
+      "name": "rooster"
     },
     {
       "emoji": "🐣",
@@ -5268,8 +4670,7 @@ const emojiList = {
         "1F423"
       ],
       "toned": false,
-      "name": "hatching chick",
-      "flagged": false
+      "name": "hatching chick"
     },
     {
       "emoji": "🐤",
@@ -5277,8 +4678,7 @@ const emojiList = {
         "1F424"
       ],
       "toned": false,
-      "name": "baby chick",
-      "flagged": false
+      "name": "baby chick"
     },
     {
       "emoji": "🐥",
@@ -5286,8 +4686,7 @@ const emojiList = {
         "1F425"
       ],
       "toned": false,
-      "name": "front-facing baby chick",
-      "flagged": false
+      "name": "front-facing baby chick"
     },
     {
       "emoji": "🐦",
@@ -5295,8 +4694,7 @@ const emojiList = {
         "1F426"
       ],
       "toned": false,
-      "name": "bird",
-      "flagged": false
+      "name": "bird"
     },
     {
       "emoji": "🐧",
@@ -5304,8 +4702,7 @@ const emojiList = {
         "1F427"
       ],
       "toned": false,
-      "name": "penguin",
-      "flagged": false
+      "name": "penguin"
     },
     {
       "emoji": "🕊",
@@ -5313,8 +4710,7 @@ const emojiList = {
         "1F54A"
       ],
       "toned": false,
-      "name": "dove",
-      "flagged": false
+      "name": "dove"
     },
     {
       "emoji": "🦅",
@@ -5322,8 +4718,7 @@ const emojiList = {
         "1F985"
       ],
       "toned": false,
-      "name": "eagle",
-      "flagged": false
+      "name": "eagle"
     },
     {
       "emoji": "🦆",
@@ -5331,8 +4726,7 @@ const emojiList = {
         "1F986"
       ],
       "toned": false,
-      "name": "duck",
-      "flagged": false
+      "name": "duck"
     },
     {
       "emoji": "🦢",
@@ -5340,8 +4734,7 @@ const emojiList = {
         "1F9A2"
       ],
       "toned": false,
-      "name": "swan",
-      "flagged": false
+      "name": "swan"
     },
     {
       "emoji": "🦉",
@@ -5349,26 +4742,7 @@ const emojiList = {
         "1F989"
       ],
       "toned": false,
-      "name": "owl",
-      "flagged": false
-    },
-    {
-      "emoji": "🦤",
-      "code": [
-        "1F9A4"
-      ],
-      "toned": false,
-      "name": "dodo",
-      "flagged": true
-    },
-    {
-      "emoji": "🪶",
-      "code": [
-        "1FAB6"
-      ],
-      "toned": false,
-      "name": "feather",
-      "flagged": true
+      "name": "owl"
     },
     {
       "emoji": "🦩",
@@ -5376,8 +4750,7 @@ const emojiList = {
         "1F9A9"
       ],
       "toned": false,
-      "name": "flamingo",
-      "flagged": false
+      "name": "flamingo"
     },
     {
       "emoji": "🦚",
@@ -5385,8 +4758,7 @@ const emojiList = {
         "1F99A"
       ],
       "toned": false,
-      "name": "peacock",
-      "flagged": false
+      "name": "peacock"
     },
     {
       "emoji": "🦜",
@@ -5394,8 +4766,7 @@ const emojiList = {
         "1F99C"
       ],
       "toned": false,
-      "name": "parrot",
-      "flagged": false
+      "name": "parrot"
     },
     {
       "emoji": "🐸",
@@ -5403,8 +4774,7 @@ const emojiList = {
         "1F438"
       ],
       "toned": false,
-      "name": "frog",
-      "flagged": false
+      "name": "frog"
     },
     {
       "emoji": "🐊",
@@ -5412,8 +4782,7 @@ const emojiList = {
         "1F40A"
       ],
       "toned": false,
-      "name": "crocodile",
-      "flagged": false
+      "name": "crocodile"
     },
     {
       "emoji": "🐢",
@@ -5421,8 +4790,7 @@ const emojiList = {
         "1F422"
       ],
       "toned": false,
-      "name": "turtle",
-      "flagged": false
+      "name": "turtle"
     },
     {
       "emoji": "🦎",
@@ -5430,8 +4798,7 @@ const emojiList = {
         "1F98E"
       ],
       "toned": false,
-      "name": "lizard",
-      "flagged": false
+      "name": "lizard"
     },
     {
       "emoji": "🐍",
@@ -5439,8 +4806,7 @@ const emojiList = {
         "1F40D"
       ],
       "toned": false,
-      "name": "snake",
-      "flagged": false
+      "name": "snake"
     },
     {
       "emoji": "🐲",
@@ -5448,8 +4814,7 @@ const emojiList = {
         "1F432"
       ],
       "toned": false,
-      "name": "dragon face",
-      "flagged": false
+      "name": "dragon face"
     },
     {
       "emoji": "🐉",
@@ -5457,8 +4822,7 @@ const emojiList = {
         "1F409"
       ],
       "toned": false,
-      "name": "dragon",
-      "flagged": false
+      "name": "dragon"
     },
     {
       "emoji": "🦕",
@@ -5466,8 +4830,7 @@ const emojiList = {
         "1F995"
       ],
       "toned": false,
-      "name": "sauropod",
-      "flagged": false
+      "name": "sauropod"
     },
     {
       "emoji": "🦖",
@@ -5475,8 +4838,7 @@ const emojiList = {
         "1F996"
       ],
       "toned": false,
-      "name": "T-Rex",
-      "flagged": false
+      "name": "T-Rex"
     },
     {
       "emoji": "🐳",
@@ -5484,8 +4846,7 @@ const emojiList = {
         "1F433"
       ],
       "toned": false,
-      "name": "spouting whale",
-      "flagged": false
+      "name": "spouting whale"
     },
     {
       "emoji": "🐋",
@@ -5493,8 +4854,7 @@ const emojiList = {
         "1F40B"
       ],
       "toned": false,
-      "name": "whale",
-      "flagged": false
+      "name": "whale"
     },
     {
       "emoji": "🐬",
@@ -5502,17 +4862,7 @@ const emojiList = {
         "1F42C"
       ],
       "toned": false,
-      "name": "dolphin",
-      "flagged": false
-    },
-    {
-      "emoji": "🦭",
-      "code": [
-        "1F9AD"
-      ],
-      "toned": false,
-      "name": "seal",
-      "flagged": true
+      "name": "dolphin"
     },
     {
       "emoji": "🐟",
@@ -5520,8 +4870,7 @@ const emojiList = {
         "1F41F"
       ],
       "toned": false,
-      "name": "fish",
-      "flagged": false
+      "name": "fish"
     },
     {
       "emoji": "🐠",
@@ -5529,8 +4878,7 @@ const emojiList = {
         "1F420"
       ],
       "toned": false,
-      "name": "tropical fish",
-      "flagged": false
+      "name": "tropical fish"
     },
     {
       "emoji": "🐡",
@@ -5538,8 +4886,7 @@ const emojiList = {
         "1F421"
       ],
       "toned": false,
-      "name": "blowfish",
-      "flagged": false
+      "name": "blowfish"
     },
     {
       "emoji": "🦈",
@@ -5547,8 +4894,7 @@ const emojiList = {
         "1F988"
       ],
       "toned": false,
-      "name": "shark",
-      "flagged": false
+      "name": "shark"
     },
     {
       "emoji": "🐙",
@@ -5556,8 +4902,7 @@ const emojiList = {
         "1F419"
       ],
       "toned": false,
-      "name": "octopus",
-      "flagged": false
+      "name": "octopus"
     },
     {
       "emoji": "🐚",
@@ -5565,8 +4910,7 @@ const emojiList = {
         "1F41A"
       ],
       "toned": false,
-      "name": "spiral shell",
-      "flagged": false
+      "name": "spiral shell"
     },
     {
       "emoji": "🐌",
@@ -5574,8 +4918,7 @@ const emojiList = {
         "1F40C"
       ],
       "toned": false,
-      "name": "snail",
-      "flagged": false
+      "name": "snail"
     },
     {
       "emoji": "🦋",
@@ -5583,8 +4926,7 @@ const emojiList = {
         "1F98B"
       ],
       "toned": false,
-      "name": "butterfly",
-      "flagged": false
+      "name": "butterfly"
     },
     {
       "emoji": "🐛",
@@ -5592,8 +4934,7 @@ const emojiList = {
         "1F41B"
       ],
       "toned": false,
-      "name": "bug",
-      "flagged": false
+      "name": "bug"
     },
     {
       "emoji": "🐜",
@@ -5601,8 +4942,7 @@ const emojiList = {
         "1F41C"
       ],
       "toned": false,
-      "name": "ant",
-      "flagged": false
+      "name": "ant"
     },
     {
       "emoji": "🐝",
@@ -5610,17 +4950,7 @@ const emojiList = {
         "1F41D"
       ],
       "toned": false,
-      "name": "honeybee",
-      "flagged": false
-    },
-    {
-      "emoji": "🪲",
-      "code": [
-        "1FAB2"
-      ],
-      "toned": false,
-      "name": "beetle",
-      "flagged": true
+      "name": "honeybee"
     },
     {
       "emoji": "🐞",
@@ -5628,8 +4958,7 @@ const emojiList = {
         "1F41E"
       ],
       "toned": false,
-      "name": "lady beetle",
-      "flagged": false
+      "name": "lady beetle"
     },
     {
       "emoji": "🦗",
@@ -5637,17 +4966,7 @@ const emojiList = {
         "1F997"
       ],
       "toned": false,
-      "name": "cricket",
-      "flagged": false
-    },
-    {
-      "emoji": "🪳",
-      "code": [
-        "1FAB3"
-      ],
-      "toned": false,
-      "name": "cockroach",
-      "flagged": true
+      "name": "cricket"
     },
     {
       "emoji": "🕷",
@@ -5655,8 +4974,7 @@ const emojiList = {
         "1F577"
       ],
       "toned": false,
-      "name": "spider",
-      "flagged": false
+      "name": "spider"
     },
     {
       "emoji": "🕸",
@@ -5664,8 +4982,7 @@ const emojiList = {
         "1F578"
       ],
       "toned": false,
-      "name": "spider web",
-      "flagged": false
+      "name": "spider web"
     },
     {
       "emoji": "🦂",
@@ -5673,8 +4990,7 @@ const emojiList = {
         "1F982"
       ],
       "toned": false,
-      "name": "scorpion",
-      "flagged": false
+      "name": "scorpion"
     },
     {
       "emoji": "🦟",
@@ -5682,26 +4998,7 @@ const emojiList = {
         "1F99F"
       ],
       "toned": false,
-      "name": "mosquito",
-      "flagged": false
-    },
-    {
-      "emoji": "🪰",
-      "code": [
-        "1FAB0"
-      ],
-      "toned": false,
-      "name": "fly",
-      "flagged": true
-    },
-    {
-      "emoji": "🪱",
-      "code": [
-        "1FAB1"
-      ],
-      "toned": false,
-      "name": "worm",
-      "flagged": true
+      "name": "mosquito"
     },
     {
       "emoji": "🦠",
@@ -5709,8 +5006,7 @@ const emojiList = {
         "1F9A0"
       ],
       "toned": false,
-      "name": "microbe",
-      "flagged": false
+      "name": "microbe"
     },
     {
       "emoji": "💐",
@@ -5718,8 +5014,7 @@ const emojiList = {
         "1F490"
       ],
       "toned": false,
-      "name": "bouquet",
-      "flagged": false
+      "name": "bouquet"
     },
     {
       "emoji": "🌸",
@@ -5727,8 +5022,7 @@ const emojiList = {
         "1F338"
       ],
       "toned": false,
-      "name": "cherry blossom",
-      "flagged": false
+      "name": "cherry blossom"
     },
     {
       "emoji": "💮",
@@ -5736,8 +5030,7 @@ const emojiList = {
         "1F4AE"
       ],
       "toned": false,
-      "name": "white flower",
-      "flagged": false
+      "name": "white flower"
     },
     {
       "emoji": "🏵",
@@ -5745,8 +5038,7 @@ const emojiList = {
         "1F3F5"
       ],
       "toned": false,
-      "name": "rosette",
-      "flagged": false
+      "name": "rosette"
     },
     {
       "emoji": "🌹",
@@ -5754,8 +5046,7 @@ const emojiList = {
         "1F339"
       ],
       "toned": false,
-      "name": "rose",
-      "flagged": false
+      "name": "rose"
     },
     {
       "emoji": "🥀",
@@ -5763,8 +5054,7 @@ const emojiList = {
         "1F940"
       ],
       "toned": false,
-      "name": "wilted flower",
-      "flagged": false
+      "name": "wilted flower"
     },
     {
       "emoji": "🌺",
@@ -5772,8 +5062,7 @@ const emojiList = {
         "1F33A"
       ],
       "toned": false,
-      "name": "hibiscus",
-      "flagged": false
+      "name": "hibiscus"
     },
     {
       "emoji": "🌻",
@@ -5781,8 +5070,7 @@ const emojiList = {
         "1F33B"
       ],
       "toned": false,
-      "name": "sunflower",
-      "flagged": false
+      "name": "sunflower"
     },
     {
       "emoji": "🌼",
@@ -5790,8 +5078,7 @@ const emojiList = {
         "1F33C"
       ],
       "toned": false,
-      "name": "blossom",
-      "flagged": false
+      "name": "blossom"
     },
     {
       "emoji": "🌷",
@@ -5799,8 +5086,7 @@ const emojiList = {
         "1F337"
       ],
       "toned": false,
-      "name": "tulip",
-      "flagged": false
+      "name": "tulip"
     },
     {
       "emoji": "🌱",
@@ -5808,17 +5094,7 @@ const emojiList = {
         "1F331"
       ],
       "toned": false,
-      "name": "seedling",
-      "flagged": false
-    },
-    {
-      "emoji": "🪴",
-      "code": [
-        "1FAB4"
-      ],
-      "toned": false,
-      "name": "potted plant",
-      "flagged": true
+      "name": "seedling"
     },
     {
       "emoji": "🌲",
@@ -5826,8 +5102,7 @@ const emojiList = {
         "1F332"
       ],
       "toned": false,
-      "name": "evergreen tree",
-      "flagged": false
+      "name": "evergreen tree"
     },
     {
       "emoji": "🌳",
@@ -5835,8 +5110,7 @@ const emojiList = {
         "1F333"
       ],
       "toned": false,
-      "name": "deciduous tree",
-      "flagged": false
+      "name": "deciduous tree"
     },
     {
       "emoji": "🌴",
@@ -5844,8 +5118,7 @@ const emojiList = {
         "1F334"
       ],
       "toned": false,
-      "name": "palm tree",
-      "flagged": false
+      "name": "palm tree"
     },
     {
       "emoji": "🌵",
@@ -5853,8 +5126,7 @@ const emojiList = {
         "1F335"
       ],
       "toned": false,
-      "name": "cactus",
-      "flagged": false
+      "name": "cactus"
     },
     {
       "emoji": "🌾",
@@ -5862,8 +5134,7 @@ const emojiList = {
         "1F33E"
       ],
       "toned": false,
-      "name": "sheaf of rice",
-      "flagged": false
+      "name": "sheaf of rice"
     },
     {
       "emoji": "🌿",
@@ -5871,8 +5142,7 @@ const emojiList = {
         "1F33F"
       ],
       "toned": false,
-      "name": "herb",
-      "flagged": false
+      "name": "herb"
     },
     {
       "emoji": "☘",
@@ -5880,8 +5150,7 @@ const emojiList = {
         "2618"
       ],
       "toned": false,
-      "name": "shamrock",
-      "flagged": false
+      "name": "shamrock"
     },
     {
       "emoji": "🍀",
@@ -5889,8 +5158,7 @@ const emojiList = {
         "1F340"
       ],
       "toned": false,
-      "name": "four leaf clover",
-      "flagged": false
+      "name": "four leaf clover"
     },
     {
       "emoji": "🍁",
@@ -5898,8 +5166,7 @@ const emojiList = {
         "1F341"
       ],
       "toned": false,
-      "name": "maple leaf",
-      "flagged": false
+      "name": "maple leaf"
     },
     {
       "emoji": "🍂",
@@ -5907,8 +5174,7 @@ const emojiList = {
         "1F342"
       ],
       "toned": false,
-      "name": "fallen leaf",
-      "flagged": false
+      "name": "fallen leaf"
     },
     {
       "emoji": "🍃",
@@ -5916,19 +5182,23 @@ const emojiList = {
         "1F343"
       ],
       "toned": false,
-      "name": "leaf fluttering in wind",
-      "flagged": false
-    }
-  ],
-  "Food & Drink": [
+      "name": "leaf fluttering in wind"
+    },
+    {
+      "emoji": "🍇",
+      "code": [
+        "1F347"
+      ],
+      "toned": false,
+      "name": "grapes"
+    },
     {
       "emoji": "🍈",
       "code": [
         "1F348"
       ],
       "toned": false,
-      "name": "melon",
-      "flagged": false
+      "name": "melon"
     },
     {
       "emoji": "🍉",
@@ -5936,8 +5206,7 @@ const emojiList = {
         "1F349"
       ],
       "toned": false,
-      "name": "watermelon",
-      "flagged": false
+      "name": "watermelon"
     },
     {
       "emoji": "🍊",
@@ -5945,8 +5214,7 @@ const emojiList = {
         "1F34A"
       ],
       "toned": false,
-      "name": "tangerine",
-      "flagged": false
+      "name": "tangerine"
     },
     {
       "emoji": "🍋",
@@ -5954,8 +5222,7 @@ const emojiList = {
         "1F34B"
       ],
       "toned": false,
-      "name": "lemon",
-      "flagged": false
+      "name": "lemon"
     },
     {
       "emoji": "🍌",
@@ -5963,8 +5230,7 @@ const emojiList = {
         "1F34C"
       ],
       "toned": false,
-      "name": "banana",
-      "flagged": false
+      "name": "banana"
     },
     {
       "emoji": "🍍",
@@ -5972,8 +5238,7 @@ const emojiList = {
         "1F34D"
       ],
       "toned": false,
-      "name": "pineapple",
-      "flagged": false
+      "name": "pineapple"
     },
     {
       "emoji": "🥭",
@@ -5981,8 +5246,7 @@ const emojiList = {
         "1F96D"
       ],
       "toned": false,
-      "name": "mango",
-      "flagged": false
+      "name": "mango"
     },
     {
       "emoji": "🍎",
@@ -5990,8 +5254,7 @@ const emojiList = {
         "1F34E"
       ],
       "toned": false,
-      "name": "red apple",
-      "flagged": false
+      "name": "red apple"
     },
     {
       "emoji": "🍏",
@@ -5999,8 +5262,7 @@ const emojiList = {
         "1F34F"
       ],
       "toned": false,
-      "name": "green apple",
-      "flagged": false
+      "name": "green apple"
     },
     {
       "emoji": "🍐",
@@ -6008,8 +5270,7 @@ const emojiList = {
         "1F350"
       ],
       "toned": false,
-      "name": "pear",
-      "flagged": false
+      "name": "pear"
     },
     {
       "emoji": "🍑",
@@ -6017,8 +5278,7 @@ const emojiList = {
         "1F351"
       ],
       "toned": false,
-      "name": "peach",
-      "flagged": false
+      "name": "peach"
     },
     {
       "emoji": "🍒",
@@ -6026,8 +5286,7 @@ const emojiList = {
         "1F352"
       ],
       "toned": false,
-      "name": "cherries",
-      "flagged": false
+      "name": "cherries"
     },
     {
       "emoji": "🍓",
@@ -6035,17 +5294,7 @@ const emojiList = {
         "1F353"
       ],
       "toned": false,
-      "name": "strawberry",
-      "flagged": false
-    },
-    {
-      "emoji": "🫐",
-      "code": [
-        "1FAD0"
-      ],
-      "toned": false,
-      "name": "blueberries",
-      "flagged": true
+      "name": "strawberry"
     },
     {
       "emoji": "🥝",
@@ -6053,8 +5302,7 @@ const emojiList = {
         "1F95D"
       ],
       "toned": false,
-      "name": "kiwi fruit",
-      "flagged": false
+      "name": "kiwi fruit"
     },
     {
       "emoji": "🍅",
@@ -6062,17 +5310,7 @@ const emojiList = {
         "1F345"
       ],
       "toned": false,
-      "name": "tomato",
-      "flagged": false
-    },
-    {
-      "emoji": "🫒",
-      "code": [
-        "1FAD2"
-      ],
-      "toned": false,
-      "name": "olive",
-      "flagged": true
+      "name": "tomato"
     },
     {
       "emoji": "🥥",
@@ -6080,8 +5318,7 @@ const emojiList = {
         "1F965"
       ],
       "toned": false,
-      "name": "coconut",
-      "flagged": false
+      "name": "coconut"
     },
     {
       "emoji": "🥑",
@@ -6089,26 +5326,17 @@ const emojiList = {
         "1F951"
       ],
       "toned": false,
-      "name": "avocado",
-      "flagged": false
-    },
-    {
-      "emoji": "🍆",
-      "code": [
-        "1F346"
-      ],
-      "toned": false,
-      "name": "eggplant",
-      "flagged": false
-    },
+      "name": "avocado"
+    }
+  ],
+  "Food & Drink": [
     {
       "emoji": "🥔",
       "code": [
         "1F954"
       ],
       "toned": false,
-      "name": "potato",
-      "flagged": false
+      "name": "potato"
     },
     {
       "emoji": "🥕",
@@ -6116,8 +5344,7 @@ const emojiList = {
         "1F955"
       ],
       "toned": false,
-      "name": "carrot",
-      "flagged": false
+      "name": "carrot"
     },
     {
       "emoji": "🌽",
@@ -6125,8 +5352,7 @@ const emojiList = {
         "1F33D"
       ],
       "toned": false,
-      "name": "ear of corn",
-      "flagged": false
+      "name": "ear of corn"
     },
     {
       "emoji": "🌶",
@@ -6134,17 +5360,7 @@ const emojiList = {
         "1F336"
       ],
       "toned": false,
-      "name": "hot pepper",
-      "flagged": false
-    },
-    {
-      "emoji": "🫑",
-      "code": [
-        "1FAD1"
-      ],
-      "toned": false,
-      "name": "bell pepper",
-      "flagged": true
+      "name": "hot pepper"
     },
     {
       "emoji": "🥒",
@@ -6152,8 +5368,7 @@ const emojiList = {
         "1F952"
       ],
       "toned": false,
-      "name": "cucumber",
-      "flagged": false
+      "name": "cucumber"
     },
     {
       "emoji": "🥬",
@@ -6161,8 +5376,7 @@ const emojiList = {
         "1F96C"
       ],
       "toned": false,
-      "name": "leafy green",
-      "flagged": false
+      "name": "leafy green"
     },
     {
       "emoji": "🥦",
@@ -6170,8 +5384,7 @@ const emojiList = {
         "1F966"
       ],
       "toned": false,
-      "name": "broccoli",
-      "flagged": false
+      "name": "broccoli"
     },
     {
       "emoji": "🧄",
@@ -6179,8 +5392,7 @@ const emojiList = {
         "1F9C4"
       ],
       "toned": false,
-      "name": "garlic",
-      "flagged": false
+      "name": "garlic"
     },
     {
       "emoji": "🧅",
@@ -6188,8 +5400,7 @@ const emojiList = {
         "1F9C5"
       ],
       "toned": false,
-      "name": "onion",
-      "flagged": false
+      "name": "onion"
     },
     {
       "emoji": "🍄",
@@ -6197,8 +5408,7 @@ const emojiList = {
         "1F344"
       ],
       "toned": false,
-      "name": "mushroom",
-      "flagged": false
+      "name": "mushroom"
     },
     {
       "emoji": "🥜",
@@ -6206,8 +5416,7 @@ const emojiList = {
         "1F95C"
       ],
       "toned": false,
-      "name": "peanuts",
-      "flagged": false
+      "name": "peanuts"
     },
     {
       "emoji": "🌰",
@@ -6215,8 +5424,7 @@ const emojiList = {
         "1F330"
       ],
       "toned": false,
-      "name": "chestnut",
-      "flagged": false
+      "name": "chestnut"
     },
     {
       "emoji": "🍞",
@@ -6224,8 +5432,7 @@ const emojiList = {
         "1F35E"
       ],
       "toned": false,
-      "name": "bread",
-      "flagged": false
+      "name": "bread"
     },
     {
       "emoji": "🥐",
@@ -6233,8 +5440,7 @@ const emojiList = {
         "1F950"
       ],
       "toned": false,
-      "name": "croissant",
-      "flagged": false
+      "name": "croissant"
     },
     {
       "emoji": "🥖",
@@ -6242,17 +5448,7 @@ const emojiList = {
         "1F956"
       ],
       "toned": false,
-      "name": "baguette bread",
-      "flagged": false
-    },
-    {
-      "emoji": "🫓",
-      "code": [
-        "1FAD3"
-      ],
-      "toned": false,
-      "name": "flatbread",
-      "flagged": true
+      "name": "baguette bread"
     },
     {
       "emoji": "🥨",
@@ -6260,8 +5456,7 @@ const emojiList = {
         "1F968"
       ],
       "toned": false,
-      "name": "pretzel",
-      "flagged": false
+      "name": "pretzel"
     },
     {
       "emoji": "🥯",
@@ -6269,8 +5464,7 @@ const emojiList = {
         "1F96F"
       ],
       "toned": false,
-      "name": "bagel",
-      "flagged": false
+      "name": "bagel"
     },
     {
       "emoji": "🥞",
@@ -6278,8 +5472,7 @@ const emojiList = {
         "1F95E"
       ],
       "toned": false,
-      "name": "pancakes",
-      "flagged": false
+      "name": "pancakes"
     },
     {
       "emoji": "🧇",
@@ -6287,8 +5480,7 @@ const emojiList = {
         "1F9C7"
       ],
       "toned": false,
-      "name": "waffle",
-      "flagged": false
+      "name": "waffle"
     },
     {
       "emoji": "🧀",
@@ -6296,8 +5488,7 @@ const emojiList = {
         "1F9C0"
       ],
       "toned": false,
-      "name": "cheese wedge",
-      "flagged": false
+      "name": "cheese wedge"
     },
     {
       "emoji": "🍖",
@@ -6305,8 +5496,7 @@ const emojiList = {
         "1F356"
       ],
       "toned": false,
-      "name": "meat on bone",
-      "flagged": false
+      "name": "meat on bone"
     },
     {
       "emoji": "🍗",
@@ -6314,8 +5504,7 @@ const emojiList = {
         "1F357"
       ],
       "toned": false,
-      "name": "poultry leg",
-      "flagged": false
+      "name": "poultry leg"
     },
     {
       "emoji": "🥩",
@@ -6323,8 +5512,7 @@ const emojiList = {
         "1F969"
       ],
       "toned": false,
-      "name": "cut of meat",
-      "flagged": false
+      "name": "cut of meat"
     },
     {
       "emoji": "🥓",
@@ -6332,8 +5520,7 @@ const emojiList = {
         "1F953"
       ],
       "toned": false,
-      "name": "bacon",
-      "flagged": false
+      "name": "bacon"
     },
     {
       "emoji": "🍔",
@@ -6341,8 +5528,7 @@ const emojiList = {
         "1F354"
       ],
       "toned": false,
-      "name": "hamburger",
-      "flagged": false
+      "name": "hamburger"
     },
     {
       "emoji": "🍟",
@@ -6350,8 +5536,7 @@ const emojiList = {
         "1F35F"
       ],
       "toned": false,
-      "name": "french fries",
-      "flagged": false
+      "name": "french fries"
     },
     {
       "emoji": "🍕",
@@ -6359,8 +5544,7 @@ const emojiList = {
         "1F355"
       ],
       "toned": false,
-      "name": "pizza",
-      "flagged": false
+      "name": "pizza"
     },
     {
       "emoji": "🌭",
@@ -6368,8 +5552,7 @@ const emojiList = {
         "1F32D"
       ],
       "toned": false,
-      "name": "hot dog",
-      "flagged": false
+      "name": "hot dog"
     },
     {
       "emoji": "🥪",
@@ -6377,8 +5560,7 @@ const emojiList = {
         "1F96A"
       ],
       "toned": false,
-      "name": "sandwich",
-      "flagged": false
+      "name": "sandwich"
     },
     {
       "emoji": "🌮",
@@ -6386,8 +5568,7 @@ const emojiList = {
         "1F32E"
       ],
       "toned": false,
-      "name": "taco",
-      "flagged": false
+      "name": "taco"
     },
     {
       "emoji": "🌯",
@@ -6395,17 +5576,7 @@ const emojiList = {
         "1F32F"
       ],
       "toned": false,
-      "name": "burrito",
-      "flagged": false
-    },
-    {
-      "emoji": "🫔",
-      "code": [
-        "1FAD4"
-      ],
-      "toned": false,
-      "name": "tamale",
-      "flagged": true
+      "name": "burrito"
     },
     {
       "emoji": "🥙",
@@ -6413,8 +5584,7 @@ const emojiList = {
         "1F959"
       ],
       "toned": false,
-      "name": "stuffed flatbread",
-      "flagged": false
+      "name": "stuffed flatbread"
     },
     {
       "emoji": "🧆",
@@ -6422,8 +5592,7 @@ const emojiList = {
         "1F9C6"
       ],
       "toned": false,
-      "name": "falafel",
-      "flagged": false
+      "name": "falafel"
     },
     {
       "emoji": "🥚",
@@ -6431,8 +5600,7 @@ const emojiList = {
         "1F95A"
       ],
       "toned": false,
-      "name": "egg",
-      "flagged": false
+      "name": "egg"
     },
     {
       "emoji": "🍳",
@@ -6440,8 +5608,7 @@ const emojiList = {
         "1F373"
       ],
       "toned": false,
-      "name": "cooking",
-      "flagged": false
+      "name": "cooking"
     },
     {
       "emoji": "🥘",
@@ -6449,8 +5616,7 @@ const emojiList = {
         "1F958"
       ],
       "toned": false,
-      "name": "shallow pan of food",
-      "flagged": false
+      "name": "shallow pan of food"
     },
     {
       "emoji": "🍲",
@@ -6458,17 +5624,7 @@ const emojiList = {
         "1F372"
       ],
       "toned": false,
-      "name": "pot of food",
-      "flagged": false
-    },
-    {
-      "emoji": "🫕",
-      "code": [
-        "1FAD5"
-      ],
-      "toned": false,
-      "name": "fondue",
-      "flagged": true
+      "name": "pot of food"
     },
     {
       "emoji": "🥣",
@@ -6476,8 +5632,7 @@ const emojiList = {
         "1F963"
       ],
       "toned": false,
-      "name": "bowl with spoon",
-      "flagged": false
+      "name": "bowl with spoon"
     },
     {
       "emoji": "🥗",
@@ -6485,8 +5640,7 @@ const emojiList = {
         "1F957"
       ],
       "toned": false,
-      "name": "green salad",
-      "flagged": false
+      "name": "green salad"
     },
     {
       "emoji": "🍿",
@@ -6494,8 +5648,7 @@ const emojiList = {
         "1F37F"
       ],
       "toned": false,
-      "name": "popcorn",
-      "flagged": false
+      "name": "popcorn"
     },
     {
       "emoji": "🧈",
@@ -6503,8 +5656,7 @@ const emojiList = {
         "1F9C8"
       ],
       "toned": false,
-      "name": "butter",
-      "flagged": false
+      "name": "butter"
     },
     {
       "emoji": "🧂",
@@ -6512,8 +5664,7 @@ const emojiList = {
         "1F9C2"
       ],
       "toned": false,
-      "name": "salt",
-      "flagged": false
+      "name": "salt"
     },
     {
       "emoji": "🥫",
@@ -6521,8 +5672,7 @@ const emojiList = {
         "1F96B"
       ],
       "toned": false,
-      "name": "canned food",
-      "flagged": false
+      "name": "canned food"
     },
     {
       "emoji": "🍱",
@@ -6530,8 +5680,7 @@ const emojiList = {
         "1F371"
       ],
       "toned": false,
-      "name": "bento box",
-      "flagged": false
+      "name": "bento box"
     },
     {
       "emoji": "🍘",
@@ -6539,8 +5688,7 @@ const emojiList = {
         "1F358"
       ],
       "toned": false,
-      "name": "rice cracker",
-      "flagged": false
+      "name": "rice cracker"
     },
     {
       "emoji": "🍙",
@@ -6548,8 +5696,7 @@ const emojiList = {
         "1F359"
       ],
       "toned": false,
-      "name": "rice ball",
-      "flagged": false
+      "name": "rice ball"
     },
     {
       "emoji": "🍚",
@@ -6557,8 +5704,7 @@ const emojiList = {
         "1F35A"
       ],
       "toned": false,
-      "name": "cooked rice",
-      "flagged": false
+      "name": "cooked rice"
     },
     {
       "emoji": "🍛",
@@ -6566,8 +5712,7 @@ const emojiList = {
         "1F35B"
       ],
       "toned": false,
-      "name": "curry rice",
-      "flagged": false
+      "name": "curry rice"
     },
     {
       "emoji": "🍜",
@@ -6575,8 +5720,7 @@ const emojiList = {
         "1F35C"
       ],
       "toned": false,
-      "name": "steaming bowl",
-      "flagged": false
+      "name": "steaming bowl"
     },
     {
       "emoji": "🍝",
@@ -6584,8 +5728,7 @@ const emojiList = {
         "1F35D"
       ],
       "toned": false,
-      "name": "spaghetti",
-      "flagged": false
+      "name": "spaghetti"
     },
     {
       "emoji": "🍠",
@@ -6593,8 +5736,7 @@ const emojiList = {
         "1F360"
       ],
       "toned": false,
-      "name": "roasted sweet potato",
-      "flagged": false
+      "name": "roasted sweet potato"
     },
     {
       "emoji": "🍢",
@@ -6602,8 +5744,7 @@ const emojiList = {
         "1F362"
       ],
       "toned": false,
-      "name": "oden",
-      "flagged": false
+      "name": "oden"
     },
     {
       "emoji": "🍣",
@@ -6611,8 +5752,7 @@ const emojiList = {
         "1F363"
       ],
       "toned": false,
-      "name": "sushi",
-      "flagged": false
+      "name": "sushi"
     },
     {
       "emoji": "🍤",
@@ -6620,8 +5760,7 @@ const emojiList = {
         "1F364"
       ],
       "toned": false,
-      "name": "fried shrimp",
-      "flagged": false
+      "name": "fried shrimp"
     },
     {
       "emoji": "🍥",
@@ -6629,8 +5768,7 @@ const emojiList = {
         "1F365"
       ],
       "toned": false,
-      "name": "fish cake with swirl",
-      "flagged": false
+      "name": "fish cake with swirl"
     },
     {
       "emoji": "🥮",
@@ -6638,8 +5776,7 @@ const emojiList = {
         "1F96E"
       ],
       "toned": false,
-      "name": "moon cake",
-      "flagged": false
+      "name": "moon cake"
     },
     {
       "emoji": "🍡",
@@ -6647,8 +5784,7 @@ const emojiList = {
         "1F361"
       ],
       "toned": false,
-      "name": "dango",
-      "flagged": false
+      "name": "dango"
     },
     {
       "emoji": "🥟",
@@ -6656,8 +5792,7 @@ const emojiList = {
         "1F95F"
       ],
       "toned": false,
-      "name": "dumpling",
-      "flagged": false
+      "name": "dumpling"
     },
     {
       "emoji": "🥠",
@@ -6665,8 +5800,7 @@ const emojiList = {
         "1F960"
       ],
       "toned": false,
-      "name": "fortune cookie",
-      "flagged": false
+      "name": "fortune cookie"
     },
     {
       "emoji": "🥡",
@@ -6674,8 +5808,7 @@ const emojiList = {
         "1F961"
       ],
       "toned": false,
-      "name": "takeout box",
-      "flagged": false
+      "name": "takeout box"
     },
     {
       "emoji": "🦀",
@@ -6683,8 +5816,7 @@ const emojiList = {
         "1F980"
       ],
       "toned": false,
-      "name": "crab",
-      "flagged": false
+      "name": "crab"
     },
     {
       "emoji": "🦞",
@@ -6692,8 +5824,7 @@ const emojiList = {
         "1F99E"
       ],
       "toned": false,
-      "name": "lobster",
-      "flagged": false
+      "name": "lobster"
     },
     {
       "emoji": "🦐",
@@ -6701,8 +5832,7 @@ const emojiList = {
         "1F990"
       ],
       "toned": false,
-      "name": "shrimp",
-      "flagged": false
+      "name": "shrimp"
     },
     {
       "emoji": "🦑",
@@ -6710,8 +5840,7 @@ const emojiList = {
         "1F991"
       ],
       "toned": false,
-      "name": "squid",
-      "flagged": false
+      "name": "squid"
     },
     {
       "emoji": "🦪",
@@ -6719,8 +5848,7 @@ const emojiList = {
         "1F9AA"
       ],
       "toned": false,
-      "name": "oyster",
-      "flagged": false
+      "name": "oyster"
     },
     {
       "emoji": "🍦",
@@ -6728,8 +5856,7 @@ const emojiList = {
         "1F366"
       ],
       "toned": false,
-      "name": "soft ice cream",
-      "flagged": false
+      "name": "soft ice cream"
     },
     {
       "emoji": "🍧",
@@ -6737,8 +5864,7 @@ const emojiList = {
         "1F367"
       ],
       "toned": false,
-      "name": "shaved ice",
-      "flagged": false
+      "name": "shaved ice"
     },
     {
       "emoji": "🍨",
@@ -6746,8 +5872,7 @@ const emojiList = {
         "1F368"
       ],
       "toned": false,
-      "name": "ice cream",
-      "flagged": false
+      "name": "ice cream"
     },
     {
       "emoji": "🍩",
@@ -6755,8 +5880,7 @@ const emojiList = {
         "1F369"
       ],
       "toned": false,
-      "name": "doughnut",
-      "flagged": false
+      "name": "doughnut"
     },
     {
       "emoji": "🍪",
@@ -6764,8 +5888,7 @@ const emojiList = {
         "1F36A"
       ],
       "toned": false,
-      "name": "cookie",
-      "flagged": false
+      "name": "cookie"
     },
     {
       "emoji": "🎂",
@@ -6773,8 +5896,7 @@ const emojiList = {
         "1F382"
       ],
       "toned": false,
-      "name": "birthday cake",
-      "flagged": false
+      "name": "birthday cake"
     },
     {
       "emoji": "🍰",
@@ -6782,8 +5904,7 @@ const emojiList = {
         "1F370"
       ],
       "toned": false,
-      "name": "shortcake",
-      "flagged": false
+      "name": "shortcake"
     },
     {
       "emoji": "🧁",
@@ -6791,8 +5912,7 @@ const emojiList = {
         "1F9C1"
       ],
       "toned": false,
-      "name": "cupcake",
-      "flagged": false
+      "name": "cupcake"
     },
     {
       "emoji": "🥧",
@@ -6800,8 +5920,7 @@ const emojiList = {
         "1F967"
       ],
       "toned": false,
-      "name": "pie",
-      "flagged": false
+      "name": "pie"
     },
     {
       "emoji": "🍫",
@@ -6809,8 +5928,7 @@ const emojiList = {
         "1F36B"
       ],
       "toned": false,
-      "name": "chocolate bar",
-      "flagged": false
+      "name": "chocolate bar"
     },
     {
       "emoji": "🍬",
@@ -6818,8 +5936,7 @@ const emojiList = {
         "1F36C"
       ],
       "toned": false,
-      "name": "candy",
-      "flagged": false
+      "name": "candy"
     },
     {
       "emoji": "🍭",
@@ -6827,8 +5944,7 @@ const emojiList = {
         "1F36D"
       ],
       "toned": false,
-      "name": "lollipop",
-      "flagged": false
+      "name": "lollipop"
     },
     {
       "emoji": "🍮",
@@ -6836,8 +5952,7 @@ const emojiList = {
         "1F36E"
       ],
       "toned": false,
-      "name": "custard",
-      "flagged": false
+      "name": "custard"
     },
     {
       "emoji": "🍯",
@@ -6845,8 +5960,7 @@ const emojiList = {
         "1F36F"
       ],
       "toned": false,
-      "name": "honey pot",
-      "flagged": false
+      "name": "honey pot"
     },
     {
       "emoji": "🍼",
@@ -6854,8 +5968,7 @@ const emojiList = {
         "1F37C"
       ],
       "toned": false,
-      "name": "baby bottle",
-      "flagged": false
+      "name": "baby bottle"
     },
     {
       "emoji": "🥛",
@@ -6863,8 +5976,7 @@ const emojiList = {
         "1F95B"
       ],
       "toned": false,
-      "name": "glass of milk",
-      "flagged": false
+      "name": "glass of milk"
     },
     {
       "emoji": "☕",
@@ -6872,17 +5984,7 @@ const emojiList = {
         "2615"
       ],
       "toned": false,
-      "name": "hot beverage",
-      "flagged": false
-    },
-    {
-      "emoji": "🫖",
-      "code": [
-        "1FAD6"
-      ],
-      "toned": false,
-      "name": "teapot",
-      "flagged": true
+      "name": "hot beverage"
     },
     {
       "emoji": "🍵",
@@ -6890,8 +5992,7 @@ const emojiList = {
         "1F375"
       ],
       "toned": false,
-      "name": "teacup without handle",
-      "flagged": false
+      "name": "teacup without handle"
     },
     {
       "emoji": "🍶",
@@ -6899,8 +6000,7 @@ const emojiList = {
         "1F376"
       ],
       "toned": false,
-      "name": "sake",
-      "flagged": false
+      "name": "sake"
     },
     {
       "emoji": "🍾",
@@ -6908,8 +6008,7 @@ const emojiList = {
         "1F37E"
       ],
       "toned": false,
-      "name": "bottle with popping cork",
-      "flagged": false
+      "name": "bottle with popping cork"
     },
     {
       "emoji": "🍷",
@@ -6917,8 +6016,7 @@ const emojiList = {
         "1F377"
       ],
       "toned": false,
-      "name": "wine glass",
-      "flagged": false
+      "name": "wine glass"
     },
     {
       "emoji": "🍸",
@@ -6926,8 +6024,7 @@ const emojiList = {
         "1F378"
       ],
       "toned": false,
-      "name": "cocktail glass",
-      "flagged": false
+      "name": "cocktail glass"
     },
     {
       "emoji": "🍹",
@@ -6935,8 +6032,7 @@ const emojiList = {
         "1F379"
       ],
       "toned": false,
-      "name": "tropical drink",
-      "flagged": false
+      "name": "tropical drink"
     },
     {
       "emoji": "🍺",
@@ -6944,8 +6040,7 @@ const emojiList = {
         "1F37A"
       ],
       "toned": false,
-      "name": "beer mug",
-      "flagged": false
+      "name": "beer mug"
     },
     {
       "emoji": "🍻",
@@ -6953,8 +6048,7 @@ const emojiList = {
         "1F37B"
       ],
       "toned": false,
-      "name": "clinking beer mugs",
-      "flagged": false
+      "name": "clinking beer mugs"
     },
     {
       "emoji": "🥂",
@@ -6962,8 +6056,7 @@ const emojiList = {
         "1F942"
       ],
       "toned": false,
-      "name": "clinking glasses",
-      "flagged": false
+      "name": "clinking glasses"
     },
     {
       "emoji": "🥃",
@@ -6971,8 +6064,7 @@ const emojiList = {
         "1F943"
       ],
       "toned": false,
-      "name": "tumbler glass",
-      "flagged": false
+      "name": "tumbler glass"
     },
     {
       "emoji": "🥤",
@@ -6980,17 +6072,7 @@ const emojiList = {
         "1F964"
       ],
       "toned": false,
-      "name": "cup with straw",
-      "flagged": false
-    },
-    {
-      "emoji": "🧋",
-      "code": [
-        "1F9CB"
-      ],
-      "toned": false,
-      "name": "bubble tea",
-      "flagged": true
+      "name": "cup with straw"
     },
     {
       "emoji": "🧃",
@@ -6998,8 +6080,7 @@ const emojiList = {
         "1F9C3"
       ],
       "toned": false,
-      "name": "beverage box",
-      "flagged": false
+      "name": "beverage box"
     },
     {
       "emoji": "🧉",
@@ -7007,8 +6088,7 @@ const emojiList = {
         "1F9C9"
       ],
       "toned": false,
-      "name": "mate",
-      "flagged": false
+      "name": "mate"
     },
     {
       "emoji": "🧊",
@@ -7016,8 +6096,7 @@ const emojiList = {
         "1F9CA"
       ],
       "toned": false,
-      "name": "ice",
-      "flagged": false
+      "name": "ice"
     },
     {
       "emoji": "🥢",
@@ -7025,8 +6104,7 @@ const emojiList = {
         "1F962"
       ],
       "toned": false,
-      "name": "chopsticks",
-      "flagged": false
+      "name": "chopsticks"
     },
     {
       "emoji": "🍽",
@@ -7034,8 +6112,7 @@ const emojiList = {
         "1F37D"
       ],
       "toned": false,
-      "name": "fork and knife with plate",
-      "flagged": false
+      "name": "fork and knife with plate"
     },
     {
       "emoji": "🍴",
@@ -7043,8 +6120,7 @@ const emojiList = {
         "1F374"
       ],
       "toned": false,
-      "name": "fork and knife",
-      "flagged": false
+      "name": "fork and knife"
     },
     {
       "emoji": "🥄",
@@ -7052,8 +6128,7 @@ const emojiList = {
         "1F944"
       ],
       "toned": false,
-      "name": "spoon",
-      "flagged": false
+      "name": "spoon"
     },
     {
       "emoji": "🔪",
@@ -7061,8 +6136,7 @@ const emojiList = {
         "1F52A"
       ],
       "toned": false,
-      "name": "kitchen knife",
-      "flagged": false
+      "name": "kitchen knife"
     },
     {
       "emoji": "🏺",
@@ -7070,289 +6144,225 @@ const emojiList = {
         "1F3FA"
       ],
       "toned": false,
-      "name": "amphora",
-      "flagged": false
+      "name": "amphora"
+    },
+    {
+      "emoji": "🌍",
+      "code": [
+        "1F30D"
+      ],
+      "toned": false,
+      "name": "globe showing Europe-Africa"
+    },
+    {
+      "emoji": "🌎",
+      "code": [
+        "1F30E"
+      ],
+      "toned": false,
+      "name": "globe showing Americas"
+    },
+    {
+      "emoji": "🌏",
+      "code": [
+        "1F30F"
+      ],
+      "toned": false,
+      "name": "globe showing Asia-Australia"
+    },
+    {
+      "emoji": "🌐",
+      "code": [
+        "1F310"
+      ],
+      "toned": false,
+      "name": "globe with meridians"
+    },
+    {
+      "emoji": "🗺",
+      "code": [
+        "1F5FA"
+      ],
+      "toned": false,
+      "name": "world map"
+    },
+    {
+      "emoji": "🗾",
+      "code": [
+        "1F5FE"
+      ],
+      "toned": false,
+      "name": "map of Japan"
+    },
+    {
+      "emoji": "🧭",
+      "code": [
+        "1F9ED"
+      ],
+      "toned": false,
+      "name": "compass"
+    },
+    {
+      "emoji": "🏔",
+      "code": [
+        "1F3D4"
+      ],
+      "toned": false,
+      "name": "snow-capped mountain"
+    },
+    {
+      "emoji": "⛰",
+      "code": [
+        "26F0"
+      ],
+      "toned": false,
+      "name": "mountain"
+    },
+    {
+      "emoji": "🌋",
+      "code": [
+        "1F30B"
+      ],
+      "toned": false,
+      "name": "volcano"
+    },
+    {
+      "emoji": "🗻",
+      "code": [
+        "1F5FB"
+      ],
+      "toned": false,
+      "name": "mount fuji"
+    },
+    {
+      "emoji": "🏕",
+      "code": [
+        "1F3D5"
+      ],
+      "toned": false,
+      "name": "camping"
+    },
+    {
+      "emoji": "🏖",
+      "code": [
+        "1F3D6"
+      ],
+      "toned": false,
+      "name": "beach with umbrella"
+    },
+    {
+      "emoji": "🏜",
+      "code": [
+        "1F3DC"
+      ],
+      "toned": false,
+      "name": "desert"
+    },
+    {
+      "emoji": "🏝",
+      "code": [
+        "1F3DD"
+      ],
+      "toned": false,
+      "name": "desert island"
+    },
+    {
+      "emoji": "🏞",
+      "code": [
+        "1F3DE"
+      ],
+      "toned": false,
+      "name": "national park"
+    },
+    {
+      "emoji": "🏟",
+      "code": [
+        "1F3DF"
+      ],
+      "toned": false,
+      "name": "stadium"
+    },
+    {
+      "emoji": "🏛",
+      "code": [
+        "1F3DB"
+      ],
+      "toned": false,
+      "name": "classical building"
+    },
+    {
+      "emoji": "🏗",
+      "code": [
+        "1F3D7"
+      ],
+      "toned": false,
+      "name": "building construction"
+    },
+    {
+      "emoji": "🧱",
+      "code": [
+        "1F9F1"
+      ],
+      "toned": false,
+      "name": "brick"
+    },
+    {
+      "emoji": "🏘",
+      "code": [
+        "1F3D8"
+      ],
+      "toned": false,
+      "name": "houses"
+    },
+    {
+      "emoji": "🏚",
+      "code": [
+        "1F3DA"
+      ],
+      "toned": false,
+      "name": "derelict house"
+    },
+    {
+      "emoji": "🏠",
+      "code": [
+        "1F3E0"
+      ],
+      "toned": false,
+      "name": "house"
+    },
+    {
+      "emoji": "🏡",
+      "code": [
+        "1F3E1"
+      ],
+      "toned": false,
+      "name": "house with garden"
+    },
+    {
+      "emoji": "🏢",
+      "code": [
+        "1F3E2"
+      ],
+      "toned": false,
+      "name": "office building"
+    },
+    {
+      "emoji": "🏣",
+      "code": [
+        "1F3E3"
+      ],
+      "toned": false,
+      "name": "Japanese post office"
     }
   ],
   "Transportation": [
-    {
-      "emoji": "🚂",
-      "code": [
-        "1F682"
-      ],
-      "toned": false,
-      "name": "locomotive",
-      "flagged": false
-    },
-    {
-      "emoji": "🚃",
-      "code": [
-        "1F683"
-      ],
-      "toned": false,
-      "name": "railway car",
-      "flagged": false
-    },
-    {
-      "emoji": "🚄",
-      "code": [
-        "1F684"
-      ],
-      "toned": false,
-      "name": "high-speed train",
-      "flagged": false
-    },
-    {
-      "emoji": "🚅",
-      "code": [
-        "1F685"
-      ],
-      "toned": false,
-      "name": "bullet train",
-      "flagged": false
-    },
-    {
-      "emoji": "🚆",
-      "code": [
-        "1F686"
-      ],
-      "toned": false,
-      "name": "train",
-      "flagged": false
-    },
-    {
-      "emoji": "🚇",
-      "code": [
-        "1F687"
-      ],
-      "toned": false,
-      "name": "metro",
-      "flagged": false
-    },
-    {
-      "emoji": "🚈",
-      "code": [
-        "1F688"
-      ],
-      "toned": false,
-      "name": "light rail",
-      "flagged": false
-    },
-    {
-      "emoji": "🚉",
-      "code": [
-        "1F689"
-      ],
-      "toned": false,
-      "name": "station",
-      "flagged": false
-    },
-    {
-      "emoji": "🚊",
-      "code": [
-        "1F68A"
-      ],
-      "toned": false,
-      "name": "tram",
-      "flagged": false
-    },
-    {
-      "emoji": "🚝",
-      "code": [
-        "1F69D"
-      ],
-      "toned": false,
-      "name": "monorail",
-      "flagged": false
-    },
-    {
-      "emoji": "🚞",
-      "code": [
-        "1F69E"
-      ],
-      "toned": false,
-      "name": "mountain railway",
-      "flagged": false
-    },
-    {
-      "emoji": "🚋",
-      "code": [
-        "1F68B"
-      ],
-      "toned": false,
-      "name": "tram car",
-      "flagged": false
-    },
-    {
-      "emoji": "🚌",
-      "code": [
-        "1F68C"
-      ],
-      "toned": false,
-      "name": "bus",
-      "flagged": false
-    },
-    {
-      "emoji": "🚍",
-      "code": [
-        "1F68D"
-      ],
-      "toned": false,
-      "name": "oncoming bus",
-      "flagged": false
-    },
-    {
-      "emoji": "🚎",
-      "code": [
-        "1F68E"
-      ],
-      "toned": false,
-      "name": "trolleybus",
-      "flagged": false
-    },
-    {
-      "emoji": "🚐",
-      "code": [
-        "1F690"
-      ],
-      "toned": false,
-      "name": "minibus",
-      "flagged": false
-    },
-    {
-      "emoji": "🚑",
-      "code": [
-        "1F691"
-      ],
-      "toned": false,
-      "name": "ambulance",
-      "flagged": false
-    },
-    {
-      "emoji": "🚒",
-      "code": [
-        "1F692"
-      ],
-      "toned": false,
-      "name": "fire engine",
-      "flagged": false
-    },
-    {
-      "emoji": "🚓",
-      "code": [
-        "1F693"
-      ],
-      "toned": false,
-      "name": "police car",
-      "flagged": false
-    },
-    {
-      "emoji": "🚔",
-      "code": [
-        "1F694"
-      ],
-      "toned": false,
-      "name": "oncoming police car",
-      "flagged": false
-    },
-    {
-      "emoji": "🚕",
-      "code": [
-        "1F695"
-      ],
-      "toned": false,
-      "name": "taxi",
-      "flagged": false
-    },
-    {
-      "emoji": "🚖",
-      "code": [
-        "1F696"
-      ],
-      "toned": false,
-      "name": "oncoming taxi",
-      "flagged": false
-    },
-    {
-      "emoji": "🚗",
-      "code": [
-        "1F697"
-      ],
-      "toned": false,
-      "name": "automobile",
-      "flagged": false
-    },
-    {
-      "emoji": "🚘",
-      "code": [
-        "1F698"
-      ],
-      "toned": false,
-      "name": "oncoming automobile",
-      "flagged": false
-    },
-    {
-      "emoji": "🚙",
-      "code": [
-        "1F699"
-      ],
-      "toned": false,
-      "name": "sport utility vehicle",
-      "flagged": false
-    },
-    {
-      "emoji": "🛻",
-      "code": [
-        "1F6FB"
-      ],
-      "toned": false,
-      "name": "pickup truck",
-      "flagged": true
-    },
-    {
-      "emoji": "🚚",
-      "code": [
-        "1F69A"
-      ],
-      "toned": false,
-      "name": "delivery truck",
-      "flagged": false
-    },
-    {
-      "emoji": "🚛",
-      "code": [
-        "1F69B"
-      ],
-      "toned": false,
-      "name": "articulated lorry",
-      "flagged": false
-    },
-    {
-      "emoji": "🚜",
-      "code": [
-        "1F69C"
-      ],
-      "toned": false,
-      "name": "tractor",
-      "flagged": false
-    },
-    {
-      "emoji": "🏎",
-      "code": [
-        "1F3CE"
-      ],
-      "toned": false,
-      "name": "racing car",
-      "flagged": false
-    },
     {
       "emoji": "🏍",
       "code": [
         "1F3CD"
       ],
       "toned": false,
-      "name": "motorcycle",
-      "flagged": false
+      "name": "motorcycle"
     },
     {
       "emoji": "🛵",
@@ -7360,8 +6370,7 @@ const emojiList = {
         "1F6F5"
       ],
       "toned": false,
-      "name": "motor scooter",
-      "flagged": false
+      "name": "motor scooter"
     },
     {
       "emoji": "🦽",
@@ -7369,8 +6378,7 @@ const emojiList = {
         "1F9BD"
       ],
       "toned": false,
-      "name": "manual wheelchair",
-      "flagged": false
+      "name": "manual wheelchair"
     },
     {
       "emoji": "🦼",
@@ -7378,8 +6386,7 @@ const emojiList = {
         "1F9BC"
       ],
       "toned": false,
-      "name": "motorized wheelchair",
-      "flagged": false
+      "name": "motorized wheelchair"
     },
     {
       "emoji": "🛺",
@@ -7387,8 +6394,7 @@ const emojiList = {
         "1F6FA"
       ],
       "toned": false,
-      "name": "auto rickshaw",
-      "flagged": false
+      "name": "auto rickshaw"
     },
     {
       "emoji": "🚲",
@@ -7396,8 +6402,7 @@ const emojiList = {
         "1F6B2"
       ],
       "toned": false,
-      "name": "bicycle",
-      "flagged": false
+      "name": "bicycle"
     },
     {
       "emoji": "🛴",
@@ -7405,8 +6410,7 @@ const emojiList = {
         "1F6F4"
       ],
       "toned": false,
-      "name": "kick scooter",
-      "flagged": false
+      "name": "kick scooter"
     },
     {
       "emoji": "🛹",
@@ -7414,17 +6418,7 @@ const emojiList = {
         "1F6F9"
       ],
       "toned": false,
-      "name": "skateboard",
-      "flagged": false
-    },
-    {
-      "emoji": "🛼",
-      "code": [
-        "1F6FC"
-      ],
-      "toned": false,
-      "name": "roller skate",
-      "flagged": true
+      "name": "skateboard"
     },
     {
       "emoji": "🚏",
@@ -7432,8 +6426,7 @@ const emojiList = {
         "1F68F"
       ],
       "toned": false,
-      "name": "bus stop",
-      "flagged": false
+      "name": "bus stop"
     },
     {
       "emoji": "🛣",
@@ -7441,8 +6434,7 @@ const emojiList = {
         "1F6E3"
       ],
       "toned": false,
-      "name": "motorway",
-      "flagged": false
+      "name": "motorway"
     },
     {
       "emoji": "🛤",
@@ -7450,8 +6442,7 @@ const emojiList = {
         "1F6E4"
       ],
       "toned": false,
-      "name": "railway track",
-      "flagged": false
+      "name": "railway track"
     },
     {
       "emoji": "🛢",
@@ -7459,8 +6450,7 @@ const emojiList = {
         "1F6E2"
       ],
       "toned": false,
-      "name": "oil drum",
-      "flagged": false
+      "name": "oil drum"
     },
     {
       "emoji": "⛽",
@@ -7468,8 +6458,7 @@ const emojiList = {
         "26FD"
       ],
       "toned": false,
-      "name": "fuel pump",
-      "flagged": false
+      "name": "fuel pump"
     },
     {
       "emoji": "🚨",
@@ -7477,8 +6466,7 @@ const emojiList = {
         "1F6A8"
       ],
       "toned": false,
-      "name": "police car light",
-      "flagged": false
+      "name": "police car light"
     },
     {
       "emoji": "🚥",
@@ -7486,8 +6474,7 @@ const emojiList = {
         "1F6A5"
       ],
       "toned": false,
-      "name": "horizontal traffic light",
-      "flagged": false
+      "name": "horizontal traffic light"
     },
     {
       "emoji": "🚦",
@@ -7495,8 +6482,7 @@ const emojiList = {
         "1F6A6"
       ],
       "toned": false,
-      "name": "vertical traffic light",
-      "flagged": false
+      "name": "vertical traffic light"
     },
     {
       "emoji": "🛑",
@@ -7504,8 +6490,7 @@ const emojiList = {
         "1F6D1"
       ],
       "toned": false,
-      "name": "stop sign",
-      "flagged": false
+      "name": "stop sign"
     },
     {
       "emoji": "🚧",
@@ -7513,8 +6498,7 @@ const emojiList = {
         "1F6A7"
       ],
       "toned": false,
-      "name": "construction",
-      "flagged": false
+      "name": "construction"
     },
     {
       "emoji": "⚓",
@@ -7522,8 +6506,7 @@ const emojiList = {
         "2693"
       ],
       "toned": false,
-      "name": "anchor",
-      "flagged": false
+      "name": "anchor"
     },
     {
       "emoji": "⛵",
@@ -7531,8 +6514,7 @@ const emojiList = {
         "26F5"
       ],
       "toned": false,
-      "name": "sailboat",
-      "flagged": false
+      "name": "sailboat"
     },
     {
       "emoji": "🛶",
@@ -7540,8 +6522,7 @@ const emojiList = {
         "1F6F6"
       ],
       "toned": false,
-      "name": "canoe",
-      "flagged": false
+      "name": "canoe"
     },
     {
       "emoji": "🚤",
@@ -7549,8 +6530,7 @@ const emojiList = {
         "1F6A4"
       ],
       "toned": false,
-      "name": "speedboat",
-      "flagged": false
+      "name": "speedboat"
     },
     {
       "emoji": "🛳",
@@ -7558,8 +6538,7 @@ const emojiList = {
         "1F6F3"
       ],
       "toned": false,
-      "name": "passenger ship",
-      "flagged": false
+      "name": "passenger ship"
     },
     {
       "emoji": "⛴",
@@ -7567,8 +6546,7 @@ const emojiList = {
         "26F4"
       ],
       "toned": false,
-      "name": "ferry",
-      "flagged": false
+      "name": "ferry"
     },
     {
       "emoji": "🛥",
@@ -7576,8 +6554,7 @@ const emojiList = {
         "1F6E5"
       ],
       "toned": false,
-      "name": "motor boat",
-      "flagged": false
+      "name": "motor boat"
     },
     {
       "emoji": "🚢",
@@ -7585,8 +6562,7 @@ const emojiList = {
         "1F6A2"
       ],
       "toned": false,
-      "name": "ship",
-      "flagged": false
+      "name": "ship"
     },
     {
       "emoji": "✈",
@@ -7594,8 +6570,7 @@ const emojiList = {
         "2708"
       ],
       "toned": false,
-      "name": "airplane",
-      "flagged": false
+      "name": "airplane"
     },
     {
       "emoji": "🛩",
@@ -7603,8 +6578,7 @@ const emojiList = {
         "1F6E9"
       ],
       "toned": false,
-      "name": "small airplane",
-      "flagged": false
+      "name": "small airplane"
     },
     {
       "emoji": "🛫",
@@ -7612,8 +6586,7 @@ const emojiList = {
         "1F6EB"
       ],
       "toned": false,
-      "name": "airplane departure",
-      "flagged": false
+      "name": "airplane departure"
     },
     {
       "emoji": "🛬",
@@ -7621,8 +6594,7 @@ const emojiList = {
         "1F6EC"
       ],
       "toned": false,
-      "name": "airplane arrival",
-      "flagged": false
+      "name": "airplane arrival"
     },
     {
       "emoji": "🪂",
@@ -7630,8 +6602,7 @@ const emojiList = {
         "1FA82"
       ],
       "toned": false,
-      "name": "parachute",
-      "flagged": false
+      "name": "parachute"
     },
     {
       "emoji": "💺",
@@ -7639,8 +6610,7 @@ const emojiList = {
         "1F4BA"
       ],
       "toned": false,
-      "name": "seat",
-      "flagged": false
+      "name": "seat"
     },
     {
       "emoji": "🚁",
@@ -7648,8 +6618,7 @@ const emojiList = {
         "1F681"
       ],
       "toned": false,
-      "name": "helicopter",
-      "flagged": false
+      "name": "helicopter"
     },
     {
       "emoji": "🚟",
@@ -7657,8 +6626,7 @@ const emojiList = {
         "1F69F"
       ],
       "toned": false,
-      "name": "suspension railway",
-      "flagged": false
+      "name": "suspension railway"
     },
     {
       "emoji": "🚠",
@@ -7666,8 +6634,7 @@ const emojiList = {
         "1F6A0"
       ],
       "toned": false,
-      "name": "mountain cableway",
-      "flagged": false
+      "name": "mountain cableway"
     },
     {
       "emoji": "🚡",
@@ -7675,8 +6642,7 @@ const emojiList = {
         "1F6A1"
       ],
       "toned": false,
-      "name": "aerial tramway",
-      "flagged": false
+      "name": "aerial tramway"
     },
     {
       "emoji": "🛰",
@@ -7684,8 +6650,7 @@ const emojiList = {
         "1F6F0"
       ],
       "toned": false,
-      "name": "satellite",
-      "flagged": false
+      "name": "satellite"
     },
     {
       "emoji": "🚀",
@@ -7693,8 +6658,7 @@ const emojiList = {
         "1F680"
       ],
       "toned": false,
-      "name": "rocket",
-      "flagged": false
+      "name": "rocket"
     },
     {
       "emoji": "🛸",
@@ -7702,8 +6666,255 @@ const emojiList = {
         "1F6F8"
       ],
       "toned": false,
-      "name": "flying saucer",
-      "flagged": false
+      "name": "flying saucer"
+    },
+    {
+      "emoji": "🛎",
+      "code": [
+        "1F6CE"
+      ],
+      "toned": false,
+      "name": "bellhop bell"
+    },
+    {
+      "emoji": "🧳",
+      "code": [
+        "1F9F3"
+      ],
+      "toned": false,
+      "name": "luggage"
+    },
+    {
+      "emoji": "⌛",
+      "code": [
+        "231B"
+      ],
+      "toned": false,
+      "name": "hourglass done"
+    },
+    {
+      "emoji": "⏳",
+      "code": [
+        "23F3"
+      ],
+      "toned": false,
+      "name": "hourglass not done"
+    },
+    {
+      "emoji": "⌚",
+      "code": [
+        "231A"
+      ],
+      "toned": false,
+      "name": "watch"
+    },
+    {
+      "emoji": "⏰",
+      "code": [
+        "23F0"
+      ],
+      "toned": false,
+      "name": "alarm clock"
+    },
+    {
+      "emoji": "⏱",
+      "code": [
+        "23F1"
+      ],
+      "toned": false,
+      "name": "stopwatch"
+    },
+    {
+      "emoji": "⏲",
+      "code": [
+        "23F2"
+      ],
+      "toned": false,
+      "name": "timer clock"
+    },
+    {
+      "emoji": "🕰",
+      "code": [
+        "1F570"
+      ],
+      "toned": false,
+      "name": "mantelpiece clock"
+    },
+    {
+      "emoji": "🕛",
+      "code": [
+        "1F55B"
+      ],
+      "toned": false,
+      "name": "twelve o’clock"
+    },
+    {
+      "emoji": "🕧",
+      "code": [
+        "1F567"
+      ],
+      "toned": false,
+      "name": "twelve-thirty"
+    },
+    {
+      "emoji": "🕐",
+      "code": [
+        "1F550"
+      ],
+      "toned": false,
+      "name": "one o’clock"
+    },
+    {
+      "emoji": "🕜",
+      "code": [
+        "1F55C"
+      ],
+      "toned": false,
+      "name": "one-thirty"
+    },
+    {
+      "emoji": "🕑",
+      "code": [
+        "1F551"
+      ],
+      "toned": false,
+      "name": "two o’clock"
+    },
+    {
+      "emoji": "🕝",
+      "code": [
+        "1F55D"
+      ],
+      "toned": false,
+      "name": "two-thirty"
+    },
+    {
+      "emoji": "🕒",
+      "code": [
+        "1F552"
+      ],
+      "toned": false,
+      "name": "three o’clock"
+    },
+    {
+      "emoji": "🕞",
+      "code": [
+        "1F55E"
+      ],
+      "toned": false,
+      "name": "three-thirty"
+    },
+    {
+      "emoji": "🕓",
+      "code": [
+        "1F553"
+      ],
+      "toned": false,
+      "name": "four o’clock"
+    },
+    {
+      "emoji": "🕟",
+      "code": [
+        "1F55F"
+      ],
+      "toned": false,
+      "name": "four-thirty"
+    },
+    {
+      "emoji": "🕔",
+      "code": [
+        "1F554"
+      ],
+      "toned": false,
+      "name": "five o’clock"
+    },
+    {
+      "emoji": "🕠",
+      "code": [
+        "1F560"
+      ],
+      "toned": false,
+      "name": "five-thirty"
+    },
+    {
+      "emoji": "🕕",
+      "code": [
+        "1F555"
+      ],
+      "toned": false,
+      "name": "six o’clock"
+    },
+    {
+      "emoji": "🕡",
+      "code": [
+        "1F561"
+      ],
+      "toned": false,
+      "name": "six-thirty"
+    },
+    {
+      "emoji": "🕖",
+      "code": [
+        "1F556"
+      ],
+      "toned": false,
+      "name": "seven o’clock"
+    },
+    {
+      "emoji": "🕢",
+      "code": [
+        "1F562"
+      ],
+      "toned": false,
+      "name": "seven-thirty"
+    },
+    {
+      "emoji": "🕗",
+      "code": [
+        "1F557"
+      ],
+      "toned": false,
+      "name": "eight o’clock"
+    },
+    {
+      "emoji": "🕣",
+      "code": [
+        "1F563"
+      ],
+      "toned": false,
+      "name": "eight-thirty"
+    },
+    {
+      "emoji": "🕘",
+      "code": [
+        "1F558"
+      ],
+      "toned": false,
+      "name": "nine o’clock"
+    },
+    {
+      "emoji": "🕤",
+      "code": [
+        "1F564"
+      ],
+      "toned": false,
+      "name": "nine-thirty"
+    },
+    {
+      "emoji": "🕙",
+      "code": [
+        "1F559"
+      ],
+      "toned": false,
+      "name": "ten o’clock"
+    },
+    {
+      "emoji": "🕥",
+      "code": [
+        "1F565"
+      ],
+      "toned": false,
+      "name": "ten-thirty"
     }
   ]
 };
