@@ -251,15 +251,15 @@ function buildBaseArray (codes, chars, names, flags, charNumber) {
   
   for (let i=0; i < baseArrayLength; i++) {
     let baseCodeArray = returnBaseCodeArray(codes[i].firstChild.textContent);
-    baseArray.push(
-      {
-        "emoji": chars[i].firstChild.textContent,
-        "code": baseCodeArray,
-        "toned": (finalToneArray.includes(baseCodeArray[0])),
-        "name": names[i].firstChild.textContent,
-        "flagged": (flags.includes((i + 1).toString())),
-      }
-    );
+      baseArray.push(
+        {
+          "emoji": chars[i].firstChild.textContent,
+          "code": baseCodeArray,
+          "toned": (finalToneArray.includes(baseCodeArray[0])),
+          "name": names[i].firstChild.textContent,
+          "flagged": flags.includes((i + 1).toString()),
+        }
+      );
   }
 
   return baseArray;
@@ -276,7 +276,9 @@ function buildEmojiListObject (emojiArray, categories) {
     finalObject[category.name] = [];
 
     for (let j=category.start; j < category.end; j++) {
-      finalObject[category.name].push(emojiArray[j]);
+      if(!emojiArray[j].flagged) {
+        finalObject[category.name].push(emojiArray[j]);
+      }
     }
   }
   return finalObject;
