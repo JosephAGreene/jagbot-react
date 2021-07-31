@@ -34,7 +34,10 @@ const styles = (theme) => ({
     color: theme.palette.orange.main,
   },
   spacer: {
-    margin: 14, 
+    width: "10px",
+  },
+  psuedoBurger: {
+    width: "250px",
   },
   link: {
     textDecoration: 'none',
@@ -63,7 +66,52 @@ function Header(props) {
         elevation={0}
       >
         <Toolbar>
-          <Grid container justifyContent="space-between" alignItems="flex-end">
+          <Hidden smUp>
+            <Grid container justifyContent="space-between">
+              <Grid item>
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  onClick={onDrawerToggle}
+                  className={classes.menuButton}
+                >
+                  <MenuIcon />
+                </IconButton>
+              </Grid>
+              <Grid item>
+                <Headline 
+                  iconComponent={AiOutlineRobot}
+                  start="Jag"
+                  end="Bot"
+                  color="#98c379"
+                  title
+                />
+              </Grid>
+              <Grid item >
+                <div className={classes.spacer} />
+              </Grid>
+            </Grid>
+          </Hidden>
+          <Hidden xsDown>
+            <Grid container justifyContent="space-between">
+              <Grid item >
+                <div className={classes.psuedoBurger} />
+              </Grid>
+              <Grid item>
+                <Headline 
+                  iconComponent={AiOutlineRobot}
+                  start="Jag"
+                  end="Bot"
+                  color="#98c379"
+                  title
+                />
+              </Grid>
+              <Grid item >
+                <div className={classes.spacer} />
+              </Grid>
+            </Grid>
+          </Hidden>
+          {/* <Grid container justifyContent="space-between" alignItems="flex-end">
             <Hidden smUp>
               <Grid item>
                 <IconButton
@@ -76,7 +124,7 @@ function Header(props) {
                 </IconButton>
               </Grid>
             </Hidden>
-            <Hidden xsDown>
+            <Hidden smDown>
               <Grid item >
                 <div className={classes.spacer} />
               </Grid>
@@ -93,7 +141,7 @@ function Header(props) {
             <Grid item >
               <div className={classes.spacer} />
             </Grid>
-          </Grid>
+          </Grid> */}
         </Toolbar>
       </AppBar>
     </React.Fragment>
