@@ -5,7 +5,7 @@
 *******************************************************************************************************/
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-// START CODE utilized in console at: https://unicode.org/emoji/charts/full-emoji-modifiers.html         //
+// START CODE utilized in console at: https://unicode.org/emoji/charts/full-emoji-modifiers.html   v13.1 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
 // Array of <td class="code" elements 
@@ -292,5 +292,5 @@ const emojiListObject = buildEmojiListObject(baseEmojiArray, categories);
 console.log(emojiListObject);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-// END CODE utilized in console at: https://unicode.org/emoji/charts/full-emoji-list.html              //
+// END CODE utilized in console at: https://unicode.org/emoji/charts/full-emoji-list.html          v13.1 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////// 
