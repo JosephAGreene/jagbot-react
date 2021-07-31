@@ -24,20 +24,20 @@ import {FaRegSmile,
         FaUser,
         FaDog,
         FaPizzaSlice,
-        FaCarSide} from 'react-icons/fa';
+        FaCarSide,
+        FaSadCry} from 'react-icons/fa';
 
 const ListItemTextMemo = React.memo(ListItemText);
 const MenuItemMemo = React.memo(MenuItem);
 const emojiCategories = Object.keys(emojiList);
-const categoryIcons = [
-  <FaRegSmile/>,
-  <FaHeart/>,
-  <FaHandPaper/>,
-  <FaUser/>,
-  <FaDog />,
-  <FaPizzaSlice/>,
-  <FaCarSide/>,
-];
+const categoryIcons = [ <FaRegSmile/>, 
+                        <FaHeart/>, 
+                        <FaHandPaper/>, 
+                        <FaUser/>,
+                        <FaDog />, 
+                        <FaPizzaSlice/>, 
+                        <FaCarSide/> ];
+
 
 const styles = (theme) => ({
   menuRoot: {
@@ -183,7 +183,20 @@ const styles = (theme) => ({
   },
   button: {
     fontSize: "25px",
-  }
+  },
+  emptySearchContainer: {
+    width: "inherit",
+    height: "inherit",
+    paddingTop: "15px",
+    textAlign: "center",
+  },
+  emptySearchMessage: {
+    color: theme.palette.white.dark,
+  },
+  sadIcon: {
+    fontSize: "100px",
+    color: theme.palette.gray.light,
+  },
 });
 
 // Return array of eomji objects where provided value param
@@ -200,7 +213,7 @@ function searchEmoji (value) {
   }
 
   if(results.length < 1) {
-    results = false;
+    results = 'none';
   }
   return results;
 }
@@ -257,11 +270,15 @@ function EmojiMenu (props) {
 
   const handleSearch = (value) => {
     if (value.trim().length > 2) {
-      setSearchResults(searchEmoji(value.trim()));
-    } else {
-      if(searchResults) {
-        setSearchResults(false);
+      const result = searchEmoji(value.trim());
+      // Fix potential UI bug where hoverEmoji value
+      // would remain set after sudden render change
+      if (result === 'none') {
+        setHoverEmoji(null);
       }
+      setSearchResults(result);
+    } else {
+      setSearchResults(false);
     }
   }
 
@@ -329,6 +346,18 @@ function EmojiMenu (props) {
   }
 
   const returnSearchResults = () => {
+    
+    if (searchResults === "none") {
+      return (
+        <div className={classes.emptySearchContainer}>
+          <FaSadCry className={classes.sadIcon}/>
+          <div className={classes.emptySearchMessage}>
+            No emojis match your search
+          </div>
+        </div>
+      );
+    };
+
     return (
       searchResults.map((item, pos) => {
         return (
