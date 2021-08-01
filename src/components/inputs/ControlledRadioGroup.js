@@ -6,20 +6,28 @@ import { Controller } from 'react-hook-form';
 // Import Mui components
 import { withStyles } from '@material-ui/core/styles';
 import RadioGroup from "@material-ui/core/RadioGroup";
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 const styles = (theme) => ({
+  labelRootError: {
+    color: theme.palette.error.main,
+    marginLeft: "15px",
+  },
   description: {
     color: theme.palette.white.dark,
     margin: "0 0 0 10px",
     fontSize: "16px",
   },
-  spacer: {
-    marginBottom: "15px",
-  }
 });
 
 function ControlledRadioGroup (props) {
-  const {classes, control, name, description, defaultValue, children} = props;
+  const {classes, 
+         control, 
+         name,
+         error, 
+         description, 
+         defaultValue, 
+         children} = props;
 
   return (
     <React.Fragment>
@@ -39,9 +47,11 @@ function ControlledRadioGroup (props) {
           </RadioGroup>
         )}
       />
-      <div className={classes.spacer}/>
+      {error[name] ? 
+        <FormHelperText className={classes.labelRootError} id={`error-message-${name}`}>{error[name].message}</FormHelperText>
+        : <FormHelperText> </FormHelperText> 
+      }
     </React.Fragment>
-
   );
 }
 
