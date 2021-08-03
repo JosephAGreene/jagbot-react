@@ -90,10 +90,11 @@ function Navigator(props) {
           activePath,
           activeSubDirectory, 
           selectedBot, 
-          setSelectedBot, 
+          setSelectedBotId, 
           user,
           handleLogoutDialogOpen, 
           ...other } = props;
+          console.log(selectedBot);
 
   const history = useHistory();
 
@@ -101,7 +102,7 @@ function Navigator(props) {
 
   const handleBackToStash = () => {
     history.push("/dashboard/stash/mybots");
-    setSelectedBot(false);
+    setSelectedBotId(false);
   }
 
   return (
@@ -143,8 +144,8 @@ function Navigator(props) {
             </ListItem>
             <ListItem className={clsx(classes.selectedBot, classes.itemCategory)}>
               <ListItemAvatar>
-                {selectedBot.avatar
-                  ? <Avatar className={classes.avatar} src={selectedBot.avatar} />
+                {selectedBot.avatarURL
+                  ? <Avatar className={classes.avatar} src={selectedBot.avatarURL} />
                   : <Avatar className={classes.avatar} src={defaultDiscord} />
                 }
               </ListItemAvatar>

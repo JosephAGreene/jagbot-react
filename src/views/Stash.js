@@ -27,7 +27,7 @@ function Stash(props) {
         return <BotPanel 
                 key={key}
                 bot={bot}
-                onClick={() => handleBotSelection(bot)}
+                onClick={() => handleBotSelection(bot._id)}
               />
       })}
       </GridContainer>

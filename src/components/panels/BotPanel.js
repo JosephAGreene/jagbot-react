@@ -62,15 +62,15 @@ function getModuleCount(bot) {
 
 function BotPanel(props) {
   const {classes, bot, onClick} = props;
-  const {name, creationDate, status, avatar} = bot;
+  const {name, creationDate, status, avatarURL} = bot;
 
   return (
     <GridItem sm={12} md={6} lg={4} classes={{root: classes.root}}>
       <Paper elevation={2} className={classes.paper} onClick={onClick} >
         <GridContainer>
           <GridItem>
-            {avatar
-              ? <Avatar className={classes.avatar} src={avatar} />
+            {avatarURL
+              ? <Avatar className={classes.avatar} src={avatarURL} />
               : <Avatar className={classes.avatar} src={defaultDiscord} />
             }
           </GridItem>

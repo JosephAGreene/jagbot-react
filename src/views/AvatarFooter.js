@@ -53,13 +53,13 @@ function getUserId(discordTag) {
 
 function AvatarFooter(props) {
   const {classes, user, handleLogoutDialogOpen} = props;
-  const {discordTag, avatar} = user;
+  const {discordTag, avatarURL} = user;
 
   return (
     <div onClick={handleLogoutDialogOpen} className={classes.bottomPush}>
       <GridContainer alignContent="space-between">
         <GridItem>
-          <Avatar src={avatar} className={classes.avatar} />
+          <Avatar src={avatarURL} className={classes.avatar} />
         </GridItem>
         <GridItem xs>
           <div className={classes.discordName}>
