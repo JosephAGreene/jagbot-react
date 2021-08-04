@@ -63,8 +63,18 @@ const styles = (theme) => ({
   }
 });
 
+function getSelectedBot(bots, selectedBotId) {
+  for (let i=0; i < bots.length; i++) {
+    if (bots[i]._id === selectedBotId) {
+      return bots[i];
+    }
+  }
+
+  return {};
+}
+
 // Returns react routes inside a switch based on routes.js routes
-function buildSwitchRoutes (bots, handleBotSelection) {
+function buildSwitchRoutes (bots, handleBotSelection, selectedBotId, setBots, setApiAlert) {
   let routeArray = [];
 
   // Separate child routes from their parent into their own array
@@ -85,7 +95,14 @@ function buildSwitchRoutes (bots, handleBotSelection) {
           >
             {route.path === 'stash/mybots' 
               ? <route.component bots={bots} handleBotSelection={handleBotSelection}/>
-              : <route.component />
+              : (route.api && route.api === "bot") 
+                ? <route.component 
+                    selectedBot={getSelectedBot(bots, selectedBotId)}
+                    bots={bots} 
+                    setBots={setBots}
+                    setApiAlert={setApiAlert} 
+                  />
+                : <route.component />
             }
           </Route>
         );
@@ -101,8 +118,8 @@ function Dashboard(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [user, setUser] = React.useState(null);
   const [bots, setBots] = React.useState([]);
-  const [selectedBot, setSelectedBot] = React.useState(false);
-  const [failureAlert, setFailureAlert] = React.useState({status: false});
+  const [selectedBotId, setSelectedBotId] = React.useState(false);
+  const [apiAlert, setApiAlert] = React.useState({status: false, duration: 5000, severity: "success"});
   const [logoutDialog, setLogoutDialog] = React.useState(false);
 
   const history = useHistory();
@@ -114,7 +131,7 @@ function Dashboard(props) {
       if (res.status === 200) {
         setUser({
           discordTag: res.data.discordTag,
-          avatar: res.data.avatarURL,
+          avatarURL: res.data.avatarURL,
         });
         setBots(res.data.bots);
         setLoading(false);
@@ -135,17 +152,17 @@ function Dashboard(props) {
   const activePath = useLocation().pathname.split('/').filter(param => param).slice(1, 3).join('/');
   const activeSubDirectory = activePath.split('/').slice(0, 1)[0];  
    
-  if (activeSubDirectory === 'develop' && !selectedBot) {
+  if (activeSubDirectory === 'develop' && !selectedBotId) {
     return <Redirect to="/dashboard" />;
   }
 
-  const failureAlertClose= () => {
-    setFailureAlert({status: false});
+  const apiAlertClose= () => {
+    setApiAlert({status: false, duration: 5000, severity: "success"});
   }
 
-  const handleBotSelection = (bot) => {
+  const handleBotSelection = (botId) => {
     history.push("/dashboard/develop/modules");
-    setSelectedBot(bot);
+    setSelectedBotId(botId);
   }
 
   const handleDrawerToggle = () => {
@@ -181,8 +198,8 @@ function Dashboard(props) {
               routes={routes}
               activePath={activePath}
               activeSubDirectory={activeSubDirectory}
-              selectedBot={selectedBot} 
-              setSelectedBot={setSelectedBot}
+              selectedBot={getSelectedBot(bots, selectedBotId)} 
+              setSelectedBotId={setSelectedBotId}
               user={user} 
               handleLogoutDialogOpen={handleLogoutDialogOpen}
               variant="temporary"
@@ -195,8 +212,8 @@ function Dashboard(props) {
               routes={routes} 
               activePath={activePath}
               activeSubDirectory={activeSubDirectory}
-              selectedBot={selectedBot} 
-              setSelectedBot={setSelectedBot}
+              selectedBot={getSelectedBot(bots, selectedBotId)} 
+              setSelectedBotId={setSelectedBotId}
               user={user} 
               handleLogoutDialogOpen={handleLogoutDialogOpen}
               PaperProps={{ style: { width: drawerWidth } }}
@@ -206,11 +223,11 @@ function Dashboard(props) {
         <div className={classes.app}>
           <Header onDrawerToggle={handleDrawerToggle} />
           <main className={classes.main}>
-            {buildSwitchRoutes(bots, handleBotSelection)}
+            {buildSwitchRoutes(bots, handleBotSelection, selectedBotId, setBots, setApiAlert)}
           </main>
         </div>
-        <Alert open={failureAlert.status} autoHideDuration={5000} onClose={failureAlertClose} severity='error'>
-          {failureAlert.message}
+        <Alert open={apiAlert.status} autoHideDuration={apiAlert.duration} onClose={apiAlertClose} severity={apiAlert.severity}>
+          {apiAlert.message}
         </Alert>
         <Dialog
           PaperProps={{className: classes.logoutDialog}}

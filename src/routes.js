@@ -48,7 +48,7 @@ const routes = [
     name: "Develop",
     path: 'develop',
     children: [
-      { path: 'develop/customcommands', name: 'Custom Commands', icon: <FiCommand />, component: CustomCommands },
+      { path: 'develop/customcommands', name: 'Custom Commands', icon: <FiCommand />, api: "bot", component: CustomCommands },
       { path: 'develop/hosting', name: 'Hosting', icon: <PublicIcon />, component: Content },
       { path: 'develop/functions', name: 'Functions', icon: <SettingsEthernetIcon />, component: Content },
       { path: 'develop/mlkit', name: 'ML KIT', icon: <SettingsInputComponentIcon />, component: Content},
@@ -59,7 +59,7 @@ const routes = [
     path: 'develop', 
     internal: true,  // Denotes internal routes, will not automatically display on any visible navigation
     children: [
-      { path: 'develop/customcommands/single', component: CustomCommandSingle },
+      { path: 'develop/customcommands/single', api: "bot", component: CustomCommandSingle },
     ]
   }
 ];
