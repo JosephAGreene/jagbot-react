@@ -29,6 +29,28 @@ class BotService {
       }
     });
   }
+
+  deleteCommandModule(payload) {
+    return axios
+    .delete(`${BOT}command-module`, 
+      { 
+        data: payload
+      },
+      {
+        withCredentials: true
+      }
+    )
+    .then(response => {
+      return response;
+    })
+    .catch(error => {
+      if (error.response) {
+        return error.response;
+      } else {
+        return this.networkIssue;
+      }
+    });
+  }
 }
 
 export default new BotService();
