@@ -94,7 +94,6 @@ function Navigator(props) {
           user,
           handleLogoutDialogOpen, 
           ...other } = props;
-          console.log(selectedBot);
 
   const history = useHistory();
 
