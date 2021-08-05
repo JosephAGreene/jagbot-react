@@ -15,7 +15,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 // Import custom components
 import Button from '../buttons/Button';
-import SearchInput from '../inputs/SearchInput';
+import SearchInput from './EmojiSearchInput';
 
 // Import icons
 import {FaRegSmile,
