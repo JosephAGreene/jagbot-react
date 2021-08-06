@@ -1,35 +1,210 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 // Import layouts
 import ContentWrapper from '../../layouts/ContentWrapper';
 
 // Import MUI components
 import { withStyles } from '@material-ui/core/styles';
+import Pagination from '@material-ui/lab/Pagination';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 // Import custom components
 import TitlePanel from '../../components/panels/TitlePanel';
 import ModulePanel from '../../components/panels/ModulePanel';
 import AssignedCommandPanel from '../../components/panels/AssignedCommandPanel';
 import GridContainer from '../../components/grid/GridContainer';
+import GridItem from '../../components/grid/GridItem';
+import SearchInput from '../../components/inputs/SearchInput';
+import Button from '../../components/buttons/Button';
 
 // Import icons
 import { FiCommand } from 'react-icons/fi';
 import { TiMessage } from 'react-icons/ti';
 import { TiMessages } from 'react-icons/ti';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
+import { BsExclamationOctagonFill } from 'react-icons/bs';
+import FilterListIcon from '@material-ui/icons/FilterList';
 
 const styles = (theme) => ({
   categoryHeader: {
-    marginTop: theme.spacing(6),
-    marginBottom: theme.spacing(2),
     marginLeft: theme.spacing(1),
     color: theme.palette.white.dark,
     fontSize: 24,
-  }
+  },
+  largeSpacer: {
+    marginTop: theme.spacing(6),
+  },
+  smallSpacer: {
+    marginTop: theme.spacing(2),
+  },
+  icon: {
+    marginLeft: "15px",
+  },
+  pagination: {
+    '& .MuiPaginationItem-root' : {
+      color: theme.palette.white.dark,
+    },
+    '& .Mui-selected' : {
+      backgroundColor: theme.palette.gray.dark,
+    },
+  },
+  filterMenuRoot: {
+    '& .MuiPaper-root': {
+      backgroundColor: theme.palette.gray.dark,
+      borderRadius: 2,
+    },
+    '& .MuiButtonBase-root': {
+      color: theme.palette.white.dark,
+      '&:hover' : {
+        backgroundColor: theme.palette.gray.light,
+      },
+      
+    },
+  },
+  infoBar: {
+    float: 'right',
+    marginLeft: "15px",
+    marginRight: "5px",
+    color: theme.palette.white.dark,
+  },
+  emptySearchContainer: {
+    width: "inherit",
+    height: "inherit",
+    paddingTop: "50px",
+    textAlign: "center",
+  },
+  emptySearchMessage: {
+    fontSize: "18px",
+    color: theme.palette.white.dark,
+  },
+  exclamationIcon: {
+    fontSize: "200px",
+    color: theme.palette.gray.dark,
+  },
 });
 
+function searchModules (value, moduleArray) {
+  let results = [];
+
+  for (let i=0; i < moduleArray.length; i++) {
+    if(moduleArray[i].command.search(value.trim()) > -1) {
+      results.push(moduleArray[i]);
+    }
+  }
+  return results;
+}
+
+function filterModules (value, moduleArray) {
+  if (value === "None") {
+    return moduleArray;
+  }
+
+  let filter = "";
+
+  switch(value) {
+    case "Single Response":
+      filter="single-response"
+      break;
+    case "Multiple Optioned Response":
+      filter="collection-response";
+      break;
+    case "Random Response":
+      filter="random-response";
+      break;
+    default:
+      filter="None";
+  }
+
+  let results = [];
+
+  for (let i=0; i < moduleArray.length; i++) {
+    if(moduleArray[i].moduleType === filter) {
+      results.push(moduleArray[i]);
+    }
+  }
+  return results;
+}
+
 function CustomCommands(props) {
-  const {classes} = props;
+  const {classes, bots, setBots, setApiAlert, selectedBot} = props;
+  const [filterAnchor, setFilterAnchor] = React.useState(null);
+  const [filter, setFilter] = React.useState('None');
+  const [moduleSearchInput, setModuleSearchInput] = React.useState('');
+  const [page, setPage] = React.useState(1);
+
+  const modulesPerPage = 5;
+  const moduleCount = filterModules(filter, searchModules(moduleSearchInput, selectedBot.commandModules)).length;
+  const paginationCount = Math.ceil(moduleCount / modulesPerPage);
+
+  React.useEffect(() => {
+    // Decrement page if it's value is beyond what moduleCount can display
+    // This will result in a page value of 0 if a search turns up empty
+    if ((moduleCount <= (page - 1 ) * modulesPerPage) && page !== 0) 
+    {
+      setPage(page - 1);
+    } 
+    // Reset page to 1 after an empty search is reset
+    else if (!page && moduleCount > 0)
+    {
+      setPage(1);
+    }
+  }, [moduleCount, page]);
+
+  const handleFilterOpen = (event) => {
+    setFilterAnchor(event.currentTarget);
+  };
+
+  const handleFilterClose = () => {
+    setFilterAnchor(null);
+  };
+
+  const handleFilterChange = (value) => {
+    setFilter(value);
+    handleFilterClose();
+  };
+
+  const handlePaginationChange = (event, value) => {
+    setPage(value);
+  };
+
+  const handleModuleSearch = (value) => {
+    setModuleSearchInput(value);
+  }
+
+  const returnVisibleModules = () => {
+    if (page === 0) {
+      return (
+        <div className={classes.emptySearchContainer}>
+          <div className={classes.emptySearchMessage}>No matches found!</div>
+          <div className={classes.exclamationIcon}>
+            <BsExclamationOctagonFill />
+          </div>
+          
+        </div>
+      );
+    }
+
+    return (
+      filterModules(filter, searchModules(moduleSearchInput, selectedBot.commandModules))
+        .slice((page - 1 ) * modulesPerPage, (page - 1) * modulesPerPage + modulesPerPage)
+        .map((module, pos) => {
+          return(
+            <AssignedCommandPanel 
+              key={`${module.command}_${pos}`}
+              command={module.command}
+              description={module.description}
+              moduleId={module._id}
+              botId={selectedBot._id}
+              bots={bots}
+              setBots={setBots}
+              setApiAlert={setApiAlert}
+            />
+          );
+        })
+    );
+  }
 
   return (
     <ContentWrapper>
@@ -40,9 +215,11 @@ function CustomCommands(props) {
         docs={true}
         color="#F45142"
       />
+      <div className={classes.largeSpacer} />
       <div className={classes.categoryHeader}>
         Assign a Command
       </div>
+      <div className={classes.smallSpacer} />
       <GridContainer>
         <ModulePanel 
           title="Single Response"
@@ -66,23 +243,76 @@ function CustomCommands(props) {
           color="#c678DD"
         />
       </GridContainer>
-      <div className={classes.categoryHeader}>
-        Assigned Commands
-      </div>
-      <AssignedCommandPanel 
-          command="!Test"
-          description="This is a description of the test command, foo!"
-        />
-        <AssignedCommandPanel 
-          command="!Test"
-          description="This is a description of the test command, foo!"
-        />
-        <AssignedCommandPanel 
-          command="!Test"
-          description="This is a description of the test command, foo!"
-        />
+      <div className={classes.largeSpacer} />
+      <GridContainer alignItems="flex-end">
+        <GridItem sm={12} md={6} lg={4}>
+          <div className={classes.categoryHeader}>
+            Assigned Commands
+          </div>
+        </GridItem>
+        <GridItem xs sm={12} md={6} lg={8} verticalCenter right>
+          <SearchInput 
+            value={moduleSearchInput} 
+            onChange={(e) => handleModuleSearch(e.target.value)}
+            handleModuleSearch={handleModuleSearch}
+          />
+          <Button 
+            className={classes.icon}
+            onClick={handleFilterOpen}
+            round 
+            justIcon
+          >
+            <FilterListIcon/>
+          </Button>
+          <Menu
+            id="filter-menu"
+            anchorEl={filterAnchor}
+            open={Boolean(filterAnchor)}
+            onClose={handleFilterClose}
+            className={classes.filterMenuRoot}
+            getContentAnchorEl={null}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'right',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+          >
+            <MenuItem onClick={() => handleFilterChange('None')}>No Filter</MenuItem>
+            <MenuItem onClick={() => handleFilterChange('Single Response')}>Single Response</MenuItem>
+            <MenuItem onClick={() => handleFilterChange('Multiple Optioned Response')}>Multiple Optioned Response</MenuItem>
+            <MenuItem onClick={() => handleFilterChange('Random Response')}>Random Response</MenuItem>
+          </Menu>
+        </GridItem>
+        <GridItem xs={12}>
+        <div className={classes.infoBar}>Filter: {filter}</div>
+          <div className={classes.infoBar}>Search: {moduleSearchInput ? moduleSearchInput : 'None'}</div>
+        </GridItem>
+      </GridContainer>
+      <div className={classes.smallSpacer} />
+        {returnVisibleModules()}
+        <GridContainer>
+          <GridItem xs right>
+            <Pagination 
+              className={classes.pagination} 
+              page={page} 
+              count={paginationCount} 
+              onChange={handlePaginationChange}
+            />
+          </GridItem>
+        </GridContainer>
     </ContentWrapper>
   );
 }
+
+CustomCommands.propTypes = {
+  classes: PropTypes.object.isRequired,
+  bots: PropTypes.array.isRequired,
+  setBots: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
+  selectedBot: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(CustomCommands);
