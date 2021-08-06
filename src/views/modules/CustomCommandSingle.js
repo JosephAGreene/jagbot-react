@@ -1,4 +1,8 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
+
+// Import API service
+import BotService from "../../services/BotService.js";
 
 // Import react-hook-form
 import { useForm } from 'react-hook-form';
@@ -15,6 +19,7 @@ import Paper from '@material-ui/core/Paper';
 // Import custom components
 import TitlePanel from '../../components/panels/TitlePanel';
 import OutlinedInput from '../../components/inputs/OutlinedInputDark';
+import ResponseEditor from '../../components/inputs/ResponseEditor';
 import Button from '../../components/buttons/Button';
 import GridContainer from '../../components/grid/GridContainer';
 import GridItem from '../../components/grid/GridItem';
@@ -42,24 +47,64 @@ const styles = (theme) => ({
 });
 
 const schema = Joi.object({
-  trigger: Joi.string().required()
+  command: Joi.string().required()
     .messages({
-      "string.empty": `"Email" is required`,
-      "any.required": `"Email" is required`,
+      "string.empty": `"Command" is required`,
+      "any.required": `"Command" is required`,
     }),
   description: Joi.string().required(),
-  location: Joi.string().required(),
-  response: Joi.string().required(),
+  responseLocation: Joi.string().required(),
+  response: Joi.string().trim().required(),
 });
 
 function CustomCommandSingle(props) {
-  const { register, handleSubmit, control, formState:{ errors } } = useForm({resolver: joiResolver(schema)});
+  const {classes, bots, selectedBot, setBots, setApiAlert} = props;
+  const { register, 
+          handleSubmit,
+          control, 
+          watch, 
+          setValue,
+          formState:{ errors } } = useForm({resolver: joiResolver(schema)});
 
-  const {classes} = props;
-  
+  const watchResponse = watch("response", "");
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const history = useHistory();
+
+  // Inserts a value into the current response value at the location
+  // of the cursor inside the ResponseEditor
+  const insertValueIntoResponse = (insertLocation, insertValue) => {
+    const valueBefore = watchResponse.slice(0, (insertLocation ? insertLocation : 0)).trim();
+    const valueAfter = watchResponse.slice(insertLocation).trim();
+    const newValue = `${valueBefore}${valueBefore ? ' ' : ''}${insertValue} ${valueAfter}`;
+    setValue('response', newValue, { shouldValidate: true });
+  }
+
+  const onSubmit = async (data) => {
+    const payload = {
+      "_id": selectedBot._id,
+      ...data
+    }
+
+    const res = await BotService.addSingleResponseModule(payload);
+
+    if (res.status === 200) {
+      let newBots = [...bots];
+      for (let i=0; i < bots.length; i++) {
+        if(bots[i]._id === selectedBot._id) {
+          newBots[i] = res.data;
+          break;
+        }
+      }
+
+      setBots(newBots);
+      setApiAlert({
+        status: true,
+        duration: 5000,
+        severity: "success",
+        message: "A new single-response command has been added!"
+      });
+      history.push('/dashboard/develop/customcommands');
+    }
   }
 
   return (
@@ -77,12 +122,12 @@ function CustomCommandSingle(props) {
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
           <OutlinedInput
-            labelText="Trigger"
+            labelText="Command"
             description="Command Trigger Word"
-            id="trigger"
-            name="trigger"
+            id="command"
+            name="command"
             formControlProps={{fullWidth: true}}
-            inputProps={{...register("trigger")}}
+            inputProps={{...register("command")}}
             error={errors}
           />
           <OutlinedInput
@@ -96,9 +141,10 @@ function CustomCommandSingle(props) {
           />
           <ControlledRadioGroup 
             control={control} 
-            name="location"
-            description="Bot Response Location"
+            name="responseLocation"
+            description="Where should the bot respond?"
             defaultValue="server"
+            error={errors}
           >
             <ControlledRadio
               value="server"
@@ -106,14 +152,17 @@ function CustomCommandSingle(props) {
             />
             <ControlledRadio
               value="directmessage"
-              label="Direct Message"
+              label="Direct Message the User"
             />
           </ControlledRadioGroup>
-          <OutlinedInput
+          <ResponseEditor
             labelText="Response"
             description="The response your bot will give."
             id="response"
             name="response"
+            watch={watchResponse}
+            insert={insertValueIntoResponse}
+            maxLength={2000}
             multiline
             rows={10}
             formControlProps={{fullWidth: true}}
@@ -123,7 +172,7 @@ function CustomCommandSingle(props) {
           <GridContainer justifyContent="flex-end">
             <GridItem>
               <Button
-                onClick={()=>console.log('hit')}
+                onClick={() => console.log('hit')}
                 variant="contained"
                 color="danger"
               >
