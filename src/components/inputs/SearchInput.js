@@ -8,40 +8,58 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 
 // Import icons
 import SearchIcon from '@material-ui/icons/Search';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 const styles = (theme) => ({
   inputRoot: {
-    '& .MuiOutlinedInput-root': {
-      borderRadius: 0,
-      backgroundColor: theme.palette.gray.dark,
+    '& .MuiFormLabel-root': {
       color: theme.palette.white.dark,
+    },
+    '& label.Mui-focused': {
+      color: theme.palette.white.main,
+    },
+    '& label.Mui-error': {
+      color: theme.palette.error.main,
+    },
+    '& .MuiOutlinedInput-root': {
+      backgroundColor: theme.palette.gray.main,
+      color: theme.palette.white.main,
       "& .MuiOutlinedInput-notchedOutline": {
-        borderColor: theme.palette.gray.main,
+        borderColor: theme.palette.teal.dark,
       },
       '&:hover .MuiOutlinedInput-notchedOutline': {
-        borderColor: theme.palette.gray.main,
+        borderColor: theme.palette.teal.light,
       },
       "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-        borderColor: theme.palette.gray.main,
+        borderColor: theme.palette.teal.main
       },
+      "&.Mui-error .MuiOutlinedInput-notchedOutline": {
+        borderColor: theme.palette.error.main
+      }
     },
+    minWidth: "200px",
+  },
+  cancelIcon: {
+    cursor: "pointer",
   },
 });
 
 function SearchInput (props) {
-  const {classes, id, onChange} = props;
+  const {classes, id, value, onChange, handleModuleSearch} = props;
 
   return (
     <TextField 
       id={id} 
       variant="outlined"
+      fullWidth={true}
       className={classes.inputRoot}
       size="small"
+      value={value}
       onChange={onChange}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <SearchIcon />
+            {!value ? <SearchIcon /> : <CancelIcon className={classes.cancelIcon} onClick={() => handleModuleSearch('')} />}
           </InputAdornment>
         ),
       }} 
@@ -53,7 +71,9 @@ function SearchInput (props) {
 SearchInput.propTypes = {
   classes: PropTypes.object.isRequired,
   id: PropTypes.string,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
+  handleModuleSearch: PropTypes.func.isRequired,
+  value: PropTypes.string,
 };
 
 export default withStyles(styles)(SearchInput);
