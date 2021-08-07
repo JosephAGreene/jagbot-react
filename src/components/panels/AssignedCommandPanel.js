@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 
 // Import API service
@@ -48,10 +49,24 @@ const styles = (theme) => ({
   },
 });
 
-function AssignedCommandPanel(props) {
-  const {classes, bots, botId, moduleId, command, description, setBots, setApiAlert} = props;
+function getPathname (moduleType) {
+  switch(moduleType) {
+    case "single-response":
+      return "/dashboard/develop/customcommands/single";
+    case "collection-response":
+      return "/dashboard/develop/customcommands/optioned";
+    case "random-response":
+      return "/dashboard/develop/customcommands/random";
+    default: 
+      return "/dashboard";
+  }
+}
 
+function AssignedCommandPanel(props) {
+  const {classes, bots, botId, moduleId, moduleType, moduleCommand, moduleDescription, setBots, setApiAlert} = props;
   const [deleteAnchor, setDeleteAnchor] = React.useState(null);
+
+  const pathname = getPathname(moduleType);
 
   const handleDeleteClick = (event) => {
     setDeleteAnchor(event.currentTarget);
@@ -95,15 +110,22 @@ function AssignedCommandPanel(props) {
           <GridContainer>
             <GridItem xs={12} sm={12} md={8} lg={8}>
               <div className={classes.command}>
-                {command}
+                {moduleCommand}
               </div>
               <div className={classes.description}>
-                {description}
+                {moduleDescription}
               </div>
             </GridItem>
             <GridItem xs={12} sm={12} md={4} lg={4} right>
               <div className={classes.buttons}>
-                <Button color="purple">Edit</Button>
+                <Link 
+                  to={{
+                    pathname: pathname, 
+                    moduleId: moduleId,
+                  }} 
+                >
+                  <Button color="purple">Edit</Button>
+                </Link>
               </div>
               <div className={classes.buttons}>
                 <Button onClick={handleDeleteClick} color="danger">Delete</Button>
@@ -139,8 +161,14 @@ function AssignedCommandPanel(props) {
 
 AssignedCommandPanel.propTypes = {
   classes: PropTypes.object.isRequired,
-  command: PropTypes.string.isRequired,
-  description: PropTypes.string,
+  bots: PropTypes.array.isRequired,
+  botId: PropTypes.string.isRequired,
+  moduleId: PropTypes.string.isRequired,
+  moduleType: PropTypes.string.isRequired,
+  moduleCommand: PropTypes.string.isRequired,
+  moduleDescription: PropTypes.string,
+  setBots: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(AssignedCommandPanel);
