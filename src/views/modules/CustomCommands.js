@@ -193,10 +193,7 @@ function CustomCommands(props) {
           return(
             <AssignedCommandPanel 
               key={`${module.command}_${pos}`}
-              moduleType={module.moduleType}
-              moduleCommand={module.command}
-              moduleDescription={module.description}
-              moduleId={module._id}
+              module={module}
               botId={selectedBot._id}
               bots={bots}
               setBots={setBots}

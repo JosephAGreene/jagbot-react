@@ -63,10 +63,10 @@ function getPathname (moduleType) {
 }
 
 function AssignedCommandPanel(props) {
-  const {classes, bots, botId, moduleId, moduleType, moduleCommand, moduleDescription, setBots, setApiAlert} = props;
+  const {classes, bots, botId, module, setBots, setApiAlert} = props;
   const [deleteAnchor, setDeleteAnchor] = React.useState(null);
 
-  const pathname = getPathname(moduleType);
+  const pathname = getPathname(module.moduleType);
 
   const handleDeleteClick = (event) => {
     setDeleteAnchor(event.currentTarget);
@@ -79,7 +79,7 @@ function AssignedCommandPanel(props) {
   const handleDeleteConfirm = async () => {
     const payload = {
       "botId": botId,
-      "moduleId": moduleId,
+      "moduleId": module._id,
     }
 
     const res = await BotService.deleteCommandModule(payload);
@@ -110,10 +110,10 @@ function AssignedCommandPanel(props) {
           <GridContainer>
             <GridItem xs={12} sm={12} md={8} lg={8}>
               <div className={classes.command}>
-                {moduleCommand}
+                {module.command}
               </div>
               <div className={classes.description}>
-                {moduleDescription}
+                {module.description}
               </div>
             </GridItem>
             <GridItem xs={12} sm={12} md={4} lg={4} right>
@@ -121,7 +121,7 @@ function AssignedCommandPanel(props) {
                 <Link 
                   to={{
                     pathname: pathname, 
-                    moduleId: moduleId,
+                    module: module,
                   }} 
                 >
                   <Button color="purple">Edit</Button>
@@ -163,10 +163,7 @@ AssignedCommandPanel.propTypes = {
   classes: PropTypes.object.isRequired,
   bots: PropTypes.array.isRequired,
   botId: PropTypes.string.isRequired,
-  moduleId: PropTypes.string.isRequired,
-  moduleType: PropTypes.string.isRequired,
-  moduleCommand: PropTypes.string.isRequired,
-  moduleDescription: PropTypes.string,
+  module: PropTypes.object.isRequired,
   setBots: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
 };
