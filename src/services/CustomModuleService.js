@@ -1,7 +1,7 @@
 import axios from "axios";
-import { BOT } from "./apiVariables.js";
+import { CUSTOM } from "./apiVariables.js";
 
-class BotService {
+class CustomModuleService {
 
   constructor() {
     // Generic response to give API experiences internal issues.
@@ -10,7 +10,7 @@ class BotService {
 
   addSingleResponseModule(payload) {
     return axios
-    .post(`${BOT}single-response`, 
+    .post(`${CUSTOM}/single-response`, 
       {
         ...payload
       },
@@ -32,7 +32,7 @@ class BotService {
 
   updateSingleResponseModule(payload) {
     return axios
-    .post(`${BOT}update-single-response`, 
+    .put(`${CUSTOM}/update-single-response`, 
       {
         ...payload
       },
@@ -54,7 +54,7 @@ class BotService {
 
   deleteCommandModule(payload) {
     return axios
-    .delete(`${BOT}command-module`, 
+    .delete(`${CUSTOM}/`, 
       { 
         data: payload
       },
@@ -75,4 +75,4 @@ class BotService {
   }
 }
 
-export default new BotService();
+export default new CustomModuleService();
