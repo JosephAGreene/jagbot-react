@@ -1,5 +1,5 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useLocation} from 'react-router-dom';
 
 // Import API service
 import BotService from "../../services/BotService.js";
@@ -44,6 +44,12 @@ const styles = (theme) => ({
     color: theme.palette.white.dark,
     fontSize: 24,
   },
+  new: {
+    color: theme.palette.green.main,
+  },
+  edit: {
+    color: theme.palette.purple.main,
+  }
 });
 
 const schema = Joi.object({
@@ -52,22 +58,51 @@ const schema = Joi.object({
       "string.empty": `"Command" is required`,
       "any.required": `"Command" is required`,
     }),
-  description: Joi.string().required(),
-  responseLocation: Joi.string().required(),
-  response: Joi.string().trim().required(),
+  description: Joi.string().required()
+    .messages({
+      "string.empty": `"Description" is required`,
+      "any.required": `"Description" is required`,
+    }),
+  responseLocation: Joi.string().required()
+    .messages({
+      "string.empty": `"Response Location" is required`,
+      "any.required": `"Response Location" is required`,
+    }),
+  response: Joi.string().trim().required()
+    .messages({
+      "string.empty": `"Response" is required`,
+      "any.required": `"Response" is required`,
+    }),
 });
+
+function setDefaultValues(module) {
+  if (module) {
+    return {
+      command: module.command,
+      description: module.description,
+      responseLocation: module.responseLocation,
+      response: module.response,
+    }
+  } else {
+    return {
+      command: '',
+      description: '',
+      responseLocation: 'server',
+      response: '',
+    }
+  }
+} 
 
 function CustomCommandSingle(props) {
   const {classes, bots, selectedBot, setBots, setApiAlert} = props;
-  const { register, 
-          handleSubmit,
-          control, 
-          watch, 
-          setValue,
-          formState:{ errors } } = useForm({resolver: joiResolver(schema)});
+  const {module} = useLocation();
 
+  const {register, handleSubmit, control, watch, setValue, setError, formState:{errors}} = useForm({
+    resolver: joiResolver(schema),
+    defaultValues: setDefaultValues(module),
+  });
+  
   const watchResponse = watch("response", "");
-
   const history = useHistory();
 
   // Inserts a value into the current response value at the location
@@ -80,6 +115,14 @@ function CustomCommandSingle(props) {
   }
 
   const onSubmit = async (data) => {
+    if (module) {
+      submitUpdateModule(data);
+    } else {
+      submitNewModule(data);
+    }
+  }
+
+  const submitNewModule = async (data) => {
     const payload = {
       "_id": selectedBot._id,
       ...data
@@ -104,7 +147,44 @@ function CustomCommandSingle(props) {
         message: "A new single-response command has been added!"
       });
       history.push('/dashboard/develop/customcommands');
+    } 
+    
+    if (res.status === 409 && res.data === "duplicate command") {
+      setError("command", {type: "manual", message: "Command trigger word already exists."});
     }
+  }
+
+  const submitUpdateModule = async (data) => {
+    const payload = {
+      "_id": selectedBot._id,
+      "moduleId": module._id,
+      ...data
+    }
+
+    const res = await BotService.updateSingleResponseModule(payload);
+
+    if (res.status === 200) {
+      let newBots = [...bots];
+      for (let i=0; i < bots.length; i++) {
+        if(bots[i]._id === selectedBot._id) {
+          newBots[i] = res.data;
+          break;
+        }
+      }
+
+      setBots(newBots);
+      setApiAlert({
+        status: true,
+        duration: 5000,
+        severity: "success",
+        message: "Your single-response command has been updated!"
+      });
+      history.push('/dashboard/develop/customcommands');
+    }
+  }
+
+  const handleCancel = () => {
+    history.push('/dashboard/develop/customcommands');
   }
 
   return (
@@ -117,7 +197,7 @@ function CustomCommandSingle(props) {
         color="#98c379"
       />
       <div className={classes.categoryHeader}>
-        Single Response Command
+        {module ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Single Response
       </div>
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
@@ -172,7 +252,7 @@ function CustomCommandSingle(props) {
           <GridContainer justifyContent="flex-end">
             <GridItem>
               <Button
-                onClick={() => console.log('hit')}
+                onClick={handleCancel}
                 variant="contained"
                 color="danger"
               >
