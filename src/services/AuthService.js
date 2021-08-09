@@ -10,7 +10,7 @@ class AuthService {
 
   getCurrentUser() {
     return axios
-    .get(AUTH, {
+    .get(`${AUTH}/`, {
       withCredentials: true
     })
     .then(response => {
