@@ -107,8 +107,8 @@ function filterModules (value, moduleArray) {
     case "Single Response":
       filter="single-response"
       break;
-    case "Multiple Optioned Response":
-      filter="collection-response";
+    case "Optioned Response":
+      filter="optioned-response";
       break;
     case "Random Response":
       filter="random-response";
@@ -120,7 +120,7 @@ function filterModules (value, moduleArray) {
   let results = [];
 
   for (let i=0; i < moduleArray.length; i++) {
-    if(moduleArray[i].moduleType === filter) {
+    if(moduleArray[i].type === filter) {
       results.push(moduleArray[i]);
     }
   }
@@ -280,7 +280,7 @@ function CustomCommands(props) {
           >
             <MenuItem onClick={() => handleFilterChange('None')}>No Filter</MenuItem>
             <MenuItem onClick={() => handleFilterChange('Single Response')}>Single Response</MenuItem>
-            <MenuItem onClick={() => handleFilterChange('Multiple Optioned Response')}>Multiple Optioned Response</MenuItem>
+            <MenuItem onClick={() => handleFilterChange('Optioned Response')}>Optioned Response</MenuItem>
             <MenuItem onClick={() => handleFilterChange('Random Response')}>Random Response</MenuItem>
           </Menu>
         </GridItem>

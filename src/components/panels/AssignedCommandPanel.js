@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 
 // Import API service
-import BotService from "../../services/BotService.js";
+import BotService from "../../services/CustomModuleService.js";
 
 // Import MUI components
 import { withStyles } from '@material-ui/core/styles';
@@ -53,7 +53,7 @@ function getPathname (moduleType) {
   switch(moduleType) {
     case "single-response":
       return "/dashboard/develop/customcommands/single";
-    case "collection-response":
+    case "optioned-response":
       return "/dashboard/develop/customcommands/optioned";
     case "random-response":
       return "/dashboard/develop/customcommands/random";
@@ -66,7 +66,7 @@ function AssignedCommandPanel(props) {
   const {classes, bots, botId, module, setBots, setApiAlert} = props;
   const [deleteAnchor, setDeleteAnchor] = React.useState(null);
 
-  const pathname = getPathname(module.moduleType);
+  const pathname = getPathname(module.type);
 
   const handleDeleteClick = (event) => {
     setDeleteAnchor(event.currentTarget);

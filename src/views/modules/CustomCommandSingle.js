@@ -2,7 +2,7 @@ import React from 'react';
 import {useHistory, useLocation} from 'react-router-dom';
 
 // Import API service
-import BotService from "../../services/BotService.js";
+import CustomModuleService from "../../services/CustomModuleService.js";
 
 // Import react-hook-form
 import { useForm } from 'react-hook-form';
@@ -128,7 +128,7 @@ function CustomCommandSingle(props) {
       ...data
     }
 
-    const res = await BotService.addSingleResponseModule(payload);
+    const res = await CustomModuleService.addSingleResponseModule(payload);
 
     if (res.status === 200) {
       let newBots = [...bots];
@@ -161,7 +161,7 @@ function CustomCommandSingle(props) {
       ...data
     }
 
-    const res = await BotService.updateSingleResponseModule(payload);
+    const res = await CustomModuleService.updateSingleResponseModule(payload);
 
     if (res.status === 200) {
       let newBots = [...bots];
