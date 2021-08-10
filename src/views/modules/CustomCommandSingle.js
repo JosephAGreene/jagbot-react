@@ -102,7 +102,7 @@ function CustomCommandSingle(props) {
     defaultValues: setDefaultValues(module),
   });
   
-  const watchResponse = watch("response", "");
+  const watchResponse = watch("response", (module ? module.response : ''));
   const history = useHistory();
 
   // Inserts a value into the current response value at the location
