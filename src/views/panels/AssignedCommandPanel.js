@@ -12,9 +12,9 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
 // Import custom components
-import GridContainer from '../grid/GridContainer';
-import GridItem from '../grid/GridItem';
-import Button from '../buttons/Button';
+import GridContainer from '../../components/grid/GridContainer';
+import GridItem from '../../components/grid/GridItem';
+import Button from '../../components/buttons/Button';
 
 const styles = (theme) => ({
   menuRoot: {

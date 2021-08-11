@@ -17,6 +17,7 @@ import CreateBot from "./views/CreateBot.js";
 import Modules from "./views/Modules.js";
 import CustomCommands from './views/modules/CustomCommands.js';
 import CustomCommandSingle from './views/modules/CustomCommandSingle.js';
+import CustomCommandOptioned from './views/modules/CustomCommandOptioned.js';
 
 const routes = [
   {
@@ -60,6 +61,7 @@ const routes = [
     internal: true,  // Denotes internal routes, will not automatically display on any visible navigation
     children: [
       { path: 'develop/customcommands/single', api: "bot", component: CustomCommandSingle },
+      { path: 'develop/customcommands/optioned', api: "bot", component: CustomCommandOptioned },
     ]
   }
 ];

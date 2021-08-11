@@ -11,9 +11,9 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
 // Import custom components
-import TitlePanel from '../../components/panels/TitlePanel';
-import ModulePanel from '../../components/panels/ModulePanel';
-import AssignedCommandPanel from '../../components/panels/AssignedCommandPanel';
+import TitlePanel from '../panels/TitlePanel';
+import ModulePanel from '../panels/ModulePanel';
+import AssignedCommandPanel from '../panels/AssignedCommandPanel';
 import GridContainer from '../../components/grid/GridContainer';
 import GridItem from '../../components/grid/GridItem';
 import SearchInput from '../../components/inputs/SearchInput';
@@ -229,7 +229,7 @@ function CustomCommands(props) {
         <ModulePanel 
           title="Multiple Optioned Response"
           description="A single command with a supplied option, for which a range of multiple responses can be returned." 
-          path="/dashboard/develop/customcommands/single"
+          path="/dashboard/develop/customcommands/optioned"
           Icon={TiMessages}
           color="#de8f4d"
         />

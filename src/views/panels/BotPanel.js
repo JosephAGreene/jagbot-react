@@ -8,8 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 
 // Import custom components
-import GridContainer from '../grid/GridContainer';
-import GridItem from '../grid/GridItem';
+import GridContainer from '../../components/grid/GridContainer';
+import GridItem from '../../components/grid/GridItem';
 
 // Default discord avatar image
 import defaultDiscord from '../../assets/images/defaultDiscord.png';

@@ -6,8 +6,8 @@ import ContentWrapper from '../layouts/ContentWrapper';
 
 // Import custom components
 import GridContainer from '../components/grid/GridContainer';
-import TitlePanel from '../components/panels/TitlePanel';
-import BotPanel from '../components/panels/BotPanel';
+import TitlePanel from './panels/TitlePanel';
+import BotPanel from './panels/BotPanel';
 
 // Temporary flat image/icon for testing
 import stashImage from '../assets/images/stash.png';

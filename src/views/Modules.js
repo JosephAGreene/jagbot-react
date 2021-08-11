@@ -5,7 +5,7 @@ import ContentWrapper from '../layouts/ContentWrapper';
 
 // Import custom components
 import GridContainer from '../components/grid/GridContainer';
-import ModulePanel from '../components/panels/ModulePanel';
+import ModulePanel from './panels/ModulePanel';
 
 // Import icons
 import { FiCommand } from 'react-icons/fi';

@@ -1,9 +1,6 @@
 import React from 'react';
 import {useHistory, useLocation} from 'react-router-dom';
 
-// Import API service
-import CustomModuleService from "../../services/CustomModuleService.js";
-
 // Import react-hook-form
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
@@ -27,7 +24,7 @@ import ControlledRadioGroup from '../../components/inputs/ControlledRadioGroup';
 import ControlledRadio from '../../components/inputs/ControlledRadio';
 
 // Import icons
-import { TiMessage } from 'react-icons/ti';
+import { TiMessages } from 'react-icons/ti';
 
 const styles = (theme) => ({
   paper: {
@@ -43,6 +40,11 @@ const styles = (theme) => ({
     marginLeft: theme.spacing(1),
     color: theme.palette.white.dark,
     fontSize: 24,
+  },
+  subHeader: {
+    color: theme.palette.white.dark,
+    fontSize: 20,
+    borderBottom: `5px solid ${theme.palette.gray.light}`,
   },
   new: {
     color: theme.palette.green.main,
@@ -93,7 +95,7 @@ function setDefaultValues(module) {
   }
 } 
 
-function CustomCommandSingle(props) {
+function CustomCommandOptioned (props) {
   const {classes, bots, selectedBot, setBots, setApiAlert} = props;
   const {module} = useLocation();
 
@@ -114,73 +116,8 @@ function CustomCommandSingle(props) {
     setValue('response', newValue, { shouldValidate: true });
   }
 
-  const onSubmit = async (data) => {
-    if (module) {
-      submitUpdateModule(data);
-    } else {
-      submitNewModule(data);
-    }
-  }
-
-  const submitNewModule = async (data) => {
-    const payload = {
-      "_id": selectedBot._id,
-      ...data
-    }
-
-    const res = await CustomModuleService.addSingleResponseModule(payload);
-
-    if (res.status === 200) {
-      let newBots = [...bots];
-      for (let i=0; i < bots.length; i++) {
-        if(bots[i]._id === selectedBot._id) {
-          newBots[i] = res.data;
-          break;
-        }
-      }
-
-      setBots(newBots);
-      setApiAlert({
-        status: true,
-        duration: 5000,
-        severity: "success",
-        message: "A new single-response command has been added!"
-      });
-      history.push('/dashboard/develop/customcommands');
-    } 
-    
-    if (res.status === 409 && res.data === "duplicate command") {
-      setError("command", {type: "manual", message: "Command trigger word already exists."});
-    }
-  }
-
-  const submitUpdateModule = async (data) => {
-    const payload = {
-      "_id": selectedBot._id,
-      "moduleId": module._id,
-      ...data
-    }
-
-    const res = await CustomModuleService.updateSingleResponseModule(payload);
-
-    if (res.status === 200) {
-      let newBots = [...bots];
-      for (let i=0; i < bots.length; i++) {
-        if(bots[i]._id === selectedBot._id) {
-          newBots[i] = res.data;
-          break;
-        }
-      }
-
-      setBots(newBots);
-      setApiAlert({
-        status: true,
-        duration: 5000,
-        severity: "success",
-        message: "Your single-response command has been updated!"
-      });
-      history.push('/dashboard/develop/customcommands');
-    }
+  const onSubmit = (data) => {
+    console.log(data);
   }
 
   const handleCancel = () => {
@@ -190,14 +127,14 @@ function CustomCommandSingle(props) {
   return (
     <ContentWrapper>
       <TitlePanel 
-        title="Single Response"
-        description="A single command that returns a single response"
-        Icon={TiMessage}
+        title="Optioned Response"
+        description="A single command with a supplied option, for which a range of multiple responses can be returned."
+        Icon={TiMessages}
         docs={true}
-        color="#98c379"
+        color="#de8f4d"
       />
       <div className={classes.categoryHeader}>
-        {module ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Single Response
+        {module ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Optioned Response
       </div>
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
@@ -235,7 +172,8 @@ function CustomCommandSingle(props) {
               label="Direct Message the User"
             />
           </ControlledRadioGroup>
-          <ResponseEditor
+          <div className={classes.subHeader}>Optioned Responses</div>
+          {/* <ResponseEditor
             labelText="Response"
             description="The response your bot will give."
             id="response"
@@ -248,7 +186,7 @@ function CustomCommandSingle(props) {
             formControlProps={{fullWidth: true}}
             inputProps={{...register("response")}}
             error={errors}
-          />
+          /> */}
           <GridContainer justifyContent="flex-end">
             <GridItem>
               <Button
@@ -269,11 +207,10 @@ function CustomCommandSingle(props) {
               </Button>
             </GridItem>
           </GridContainer>
-
         </form>
       </Paper>
     </ContentWrapper>
   );
 }
 
-export default withStyles(styles)(CustomCommandSingle);
+export default withStyles(styles)(CustomCommandOptioned);
