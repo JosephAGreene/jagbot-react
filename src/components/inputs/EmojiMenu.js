@@ -223,6 +223,7 @@ function EmojiMenu (props) {
   const [toneAnchorEl, setToneAnchorEl] = React.useState(false);
   const [tone, setTone] = React.useState(null);
   const [hoverEmoji, setHoverEmoji] = React.useState(null);
+  const [searchInput, setSearchInput] = React.useState('');
   const [searchResults, setSearchResults] = React.useState(false);
   const {classes, anchorEl, handleClose, insertValue} = props;
 
@@ -269,6 +270,7 @@ function EmojiMenu (props) {
   }, []);
 
   const handleSearch = (value) => {
+    setSearchInput(value);
     if (value.trim().length > 2) {
       const result = searchEmoji(value.trim());
       // Fix potential UI bug where hoverEmoji value
@@ -280,6 +282,11 @@ function EmojiMenu (props) {
     } else {
       setSearchResults(false);
     }
+  }
+
+  const handleSearchClear = () => {
+    setSearchInput('');
+    setSearchResults(false);
   }
 
   const handleEmojiClick = React.useCallback((value) => {
@@ -295,6 +302,7 @@ function EmojiMenu (props) {
   };
 
   const handleCloseMenu = () => {
+    setSearchInput('');
     setSearchResults(false);
     setExpanded(null);
     handleClose();
@@ -397,7 +405,12 @@ function EmojiMenu (props) {
       <div className={classes.headerContainer}>
         <div className={classes.header}>
           <div className={classes.searchBar}>
-            <SearchInput onChange={(e) => handleSearch(e.target.value)} id={'search-emoji'} />
+            <SearchInput 
+              id={'search-emoji'} 
+              searchInput={searchInput} 
+              onChange={(e) => handleSearch(e.target.value)} 
+              handleSearchClear={handleSearchClear} 
+            />
           </div>
           <div className={classes.tonePicker}>
             <Button 

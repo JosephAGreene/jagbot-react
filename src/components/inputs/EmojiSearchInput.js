@@ -8,6 +8,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 
 // Import icons
 import SearchIcon from '@material-ui/icons/Search';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 const styles = (theme) => ({
   inputRoot: {
@@ -26,10 +27,13 @@ const styles = (theme) => ({
       },
     },
   },
+  cancelIcon: {
+    cursor: "pointer",
+  },
 });
 
 function EmojiSearchInput (props) {
-  const {classes, id, onChange} = props;
+  const {classes, id, searchInput, onChange, handleSearchClear} = props;
 
   return (
     <TextField 
@@ -37,11 +41,12 @@ function EmojiSearchInput (props) {
       variant="outlined"
       className={classes.inputRoot}
       size="small"
+      value={searchInput}
       onChange={onChange}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <SearchIcon />
+            {!searchInput ? <SearchIcon /> : <CancelIcon className={classes.cancelIcon} onClick={handleSearchClear} />}
           </InputAdornment>
         ),
       }} 
@@ -49,11 +54,12 @@ function EmojiSearchInput (props) {
     />
   );
 }
-
 EmojiSearchInput.propTypes = {
   classes: PropTypes.object.isRequired,
   id: PropTypes.string,
-  onChange: PropTypes.func,
+  searchInput: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  handleSearchClear: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(EmojiSearchInput);
