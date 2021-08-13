@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import clsx from 'clsx';
 
 // Import Mui components
@@ -44,5 +45,12 @@ function ControlledRadio (props) {
     />
   );
 }
+
+ControlledRadio.propTypes = {
+  classes: PropTypes.object.isRequired,
+  value: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
+};
 
 export default withStyles(styles)(ControlledRadio);

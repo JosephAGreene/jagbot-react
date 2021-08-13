@@ -348,6 +348,7 @@ CustomButton.propTypes = {
     "danger",
     "purple",
     "teal",
+    "orange",
   ]),
   size: PropTypes.oneOf(["sm", "lg"]),
   simple: PropTypes.bool,
