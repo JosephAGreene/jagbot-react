@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 // Import Mui components
 import { withStyles } from '@material-ui/core/styles';
@@ -15,16 +16,33 @@ const TealRadio =  withStyles((theme) =>({
   checked: {},
 }))((props) => <Radio color="default" {...props} />);
 
+const styles = (theme) => ({
+  disabled: {
+    '& .MuiFormControlLabel-label.Mui-disabled': {
+      color: theme.palette.gray.disabled,
+    },
+    '& .MuiIconButton-root.Mui-disabled': {
+      color: theme.palette.gray.disabled,
+    },
+  },
+});
+
 function ControlledRadio (props) {
-  const {value, label} = props;
+  const {value, label, disabled, classes} = props;
+
+  const radioClasses = clsx({
+    [classes.disabled]: disabled,
+  });
 
   return (
     <FormControlLabel
+      className={radioClasses}
       value={value}
       control={<TealRadio />}
       label={label}
+      disabled={disabled}
     />
   );
 }
 
-export default ControlledRadio;
+export default withStyles(styles)(ControlledRadio);
