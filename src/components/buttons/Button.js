@@ -209,6 +209,28 @@ const styles = (theme) => ({
       ", 0.2)"
     }
   },
+  orange: {
+    backgroundColor: theme.palette.orange.dark,
+    boxShadow:
+      "0 2px 2px 0 rgba(" +
+      hexToRgb(theme.palette.orange.dark) +
+      ", 0.14), 0 3px 1px -2px rgba(" +
+      hexToRgb(theme.palette.orange.dark) +
+      ", 0.2), 0 1px 5px 0 rgba(" +
+      hexToRgb(theme.palette.orange.dark) +
+      ", 0.12)",
+    "&:hover,&:focus": {
+      backgroundColor: theme.palette.orange.dark,
+      boxShadow:
+      "0px 2px 4px -1px rgba(" +
+      hexToRgb(theme.palette.orange.dark) +
+      ", 0.42), 0px 4px 5px 0px rgba(" +
+      hexToRgb(shadowModifier) +
+      ", 0.12), 0px 1px 10px 0px rgba(" +
+      hexToRgb(theme.palette.orange.dark) +
+      ", 0.2)"
+    }
+  },
   simple: {
     "&,&:focus,&:hover": {
       color: theme.palette.white.main,
