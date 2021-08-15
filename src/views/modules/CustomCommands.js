@@ -227,7 +227,7 @@ function CustomCommands(props) {
           color="#98c379"
         />
         <ModulePanel 
-          title="Multiple Optioned Response"
+          title="Optioned Responses"
           description="A single command with a supplied option, for which a range of multiple responses can be returned." 
           path="/dashboard/develop/customcommands/optioned"
           Icon={TiMessages}

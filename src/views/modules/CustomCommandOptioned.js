@@ -11,20 +11,24 @@ import ContentWrapper from '../../layouts/ContentWrapper';
 
 // Import Mui components
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import Paper from '@material-ui/core/Paper'
 
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
 import OutlinedInput from '../../components/inputs/OutlinedInputDark';
-import ResponseEditor from '../../components/inputs/ResponseEditor';
 import Button from '../../components/buttons/Button';
 import GridContainer from '../../components/grid/GridContainer';
 import GridItem from '../../components/grid/GridItem';
 import ControlledRadioGroup from '../../components/inputs/ControlledRadioGroup';
 import ControlledRadio from '../../components/inputs/ControlledRadio';
+import OptionedResponseList from './lists/OptionedResponseList';
+import AddOptionDialog from './dialogs/AddOptionDialog';
 
 // Import icons
 import { TiMessages } from 'react-icons/ti';
+import { BiMessageAdd } from 'react-icons/bi';
+
+
 
 const styles = (theme) => ({
   paper: {
@@ -41,10 +45,9 @@ const styles = (theme) => ({
     color: theme.palette.white.dark,
     fontSize: 24,
   },
-  subHeader: {
-    color: theme.palette.white.dark,
-    fontSize: 20,
-    borderBottom: `5px solid ${theme.palette.gray.light}`,
+  addOptionButton: {
+    marginLeft: theme.spacing(1),
+    marginBottom: theme.spacing(2),
   },
   new: {
     color: theme.palette.green.main,
@@ -70,11 +73,6 @@ const schema = Joi.object({
       "string.empty": `"Response Location" is required`,
       "any.required": `"Response Location" is required`,
     }),
-  response: Joi.string().trim().required()
-    .messages({
-      "string.empty": `"Response" is required`,
-      "any.required": `"Response" is required`,
-    }),
 });
 
 function setDefaultValues(module) {
@@ -90,7 +88,6 @@ function setDefaultValues(module) {
       command: '',
       description: '',
       responseLocation: 'server',
-      response: '',
     }
   }
 } 
@@ -98,23 +95,14 @@ function setDefaultValues(module) {
 function CustomCommandOptioned (props) {
   const {classes, bots, selectedBot, setBots, setApiAlert} = props;
   const {module} = useLocation();
+  const [optionDialog, setOptionDialog] = React.useState(false);
 
-  const {register, handleSubmit, control, watch, setValue, setError, formState:{errors}} = useForm({
+  const {register, handleSubmit, control, formState:{errors}} = useForm({
     resolver: joiResolver(schema),
     defaultValues: setDefaultValues(module),
   });
-  
-  const watchResponse = watch("response", (module ? module.response : ''));
-  const history = useHistory();
 
-  // Inserts a value into the current response value at the location
-  // of the cursor inside the ResponseEditor
-  const insertValueIntoResponse = (insertLocation, insertValue) => {
-    const valueBefore = watchResponse.slice(0, (insertLocation ? insertLocation : 0)).trim();
-    const valueAfter = watchResponse.slice(insertLocation).trim();
-    const newValue = `${valueBefore}${valueBefore ? ' ' : ''}${insertValue} ${valueAfter}`;
-    setValue('response', newValue, { shouldValidate: true });
-  }
+  const history = useHistory();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -124,20 +112,24 @@ function CustomCommandOptioned (props) {
     history.push('/dashboard/develop/customcommands');
   }
 
+  const openOptionedDialog = () => {
+    setOptionDialog(true);
+  }
+
   return (
     <ContentWrapper>
       <TitlePanel 
-        title="Optioned Response"
+        title="Optioned Responses"
         description="A single command with a supplied option, for which a range of multiple responses can be returned."
         Icon={TiMessages}
         docs={true}
         color="#de8f4d"
       />
       <div className={classes.categoryHeader}>
-        {module ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Optioned Response
+        {module ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Optioned Responses
       </div>
       <Paper className={classes.paper}>
-        <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
+        <form autoComplete="off">
           <OutlinedInput
             labelText="Command"
             description="Command Trigger Word"
@@ -172,43 +164,38 @@ function CustomCommandOptioned (props) {
               label="Direct Message the User"
             />
           </ControlledRadioGroup>
-          <div className={classes.subHeader}>Optioned Responses</div>
-          {/* <ResponseEditor
-            labelText="Response"
-            description="The response your bot will give."
-            id="response"
-            name="response"
-            watch={watchResponse}
-            insert={insertValueIntoResponse}
-            maxLength={2000}
-            multiline
-            rows={10}
-            formControlProps={{fullWidth: true}}
-            inputProps={{...register("response")}}
-            error={errors}
-          /> */}
-          <GridContainer justifyContent="flex-end">
-            <GridItem>
-              <Button
-                onClick={handleCancel}
-                variant="contained"
-                color="danger"
-              >
-                Cancel
-              </Button>
-            </GridItem>
-            <GridItem>
-              <Button
-                type="submit"
-                variant="contained"
-                color="teal"
-              >
-                Save
-              </Button>
-            </GridItem>
-          </GridContainer>
+          <Button 
+            color="orange"
+            startIcon={<BiMessageAdd />}
+            className={classes.addOptionButton}
+            onClick={openOptionedDialog}  
+          >
+            Optioned Response
+          </Button> 
         </form>
+        <OptionedResponseList />
+        <GridContainer justifyContent="flex-end">
+          <GridItem>
+            <Button
+              onClick={handleCancel}
+              variant="contained"
+              color="danger"
+            >
+              Cancel
+            </Button>
+          </GridItem>
+          <GridItem>
+            <Button
+              onClick={handleSubmit(onSubmit)}
+              variant="contained"
+              color="teal"
+            >
+              Save
+            </Button>
+          </GridItem>
+        </GridContainer>
       </Paper>
+      <AddOptionDialog optionDialog={optionDialog} setOptionDialog={setOptionDialog} />
     </ContentWrapper>
   );
 }
