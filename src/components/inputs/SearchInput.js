@@ -45,7 +45,7 @@ const styles = (theme) => ({
 });
 
 function SearchInput (props) {
-  const {classes, id, value, onChange, handleModuleSearch} = props;
+  const {classes, id, value, onChange, handleSearch} = props;
 
   return (
     <TextField 
@@ -59,7 +59,7 @@ function SearchInput (props) {
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            {!value ? <SearchIcon /> : <CancelIcon className={classes.cancelIcon} onClick={() => handleModuleSearch('')} />}
+            {!value ? <SearchIcon /> : <CancelIcon className={classes.cancelIcon} onClick={() => handleSearch('')} />}
           </InputAdornment>
         ),
       }} 
@@ -72,7 +72,7 @@ SearchInput.propTypes = {
   classes: PropTypes.object.isRequired,
   id: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  handleModuleSearch: PropTypes.func.isRequired,
+  handleSearch: PropTypes.func.isRequired,
   value: PropTypes.string,
 };
 

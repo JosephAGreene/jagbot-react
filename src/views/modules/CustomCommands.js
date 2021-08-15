@@ -252,7 +252,7 @@ function CustomCommands(props) {
           <SearchInput 
             value={moduleSearchInput} 
             onChange={(e) => handleModuleSearch(e.target.value)}
-            handleModuleSearch={handleModuleSearch}
+            handleSearch={handleModuleSearch}
           />
           <Button 
             className={classes.icon}
