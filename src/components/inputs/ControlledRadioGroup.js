@@ -62,7 +62,7 @@ ControlledRadioGroup.propTypes = {
   error: PropTypes.object,
   description: PropTypes.string.isRequired,
   defaultValue: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired
+  children: PropTypes.node.isRequired
 };
 
 export default withStyles(styles)(ControlledRadioGroup);

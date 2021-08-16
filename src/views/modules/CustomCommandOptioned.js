@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from "prop-types";
 import {useHistory, useLocation} from 'react-router-dom';
 
+// Import API service
+import CustomModuleService from "../../services/CustomModuleService.js";
+
 // Import react-hook-form
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
@@ -103,7 +106,7 @@ function CustomCommandOptioned (props) {
   const [optionDialog, setOptionDialog] = React.useState(false);
   const [editOption, setEditOption] = React.useState(false);
 
-  const {register, handleSubmit, control, setValue, watch, formState:{errors}} = useForm({
+  const {register, handleSubmit, control, setValue, watch, setError, formState:{errors}} = useForm({
     resolver: joiResolver(schema),
     defaultValues: setDefaultValues(module),
   });
@@ -112,8 +115,73 @@ function CustomCommandOptioned (props) {
 
   const history = useHistory();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    if (module) {
+      submitUpdateModule(data);
+    } else {
+      submitNewModule(data);
+    }
+  }
+
+  const submitNewModule = async (data) => {
+    const payload = {
+      "_id": selectedBot._id,
+      ...data
+    }
+
+    const res = await CustomModuleService.addOptionedResponseModule(payload);
+
+    if (res.status === 200) {
+      let newBots = [...bots];
+      for (let i=0; i < bots.length; i++) {
+        if(bots[i]._id === selectedBot._id) {
+          newBots[i] = res.data;
+          break;
+        }
+      }
+
+      setBots(newBots);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "success",
+        message: `${data.command} command has been added!`
+      });
+      history.push('/dashboard/develop/customcommands');
+    } 
+    
+    if (res.status === 409 && res.data === "duplicate command") {
+      setError("command", {type: "manual", message: "Command trigger word already exists."});
+    }
+  }
+
+  const submitUpdateModule = async (data) => {
+    const payload = {
+      "_id": selectedBot._id,
+      "moduleId": module._id,
+      ...data
+    }
+
+    const res = await CustomModuleService.updateOptionedResponseModule(payload);
+
+    if (res.status === 200) {
+      let newBots = [...bots];
+      for (let i=0; i < bots.length; i++) {
+        if(bots[i]._id === selectedBot._id) {
+          newBots[i] = res.data;
+          break;
+        }
+      }
+
+      setBots(newBots);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "success",
+        message: `${module.command} command has been updated!`
+      });
+      history.push('/dashboard/develop/customcommands');
+    }
   }
 
   const handleCancel = () => {

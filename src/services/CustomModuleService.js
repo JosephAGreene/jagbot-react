@@ -52,6 +52,50 @@ class CustomModuleService {
     });
   }
 
+  addOptionedResponseModule(payload) {
+    return axios
+    .post(`${CUSTOM}/optioned-response`, 
+      {
+        ...payload
+      },
+      {
+        withCredentials: true
+      }
+    )
+    .then(response => {
+      return response;
+    })
+    .catch(error => {
+      if (error.response) {
+        return error.response;
+      } else {
+        return this.networkIssue;
+      }
+    });
+  }
+
+  updateOptionedResponseModule(payload) {
+    return axios
+    .put(`${CUSTOM}/update-optioned-response`, 
+      {
+        ...payload
+      },
+      {
+        withCredentials: true
+      }
+    )
+    .then(response => {
+      return response;
+    })
+    .catch(error => {
+      if (error.response) {
+        return error.response;
+      } else {
+        return this.networkIssue;
+      }
+    });
+  }
+
   deleteCommandModule(payload) {
     return axios
     .delete(`${CUSTOM}/`, 
