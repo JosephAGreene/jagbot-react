@@ -46,10 +46,10 @@ const styles = (theme) => ({
 });
 
 const addOptionSchema = Joi.object({
-  option: Joi.string().required()
+  keyword: Joi.string().required()
     .messages({
-      "string.empty": `"Option" is required`,
-      "any.required": `"Option" is required`,
+      "string.empty": `"Option keyword" is required`,
+      "any.required": `"Option keyword" is required`,
     }),
   response: Joi.string().required()
     .messages({
@@ -58,28 +58,42 @@ const addOptionSchema = Joi.object({
     }),
 });
 
-function setOptionDefaultValues(module) {
-  if (module) {
-    return {
-      option: module.option,
-      response: module.response,
-    }
-  } else {
-    return {
-      option: '',
-      response: '',
+function findDuplicateKeyword (keyword, optionsArray, editOption) {
+  for (let i=0; i < optionsArray.length; i++) {
+    // Skip checking for duplicate keyword in element currently being edited
+    if ((keyword.toLowerCase() === optionsArray[i].keyword.toLowerCase()) 
+        && (editOption._id !== optionsArray[i]._id)) 
+      {
+        return true;
+      }
+  }
+  return false;
+}
+
+function returnArrayWithEditedOption (editedOption, optionsArray) {
+  let newArray = optionsArray.slice(0);
+  for (let i=0; i < newArray.length; i++) {
+    if (editedOption._id === newArray[i]._id) {
+      newArray.splice(i, 1, editedOption);
+      return newArray;
     }
   }
+}
+
+function setOptionDefaultValues(option) {
+    return {
+      keyword: (option ? option.keyword : ''),
+      response: (option ? option.response : ''),
+    }
 } 
 
 function AddOptionDialog (props) {
-  const {classes, optionDialog, setOptionDialog} = props;
-  const {register, handleSubmit : handleOptionSubmit, watch, setValue, setError, formState:{errors}} = useForm({
+  const {classes, optionsArray, setOptionsArray, optionDialog, editOption, closeOptionedDialog} = props;
+  const {register, handleSubmit, watch, setValue, reset, setError, formState:{errors}} = useForm({
     resolver: joiResolver(addOptionSchema),
-    defaultValues: setOptionDefaultValues(module),
   });
 
-  const watchResponse = watch("response", '');
+  const watchResponse = watch("response", (editOption ? editOption.response : ''));
 
   // Inserts a value into the current response value at the location
   // of the cursor inside the ResponseEditor
@@ -90,12 +104,46 @@ function AddOptionDialog (props) {
     setValue('response', newValue, { shouldValidate: true });
   }
 
-  const onSubmit = (data) => {
-    console.log(data);
-  }
+  // Reseting useForm hook with defaultValues inside useEffect 
+  // as defaultValues from older dialog render remain otherwise
+  React.useEffect(() => {
+    reset(setOptionDefaultValues(editOption));
+  }, [reset, editOption]);
 
-  const handleClose = () => {
-    setOptionDialog(false);
+  const onSubmit = (data) => {
+    // Set form error if duplicated keyword is detected
+    if (findDuplicateKeyword(data.keyword, optionsArray, editOption)) {
+      setError("keyword", {
+        type: "manual", 
+        message: "Option keyword already exists."
+      });
+      return;
+    }
+
+    if (!editOption) {
+      // Create a fake _id value for the sake of being able to identify
+      // and edit the options array while client side. _id will be replaced
+      // by mongoose objectIds once sent to the database.
+      const newOption = {
+        _id: `${data.keyword}-${Date.now()}`,
+        keyword: data.keyword,
+        response: data.response,
+      }
+
+      let newArray = optionsArray.slice(0);
+      newArray.push(newOption);
+      setOptionsArray(newArray);
+    } 
+    else {
+      const editedOption = {
+        _id: editOption._id,
+        keyword: data.keyword,
+        response: data.response,
+      }
+      setOptionsArray(returnArrayWithEditedOption(editedOption, optionsArray));
+    }
+    
+    closeOptionedDialog(reset);
   }
 
   return (
@@ -104,19 +152,20 @@ function AddOptionDialog (props) {
       open={optionDialog}
       aria-labelledby="form-dialog-title"
       scroll="body"
+      keepMounted={false}
     >
       <DialogContent>
         <div className={classes.categoryHeader}>
-          {false ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Optioned Response
+          {editOption ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Optioned Response
         </div>
-        <form autoComplete="off" onSubmit={handleOptionSubmit(onSubmit)} >
+        <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
           <OutlinedInput
-            labelText="Option"
-            description="Supplied Option Word"
-            id="option"
-            name="option"
+            labelText="Option Keyword"
+            description="Supplied Option Keyword"
+            id="keyword"
+            name="keyword"
             formControlProps={{fullWidth: true}}
-            inputProps={{...register("option")}}
+            inputProps={{...register("keyword")}}
             error={errors}
           />
           <ResponseEditor
@@ -136,7 +185,7 @@ function AddOptionDialog (props) {
             <GridContainer justifyContent="flex-end">
               <GridItem>
                 <Button
-                  onClick={handleClose}
+                  onClick={() => closeOptionedDialog(reset)}
                   variant="contained"
                   color="danger"
                 >
@@ -149,7 +198,7 @@ function AddOptionDialog (props) {
                   variant="contained"
                   color="orange"
                 >
-                  {false ? "Update" : "Add" }
+                  {editOption ? "Update" : "Add" }
                 </Button>
               </GridItem>
             </GridContainer>

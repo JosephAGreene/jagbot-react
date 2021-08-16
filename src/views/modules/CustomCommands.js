@@ -89,7 +89,7 @@ function searchModules (value, moduleArray) {
   let results = [];
 
   for (let i=0; i < moduleArray.length; i++) {
-    if(moduleArray[i].command.search(value.trim()) > -1) {
+    if(moduleArray[i].command.toLowerCase().search(value.trim().toLowerCase()) > -1) {
       results.push(moduleArray[i]);
     }
   }
@@ -228,7 +228,7 @@ function CustomCommands(props) {
         />
         <ModulePanel 
           title="Optioned Responses"
-          description="A single command with a supplied option, for which a range of multiple responses can be returned." 
+          description="A single command with a supplied option keyword, for which a range of multiple responses can be returned." 
           path="/dashboard/develop/customcommands/optioned"
           Icon={TiMessages}
           color="#de8f4d"

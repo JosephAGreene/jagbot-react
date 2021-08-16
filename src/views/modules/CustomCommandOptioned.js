@@ -28,8 +28,6 @@ import AddOptionDialog from './dialogs/AddOptionDialog';
 import { TiMessages } from 'react-icons/ti';
 import { BiMessageAdd } from 'react-icons/bi';
 
-
-
 const styles = (theme) => ({
   paper: {
     padding: "20px",
@@ -73,6 +71,11 @@ const schema = Joi.object({
       "string.empty": `"Response Location" is required`,
       "any.required": `"Response Location" is required`,
     }),
+  options: Joi.array().min(1).required()
+  .messages({
+    "array.min": `At least one optioned response is required`,
+    "any.required": `At least one optioned response is required`,
+  }),
 });
 
 function setDefaultValues(module) {
@@ -81,13 +84,14 @@ function setDefaultValues(module) {
       command: module.command,
       description: module.description,
       responseLocation: module.responseLocation,
-      response: module.response,
+      options: module.options,
     }
   } else {
     return {
       command: '',
       description: '',
       responseLocation: 'server',
+      options: [],
     }
   }
 } 
@@ -96,11 +100,14 @@ function CustomCommandOptioned (props) {
   const {classes, bots, selectedBot, setBots, setApiAlert} = props;
   const {module} = useLocation();
   const [optionDialog, setOptionDialog] = React.useState(false);
+  const [editOption, setEditOption] = React.useState(false);
 
-  const {register, handleSubmit, control, formState:{errors}} = useForm({
+  const {register, handleSubmit, control, setValue, watch, formState:{errors}} = useForm({
     resolver: joiResolver(schema),
     defaultValues: setDefaultValues(module),
   });
+
+  const watchOptions = watch("options");
 
   const history = useHistory();
 
@@ -112,15 +119,25 @@ function CustomCommandOptioned (props) {
     history.push('/dashboard/develop/customcommands');
   }
 
-  const openOptionedDialog = () => {
+  const openOptionedDialog = (option) => {
+    setEditOption(option);
     setOptionDialog(true);
+  }
+
+  const closeOptionedDialog = (callback) => {
+    setOptionDialog(false);
+    callback();
+  }
+
+  const setOptionsArray = (newArray) => {
+    setValue('options', newArray);
   }
 
   return (
     <ContentWrapper>
       <TitlePanel 
         title="Optioned Responses"
-        description="A single command with a supplied option, for which a range of multiple responses can be returned."
+        description="A single command with a supplied option keyword, for which a range of multiple responses can be returned."
         Icon={TiMessages}
         docs={true}
         color="#de8f4d"
@@ -164,16 +181,22 @@ function CustomCommandOptioned (props) {
               label="Direct Message the User"
             />
           </ControlledRadioGroup>
+          <input type="hidden" id="options" name="options" {...register("options")} value={watchOptions} />
           <Button 
             color="orange"
             startIcon={<BiMessageAdd />}
             className={classes.addOptionButton}
-            onClick={openOptionedDialog}  
+            onClick={() => openOptionedDialog(false)}  
           >
             Optioned Response
           </Button> 
         </form>
-        <OptionedResponseList />
+        <OptionedResponseList 
+          setOptionsArray={setOptionsArray} 
+          optionsArray={watchOptions} 
+          error={errors.options}
+          openOptionedDialog={openOptionedDialog}
+        />
         <GridContainer justifyContent="flex-end">
           <GridItem>
             <Button
@@ -195,7 +218,15 @@ function CustomCommandOptioned (props) {
           </GridItem>
         </GridContainer>
       </Paper>
-      <AddOptionDialog optionDialog={optionDialog} setOptionDialog={setOptionDialog} />
+      <AddOptionDialog 
+        optionsArray={watchOptions}
+        setOptionsArray={setOptionsArray} 
+        optionDialog={optionDialog}
+        closeOptionedDialog={closeOptionedDialog} 
+        setOptionDialog={setOptionDialog}
+        editOption={editOption}
+        setEditOption={setEditOption} 
+      />
     </ContentWrapper>
   );
 }
