@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 // Import react-hook-form
 import { useForm } from 'react-hook-form';
@@ -142,7 +143,7 @@ function AddOptionDialog (props) {
       }
       setOptionsArray(returnArrayWithEditedOption(editedOption, optionsArray));
     }
-    
+
     closeOptionedDialog(reset);
   }
 
@@ -207,5 +208,17 @@ function AddOptionDialog (props) {
     </Dialog>
   );
 }
+
+AddOptionDialog.propTypes = {
+  classes: PropTypes.object.isRequired,
+  optionsArray: PropTypes.array.isRequired,
+  setOptionsArray: PropTypes.func.isRequired,
+  optionDialog: PropTypes.bool.isRequired,
+  editOption: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object,
+  ]),
+  closeOptionedDialog: PropTypes.func.isRequired,
+};
 
 export default withStyles(styles)(AddOptionDialog);

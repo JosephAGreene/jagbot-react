@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 // Import react-hook-form components
 import { Controller } from 'react-hook-form';
@@ -54,5 +55,14 @@ function ControlledRadioGroup (props) {
     </React.Fragment>
   );
 }
+
+ControlledRadioGroup.propTypes = {
+  classes: PropTypes.object.isRequired,
+  control: PropTypes.object.isRequired,
+  error: PropTypes.object,
+  description: PropTypes.string.isRequired,
+  defaultValue: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired
+};
 
 export default withStyles(styles)(ControlledRadioGroup);

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import {useHistory, useLocation} from 'react-router-dom';
 
 // Import react-hook-form
@@ -230,5 +231,13 @@ function CustomCommandOptioned (props) {
     </ContentWrapper>
   );
 }
+
+CustomCommandOptioned.propTypes = {
+  classes: PropTypes.object.isRequired,
+  bots: PropTypes.array.isRequired,
+  setBots: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
+  selectedBot: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(CustomCommandOptioned);

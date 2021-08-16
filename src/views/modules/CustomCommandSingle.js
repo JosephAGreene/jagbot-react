@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import {useHistory, useLocation} from 'react-router-dom';
 
 // Import API service
@@ -275,5 +276,13 @@ function CustomCommandSingle(props) {
     </ContentWrapper>
   );
 }
+
+CustomCommandSingle.propTypes = {
+  classes: PropTypes.object.isRequired,
+  bots: PropTypes.array.isRequired,
+  setBots: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
+  selectedBot: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(CustomCommandSingle);

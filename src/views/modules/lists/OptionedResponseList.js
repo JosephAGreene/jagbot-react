@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 // Import Mui components
 import { makeStyles, withStyles } from '@material-ui/core/styles';
@@ -189,6 +190,13 @@ function ReturnListItem (props) {
   );
 }
 
+ReturnListItem.propTypes = {
+  deleteOption: PropTypes.func.isRequired,
+  keyword: PropTypes.string.isRequired,
+  response: PropTypes.string.isRequired,
+  openOptionedDialog: PropTypes.func.isRequired,
+};
+
 function sortOptions (optionsArray, orderBy) {
   let results = optionsArray.splice(0);
 
@@ -344,5 +352,13 @@ function OptionedResponseList(props) {
     </div>
   );
 }
+
+OptionedResponseList.propTypes = {
+  classes: PropTypes.object.isRequired,
+  optionsArray: PropTypes.array.isRequired,
+  setOptionsArray: PropTypes.func.isRequired,
+  error: PropTypes.object,
+  openOptionedDialog: PropTypes.func.isRequired,
+};
 
 export default withStyles(optionedResponseListStyles)(OptionedResponseList);
