@@ -10,7 +10,6 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {theme} from './jss/theme';
 import Home from './Home.js';
-import SignIn from './SignIn.js';
 import Dashboard from './layouts/Dashboard.js';
 
 ReactDOM.render(
@@ -23,7 +22,6 @@ ReactDOM.render(
             <Redirect to="/home" />
           </Route>
           <Route path="/home" component={Home} />
-          <Route path="/sign-in" component={SignIn} />
           <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </Router>
