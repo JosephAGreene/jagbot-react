@@ -96,6 +96,50 @@ class CustomModuleService {
     });
   }
 
+  addRandomResponseModule(payload) {
+    return axios
+    .post(`${CUSTOM}/random-response`, 
+      {
+        ...payload
+      },
+      {
+        withCredentials: true
+      }
+    )
+    .then(response => {
+      return response;
+    })
+    .catch(error => {
+      if (error.response) {
+        return error.response;
+      } else {
+        return this.networkIssue;
+      }
+    });
+  }
+
+  updateRandomResponseModule(payload) {
+    return axios
+    .put(`${CUSTOM}/update-random-response`, 
+      {
+        ...payload
+      },
+      {
+        withCredentials: true
+      }
+    )
+    .then(response => {
+      return response;
+    })
+    .catch(error => {
+      if (error.response) {
+        return error.response;
+      } else {
+        return this.networkIssue;
+      }
+    });
+  }
+
   deleteCommandModule(payload) {
     return axios
     .delete(`${CUSTOM}/`, 

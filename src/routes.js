@@ -18,6 +18,7 @@ import Modules from "./views/Modules.js";
 import CustomCommands from './views/modules/CustomCommands.js';
 import CustomCommandSingle from './views/modules/CustomCommandSingle.js';
 import CustomCommandOptioned from './views/modules/CustomCommandOptioned.js';
+import CustomCommandRandom from './views/modules/CustomCommandRandom.js';
 
 const routes = [
   {
@@ -62,6 +63,7 @@ const routes = [
     children: [
       { path: 'develop/customcommands/single', api: "bot", component: CustomCommandSingle },
       { path: 'develop/customcommands/optioned', api: "bot", component: CustomCommandOptioned },
+      { path: 'develop/customcommands/random', api: "bot", component: CustomCommandRandom },
     ]
   }
 ];

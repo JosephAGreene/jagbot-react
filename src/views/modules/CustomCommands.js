@@ -236,7 +236,7 @@ function CustomCommands(props) {
         <ModulePanel 
           title="Randomized Response"
           description="A single command that returns a randomly choosen response from a list of potential responses." 
-          path="/dashboard/develop/customcommands/single"
+          path="/dashboard/develop/customcommands/random"
           Icon={GiPerspectiveDiceSixFacesRandom}
           color="#c678DD"
         />
