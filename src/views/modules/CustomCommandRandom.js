@@ -60,17 +60,24 @@ const styles = (theme) => ({
 });
 
 const schema = Joi.object({
-  command: Joi.string().required()
+  command: Joi.string().trim().max(30).required().custom((value, helper) => {
+      const wordCount = value.trim().split(' ').length;
+      if (wordCount > 1) {
+        return helper.message('Command must be a single word');
+      }
+    })
     .messages({
-      "string.empty": `"Command" is required`,
-      "any.required": `"Command" is required`,
+      "string.empty": 'Command is required',
+      "string.max" : 'Command cannot be greater than 30 characters',
+      "any.required": 'Command is required',
     }),
-  description: Joi.string().required()
+  description: Joi.string().trim().max(250).required()
     .messages({
-      "string.empty": `"Description" is required`,
-      "any.required": `"Description" is required`,
+      "string.empty": 'Description is required',
+      "string.max" : 'Description cannot be greater than 250 characters',
+      "any.required": 'Description is required',
     }),
-  responseLocation: Joi.string().required()
+  responseLocation: Joi.string().trim().required()
     .messages({
       "string.empty": `"Response Location" is required`,
       "any.required": `"Response Location" is required`,
@@ -221,8 +228,9 @@ function CustomCommandRandom (props) {
             description="Command Trigger Word"
             id="command"
             name="command"
+            maxLength={30}
             formControlProps={{fullWidth: true}}
-            inputProps={{...register("command")}}
+            inputProps={{...register("command"), maxLength: 30}}
             error={errors}
           />
           <OutlinedInput
@@ -231,7 +239,7 @@ function CustomCommandRandom (props) {
             id="description"
             name="description"
             formControlProps={{fullWidth: true}}
-            inputProps={{...register("description")}}
+            inputProps={{...register("description"), maxLength: 250}}
             error={errors}
           />
           <ControlledRadioGroup 

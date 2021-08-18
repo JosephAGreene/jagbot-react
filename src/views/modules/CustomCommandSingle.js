@@ -54,25 +54,33 @@ const styles = (theme) => ({
 });
 
 const schema = Joi.object({
-  command: Joi.string().required()
+  command: Joi.string().trim().max(30).required().custom((value, helper) => {
+      const wordCount = value.trim().split(' ').length;
+      if (wordCount > 1) {
+        return helper.message('Command must be a single word');
+      }
+    })
     .messages({
-      "string.empty": `"Command" is required`,
-      "any.required": `"Command" is required`,
+      "string.empty": 'Command is required',
+      "string.max" : 'Command cannot be greater than 30 characters',
+      "any.required": 'Command is required',
     }),
-  description: Joi.string().required()
+  description: Joi.string().trim().max(250).required()
     .messages({
-      "string.empty": `"Description" is required`,
-      "any.required": `"Description" is required`,
+      "string.empty": 'Description is required',
+      "string.max" : 'Description cannot be greater than 250 characters',
+      "any.required": 'Description is required',
     }),
-  responseLocation: Joi.string().required()
+  responseLocation: Joi.string().trim().required()
     .messages({
-      "string.empty": `"Response Location" is required`,
-      "any.required": `"Response Location" is required`,
+      "string.empty": 'Response Location is required',
+      "any.required": 'Response Location is required',
     }),
-  response: Joi.string().trim().required()
+  response: Joi.string().trim().max(2000).required()
     .messages({
-      "string.empty": `"Response" is required`,
-      "any.required": `"Response" is required`,
+      "string.empty": 'Response is required',
+      "string.max" : 'Response cannot be greater than 2000 characters',
+      "any.required": 'Response is required',
     }),
 });
 
@@ -102,7 +110,7 @@ function CustomCommandSingle(props) {
     resolver: joiResolver(schema),
     defaultValues: setDefaultValues(module),
   });
-  
+  console.log(errors)
   const watchResponse = watch("response", (module ? module.response : ''));
   const history = useHistory();
 
@@ -208,7 +216,7 @@ function CustomCommandSingle(props) {
             id="command"
             name="command"
             formControlProps={{fullWidth: true}}
-            inputProps={{...register("command")}}
+            inputProps={{...register("command"), maxLength: 25}}
             error={errors}
           />
           <OutlinedInput
@@ -217,7 +225,7 @@ function CustomCommandSingle(props) {
             id="description"
             name="description"
             formControlProps={{fullWidth: true}}
-            inputProps={{...register("description")}}
+            inputProps={{...register("description"), maxLength: 250}}
             error={errors}
           />
           <ControlledRadioGroup 
@@ -247,7 +255,7 @@ function CustomCommandSingle(props) {
             multiline
             rows={10}
             formControlProps={{fullWidth: true}}
-            inputProps={{...register("response")}}
+            inputProps={{...register("response"), maxLength: 2000}}
             error={errors}
           />
           <GridContainer justifyContent="flex-end">

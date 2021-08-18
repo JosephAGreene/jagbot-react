@@ -49,10 +49,11 @@ const styles = (theme) => ({
 });
 
 const addResponseSchema = Joi.object({
-  response: Joi.string().required()
+  response: Joi.string().trim().max(2000).required()
     .messages({
-      "string.empty": `"Response" is required`,
-      "any.required": `"Response" is required`,
+      "string.empty": 'Response is required',
+      "string.max" : 'Response cannot be greater than 2000 characters',
+      "any.required": 'Response is required',
     }),
 });
 
@@ -146,7 +147,7 @@ function AddResponseDialog (props) {
             multiline
             rows={10}
             formControlProps={{fullWidth: true}}
-            inputProps={{...register("response")}}
+            inputProps={{...register("response"), maxLength: 2000}}
             error={errors}
           />
             <GridContainer justifyContent="flex-end">

@@ -47,15 +47,22 @@ const styles = (theme) => ({
 });
 
 const addOptionSchema = Joi.object({
-  keyword: Joi.string().required()
+  keyword: Joi.string().trim().max(30).required().custom((value, helper) => {
+      const wordCount = value.trim().split(' ').length;
+      if (wordCount > 1) {
+        return helper.message('Keyword must be a single word');
+      }
+    })
     .messages({
-      "string.empty": `"Option keyword" is required`,
-      "any.required": `"Option keyword" is required`,
+      "string.empty": 'Keyword is required',
+      "string.max" : 'Keyword cannot be greater than 30 characters',
+      "any.required": 'Keyword is required',
     }),
-  response: Joi.string().required()
+  response: Joi.string().trim().max(2000).required()
     .messages({
-      "string.empty": `"Response" is required`,
-      "any.required": `"Response" is required`,
+      "string.empty": 'Response is required',
+      "string.max" : 'Response cannot be greater than 2000 characters',
+      "any.required": 'Response is required',
     }),
 });
 
@@ -166,7 +173,7 @@ function AddOptionDialog (props) {
             id="keyword"
             name="keyword"
             formControlProps={{fullWidth: true}}
-            inputProps={{...register("keyword")}}
+            inputProps={{...register("keyword"), maxLength: 30}}
             error={errors}
           />
           <ResponseEditor
@@ -180,7 +187,7 @@ function AddOptionDialog (props) {
             multiline
             rows={10}
             formControlProps={{fullWidth: true}}
-            inputProps={{...register("response")}}
+            inputProps={{...register("response"), maxLength: 2000}}
             error={errors}
           />
             <GridContainer justifyContent="flex-end">
