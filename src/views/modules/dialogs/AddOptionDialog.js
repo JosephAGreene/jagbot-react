@@ -47,11 +47,13 @@ const styles = (theme) => ({
 });
 
 const addOptionSchema = Joi.object({
-  keyword: Joi.string().trim().max(30).required().custom((value, helper) => {
-      const wordCount = value.trim().split(' ').length;
+  keyword: Joi.string().trim().max(30).required()
+    .custom((value, helper) => {
+      const wordCount = value.slice(0).trim().split(' ').length;
       if (wordCount > 1) {
         return helper.message('Keyword must be a single word');
       }
+      return value;
     })
     .messages({
       "string.empty": 'Keyword is required',

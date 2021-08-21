@@ -60,11 +60,13 @@ const styles = (theme) => ({
 });
 
 const schema = Joi.object({
-  command: Joi.string().trim().max(30).required().custom((value, helper) => {
-    const wordCount = value.trim().split(' ').length;
+  command: Joi.string().trim().max(30).required()
+  .custom((value, helper) => {
+    const wordCount = value.slice(0).trim().split(' ').length;
     if (wordCount > 1) {
       return helper.message('Command must be a single word');
     }
+    return value;
   })
   .messages({
     "string.empty": 'Command is required',
@@ -132,8 +134,8 @@ function CustomCommandOptioned (props) {
 
   const submitNewModule = async (data) => {
     const payload = {
-      "_id": selectedBot._id,
-      ...data
+      ...data,
+      "botId": selectedBot._id,
     }
 
     const res = await CustomModuleService.addOptionedResponseModule(payload);
@@ -164,9 +166,9 @@ function CustomCommandOptioned (props) {
 
   const submitUpdateModule = async (data) => {
     const payload = {
-      "_id": selectedBot._id,
+      ...data,
+      "botId": selectedBot._id,
       "moduleId": module._id,
-      ...data
     }
 
     const res = await CustomModuleService.updateOptionedResponseModule(payload);

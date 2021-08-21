@@ -54,11 +54,13 @@ const styles = (theme) => ({
 });
 
 const schema = Joi.object({
-  command: Joi.string().trim().max(30).required().custom((value, helper) => {
-      const wordCount = value.trim().split(' ').length;
+  command: Joi.string().trim().max(30).required()
+    .custom((value, helper) => {
+      const wordCount = value.slice(0).trim().split(' ').length;
       if (wordCount > 1) {
         return helper.message('Command must be a single word');
       }
+      return value;
     })
     .messages({
       "string.empty": 'Command is required',
@@ -110,7 +112,7 @@ function CustomCommandSingle(props) {
     resolver: joiResolver(schema),
     defaultValues: setDefaultValues(module),
   });
-  console.log(errors)
+
   const watchResponse = watch("response", (module ? module.response : ''));
   const history = useHistory();
 
@@ -133,8 +135,8 @@ function CustomCommandSingle(props) {
 
   const submitNewModule = async (data) => {
     const payload = {
-      "_id": selectedBot._id,
-      ...data
+      ...data,
+      "botId": selectedBot._id,
     }
 
     const res = await CustomModuleService.addSingleResponseModule(payload);
@@ -165,9 +167,9 @@ function CustomCommandSingle(props) {
 
   const submitUpdateModule = async (data) => {
     const payload = {
-      "_id": selectedBot._id,
+      ...data,
+      "botId": selectedBot._id,
       "moduleId": module._id,
-      ...data
     }
 
     const res = await CustomModuleService.updateSingleResponseModule(payload);
@@ -210,13 +212,13 @@ function CustomCommandSingle(props) {
       </div>
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
-          <OutlinedInput
+        <OutlinedInput
             labelText="Command"
             description="Command Trigger Word"
             id="command"
             name="command"
             formControlProps={{fullWidth: true}}
-            inputProps={{...register("command"), maxLength: 25}}
+            inputProps={{...register("command"), maxLength: 30}}
             error={errors}
           />
           <OutlinedInput
