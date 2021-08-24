@@ -85,6 +85,20 @@ const styles = (theme) => ({
   },
 });
 
+// Filter out any module that isn't a custom command type
+function targetTypes (moduleArray) {
+  // Array of module types allowed
+  const moduleTypes = ["single-response", "optioned-response", "random-response"];
+  let results = [];
+
+  moduleArray.forEach((module) => {
+    if(moduleTypes.includes(module.type)) {
+      results.push(module);
+    }
+  });
+  return results;
+}
+
 function searchModules (value, moduleArray) {
   let results = [];
 
@@ -187,7 +201,7 @@ function CustomCommands(props) {
     }
 
     return (
-      filterModules(filter, searchModules(moduleSearchInput, selectedBot.commandModules))
+      targetTypes(filterModules(filter, searchModules(moduleSearchInput, selectedBot.commandModules)))
         .slice((page - 1 ) * modulesPerPage, (page - 1) * modulesPerPage + modulesPerPage)
         .map((module, pos) => {
           return(
