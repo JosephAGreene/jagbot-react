@@ -271,7 +271,7 @@ function EmojiMenu (props) {
 
   const handleSearch = (value) => {
     setSearchInput(value);
-    if (value.trim().length > 2) {
+    if (value.trim().length > 0) {
       const result = searchEmoji(value.trim());
       // Fix potential UI bug where hoverEmoji value
       // would remain set after sudden render change
