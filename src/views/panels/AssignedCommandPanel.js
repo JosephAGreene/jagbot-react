@@ -46,6 +46,7 @@ const styles = (theme) => ({
   buttons: {
     marginTop: theme.spacing(1),
     marginLeft: theme.spacing(1),
+    textDecoration: "none",
   },
 });
 
@@ -117,8 +118,9 @@ function AssignedCommandPanel(props) {
               </div>
             </GridItem>
             <GridItem xs={12} sm={12} md={4} lg={4} right>
-              <div className={classes.buttons}>
+
                 <Link 
+                  className={classes.buttons}
                   to={{
                     pathname: pathname, 
                     module: module,
@@ -126,7 +128,7 @@ function AssignedCommandPanel(props) {
                 >
                   <Button color="purple">Edit</Button>
                 </Link>
-              </div>
+
               <div className={classes.buttons}>
                 <Button onClick={handleDeleteClick} color="danger">Delete</Button>
               </div>
