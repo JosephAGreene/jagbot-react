@@ -36,7 +36,7 @@ function Modules() {
         <ModulePanel 
           title="Auto Moderation"
           description="Make your bot swing his billy club on the baddies of your server." 
-          path="/dashboard"
+          path="/dashboard/develop/automoderation"
           image={autoModerator}
         />
         <ModulePanel 

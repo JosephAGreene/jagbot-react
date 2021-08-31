@@ -1,7 +1,4 @@
 // Import Icons
-import PublicIcon from '@material-ui/icons/Public';
-import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
-import SettingsInputComponentIcon from '@material-ui/icons/SettingsInputComponent';
 import TimerIcon from '@material-ui/icons/Timer';
 import SettingsIcon from '@material-ui/icons/Settings';
 import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup';
@@ -9,6 +6,10 @@ import BuildIcon from '@material-ui/icons/Build';
 import {FaRobot } from 'react-icons/fa';
 import HomeIcon from '@material-ui/icons/Home';
 import { FiCommand } from 'react-icons/fi';
+import { GiPoliceOfficerHead } from 'react-icons/gi';
+import { GoMegaphone } from 'react-icons/go';
+import { FaUserCog } from 'react-icons/fa';
+import GavelIcon from '@material-ui/icons/Gavel';
 
 // Import Components
 import Stash from "./views/Stash.js";
@@ -19,6 +20,11 @@ import CustomCommands from './views/modules/CustomCommands.js';
 import CustomCommandSingle from './views/modules/CustomCommandSingle.js';
 import CustomCommandOptioned from './views/modules/CustomCommandOptioned.js';
 import CustomCommandRandom from './views/modules/CustomCommandRandom.js';
+import AutoModeration from './views/modules/AutoModeration.js';
+import AutoModBannedWords from './views/modules/AutoModBannedWords.js';
+import AutoModInviteLinks from './views/modules/AutoModInviteLinks.js';
+import AutoModMassCaps from './views/modules/AutoModMassCaps.js';
+import AutoModMassMentions from './views/modules/AutoModMassMentions.js';
 
 const routes = [
   {
@@ -50,10 +56,11 @@ const routes = [
     name: "Develop",
     path: 'develop',
     children: [
+      { path: 'develop/moderation', name: 'Moderation', icon: <GavelIcon />, component: Content },
+      { path: 'develop/automoderation', name: 'Auto Moderation', icon: <GiPoliceOfficerHead />, api: "bot", component: AutoModeration },
       { path: 'develop/customcommands', name: 'Custom Commands', icon: <FiCommand />, api: "bot", component: CustomCommands },
-      { path: 'develop/hosting', name: 'Hosting', icon: <PublicIcon />, component: Content },
-      { path: 'develop/functions', name: 'Functions', icon: <SettingsEthernetIcon />, component: Content },
-      { path: 'develop/mlkit', name: 'ML KIT', icon: <SettingsInputComponentIcon />, component: Content},
+      { path: 'develop/announcements', name: 'Announcements', icon: <GoMegaphone />, component: Content },
+      { path: 'develop/autorole', name: 'Auto Role', icon: <FaUserCog />, component: Content},
     ],
   },
   {
@@ -61,6 +68,10 @@ const routes = [
     path: 'develop', 
     internal: true,  // Denotes internal routes, will not automatically display on any visible navigation
     children: [
+      { path: 'develop/automoderation/bannedwords', api: "bot", component: AutoModBannedWords },
+      { path: 'develop/automoderation/invitelinks', api: "bot", component: AutoModInviteLinks },
+      { path: 'develop/automoderation/masscaps', api: "bot", component: AutoModMassCaps },
+      { path: 'develop/automoderation/massmentions', api: "bot", component: AutoModMassMentions },
       { path: 'develop/customcommands/single', api: "bot", component: CustomCommandSingle },
       { path: 'develop/customcommands/optioned', api: "bot", component: CustomCommandOptioned },
       { path: 'develop/customcommands/random', api: "bot", component: CustomCommandRandom },
