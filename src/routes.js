@@ -6,7 +6,7 @@ import BuildIcon from '@material-ui/icons/Build';
 import {FaRobot } from 'react-icons/fa';
 import HomeIcon from '@material-ui/icons/Home';
 import { FiCommand } from 'react-icons/fi';
-import { GiPoliceOfficerHead } from 'react-icons/gi';
+import { FaUserSecret} from 'react-icons/fa';
 import { GoMegaphone } from 'react-icons/go';
 import { FaUserCog } from 'react-icons/fa';
 import GavelIcon from '@material-ui/icons/Gavel';
@@ -57,7 +57,7 @@ const routes = [
     path: 'develop',
     children: [
       { path: 'develop/moderation', name: 'Moderation', icon: <GavelIcon />, component: Content },
-      { path: 'develop/automoderation', name: 'Auto Moderation', icon: <GiPoliceOfficerHead />, api: "bot", component: AutoModeration },
+      { path: 'develop/automoderation', name: 'Auto Moderation', icon: <FaUserSecret />, api: "bot", component: AutoModeration },
       { path: 'develop/customcommands', name: 'Custom Commands', icon: <FiCommand />, api: "bot", component: CustomCommands },
       { path: 'develop/announcements', name: 'Announcements', icon: <GoMegaphone />, component: Content },
       { path: 'develop/autorole', name: 'Auto Role', icon: <FaUserCog />, component: Content},

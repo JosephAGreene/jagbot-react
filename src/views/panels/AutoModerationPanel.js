@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import Avatar from '@material-ui/core/Avatar';
 
 // Import custom components
 import GridContainer from '../../components/grid/GridContainer';
@@ -63,7 +64,7 @@ function getPathname(moduleType) {
 }
 
 function AutoModerationPanel(props) {
-  const { classes, title, description, module } = props;
+  const { classes, title, description, color, image, Icon, module } = props;
 
   const pathname = getPathname(module.type);
   console.log(pathname)
@@ -71,18 +72,26 @@ function AutoModerationPanel(props) {
   return (
     <GridItem sm={12} md={6} lg={4} classes={{ root: classes.root }}>
       <Paper elevation={2} className={classes.paper} >
-        <GridContainer>
-          <GridItem>
-            <Typography variant="h6">
-              {title}
-            </Typography>
-          </GridItem>
-          <GridItem>
-            <div className={classes.description}>
-              {description}
-            </div>
-          </GridItem>
-        </GridContainer>
+      <GridContainer>
+            <GridItem>
+              {image 
+                ? <Avatar className={classes.avatar} variant="rounded" src={image} />
+                : <Avatar className={classes.avatar} style={{"color": color}} variant="rounded" component={Icon} />
+              }
+            </GridItem>
+            <GridContainer item xs direction="column">
+              <GridItem>
+                <Typography variant="h6">
+                  {title}
+                </Typography>
+              </GridItem>
+              <GridItem>
+                <div className={classes.description}>
+                  {description}
+                </div>
+              </GridItem>
+            </GridContainer>
+          </GridContainer>
         <div className={classes.spacer} />
         <GridContainer alignItems="flex-end" justifyContent="space-between">
           <GridItem>
