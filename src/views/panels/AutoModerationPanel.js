@@ -67,7 +67,6 @@ function AutoModerationPanel(props) {
   const { classes, title, description, color, image, Icon, module } = props;
 
   const pathname = getPathname(module.type);
-  console.log(pathname)
 
   return (
     <GridItem sm={12} md={6} lg={4} classes={{ root: classes.root }}>

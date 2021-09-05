@@ -41,7 +41,6 @@ function ControlledCheckbox(props) {
               <CustomCheckbox
                 onChange={(e) => field.onChange(e.target.checked)}
                 checked={field.value}
-                disableRipple="true"
               />
             }
             label={label}

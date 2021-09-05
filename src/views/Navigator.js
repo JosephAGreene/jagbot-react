@@ -90,7 +90,7 @@ function Navigator(props) {
           activePath,
           activeSubDirectory, 
           selectedBot, 
-          setSelectedBotId, 
+          setSelectedBot, 
           user,
           handleLogoutDialogOpen, 
           ...other } = props;
@@ -101,7 +101,7 @@ function Navigator(props) {
 
   const handleBackToStash = () => {
     history.push("/dashboard/stash/mybots");
-    setSelectedBotId(false);
+    setSelectedBot(false);
   }
 
   return (

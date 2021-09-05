@@ -63,18 +63,8 @@ const styles = (theme) => ({
   }
 });
 
-function getSelectedBot(bots, selectedBotId) {
-  for (let i=0; i < bots.length; i++) {
-    if (bots[i]._id === selectedBotId) {
-      return bots[i];
-    }
-  }
-
-  return {};
-}
-
 // Returns react routes inside a switch based on routes.js routes
-function buildSwitchRoutes (bots, handleBotSelection, selectedBotId, setBots, setApiAlert) {
+function buildSwitchRoutes (bots, handleBotSelection, selectedBot, setSelectedBot, setApiAlert) {
   let routeArray = [];
 
   // Separate child routes from their parent into their own array
@@ -94,12 +84,11 @@ function buildSwitchRoutes (bots, handleBotSelection, selectedBotId, setBots, se
             key={key}
           >
             {route.path === 'stash/mybots' 
-              ? <route.component bots={bots} handleBotSelection={handleBotSelection}/>
+              ? <route.component bots={bots} handleBotSelection={handleBotSelection} setApiAlert={setApiAlert} />
               : (route.api && route.api === "bot") 
                 ? <route.component 
-                    selectedBot={getSelectedBot(bots, selectedBotId)}
-                    bots={bots} 
-                    setBots={setBots}
+                    selectedBot={selectedBot}
+                    setSelectedBot={setSelectedBot}
                     setApiAlert={setApiAlert} 
                   />
                 : <route.component />
@@ -118,7 +107,7 @@ function Dashboard(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [user, setUser] = React.useState(null);
   const [bots, setBots] = React.useState([]);
-  const [selectedBotId, setSelectedBotId] = React.useState(false);
+  const [selectedBot, setSelectedBot] = React.useState(false);
   const [apiAlert, setApiAlert] = React.useState({status: false, duration: 5000, severity: "success"});
   const [logoutDialog, setLogoutDialog] = React.useState(false);
 
@@ -152,7 +141,7 @@ function Dashboard(props) {
   const activePath = useLocation().pathname.split('/').filter(param => param).slice(1, 3).join('/');
   const activeSubDirectory = activePath.split('/').slice(0, 1)[0];  
    
-  if (activeSubDirectory === 'develop' && !selectedBotId) {
+  if (activeSubDirectory === 'develop' && !selectedBot) {
     return <Redirect to="/dashboard" />;
   }
 
@@ -160,9 +149,9 @@ function Dashboard(props) {
     setApiAlert({status: false, duration: 5000, severity: "success"});
   }
 
-  const handleBotSelection = (botId) => {
+  const handleBotSelection = (bot) => {
+    setSelectedBot(bot);
     history.push("/dashboard/develop/modules");
-    setSelectedBotId(botId);
   }
 
   const handleDrawerToggle = () => {
@@ -198,8 +187,8 @@ function Dashboard(props) {
               routes={routes}
               activePath={activePath}
               activeSubDirectory={activeSubDirectory}
-              selectedBot={getSelectedBot(bots, selectedBotId)} 
-              setSelectedBotId={setSelectedBotId}
+              selectedBot={selectedBot} 
+              setSelectedBot={setSelectedBot}
               user={user} 
               handleLogoutDialogOpen={handleLogoutDialogOpen}
               variant="temporary"
@@ -212,8 +201,8 @@ function Dashboard(props) {
               routes={routes} 
               activePath={activePath}
               activeSubDirectory={activeSubDirectory}
-              selectedBot={getSelectedBot(bots, selectedBotId)} 
-              setSelectedBotId={setSelectedBotId}
+              selectedBot={selectedBot}
+              setSelectedBot={setSelectedBot} 
               user={user} 
               handleLogoutDialogOpen={handleLogoutDialogOpen}
               PaperProps={{ style: { width: drawerWidth } }}
@@ -223,7 +212,7 @@ function Dashboard(props) {
         <div className={classes.app}>
           <Header onDrawerToggle={handleDrawerToggle} />
           <main className={classes.main}>
-            {buildSwitchRoutes(bots, handleBotSelection, selectedBotId, setBots, setApiAlert)}
+            {buildSwitchRoutes(bots, handleBotSelection, selectedBot, setSelectedBot, setApiAlert)}
           </main>
         </div>
         <Alert open={apiAlert.status} autoHideDuration={apiAlert.duration} onClose={apiAlertClose} severity={apiAlert.severity}>

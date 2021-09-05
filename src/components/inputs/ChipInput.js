@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // @material-ui/core components
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from '@material-ui/core/FormHelperText';
 import TextField from '@material-ui/core/TextField';
@@ -76,7 +76,7 @@ const styles = (theme) => ({
   },
   addIcon: {
     color: theme.palette.orange.main,
-    '&:hover' :{
+    '&:hover': {
       color: theme.palette.orange.light,
     },
     margin: theme.spacing(2.4, 0, .4, 0),
@@ -104,6 +104,7 @@ function ChipInput(props) {
     description,
     id,
     name,
+    serverRoles,
     inputProps,
     register,
     error,
@@ -113,7 +114,7 @@ function ChipInput(props) {
   const [addRoleAnchor, setAddRoleAchor] = React.useState(null);
 
   const setNewValue = (value) => {
-    setValue(name, value, {shouldValidate: true});
+    setValue(name, value, { shouldValidate: true });
   }
 
   const handleDelete = (role) => {
@@ -133,7 +134,7 @@ function ChipInput(props) {
   return (
     <FormControl
       {...formControlProps}
-      className={formControlProps.className + " " + classes.formControl }
+      className={formControlProps.className + " " + classes.formControl}
       variant="outlined"
     >
       <div className={classes.description}>
@@ -144,39 +145,41 @@ function ChipInput(props) {
         id={id}
         multiline
         name={name}
-        inputProps={{...inputProps, className: classes.textarea}}
+        inputProps={{ ...inputProps, className: classes.textarea }}
         label={labelText}
         error={error[name] ? true : false}
         variant="outlined"
         disabled={true}
         InputProps={{
-          startAdornment: 
-          <span className={classes.display}>
-            <IconButton className={classes.addButton} aria-label="add role" onClick={handleAddRoleClick} >
-              <AddCircleIcon className={classes.addIcon} />
-            </IconButton>
-            <RoleMenu
-              anchorEl={addRoleAnchor}
-              handleClose={handleAddRoleClose}
-              value={value}
-              setNewValue={setNewValue}
-            />
-            {value.map((role, index) => {
-            return (
-              <Chip
-                key={index} 
-                label={role} 
-                className={classes.chip} 
-                onDelete={()=>handleDelete(role)} 
+          startAdornment:
+            <span className={classes.display}>
+              <IconButton className={classes.addButton} aria-label="add role" onClick={handleAddRoleClick} >
+                <AddCircleIcon className={classes.addIcon} />
+              </IconButton>
+              <RoleMenu
+                value={value}
+                setNewValue={setNewValue}
+                roles={serverRoles}
+                anchorEl={addRoleAnchor}
+                handleClose={handleAddRoleClose}
+
               />
-            );
-          })}
-          </span>
+              {value.map((role, index) => {
+                return (
+                  <Chip
+                    key={index}
+                    label={role}
+                    className={classes.chip}
+                    onDelete={() => handleDelete(role)}
+                  />
+                );
+              })}
+            </span>
         }}
       />
-      {error[name] ? 
+      {error[name] ?
         <FormHelperText className={classes.labelRootError} id={`error-message-${name}`}>{error[name].message}</FormHelperText>
-        : <FormHelperText> </FormHelperText> 
+        : <FormHelperText> </FormHelperText>
       }
       {/* Hidden input used to host react-hook-form register object because the
          "Chip Input TextField" is really only displayed for looks.

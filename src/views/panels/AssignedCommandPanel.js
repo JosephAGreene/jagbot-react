@@ -64,7 +64,7 @@ function getPathname (moduleType) {
 }
 
 function AssignedCommandPanel(props) {
-  const {classes, bots, botId, module, setBots, setApiAlert} = props;
+  const {classes, botId, module, setSelectedBot, setApiAlert} = props;
   const [deleteAnchor, setDeleteAnchor] = React.useState(null);
 
   const pathname = getPathname(module.type);
@@ -86,18 +86,10 @@ function AssignedCommandPanel(props) {
     const res = await BotService.deleteCommandModule(payload);
 
     if (res.status === 200) {
-      let newBots = [...bots];
-      for (let i=0; i < bots.length; i++) {
-        if(bots[i]._id === botId) {
-          newBots[i] = res.data;
-          break;
-        }
-      }
-
-      setBots(newBots);
+      setSelectedBot(res.data);
       setApiAlert({
         status: true,
-        duration: 3000,
+        duration: 2500,
         severity: "success",
         message: "Module deleted!"
       });
@@ -163,10 +155,9 @@ function AssignedCommandPanel(props) {
 
 AssignedCommandPanel.propTypes = {
   classes: PropTypes.object.isRequired,
-  bots: PropTypes.array.isRequired,
   botId: PropTypes.string.isRequired,
+  setSelectedBot: PropTypes.func.isRequired,
   module: PropTypes.object.isRequired,
-  setBots: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
 };
 

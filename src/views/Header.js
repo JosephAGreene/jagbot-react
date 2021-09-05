@@ -111,37 +111,6 @@ function Header(props) {
               </Grid>
             </Grid>
           </Hidden>
-          {/* <Grid container justifyContent="space-between" alignItems="flex-end">
-            <Hidden smUp>
-              <Grid item>
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  onClick={onDrawerToggle}
-                  className={classes.menuButton}
-                >
-                  <MenuIcon />
-                </IconButton>
-              </Grid>
-            </Hidden>
-            <Hidden smDown>
-              <Grid item >
-                <div className={classes.spacer} />
-              </Grid>
-            </Hidden>
-            <Grid item>
-              <Headline 
-                iconComponent={AiOutlineRobot}
-                start="Jag"
-                end="Bot"
-                color="#98c379"
-                title
-              />
-            </Grid>
-            <Grid item >
-              <div className={classes.spacer} />
-            </Grid>
-          </Grid> */}
         </Toolbar>
       </AppBar>
     </React.Fragment>

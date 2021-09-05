@@ -111,7 +111,7 @@ function setDefaultValues(module) {
 } 
 
 function CustomCommandOptioned (props) {
-  const {classes, bots, selectedBot, setBots, setApiAlert} = props;
+  const {classes, selectedBot, setSelectedBot, setApiAlert} = props;
   const {module} = useLocation();
   const [optionDialog, setOptionDialog] = React.useState(false);
   const [editOption, setEditOption] = React.useState(false);
@@ -142,15 +142,7 @@ function CustomCommandOptioned (props) {
     const res = await CustomModuleService.addOptionedResponseModule(payload);
 
     if (res.status === 200) {
-      let newBots = [...bots];
-      for (let i=0; i < bots.length; i++) {
-        if(bots[i]._id === selectedBot._id) {
-          newBots[i] = res.data;
-          break;
-        }
-      }
-
-      setBots(newBots);
+      setSelectedBot(res.data);
       setApiAlert({
         status: true,
         duration: 2500,
@@ -175,15 +167,7 @@ function CustomCommandOptioned (props) {
     const res = await CustomModuleService.updateOptionedResponseModule(payload);
 
     if (res.status === 200) {
-      let newBots = [...bots];
-      for (let i=0; i < bots.length; i++) {
-        if(bots[i]._id === selectedBot._id) {
-          newBots[i] = res.data;
-          break;
-        }
-      }
-
-      setBots(newBots);
+      setSelectedBot(res.data);
       setApiAlert({
         status: true,
         duration: 2500,
@@ -312,10 +296,9 @@ function CustomCommandOptioned (props) {
 
 CustomCommandOptioned.propTypes = {
   classes: PropTypes.object.isRequired,
-  bots: PropTypes.array.isRequired,
-  setBots: PropTypes.func.isRequired,
-  setApiAlert: PropTypes.func.isRequired,
   selectedBot: PropTypes.object.isRequired,
+  setSelectedBot: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(CustomCommandOptioned);

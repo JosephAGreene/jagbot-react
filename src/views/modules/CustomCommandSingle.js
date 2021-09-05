@@ -105,7 +105,7 @@ function setDefaultValues(module) {
 } 
 
 function CustomCommandSingle(props) {
-  const {classes, bots, selectedBot, setBots, setApiAlert} = props;
+  const {classes, selectedBot, setSelectedBot, setApiAlert} = props;
   const {module} = useLocation();
 
   const {register, handleSubmit, control, watch, setValue, setError, formState:{errors}} = useForm({
@@ -142,18 +142,10 @@ function CustomCommandSingle(props) {
     const res = await CustomModuleService.addSingleResponseModule(payload);
 
     if (res.status === 200) {
-      let newBots = [...bots];
-      for (let i=0; i < bots.length; i++) {
-        if(bots[i]._id === selectedBot._id) {
-          newBots[i] = res.data;
-          break;
-        }
-      }
-
-      setBots(newBots);
+      setSelectedBot(res.data);
       setApiAlert({
         status: true,
-        duration: 5000,
+        duration: 2500,
         severity: "success",
         message: "A new single-response command has been added!"
       });
@@ -175,18 +167,10 @@ function CustomCommandSingle(props) {
     const res = await CustomModuleService.updateSingleResponseModule(payload);
 
     if (res.status === 200) {
-      let newBots = [...bots];
-      for (let i=0; i < bots.length; i++) {
-        if(bots[i]._id === selectedBot._id) {
-          newBots[i] = res.data;
-          break;
-        }
-      }
-
-      setBots(newBots);
+      setSelectedBot(res.data);
       setApiAlert({
         status: true,
-        duration: 5000,
+        duration: 2500,
         severity: "success",
         message: "Your single-response command has been updated!"
       });
@@ -289,10 +273,9 @@ function CustomCommandSingle(props) {
 
 CustomCommandSingle.propTypes = {
   classes: PropTypes.object.isRequired,
-  bots: PropTypes.array.isRequired,
-  setBots: PropTypes.func.isRequired,
-  setApiAlert: PropTypes.func.isRequired,
   selectedBot: PropTypes.object.isRequired,
+  setSelectedBot: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(CustomCommandSingle);

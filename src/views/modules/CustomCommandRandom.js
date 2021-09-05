@@ -110,7 +110,7 @@ function setDefaultValues(module) {
 } 
 
 function CustomCommandRandom (props) {
-  const {classes, bots, selectedBot, setBots, setApiAlert} = props;
+  const {classes, selectedBot, setSelectedBot, setApiAlert} = props;
   const {module} = useLocation();
   const [responseDialog, setResponseDialog] = React.useState(false);
   const [editResponse, setEditResponse] = React.useState(false);
@@ -141,15 +141,7 @@ function CustomCommandRandom (props) {
     const res = await CustomModuleService.addRandomResponseModule(payload);
 
     if (res.status === 200) {
-      let newBots = [...bots];
-      for (let i=0; i < bots.length; i++) {
-        if(bots[i]._id === selectedBot._id) {
-          newBots[i] = res.data;
-          break;
-        }
-      }
-
-      setBots(newBots);
+      setSelectedBot(res.data);
       setApiAlert({
         status: true,
         duration: 2500,
@@ -174,15 +166,7 @@ function CustomCommandRandom (props) {
     const res = await CustomModuleService.updateRandomResponseModule(payload);
 
     if (res.status === 200) {
-      let newBots = [...bots];
-      for (let i=0; i < bots.length; i++) {
-        if(bots[i]._id === selectedBot._id) {
-          newBots[i] = res.data;
-          break;
-        }
-      }
-
-      setBots(newBots);
+      setSelectedBot(res.data);
       setApiAlert({
         status: true,
         duration: 2500,
@@ -312,10 +296,9 @@ function CustomCommandRandom (props) {
 
 CustomCommandRandom.propTypes = {
   classes: PropTypes.object.isRequired,
-  bots: PropTypes.array.isRequired,
-  setBots: PropTypes.func.isRequired,
-  setApiAlert: PropTypes.func.isRequired,
   selectedBot: PropTypes.object.isRequired,
+  setSelectedBot: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(CustomCommandRandom);

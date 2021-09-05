@@ -142,7 +142,7 @@ function filterModules (value, moduleArray) {
 }
 
 function CustomCommands(props) {
-  const {classes, bots, setBots, setApiAlert, selectedBot} = props;
+  const {classes, selectedBot, setSelectedBot, setApiAlert} = props;
   const [filterAnchor, setFilterAnchor] = React.useState(null);
   const [filter, setFilter] = React.useState('None');
   const [moduleSearchInput, setModuleSearchInput] = React.useState('');
@@ -209,8 +209,7 @@ function CustomCommands(props) {
               key={`${module.command}_${pos}`}
               module={module}
               botId={selectedBot._id}
-              bots={bots}
-              setBots={setBots}
+              setSelectedBot={setSelectedBot}
               setApiAlert={setApiAlert}
             />
           );
