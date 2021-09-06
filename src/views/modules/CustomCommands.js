@@ -43,10 +43,10 @@ const styles = (theme) => ({
     marginLeft: "15px",
   },
   pagination: {
-    '& .MuiPaginationItem-root' : {
+    '& .MuiPaginationItem-root': {
       color: theme.palette.white.dark,
     },
-    '& .Mui-selected' : {
+    '& .Mui-selected': {
       backgroundColor: theme.palette.gray.dark,
     },
   },
@@ -57,10 +57,10 @@ const styles = (theme) => ({
     },
     '& .MuiButtonBase-root': {
       color: theme.palette.white.dark,
-      '&:hover' : {
+      '&:hover': {
         backgroundColor: theme.palette.gray.light,
       },
-      
+
     },
   },
   infoBar: {
@@ -86,55 +86,55 @@ const styles = (theme) => ({
 });
 
 // Filter out any module that isn't a custom command type
-function targetTypes (moduleArray) {
+function targetTypes(moduleArray) {
   // Array of module types allowed
   const moduleTypes = ["single-response", "optioned-response", "random-response"];
   let results = [];
 
   moduleArray.forEach((module) => {
-    if(moduleTypes.includes(module.type)) {
+    if (moduleTypes.includes(module.type)) {
       results.push(module);
     }
   });
   return results;
 }
 
-function searchModules (value, moduleArray) {
+function searchModules(value, moduleArray) {
   let results = [];
 
-  for (let i=0; i < moduleArray.length; i++) {
-    if(moduleArray[i].command.toLowerCase().search(value.trim().toLowerCase()) > -1) {
+  for (let i = 0; i < moduleArray.length; i++) {
+    if (moduleArray[i].command.toLowerCase().search(value.trim().toLowerCase()) > -1) {
       results.push(moduleArray[i]);
     }
   }
   return results;
 }
 
-function filterModules (value, moduleArray) {
+function filterModules(value, moduleArray) {
   if (value === "None") {
     return moduleArray;
   }
 
   let filter = "";
 
-  switch(value) {
+  switch (value) {
     case "Single Response":
-      filter="single-response"
+      filter = "single-response"
       break;
     case "Optioned Response":
-      filter="optioned-response";
+      filter = "optioned-response";
       break;
     case "Random Response":
-      filter="random-response";
+      filter = "random-response";
       break;
     default:
-      filter="None";
+      filter = "None";
   }
 
   let results = [];
 
-  for (let i=0; i < moduleArray.length; i++) {
-    if(moduleArray[i].type === filter) {
+  for (let i = 0; i < moduleArray.length; i++) {
+    if (moduleArray[i].type === filter) {
       results.push(moduleArray[i]);
     }
   }
@@ -142,7 +142,7 @@ function filterModules (value, moduleArray) {
 }
 
 function CustomCommands(props) {
-  const {classes, selectedBot, setSelectedBot, setApiAlert} = props;
+  const { classes, selectedBot, setSelectedBot, setApiAlert } = props;
   const [filterAnchor, setFilterAnchor] = React.useState(null);
   const [filter, setFilter] = React.useState('None');
   const [moduleSearchInput, setModuleSearchInput] = React.useState('');
@@ -150,19 +150,16 @@ function CustomCommands(props) {
 
   const modulesPerPage = 5;
   const moduleCount = targetTypes(filterModules(filter, searchModules(moduleSearchInput, selectedBot.commandModules))).length;
-  console.log(moduleCount);
   const paginationCount = Math.ceil(moduleCount / modulesPerPage);
 
   React.useEffect(() => {
     // Decrement page if it's value is beyond what moduleCount can display
     // This will result in a page value of 0 if a search turns up empty
-    if ((moduleCount <= (page - 1 ) * modulesPerPage) && page !== 0) 
-    {
+    if ((moduleCount <= (page - 1) * modulesPerPage) && page !== 0) {
       setPage(page - 1);
-    } 
+    }
     // Reset page to 1 after an empty search is reset
-    else if (!page && moduleCount > 0)
-    {
+    else if (!page && moduleCount > 0) {
       setPage(1);
     }
   }, [moduleCount, page]);
@@ -196,17 +193,17 @@ function CustomCommands(props) {
           <div className={classes.exclamationIcon}>
             <BsExclamationOctagonFill />
           </div>
-          
+
         </div>
       );
     }
 
     return (
       targetTypes(filterModules(filter, searchModules(moduleSearchInput, selectedBot.commandModules)))
-        .slice((page - 1 ) * modulesPerPage, (page - 1) * modulesPerPage + modulesPerPage)
+        .slice((page - 1) * modulesPerPage, (page - 1) * modulesPerPage + modulesPerPage)
         .map((module, pos) => {
-          return(
-            <AssignedCommandPanel 
+          return (
+            <AssignedCommandPanel
               key={`${module.command}_${pos}`}
               module={module}
               botId={selectedBot._id}
@@ -220,7 +217,7 @@ function CustomCommands(props) {
 
   return (
     <ContentWrapper>
-      <TitlePanel 
+      <TitlePanel
         title="Custom Commands"
         description="Assign custom commands to make your bot unique."
         Icon={FiCommand}
@@ -233,23 +230,23 @@ function CustomCommands(props) {
       </div>
       <div className={classes.smallSpacer} />
       <GridContainer>
-        <ModulePanel 
+        <ModulePanel
           title="Single Response"
-          description="A single command that returns a single response." 
+          description="A single command that returns a single response."
           path="/dashboard/develop/customcommands/single"
           Icon={TiMessage}
           color="#98c379"
         />
-        <ModulePanel 
+        <ModulePanel
           title="Optioned Responses"
-          description="A single command with a supplied option keyword, for which a range of multiple responses can be returned." 
+          description="A single command with a supplied option keyword, for which a range of multiple responses can be returned."
           path="/dashboard/develop/customcommands/optioned"
           Icon={TiMessages}
           color="#de8f4d"
         />
-        <ModulePanel 
+        <ModulePanel
           title="Randomized Response"
-          description="A single command that returns a randomly choosen response from a list of potential responses." 
+          description="A single command that returns a randomly choosen response from a list of potential responses."
           path="/dashboard/develop/customcommands/random"
           Icon={GiPerspectiveDiceSixFacesRandom}
           color="#c678DD"
@@ -263,18 +260,18 @@ function CustomCommands(props) {
           </div>
         </GridItem>
         <GridItem xs sm={12} md={6} lg={8} verticalCenter right>
-          <SearchInput 
-            value={moduleSearchInput} 
+          <SearchInput
+            value={moduleSearchInput}
             onChange={(e) => handleModuleSearch(e.target.value)}
             handleSearch={handleModuleSearch}
           />
-          <Button 
+          <Button
             className={classes.icon}
             onClick={handleFilterOpen}
-            round 
+            round
             justIcon
           >
-            <FilterListIcon/>
+            <FilterListIcon />
           </Button>
           <Menu
             id="filter-menu"
@@ -299,22 +296,22 @@ function CustomCommands(props) {
           </Menu>
         </GridItem>
         <GridItem xs={12}>
-        <div className={classes.infoBar}>Filter: {filter}</div>
+          <div className={classes.infoBar}>Filter: {filter}</div>
           <div className={classes.infoBar}>Search: {moduleSearchInput ? moduleSearchInput : 'None'}</div>
         </GridItem>
       </GridContainer>
       <div className={classes.smallSpacer} />
-        {returnVisibleModules()}
-        <GridContainer>
-          <GridItem xs right>
-            <Pagination 
-              className={classes.pagination} 
-              page={page} 
-              count={paginationCount} 
-              onChange={handlePaginationChange}
-            />
-          </GridItem>
-        </GridContainer>
+      {returnVisibleModules()}
+      <GridContainer>
+        <GridItem xs right>
+          <Pagination
+            className={classes.pagination}
+            page={page}
+            count={paginationCount}
+            onChange={handlePaginationChange}
+          />
+        </GridItem>
+      </GridContainer>
     </ContentWrapper>
   );
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
 // Import API service
-import BotService from "../../services/BotService.js";
+import AutoModService from "../../services/AutoModService.js";
 
 // Import react-hook-form
 import { useForm } from 'react-hook-form';
@@ -116,14 +116,14 @@ function AutoModInviteLinks(props) {
       ...data
     };
 
-    const res = await BotService.updateInviteFilter(payload);
-    console.log(res);
+    const res = await AutoModService.updateInviteFilter(payload);
+
     if (res.status === 200) {
   
       setSelectedBot(res.data);
       setApiAlert({
         status: true,
-        duration: 5000,
+        duration: 2500,
         severity: "success",
         message: "The discord invite link filter has been udpated!"
       });
