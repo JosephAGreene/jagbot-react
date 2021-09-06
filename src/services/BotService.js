@@ -8,9 +8,28 @@ class BotService {
     this.networkIssue = {status: 'dead'};
   }
 
+  getBotSummary() {
+    return axios
+    .get(`${BOT}/summary`, 
+      {
+        withCredentials: true
+      }
+    )
+    .then(response => {
+      return response;
+    })
+    .catch(error => {
+      if (error.response) {
+        return error.response;
+      } else {
+        return this.networkIssue;
+      }
+    });
+  }
+
   getBot(id) {
     return axios
-    .get(`${BOT}/${id}`, 
+    .get(`${BOT}/bot/${id}`, 
       {
         withCredentials: true
       }

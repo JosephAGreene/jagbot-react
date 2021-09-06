@@ -320,10 +320,9 @@ function CustomCommands(props) {
 
 CustomCommands.propTypes = {
   classes: PropTypes.object.isRequired,
-  bots: PropTypes.array.isRequired,
-  setBots: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
   selectedBot: PropTypes.object.isRequired,
+  setSelectedBot: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(CustomCommands);

@@ -51,15 +51,6 @@ const styles = (theme) => ({
   }
 });
 
-function getModuleCount(bot) {
-  let count = 0;
-
-  count += bot.commandModules.length;
-  count += bot.scanModules.length;
-
-  return count;
-}
-
 function BotPanel(props) {
   const {classes, bot, onClick} = props;
   const {name, creationDate, status, avatarURL} = bot;
@@ -91,7 +82,7 @@ function BotPanel(props) {
                 Modules Assigned
               </div>
               <div className={classes.info}>
-                {getModuleCount(bot)}
+                {bot.moduleCount}
               </div>
               <div className={classes.trait}>
                 Status
