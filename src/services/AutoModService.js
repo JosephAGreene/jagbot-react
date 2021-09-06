@@ -1,35 +1,16 @@
 import axios from "axios";
-import { BOT } from "./apiVariables.js";
+import { AUTOMOD } from "./apiVariables.js";
 
-class BotService {
+class AutoModService {
 
   constructor() {
     // Generic response to give API experiences internal issues.
     this.networkIssue = { status: 'dead' };
   }
 
-  getBotSummary() {
+  updateInviteFilter(payload) {
     return axios
-      .get(`${BOT}/summary`,
-        {
-          withCredentials: true
-        }
-      )
-      .then(response => {
-        return response;
-      })
-      .catch(error => {
-        if (error.response) {
-          return error.response;
-        } else {
-          return this.networkIssue;
-        }
-      });
-  }
-
-  checkoutBot(payload) {
-    return axios
-      .post(`${BOT}/checkout-bot`,
+      .post(`${AUTOMOD}/invite-filter`,
         {
           ...payload
         },
@@ -49,9 +30,32 @@ class BotService {
       });
   }
 
-  getServerRoles(payload) {
+
+  updateMassCapsFilter(payload) {
     return axios
-      .post(`${BOT}/server-roles`,
+      .post(`${AUTOMOD}/masscaps-filter`,
+        {
+          ...payload
+        },
+        {
+          withCredentials: true
+        }
+      )
+      .then(response => {
+        return response;
+      })
+      .catch(error => {
+        if (error.response) {
+          return error.response;
+        } else {
+          return this.networkIssue;
+        }
+      });
+  }
+
+  updateMassMentionsFilter(payload) {
+    return axios
+      .post(`${AUTOMOD}/massmentions-filter`,
         {
           ...payload
         },
@@ -73,4 +77,4 @@ class BotService {
 
 }
 
-export default new BotService();
+export default new AutoModService();
