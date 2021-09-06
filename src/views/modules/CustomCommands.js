@@ -149,7 +149,8 @@ function CustomCommands(props) {
   const [page, setPage] = React.useState(1);
 
   const modulesPerPage = 5;
-  const moduleCount = filterModules(filter, searchModules(moduleSearchInput, selectedBot.commandModules)).length;
+  const moduleCount = targetTypes(filterModules(filter, searchModules(moduleSearchInput, selectedBot.commandModules))).length;
+  console.log(moduleCount);
   const paginationCount = Math.ceil(moduleCount / modulesPerPage);
 
   React.useEffect(() => {
