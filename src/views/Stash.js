@@ -22,16 +22,17 @@ function Stash(props) {
 
   const selectBot = async (bot) => {
     setLoading(true);
-
-    const res = await BotService.getBot(bot._id);
+    const payload = {
+      _id: bot._id,
+      avatarURL: bot.avatarURL,
+      name: bot.name,
+      status: bot.status,
+    }
+    const res = await BotService.checkoutBot(payload);
 
     if (res.status === 200) {
       setLoading(false);
-      handleBotSelection({
-        ...res.data,
-        avatarURL: bot.avatarURL,
-        name: bot.name,
-      });
+      handleBotSelection(res.data);
     } else {
       console.log(res);
       setLoading(false);

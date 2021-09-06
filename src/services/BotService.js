@@ -27,9 +27,12 @@ class BotService {
     });
   }
 
-  getBot(id) {
+  checkoutBot(payload) {
     return axios
-    .get(`${BOT}/bot/${id}`, 
+    .post(`${BOT}/checkout-bot`, 
+      {
+        ...payload
+      },
       {
         withCredentials: true
       }
