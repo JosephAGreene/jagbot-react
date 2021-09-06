@@ -105,15 +105,6 @@ function AddOptionDialog (props) {
 
   const watchResponse = watch("response", (editOption ? editOption.response : ''));
 
-  // Inserts a value into the current response value at the location
-  // of the cursor inside the ResponseEditor
-  const insertValueIntoResponse = (insertLocation, insertValue) => {
-    const valueBefore = watchResponse.slice(0, (insertLocation ? insertLocation : 0)).trim();
-    const valueAfter = watchResponse.slice(insertLocation).trim();
-    const newValue = `${valueBefore}${valueBefore ? ' ' : ''}${insertValue} ${valueAfter}`;
-    setValue('response', newValue, { shouldValidate: true });
-  }
-
   // Reseting useForm hook with defaultValues inside useEffect 
   // as defaultValues from older dialog render remain otherwise
   React.useEffect(() => {
@@ -183,8 +174,8 @@ function AddOptionDialog (props) {
             description="The response your bot will give."
             id="response"
             name="response"
-            watch={watchResponse ? watchResponse : ''}
-            insert={insertValueIntoResponse}
+            watch={watchResponse}
+            setValue={setValue}
             maxLength={2000}
             multiline
             rows={10}

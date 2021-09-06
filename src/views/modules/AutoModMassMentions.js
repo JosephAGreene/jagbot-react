@@ -48,11 +48,11 @@ const schema = Joi.object({
     is: Joi.boolean().valid(true), then: Joi.number().integer().min(3).max(20).required(),
     otherwise: Joi.number().integer().allow(null, '').min(3).max(20).optional()
   })
-  .messages({
-    "number.min": "Limit must be at least 3",
-    "number.max": "Limit cannot be greater than 20",
-    "number.base": "Limit must be a number",
-  }),
+    .messages({
+      "number.min": "Limit must be at least 3",
+      "number.max": "Limit cannot be greater than 20",
+      "number.base": "Limit must be a number",
+    }),
   delete: Joi.bool().required(),
   warn: Joi.bool().required(),
   location: Joi.string().trim()
@@ -61,9 +61,9 @@ const schema = Joi.object({
       "any.required": 'Response Location is required',
     }),
   response: Joi.when('warn', {
-      is: Joi.boolean().valid(true), then: Joi.string().trim().max(1000).required(),
-      otherwise: Joi.string().allow('').default('').trim().optional().max(1000)
-    })
+    is: Joi.boolean().valid(true), then: Joi.string().trim().max(1000).required(),
+    otherwise: Joi.string().allow('').default('').trim().optional().max(1000)
+  })
     .messages({
       "string.empty": 'Warning is required',
       "string.max": 'Warning cannot be greater than 1000 characters',
@@ -113,16 +113,7 @@ function AutoModMassMentions(props) {
   const watchIgnoredRoles = watch('ignoredRoles');
   const watchWarn = watch("warn");
 
-  // Inserts a value into the current response value at the location
-  // of the cursor inside the ResponseEditor
-  const insertValueIntoResponse = (insertLocation, insertValue) => {
-    const valueBefore = watchResponse.slice(0, (insertLocation ? insertLocation : 0)).trim();
-    const valueAfter = watchResponse.slice(insertLocation).trim();
-    const newValue = `${valueBefore}${valueBefore ? ' ' : ''}${insertValue} ${valueAfter}`;
-    setValue('response', newValue, { shouldValidate: true });
-  }
-
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     const payload = {
       _id: selectedBot._id,
       ...data
@@ -180,7 +171,7 @@ function AutoModMassMentions(props) {
             id="response"
             name="response"
             watch={watchResponse}
-            insert={insertValueIntoResponse}
+            setValue={setValue}
             maxLength={1000}
             multiline
             rows={4}
@@ -214,8 +205,8 @@ function AutoModMassMentions(props) {
             description="Max number of mentions before auto moderation."
             id="limit"
             name="limit"
-            formControlProps={{fullWidth: true}}
-            inputProps={{...register("limit"), type: "number"}}
+            formControlProps={{ fullWidth: true }}
+            inputProps={{ ...register("limit"), type: "number" }}
             error={errors}
           />
           <ControlledCheckbox

@@ -51,9 +51,9 @@ const schema = Joi.object({
       "any.required": 'Response Location is required',
     }),
   response: Joi.when('warn', {
-      is: Joi.boolean().valid(true), then: Joi.string().trim().max(1000).required(),
-      otherwise: Joi.string().allow('').default('').trim().optional().max(1000)
-    })
+    is: Joi.boolean().valid(true), then: Joi.string().trim().max(1000).required(),
+    otherwise: Joi.string().allow('').default('').trim().optional().max(1000)
+  })
     .messages({
       "string.empty": 'Warning is required',
       "string.max": 'Warning cannot be greater than 1000 characters',
@@ -101,16 +101,7 @@ function AutoModInviteLinks(props) {
   const watchIgnoredRoles = watch('ignoredRoles');
   const watchWarn = watch("warn");
 
-  // Inserts a value into the current response value at the location
-  // of the cursor inside the ResponseEditor
-  const insertValueIntoResponse = (insertLocation, insertValue) => {
-    const valueBefore = watchResponse.slice(0, (insertLocation ? insertLocation : 0)).trim();
-    const valueAfter = watchResponse.slice(insertLocation).trim();
-    const newValue = `${valueBefore}${valueBefore ? ' ' : ''}${insertValue} ${valueAfter}`;
-    setValue('response', newValue, { shouldValidate: true });
-  }
-
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     const payload = {
       _id: selectedBot._id,
       ...data
@@ -119,7 +110,7 @@ function AutoModInviteLinks(props) {
     const res = await AutoModService.updateInviteFilter(payload);
 
     if (res.status === 200) {
-  
+
       setSelectedBot(res.data);
       setApiAlert({
         status: true,
@@ -165,12 +156,12 @@ function AutoModInviteLinks(props) {
             />
           </ControlledRadioGroup>
           <ResponseEditor
-            labelText="Response"
-            description="The response your bot will give."
+            labelText="Warning"
+            description="The warning your bot will give."
             id="response"
             name="response"
             watch={watchResponse}
-            insert={insertValueIntoResponse}
+            setValue={setValue}
             maxLength={1000}
             multiline
             rows={4}

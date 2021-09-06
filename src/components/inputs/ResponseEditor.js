@@ -100,6 +100,23 @@ function ResponseEditor(props) {
   const [variableAnchorEl, setVariableAnchorEl] = React.useState(null);
   const [emojiAnchorEl, setEmojiAnchorEl] = React.useState(null);
 
+  const {
+    formControlProps,
+    labelText,
+    description,
+    id,
+    name,
+    maxLength,
+    watch,
+    setValue,
+    type,
+    inputProps,
+    error,
+    multiline,
+    rows,
+    classes
+  } = props;
+
   const handleVariableClick = (event) => {
     setVariableAnchorEl(event.currentTarget);
   };
@@ -123,25 +140,14 @@ function ResponseEditor(props) {
     setSelectionStart(inputRef.current.selectionStart);
   }
 
-  const {
-    formControlProps,
-    labelText,
-    description,
-    id,
-    name,
-    maxLength,
-    watch,
-    insert,
-    type,
-    inputProps,
-    error,
-    multiline,
-    rows,
-    classes
-  } = props;
-
-  // Insert value at cursor location
-  const insertValue = (value) => insert(selectionStart, value);
+  // Inserts a value into the current response value at the location
+  // of the cursor inside the ResponseEditor
+  const insertValue = (value) => {
+    const valueBefore = watch.slice(0, (selectionStart ? selectionStart : 0)).trim();
+    const valueAfter = watch.slice(selectionStart).trim();
+    const newValue = `${valueBefore}${valueBefore ? ' ' : ''}${value} ${valueAfter}`;
+    setValue(name, newValue, { shouldValidate: true });
+  }
 
   return (
     <FormControl
@@ -220,7 +226,7 @@ ResponseEditor.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   watch: PropTypes.string.isRequired,
-  insert: PropTypes.func.isRequired,
+  setValue: PropTypes.func.isRequired,
   maxLength: PropTypes.number,
   inputProps: PropTypes.object,
   formControlProps: PropTypes.object,

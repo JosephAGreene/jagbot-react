@@ -52,15 +52,15 @@ const addResponseSchema = Joi.object({
   response: Joi.string().trim().max(2000).required()
     .messages({
       "string.empty": 'Response is required',
-      "string.max" : 'Response cannot be greater than 2000 characters',
+      "string.max": 'Response cannot be greater than 2000 characters',
       "any.required": 'Response is required',
     }),
 });
 
 
-function returnArrayWithEditedResponse (editedResponse, responsesArray) {
+function returnArrayWithEditedResponse(editedResponse, responsesArray) {
   let newArray = responsesArray.slice(0);
-  for (let i=0; i < newArray.length; i++) {
+  for (let i = 0; i < newArray.length; i++) {
     if (editedResponse._id === newArray[i]._id) {
       newArray.splice(i, 1, editedResponse);
       return newArray;
@@ -69,27 +69,18 @@ function returnArrayWithEditedResponse (editedResponse, responsesArray) {
 }
 
 function setResponseDefaultValues(response) {
-    return {
-      response: (response ? response.response : ''),
-    }
-} 
+  return {
+    response: (response ? response.response : ''),
+  }
+}
 
-function AddResponseDialog (props) {
-  const {classes, responsesArray, setResponsesArray, responseDialog, editResponse, closeResponseDialog} = props;
-  const {register, handleSubmit, watch, setValue, reset, formState:{errors}} = useForm({
+function AddResponseDialog(props) {
+  const { classes, responsesArray, setResponsesArray, responseDialog, editResponse, closeResponseDialog } = props;
+  const { register, handleSubmit, watch, setValue, reset, formState: { errors } } = useForm({
     resolver: joiResolver(addResponseSchema),
   });
 
   const watchResponse = watch("response", (editResponse ? editResponse.response : ''));
-
-  // Inserts a value into the current response value at the location
-  // of the cursor inside the ResponseEditor
-  const insertValueIntoResponse = (insertLocation, insertValue) => {
-    const valueBefore = watchResponse.slice(0, (insertLocation ? insertLocation : 0)).trim();
-    const valueAfter = watchResponse.slice(insertLocation).trim();
-    const newValue = `${valueBefore}${valueBefore ? ' ' : ''}${insertValue} ${valueAfter}`;
-    setValue('response', newValue, { shouldValidate: true });
-  }
 
   // Reseting useForm hook with defaultValues inside useEffect 
   // as defaultValues from older dialog render remain otherwise
@@ -111,7 +102,7 @@ function AddResponseDialog (props) {
       let newArray = responsesArray.slice(0);
       newArray.push(newResponse);
       setResponsesArray(newArray);
-    } 
+    }
     else {
       const editedResponse = {
         _id: editResponse._id,
@@ -125,7 +116,7 @@ function AddResponseDialog (props) {
 
   return (
     <Dialog
-      className={classes.dialogRoot} 
+      className={classes.dialogRoot}
       open={responseDialog}
       aria-labelledby="form-dialog-title"
       scroll="body"
@@ -137,39 +128,39 @@ function AddResponseDialog (props) {
         </div>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
           <ResponseEditor
-            labelText="Potential Response"
-            description="A potential response your bot might give."
+            labelText="Response"
+            description="The response your bot will give."
             id="response"
             name="response"
-            watch={watchResponse ? watchResponse : ''}
-            insert={insertValueIntoResponse}
+            watch={watchResponse}
+            setValue={setValue}
             maxLength={2000}
             multiline
             rows={10}
-            formControlProps={{fullWidth: true}}
-            inputProps={{...register("response"), maxLength: 2000}}
+            formControlProps={{ fullWidth: true }}
+            inputProps={{ ...register("response"), maxLength: 2000 }}
             error={errors}
           />
-            <GridContainer justifyContent="flex-end">
-              <GridItem>
-                <Button
-                  onClick={() => closeResponseDialog(reset)}
-                  variant="contained"
-                  color="danger"
-                >
-                  Cancel
-                </Button>
-              </GridItem>
-              <GridItem>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="orange"
-                >
-                  {editResponse ? "Update" : "Add" }
-                </Button>
-              </GridItem>
-            </GridContainer>
+          <GridContainer justifyContent="flex-end">
+            <GridItem>
+              <Button
+                onClick={() => closeResponseDialog(reset)}
+                variant="contained"
+                color="danger"
+              >
+                Cancel
+              </Button>
+            </GridItem>
+            <GridItem>
+              <Button
+                type="submit"
+                variant="contained"
+                color="orange"
+              >
+                {editResponse ? "Update" : "Add"}
+              </Button>
+            </GridItem>
+          </GridContainer>
         </form>
       </DialogContent>
     </Dialog>

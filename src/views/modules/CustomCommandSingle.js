@@ -116,15 +116,6 @@ function CustomCommandSingle(props) {
   const watchResponse = watch("response", (module ? module.response : ''));
   const history = useHistory();
 
-  // Inserts a value into the current response value at the location
-  // of the cursor inside the ResponseEditor
-  const insertValueIntoResponse = (insertLocation, insertValue) => {
-    const valueBefore = watchResponse.slice(0, (insertLocation ? insertLocation : 0)).trim();
-    const valueAfter = watchResponse.slice(insertLocation).trim();
-    const newValue = `${valueBefore}${valueBefore ? ' ' : ''}${insertValue} ${valueAfter}`;
-    setValue('response', newValue, { shouldValidate: true });
-  }
-
   const onSubmit = async (data) => {
     if (module) {
       submitUpdateModule(data);
@@ -236,7 +227,7 @@ function CustomCommandSingle(props) {
             id="response"
             name="response"
             watch={watchResponse}
-            insert={insertValueIntoResponse}
+            setValue={setValue}
             maxLength={2000}
             multiline
             rows={10}
