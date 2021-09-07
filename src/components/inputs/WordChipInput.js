@@ -100,12 +100,21 @@ function WordChipInput(props) {
     setValue(name, value, { shouldValidate: true });
   }
 
+  // Assume multiple words might be sent (e.x. user pastes in a list)
+  // Convert string into array, then push one by one into new value
   const insertWord = (word) => {
-    if (value.includes(word.trim().toLowerCase())) {
-      return;
-    }
+    // create copy of current value array
     const newValue = [...value];
-    newValue.push(word.toLowerCase());
+    // create array of word(s)
+    const words = word.split(' ');
+
+    // Only push new words into newValue
+    for (let i = 0; i < words.length; i++) {
+      if (!value.includes(words[i].trim().toLowerCase())) {
+        newValue.push(words[i].toLowerCase());
+      }
+    }
+
     setNewValue(newValue);
   }
 
@@ -117,7 +126,7 @@ function WordChipInput(props) {
 
   const deleteLastElementOfValue = () => {
     if (value.length > 0) {
-      setNewValue(value.slice(0,-1));
+      setNewValue(value.slice(0, -1));
     }
   }
 
