@@ -8,6 +8,28 @@ class AutoModService {
     this.networkIssue = { status: 'dead' };
   }
 
+  updateWordFilter(payload) {
+    return axios
+      .post(`${AUTOMOD}/word-filter`,
+        {
+          ...payload
+        },
+        {
+          withCredentials: true
+        }
+      )
+      .then(response => {
+        return response;
+      })
+      .catch(error => {
+        if (error.response) {
+          return error.response;
+        } else {
+          return this.networkIssue;
+        }
+      });
+  }
+
   updateInviteFilter(payload) {
     return axios
       .post(`${AUTOMOD}/invite-filter`,
