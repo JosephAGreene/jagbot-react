@@ -20,7 +20,7 @@ import Paper from '@material-ui/core/Paper';
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
 import ResponseEditor from '../../components/inputs/ResponseEditor';
-import ChipInput from '../../components/inputs/ChipInput';
+import RoleChipInput from '../../components/inputs/RoleChipInput';
 import Button from '../../components/buttons/Button';
 import GridContainer from '../../components/grid/GridContainer';
 import GridItem from '../../components/grid/GridItem';
@@ -222,7 +222,7 @@ function AutoModMassMentions(props) {
             label="Warn users that post mass mentions."
           />
           {showResponseOptions()}
-          <ChipInput
+          <RoleChipInput
             value={watchIgnoredRoles}
             setValue={setValue}
             labelText="Roles"

@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Chip from "@material-ui/core/Chip";
 
 // Import custom components
-import RoleMenu from '../../components/inputs/RoleMenu';
+import RoleMenu from './RoleMenu';
 
 // Import Icons
 import AddCircleIcon from '@material-ui/icons/AddCircle';
@@ -95,7 +95,7 @@ const styles = (theme) => ({
   }
 });
 
-function ChipInput(props) {
+function RoleChipInput(props) {
   const {
     value,
     setValue,
@@ -134,7 +134,7 @@ function ChipInput(props) {
   return (
     <FormControl
       {...formControlProps}
-      className={formControlProps.className + " " + classes.formControl}
+      className={classes.formControl}
       variant="outlined"
     >
       <div className={classes.description}>
@@ -156,14 +156,6 @@ function ChipInput(props) {
               <IconButton className={classes.addButton} aria-label="add role" onClick={handleAddRoleClick} >
                 <AddCircleIcon className={classes.addIcon} />
               </IconButton>
-              <RoleMenu
-                value={value}
-                setNewValue={setNewValue}
-                roles={serverRoles}
-                anchorEl={addRoleAnchor}
-                handleClose={handleAddRoleClose}
-
-              />
               {value.map((role, index) => {
                 return (
                   <Chip
@@ -186,24 +178,30 @@ function ChipInput(props) {
          I.E. It holds no value and only displays an array of startAdornments
       */}
       <input {...register} type="hidden" />
+      <RoleMenu
+        value={value}
+        setNewValue={setNewValue}
+        roles={serverRoles}
+        anchorEl={addRoleAnchor}
+        handleClose={handleAddRoleClose}
+      />
     </FormControl>
   );
 }
 
-ChipInput.propTypes = {
+RoleChipInput.propTypes = {
   classes: PropTypes.object.isRequired,
-  labelText: PropTypes.node,
-  description: PropTypes.string,
-  labelProps: PropTypes.object,
-  id: PropTypes.string,
   name: PropTypes.string.isRequired,
   value: PropTypes.array.isRequired,
   setValue: PropTypes.func.isRequired,
   register: PropTypes.object.isRequired,
+  labelText: PropTypes.node,
+  description: PropTypes.string,
+  labelProps: PropTypes.object,
+  id: PropTypes.string,
   inputProps: PropTypes.object,
   formControlProps: PropTypes.object,
-  error: PropTypes.object,
-  success: PropTypes.bool,
+  error: PropTypes.object
 };
 
-export default withStyles(styles)(ChipInput);
+export default withStyles(styles)(RoleChipInput);
