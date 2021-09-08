@@ -57,7 +57,7 @@ const schema = Joi.object({
     then: Joi.when('warn', {
       is: Joi.boolean().valid(false),
       then: Joi.boolean().valid(true).required(),
-      otherwise: Joi.bool(),
+      otherwise: Joi.bool().required(),
     })
   })
     .messages({
@@ -68,7 +68,7 @@ const schema = Joi.object({
     then: Joi.when('delete', {
       is: Joi.boolean().valid(false),
       then: Joi.boolean().valid(true).required(),
-      otherwise: Joi.bool(),
+      otherwise: Joi.bool().required(),
     })
   })
     .messages({
@@ -142,7 +142,7 @@ function AutoModBannedWords(props) {
       await trigger();
     }
 
-    if(isSubmitted) {
+    if (isSubmitted) {
       triggerValidate();
     }
   }, [isSubmitted, trigger, watchWarn, watchDelete, watchEnabled]);

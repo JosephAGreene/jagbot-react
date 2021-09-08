@@ -43,9 +43,29 @@ const styles = (theme) => ({
 
 const schema = Joi.object({
   enabled: Joi.bool().required(),
-  delete: Joi.bool().required(),
-  warn: Joi.bool().required(),
-  location: Joi.string().trim()
+  delete: Joi.when('enabled', {
+    is: Joi.boolean().valid(true),
+    then: Joi.when('warn', {
+      is: Joi.boolean().valid(false),
+      then: Joi.boolean().valid(true).required(),
+      otherwise: Joi.bool().required(),
+    })
+  })
+    .messages({
+      "any.only": 'Delete and/or Warn must be checked when Enabled is checked'
+    }),
+  warn: Joi.when('enabled', {
+    is: Joi.boolean().valid(true),
+    then: Joi.when('delete', {
+      is: Joi.boolean().valid(false),
+      then: Joi.boolean().valid(true).required(),
+      otherwise: Joi.bool().required(),
+    })
+  })
+    .messages({
+      "any.only": 'Delete and/or Warn must be checked when Enabled is checked'
+    }),
+  location: Joi.string().trim().required()
     .messages({
       "string.empty": 'Response Location is required',
       "any.required": 'Response Location is required',
@@ -92,7 +112,7 @@ function AutoModMassCaps(props) {
   const { module } = useLocation();
   const history = useHistory();
 
-  const { register, handleSubmit, control, watch, setValue, formState: { errors } } = useForm({
+  const { register, handleSubmit, control, watch, setValue, trigger, formState: { errors, isSubmitted } } = useForm({
     resolver: joiResolver(schema),
     defaultValues: setDefaultValues(module),
   });
@@ -100,6 +120,20 @@ function AutoModMassCaps(props) {
   const watchResponse = watch("response", (module ? module.response : ''));
   const watchIgnoredRoles = watch('ignoredRoles');
   const watchWarn = watch("warn");
+  const watchDelete = watch("delete");
+  const watchEnabled = watch("enabled");
+
+  // useEffect required in order to trigger revalidation of field
+  // values that rely on other field values for validation 
+  React.useEffect(() => {
+    const triggerValidate = async () => {
+      await trigger();
+    }
+
+    if (isSubmitted) {
+      triggerValidate();
+    }
+  }, [isSubmitted, trigger, watchWarn, watchDelete, watchEnabled]);
 
   const onSubmit = async (data) => {
     const payload = {
