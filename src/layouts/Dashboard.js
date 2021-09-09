@@ -89,10 +89,10 @@ function buildSwitchRoutes(bots, handleBotSelection, selectedBot, setSelectedBot
               ? <route.component bots={bots} handleBotSelection={handleBotSelection} setApiAlert={setApiAlert} />
               : (route.api && route.api === "bot")
                 ? <route.component
-                  selectedBot={selectedBot}
-                  setSelectedBot={setSelectedBot}
-                  setApiAlert={setApiAlert}
-                />
+                    selectedBot={selectedBot}
+                    setSelectedBot={setSelectedBot}
+                    setApiAlert={setApiAlert}
+                  />
                 : <route.component />
             }
           </Route>
@@ -108,7 +108,7 @@ function Dashboard(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [user, setUser] = React.useState(null);
   const [bots, setBots] = React.useState([]);
-  const [selectedBot, setSelectedBot] = React.useState({});
+  const [selectedBot, setSelectedBot] = React.useState(false);
   const [apiAlert, setApiAlert] = React.useState({ status: false, duration: 5000, severity: "success" });
   const [logoutDialog, setLogoutDialog] = React.useState(false);
 

@@ -58,7 +58,10 @@ function AutoModeration(props) {
 }
 
 AutoModeration.propTypes = {
-  selectedBot: PropTypes.object.isRequired,
+  selectedBot: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.bool
+  ]).isRequired,
 };
 
 export default AutoModeration;
