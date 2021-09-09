@@ -108,7 +108,7 @@ function Dashboard(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [user, setUser] = React.useState(null);
   const [bots, setBots] = React.useState([]);
-  const [selectedBot, setSelectedBot] = React.useState(false);
+  const [selectedBot, setSelectedBot] = React.useState({});
   const [apiAlert, setApiAlert] = React.useState({ status: false, duration: 5000, severity: "success" });
   const [logoutDialog, setLogoutDialog] = React.useState(false);
 

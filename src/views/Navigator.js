@@ -101,7 +101,7 @@ function Navigator(props) {
 
   const handleBackToStash = () => {
     history.push("/dashboard/stash/mybots");
-    setSelectedBot(false);
+    setSelectedBot({});
   }
 
   return (
