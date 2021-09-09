@@ -1,5 +1,5 @@
 import React from 'react';
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { useHistory, useLocation } from 'react-router-dom';
 
 // Import API service
@@ -295,5 +295,12 @@ function AutoModBannedWords(props) {
     </ContentWrapper>
   );
 }
+
+AutoModBannedWords.propTypes = {
+  classes: PropTypes.object.isRequired,
+  selectedBot: PropTypes.object.isRequired,
+  setSelectedBot: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
+};
 
 export default withStyles(styles)(AutoModBannedWords);

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 // Import layouts
 import ContentWrapper from '../../layouts/ContentWrapper';
@@ -14,7 +15,6 @@ import bannedwordsImage from '../../assets/images/bannedwords.png';
 import invitelinksImage from '../../assets/images/invitelinks.png';
 import masscapsImage from '../../assets/images/masscaps.png';
 import massmentionsImage from '../../assets/images/massmentions.png';
-
 
 function AutoModeration(props) {
   const { selectedBot } = props;
@@ -56,5 +56,9 @@ function AutoModeration(props) {
     </ContentWrapper>
   );
 }
+
+AutoModeration.propTypes = {
+  selectedBot: PropTypes.object.isRequired,
+};
 
 export default AutoModeration;

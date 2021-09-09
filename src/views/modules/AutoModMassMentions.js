@@ -1,5 +1,5 @@
 import React from 'react';
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { useHistory, useLocation } from 'react-router-dom';
 
 // Import API service
@@ -293,5 +293,12 @@ function AutoModMassMentions(props) {
     </ContentWrapper>
   );
 }
+
+AutoModMassMentions.propTypes = {
+  classes: PropTypes.object.isRequired,
+  selectedBot: PropTypes.object.isRequired,
+  setSelectedBot: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
+};
 
 export default withStyles(styles)(AutoModMassMentions);
