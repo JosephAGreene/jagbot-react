@@ -66,7 +66,7 @@ const styles = (theme) => ({
   },
   description: {
     color: theme.palette.white.dark,
-    margin: "0 0 10px 10px",
+    margin: "0 0 10px 0",
     fontSize: "16px",
   },
 });
@@ -84,7 +84,8 @@ function CustomOutlinedInputDark(props) {
     multiline,
     rows,
     disabled,
-    classes
+    classes,
+    ...other
   } = props;
 
   const textFieldClasses = clsx({
@@ -113,6 +114,7 @@ function CustomOutlinedInputDark(props) {
         error={error[name] ? true : false}
         variant="outlined"
         disabled={disabled}
+        {...other}
       />
       {error[name] ? 
         <FormHelperText className={classes.labelRootError} id={`error-message-${name}`}>{error[name].message}</FormHelperText>

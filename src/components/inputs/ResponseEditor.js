@@ -37,7 +37,7 @@ const styles = (theme) => ({
     float: 'left',
     width: "70%",
     color: theme.palette.white.dark,
-    margin: "0 0 10px 10px",
+    margin: "0 0 10px 0",
     fontSize: "16px",
   },
   injectorContainer: {

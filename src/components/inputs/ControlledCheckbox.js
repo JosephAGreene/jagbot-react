@@ -28,13 +28,14 @@ const CustomCheckbox =  withStyles((theme) =>({
 }))((props) => <Checkbox color="default" {...props} />);
 
 function ControlledCheckbox(props) {
-  const { classes, control, name, error, label, labelPlacement } = props;
+  const { classes, control, name, error, label, labelPlacement, removeHelper } = props;
 
   return (
     <React.Fragment>
       <Controller
         name={name}
         control={control}
+        defaultValue={false}
         render={({ field }) => (
           <FormControlLabel
             control={
@@ -50,7 +51,9 @@ function ControlledCheckbox(props) {
       />
       {error[name] ?
         <FormHelperText className={classes.labelRootError} id={`error-message-${name}`}>{error[name].message}</FormHelperText>
-        : <FormHelperText> </FormHelperText>
+        : !removeHelper
+          ? <FormHelperText> </FormHelperText>
+          : null
       }
     </React.Fragment>
   );
@@ -63,6 +66,7 @@ ControlledCheckbox.propTypes = {
   error: PropTypes.object,
   label: PropTypes.string,
   labelPlacement: PropTypes.string,
+  removeHelper: PropTypes.bool,
 };
 
 export default withStyles(styles)(ControlledCheckbox);
