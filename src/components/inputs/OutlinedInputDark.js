@@ -85,7 +85,6 @@ function CustomOutlinedInputDark(props) {
     rows,
     disabled,
     classes,
-    ...other
   } = props;
 
   const textFieldClasses = clsx({
@@ -96,7 +95,7 @@ function CustomOutlinedInputDark(props) {
   return (
     <FormControl
       {...formControlProps}
-      className={formControlProps.className + " " + classes.formControl }
+      className={classes.formControl }
       variant="outlined"
     >
       <div className={classes.description}>
@@ -114,7 +113,6 @@ function CustomOutlinedInputDark(props) {
         error={error[name] ? true : false}
         variant="outlined"
         disabled={disabled}
-        {...other}
       />
       {error[name] ? 
         <FormHelperText className={classes.labelRootError} id={`error-message-${name}`}>{error[name].message}</FormHelperText>
