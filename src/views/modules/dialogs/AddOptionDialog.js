@@ -8,8 +8,6 @@ import Joi from 'joi';
 
 // Import Mui components
 import { withStyles } from '@material-ui/core/styles';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
 
 // Import custom components
 import OutlinedInput from '../../../components/inputs/OutlinedInputDark';
@@ -17,22 +15,9 @@ import ResponseEditor from '../../../components/inputs/ResponseEditor';
 import Button from '../../../components/buttons/Button';
 import GridContainer from '../../../components/grid/GridContainer';
 import GridItem from '../../../components/grid/GridItem';
+import ResponsiveDialog from '../../../components/dialogs/ResponsiveDialog';
 
 const styles = (theme) => ({
-  dialogRoot: {
-    '& .MuiDialog-paper': {
-      minWidth: "300px",
-      maxWidth: "1000px",
-      margin: "unset",
-      marginLeft: "16px",
-      marginRight: "16px",
-      backgroundColor: theme.palette.gray.main,
-      [theme.breakpoints.up('sm')]: {
-        margin: "unset",
-        marginLeft: "250px",
-      },
-    }
-  },
   categoryHeader: {
     marginBottom: theme.spacing(2),
     color: theme.palette.white.dark,
@@ -57,32 +42,31 @@ const addOptionSchema = Joi.object({
     })
     .messages({
       "string.empty": 'Keyword is required',
-      "string.max" : 'Keyword cannot be greater than 30 characters',
+      "string.max": 'Keyword cannot be greater than 30 characters',
       "any.required": 'Keyword is required',
     }),
   response: Joi.string().trim().max(2000).required()
     .messages({
       "string.empty": 'Response is required',
-      "string.max" : 'Response cannot be greater than 2000 characters',
+      "string.max": 'Response cannot be greater than 2000 characters',
       "any.required": 'Response is required',
     }),
 });
 
-function findDuplicateKeyword (keyword, optionsArray, editOption) {
-  for (let i=0; i < optionsArray.length; i++) {
+function findDuplicateKeyword(keyword, optionsArray, editOption) {
+  for (let i = 0; i < optionsArray.length; i++) {
     // Skip checking for duplicate keyword in element currently being edited
-    if ((keyword.toLowerCase() === optionsArray[i].keyword.toLowerCase()) 
-        && (editOption._id !== optionsArray[i]._id)) 
-      {
-        return true;
-      }
+    if ((keyword.toLowerCase() === optionsArray[i].keyword.toLowerCase())
+      && (editOption._id !== optionsArray[i]._id)) {
+      return true;
+    }
   }
   return false;
 }
 
-function returnArrayWithEditedOption (editedOption, optionsArray) {
+function returnArrayWithEditedOption(editedOption, optionsArray) {
   let newArray = optionsArray.slice(0);
-  for (let i=0; i < newArray.length; i++) {
+  for (let i = 0; i < newArray.length; i++) {
     if (editedOption._id === newArray[i]._id) {
       newArray.splice(i, 1, editedOption);
       return newArray;
@@ -91,15 +75,15 @@ function returnArrayWithEditedOption (editedOption, optionsArray) {
 }
 
 function setOptionDefaultValues(option) {
-    return {
-      keyword: (option ? option.keyword : ''),
-      response: (option ? option.response : ''),
-    }
-} 
+  return {
+    keyword: (option ? option.keyword : ''),
+    response: (option ? option.response : ''),
+  }
+}
 
-function AddOptionDialog (props) {
-  const {classes, optionsArray, setOptionsArray, optionDialog, editOption, closeOptionedDialog} = props;
-  const {register, handleSubmit, watch, setValue, reset, setError, formState:{errors}} = useForm({
+function AddOptionDialog(props) {
+  const { classes, optionsArray, setOptionsArray, optionDialog, editOption, closeOptionedDialog } = props;
+  const { register, handleSubmit, watch, setValue, reset, setError, formState: { errors } } = useForm({
     resolver: joiResolver(addOptionSchema),
   });
 
@@ -115,7 +99,7 @@ function AddOptionDialog (props) {
     // Set form error if duplicated keyword is detected
     if (findDuplicateKeyword(data.keyword, optionsArray, editOption)) {
       setError("keyword", {
-        type: "manual", 
+        type: "manual",
         message: "Option keyword already exists."
       });
       return;
@@ -134,7 +118,7 @@ function AddOptionDialog (props) {
       let newArray = optionsArray.slice(0);
       newArray.push(newOption);
       setOptionsArray(newArray);
-    } 
+    }
     else {
       const editedOption = {
         _id: editOption._id,
@@ -148,64 +132,59 @@ function AddOptionDialog (props) {
   }
 
   return (
-    <Dialog
-      className={classes.dialogRoot} 
+    <ResponsiveDialog
       open={optionDialog}
-      aria-labelledby="form-dialog-title"
-      scroll="body"
       keepMounted={false}
     >
-      <DialogContent>
-        <div className={classes.categoryHeader}>
-          {editOption ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Optioned Response
-        </div>
-        <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
-          <OutlinedInput
-            labelText="Option Keyword"
-            description="Supplied Option Keyword"
-            id="keyword"
-            name="keyword"
-            formControlProps={{fullWidth: true}}
-            inputProps={{...register("keyword"), maxLength: 30}}
-            error={errors}
-          />
-          <ResponseEditor
-            labelText="Response"
-            description="The response your bot will give."
-            id="response"
-            name="response"
-            watch={watchResponse}
-            setValue={setValue}
-            maxLength={2000}
-            multiline
-            rows={10}
-            formControlProps={{fullWidth: true}}
-            inputProps={{...register("response"), maxLength: 2000}}
-            error={errors}
-          />
-            <GridContainer justifyContent="flex-end">
-              <GridItem>
-                <Button
-                  onClick={() => closeOptionedDialog(reset)}
-                  variant="contained"
-                  color="danger"
-                >
-                  Cancel
-                </Button>
-              </GridItem>
-              <GridItem>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="orange"
-                >
-                  {editOption ? "Update" : "Add" }
-                </Button>
-              </GridItem>
-            </GridContainer>
-        </form>
-      </DialogContent>
-    </Dialog>
+      <div className={classes.categoryHeader}>
+        {editOption ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Optioned Response
+      </div>
+      <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
+        <OutlinedInput
+          labelText="Option Keyword"
+          description="Supplied Option Keyword"
+          id="keyword"
+          name="keyword"
+          formControlProps={{ fullWidth: true }}
+          inputProps={{ ...register("keyword"), maxLength: 30 }}
+          error={errors}
+        />
+        <ResponseEditor
+          labelText="Response"
+          description="The response your bot will give."
+          id="response"
+          name="response"
+          watch={watchResponse}
+          setValue={setValue}
+          maxLength={2000}
+          multiline
+          rows={10}
+          formControlProps={{ fullWidth: true }}
+          inputProps={{ ...register("response"), maxLength: 2000 }}
+          error={errors}
+        />
+        <GridContainer justifyContent="flex-end">
+          <GridItem>
+            <Button
+              onClick={() => closeOptionedDialog(reset)}
+              variant="contained"
+              color="danger"
+            >
+              Cancel
+            </Button>
+          </GridItem>
+          <GridItem>
+            <Button
+              type="submit"
+              variant="contained"
+              color="orange"
+            >
+              {editOption ? "Update" : "Add"}
+            </Button>
+          </GridItem>
+        </GridContainer>
+      </form>
+    </ResponsiveDialog>
   );
 }
 

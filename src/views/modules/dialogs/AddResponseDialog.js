@@ -8,33 +8,15 @@ import Joi from 'joi';
 
 // Import Mui components
 import { withStyles } from '@material-ui/core/styles';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
 
 // Import custom components
 import ResponseEditor from '../../../components/inputs/ResponseEditor';
 import Button from '../../../components/buttons/Button';
 import GridContainer from '../../../components/grid/GridContainer';
 import GridItem from '../../../components/grid/GridItem';
+import ResponsiveDialog from '../../../components/dialogs/ResponsiveDialog';
 
 const styles = (theme) => ({
-  dialogRoot: {
-    '& .MuiDialog-paper': {
-      minWidth: "300px",
-      maxWidth: "1000px",
-      margin: "unset",
-      marginLeft: "16px",
-      marginRight: "16px",
-      backgroundColor: theme.palette.gray.main,
-      [theme.breakpoints.up('sm')]: {
-        margin: "unset",
-        marginLeft: "250px",
-      },
-      [theme.breakpoints.up('md')]: {
-        minWidth: "600px",
-      },
-    }
-  },
   categoryHeader: {
     marginBottom: theme.spacing(2),
     color: theme.palette.white.dark,
@@ -115,55 +97,50 @@ function AddResponseDialog(props) {
   }
 
   return (
-    <Dialog
-      className={classes.dialogRoot}
+    <ResponsiveDialog
       open={responseDialog}
-      aria-labelledby="form-dialog-title"
-      scroll="body"
       keepMounted={false}
     >
-      <DialogContent>
-        <div className={classes.categoryHeader}>
-          {editResponse ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Potential Response
-        </div>
-        <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
-          <ResponseEditor
-            labelText="Response"
-            description="The response your bot will give."
-            id="response"
-            name="response"
-            watch={watchResponse}
-            setValue={setValue}
-            maxLength={2000}
-            multiline
-            rows={10}
-            formControlProps={{ fullWidth: true }}
-            inputProps={{ ...register("response"), maxLength: 2000 }}
-            error={errors}
-          />
-          <GridContainer justifyContent="flex-end">
-            <GridItem>
-              <Button
-                onClick={() => closeResponseDialog(reset)}
-                variant="contained"
-                color="danger"
-              >
-                Cancel
-              </Button>
-            </GridItem>
-            <GridItem>
-              <Button
-                type="submit"
-                variant="contained"
-                color="orange"
-              >
-                {editResponse ? "Update" : "Add"}
-              </Button>
-            </GridItem>
-          </GridContainer>
-        </form>
-      </DialogContent>
-    </Dialog>
+      <div className={classes.categoryHeader}>
+        {editResponse ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Potential Response
+      </div>
+      <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
+        <ResponseEditor
+          labelText="Response"
+          description="The response your bot will give."
+          id="response"
+          name="response"
+          watch={watchResponse}
+          setValue={setValue}
+          maxLength={2000}
+          multiline
+          rows={10}
+          formControlProps={{ fullWidth: true }}
+          inputProps={{ ...register("response"), maxLength: 2000 }}
+          error={errors}
+        />
+        <GridContainer justifyContent="flex-end">
+          <GridItem>
+            <Button
+              onClick={() => closeResponseDialog(reset)}
+              variant="contained"
+              color="danger"
+            >
+              Cancel
+            </Button>
+          </GridItem>
+          <GridItem>
+            <Button
+              type="submit"
+              variant="contained"
+              color="orange"
+            >
+              {editResponse ? "Update" : "Add"}
+            </Button>
+          </GridItem>
+        </GridContainer>
+      </form>
+    </ResponsiveDialog>
   );
 }
 
