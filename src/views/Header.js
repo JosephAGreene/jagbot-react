@@ -66,7 +66,7 @@ function Header(props) {
         elevation={0}
       >
         <Toolbar>
-          <Hidden smUp>
+          <Hidden mdUp>
             <Grid container justifyContent="space-between">
               <Grid item>
                 <IconButton
@@ -92,7 +92,7 @@ function Header(props) {
               </Grid>
             </Grid>
           </Hidden>
-          <Hidden xsDown>
+          <Hidden smDown>
             <Grid container justifyContent="space-between">
               <Grid item >
                 <div className={classes.psuedoBurger} />

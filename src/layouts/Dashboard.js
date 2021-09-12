@@ -39,7 +39,7 @@ const styles = (theme) => ({
     minHeight: '100vh',
   },
   drawer: {
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       width: drawerWidth,
       flexShrink: 0,
     },
@@ -186,7 +186,7 @@ function Dashboard(props) {
     <div className={classes.root}>
       <CssBaseline />
       <nav className={classes.drawer}>
-        <Hidden smUp implementation="js">
+        <Hidden mdUp implementation="js">
           <Navigator
             PaperProps={{ style: { width: drawerWidth } }}
             routes={routes}
@@ -201,7 +201,7 @@ function Dashboard(props) {
             onClose={handleDrawerToggle}
           />
         </Hidden>
-        <Hidden xsDown implementation="css">
+        <Hidden smDown implementation="css">
           <Navigator
             routes={routes}
             activePath={activePath}
