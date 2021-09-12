@@ -15,6 +15,7 @@ import GridItem from '../../../components/grid/GridItem';
 import Fab from '../../../components/buttons/FloatingActionButton';
 import ControlledCheckbox from '../../../components/inputs/ControlledCheckbox';
 import OutlinedFieldInput from '../../../components/inputs/OutlinedFieldInput';
+import ColorInput from '../../../components/inputs/ColorInput';
 
 // Import icons
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -60,17 +61,19 @@ function EmbedEditor(props) {
     fields,
     control,
     register,
+    trigger,
     errors,
     append,
     swap,
     remove,
     watchEmbedDescription,
+    watchEmbedColor,
     setValue
   } = props;
 
   const addNewfield = () => {
     if (fields.length < 9) {
-      append({ heading: "", content: "", inline: false });
+      append({ name: "", value: "", inline: false });
     }
   }
 
@@ -94,36 +97,58 @@ function EmbedEditor(props) {
         id="embedTitle"
         name="embedTitle"
         formControlProps={{ fullWidth: true }}
-        inputProps={{ ...register("embedTitle") }}
+        inputProps={{ ...register("embedTitle"), maxLength: 240 }}
         error={errors}
       />
-      <OutlinedInput
-        labelText="link url"
-        description="Turn the title into a link (optional)"
-        id="embedLinkURL"
-        name="embedLinkURL"
-        formControlProps={{ fullWidth: true }}
-        inputProps={{ ...register("embedLinkURL") }}
-        error={errors}
-      />
-      <OutlinedInput
-        labelText="image url"
-        description="Title thumbnail image (optional)"
-        id="embedThumbnailImageURL"
-        name="embedThumbnailImageURL"
-        formControlProps={{ fullWidth: true }}
-        inputProps={{ ...register("embedThumbnailURL") }}
-        error={errors}
-      />
-      <OutlinedInput
-        labelText="image url"
-        description="Main embed image (optional)"
-        id="embedMainImageURL"
-        name="embedMainImageURL"
-        formControlProps={{ fullWidth: true }}
-        inputProps={{ ...register("embedMainImageURL") }}
-        error={errors}
-      />
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={12} lg={6}>
+          <OutlinedInput
+            labelText="link url"
+            description="Turn the title into a link (optional)"
+            id="embedLinkURL"
+            name="embedLinkURL"
+            formControlProps={{ fullWidth: true }}
+            inputProps={{ ...register("embedLinkURL") }}
+            error={errors}
+          />
+        </GridItem>
+        <GridItem xs={12} sm={12} md={12} lg={6}>
+          <OutlinedInput
+            labelText="image url"
+            description="Title thumbnail image (optional)"
+            id="embedThumbnailImageURL"
+            name="embedThumbnailImageURL"
+            formControlProps={{ fullWidth: true }}
+            inputProps={{ ...register("embedThumbnailURL") }}
+            error={errors}
+          />
+        </GridItem>
+        <GridItem xs={12} sm={12} md={12} lg={6}>
+          <OutlinedInput
+            labelText="image url"
+            description="Main embed image (optional)"
+            id="embedMainImageURL"
+            name="embedMainImageURL"
+            formControlProps={{ fullWidth: true }}
+            inputProps={{ ...register("embedMainImageURL") }}
+            error={errors}
+          />
+        </GridItem>
+        <GridItem xs={12} sm={12} md={12} lg={6}>
+          <ColorInput
+            labelText="Color"
+            description="Border color"
+            id="embedColor"
+            name="embedColor"
+            watchColor={watchEmbedColor}
+            trigger={trigger}
+            setValue={setValue}
+            formControlProps={{ fullWidth: true }}
+            inputProps={{ ...register("embedColor"), maxLength: 7 }}
+            error={errors}
+          />
+        </GridItem>
+      </GridContainer>
       <ResponseEditor
         labelText="Embed Description"
         description="Main description of embed (optional)"
@@ -132,11 +157,11 @@ function EmbedEditor(props) {
         name="embedDescription"
         watch={watchEmbedDescription}
         setValue={setValue}
-        maxLength={1000}
+        maxLength={3000}
         multiline
         rows={5}
         formControlProps={{ fullWidth: true }}
-        inputProps={{ ...register("embedDescription"), maxLength: 1000 }}
+        inputProps={{ ...register("embedDescription"), maxLength: 3000 }}
         error={errors}
       />
       <div className={classes.header}>
@@ -148,23 +173,23 @@ function EmbedEditor(props) {
             <GridContainer justifyContent="space-between" alignItems="flex-start">
               <GridItem xs={12} sm={12} md={12} lg={4}>
                 <OutlinedFieldInput
-                  labelText="Heading"
-                  id={`${item.id}-heading`}
-                  name="heading"
+                  labelText="Name"
+                  id={`${item.id}-name`}
+                  name="name"
                   index={index}
                   formControlProps={{ fullWidth: true }}
-                  inputProps={{ ...register(`embedFields.${index}.heading`) }}
+                  inputProps={{ ...register(`embedFields.${index}.name`), maxLength: 240 }}
                   error={errors.embedFields && errors.embedFields[index] ? errors.embedFields[index] : {}}
                 />
               </GridItem>
               <GridItem xs={12} sm={12} md={12} lg={8}>
                 <OutlinedFieldInput
-                  labelText="Content"
-                  id={`${item.id}-content`}
-                  name="content"
+                  labelText="Value"
+                  id={`${item.id}-value`}
+                  name="value"
                   index={index}
                   formControlProps={{ fullWidth: true }}
-                  inputProps={{ ...register(`embedFields.${index}.content`) }}
+                  inputProps={{ ...register(`embedFields.${index}.value`), maxLength: 750 }}
                   error={errors.embedFields && errors.embedFields[index] ? errors.embedFields[index] : {}}
                   multiline
                   textarea
@@ -202,25 +227,31 @@ function EmbedEditor(props) {
       >
         Field ({fields.length}/9)
       </Button>
-      <OutlinedInput
-        labelText="Footer"
-        description="Footer text (optional)"
-        id="embedFooter"
-        name="embedFooter"
-        formControlProps={{ fullWidth: true }}
-        inputProps={{ ...register("embedFooter") }}
-        error={errors}
-      />
-      <OutlinedInput
-        labelText="image url"
-        description="Footer thumbnail image (optional)"
-        id="embedFooterThumbnailURL"
-        name="embedFooterThumbnailURL"
-        formControlProps={{ fullWidth: true }}
-        inputProps={{ ...register("embedFooterThumbnailURL") }}
-        error={errors}
-      />
-      <Fab />
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={12} lg={6}>
+          <OutlinedInput
+            labelText="Footer"
+            description="Footer text (optional)"
+            id="embedFooter"
+            name="embedFooter"
+            formControlProps={{ fullWidth: true }}
+            inputProps={{ ...register("embedFooter"), maxLength: 500 }}
+            error={errors}
+          />
+        </GridItem>
+        <GridItem xs={12} sm={12} md={12} lg={6}>
+          <OutlinedInput
+            labelText="image url"
+            description="Footer thumbnail image (optional)"
+            id="embedFooterThumbnailURL"
+            name="embedFooterThumbnailURL"
+            formControlProps={{ fullWidth: true }}
+            inputProps={{ ...register("embedFooterThumbnailURL") }}
+            error={errors}
+          />
+          <Fab />
+        </GridItem>
+      </GridContainer>
     </>
   );
 }
@@ -231,10 +262,12 @@ EmbedEditor.propTypes = {
   errors: PropTypes.object.isRequired,
   fields: PropTypes.array.isRequired,
   register: PropTypes.func.isRequired,
+  trigger: PropTypes.func.isRequired,
   append: PropTypes.func.isRequired,
   swap: PropTypes.func.isRequired,
   remove: PropTypes.func.isRequired,
   setValue: PropTypes.func.isRequired,
+  watchEmbedColor: PropTypes.string.isRequired,
   watchEmbedDescription: PropTypes.string.isRequired,
 };
 
