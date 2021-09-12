@@ -172,7 +172,6 @@ const schema = Joi.object({
           "string.max": "Value cannot be greater than 750 characters"
         }),
       inline: Joi.bool().default(false).optional(),
-      _id: Joi.string().allow('').default('').trim().optional(), // Ignore _id field
     })).optional(),
   }),
   embedFooter: Joi.when('responseType', {
