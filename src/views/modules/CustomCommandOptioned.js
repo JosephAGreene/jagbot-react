@@ -189,7 +189,7 @@ function CustomCommandOptioned (props) {
 
   const closeOptionedDialog = (callback) => {
     setOptionDialog(false);
-    callback();
+    setOptionDialog(false);
   }
 
   const setOptionsArray = (newArray) => {
@@ -286,7 +286,6 @@ function CustomCommandOptioned (props) {
         setOptionsArray={setOptionsArray} 
         optionDialog={optionDialog}
         closeOptionedDialog={closeOptionedDialog} 
-        setOptionDialog={setOptionDialog}
         editOption={editOption}
         setEditOption={setEditOption} 
       />

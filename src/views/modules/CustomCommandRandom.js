@@ -186,9 +186,9 @@ function CustomCommandRandom (props) {
     setResponseDialog(true);
   }
 
-  const closeResponseDialog = (callback) => {
+  const closeResponseDialog = () => {
     setResponseDialog(false);
-    callback();
+    setEditResponse(false);
   }
 
   const setResponsesArray = (newArray) => {

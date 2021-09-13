@@ -154,7 +154,7 @@ function ReturnListItem (props) {
         <ListItemIcon>
           {open ? <ExpandMore  /> : <ExpandMore className={classes.expandMore} />}
         </ListItemIcon>
-        <ListItemText primary={returnResponseSlice(response)} />
+        <ListItemText primary={returnResponseSlice(response.response)} />
         <ListItemSecondaryAction  >
           <IconButton aria-label="edit" onClick={openResponseDialog}>
             <EditIcon className={classes.edit} />
@@ -190,7 +190,7 @@ function ReturnListItem (props) {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItem button className={classes.nested}>
-            <ListItemText secondary={response} />
+            <ListItemText secondary={response.response} />
           </ListItem>
         </List>
       </Collapse>
@@ -200,7 +200,7 @@ function ReturnListItem (props) {
 
 ReturnListItem.propTypes = {
   deleteResponse: PropTypes.func.isRequired,
-  response: PropTypes.string.isRequired,
+  response: PropTypes.object.isRequired,
   openResponseDialog: PropTypes.func.isRequired,
 };
 
@@ -308,7 +308,7 @@ function RandomResponseList(props) {
             <ReturnListItem 
               key={`${Date.now()}-${pos}`} 
               deleteResponse={() => deleteResponse(response._id)}
-              response={response.response}
+              response={response}
               openResponseDialog={() => openResponseDialog(response)} 
             />
           );

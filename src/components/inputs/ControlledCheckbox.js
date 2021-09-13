@@ -37,6 +37,7 @@ function ControlledCheckbox(props) {
         control={control}
         defaultValue={false}
         render={({ field }) => (
+          <>
           <FormControlLabel
             control={
               <CustomCheckbox
@@ -47,6 +48,7 @@ function ControlledCheckbox(props) {
             label={label}
             labelPlacement={labelPlacement ? labelPlacement : "end"}
           />
+          </>
         )}
       />
       {error[name] ?

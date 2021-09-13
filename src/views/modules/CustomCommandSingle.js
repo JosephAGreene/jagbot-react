@@ -88,7 +88,7 @@ const schema = Joi.object({
   response: Joi.when('responseType', {
     is: Joi.string().trim().valid("basic"),
     then: Joi.string().trim().max(1500).required(),
-    otherwise: Joi.string().allow('').default('').trim().optional().max(1500)
+    otherwise: Joi.string().allow('').trim().optional(),
   })
     .messages({
       "string.empty": 'Response is required',
@@ -98,7 +98,7 @@ const schema = Joi.object({
   embedTitle: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
     then: Joi.string().trim().max(240).required(),
-    otherwise: Joi.string().trim().max(240).allow('').optional(),
+    otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
       "string.empty": 'Title is required',
@@ -108,7 +108,7 @@ const schema = Joi.object({
   embedLinkURL: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
     then: Joi.string().trim().max(2040).allow('').optional(),
-    otherwise: Joi.string().trim().max(2040).allow('').optional(),
+    otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
       "string.max": "Urls cannot be greater than 2040 characters",
@@ -116,7 +116,7 @@ const schema = Joi.object({
   embedColor: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
     then: Joi.string().trim().regex(RegExp(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i)).max(7).allow('').optional(),
-    otherwise: Joi.string().trim().regex(RegExp(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i)).max(7).allow('').optional(),
+    otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
       "string.pattern.base": "Color must be a valid hex code",
@@ -125,7 +125,7 @@ const schema = Joi.object({
   embedThumbnailURL: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
     then: Joi.string().trim().max(2040).allow('').optional(),
-    otherwise: Joi.string().trim().max(2040).allow('').optional(),
+    otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
       "string.max": "Urls cannot be greater than 2040 characters",
@@ -133,7 +133,7 @@ const schema = Joi.object({
   embedMainImageURL: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
     then: Joi.string().trim().max(2040).allow('').optional(),
-    otherwise: Joi.string().trim().max(2040).allow('').optional(),
+    otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
       "string.max": "Urls cannot be greater than 2040 characters",
@@ -141,7 +141,7 @@ const schema = Joi.object({
   embedDescription: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
     then: Joi.string().trim().max(3000).allow('').optional(),
-    otherwise: Joi.string().trim().max(3000).allow('').optional(),
+    otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
       "string.max": "Description cannot be greater than 3000 characters",
@@ -160,24 +160,17 @@ const schema = Joi.object({
           "string.max": "Value cannot be greater than 750 characters"
         }),
       inline: Joi.bool().required(),
-      _id: Joi.string().allow('').default('').trim().optional(), // Ignore _id field
-    })).required(),
+    })),
     otherwise: Joi.array().items(Joi.object({
-      name: Joi.string().trim().max(240).allow('').optional()
-        .messages({
-          "string.max": "Name cannot be greater than 240 characters",
-        }),
-      value: Joi.string().trim().max(750).allow('').optional()
-        .messages({
-          "string.max": "Value cannot be greater than 750 characters"
-        }),
+      name: Joi.string().trim().allow('').optional(),
+      value: Joi.string().trim().allow('').optional(),
       inline: Joi.bool().default(false).optional(),
-    })).optional(),
+    })),
   }),
   embedFooter: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
     then: Joi.string().trim().max(500).allow('').optional(),
-    otherwise: Joi.string().trim().max(500).allow('').optional(),
+    otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
       "string.max": "Footer cannot be greater than 3000 characters",
@@ -185,7 +178,7 @@ const schema = Joi.object({
   embedFooterThumbnailURL: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
     then: Joi.string().trim().max(2040).allow('').optional(),
-    otherwise: Joi.string().trim().max(2040).allow('').optional(),
+    otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
       "string.max": "Urls cannot be greater than 2040 characters",
@@ -194,7 +187,7 @@ const schema = Joi.object({
 
 // Returns true is max char count of embed fields
 // is greater than 5,500 characters
-function validMaxCharCount (data) {
+function validMaxCharCount(data) {
   let count = 0;
 
   count += data.embedTitle.trim().length;
@@ -205,7 +198,7 @@ function validMaxCharCount (data) {
     count += field.value.trim().length;
   })
 
-  if(count > 5500) {return true;}
+  if (count > 5500) { return true; }
   return false;
 }
 
@@ -265,7 +258,7 @@ function CustomCommandSingle(props) {
   const history = useHistory();
 
   const onSubmit = async (data) => {
-    if(validMaxCharCount(data)) {
+    if (validMaxCharCount(data)) {
       setApiAlert({
         status: true,
         duration: 6000,
@@ -273,21 +266,55 @@ function CustomCommandSingle(props) {
         message: "The combined character count of embed title, description, fields, and footer cannot exceed 5,500!"
       });
       return;
-    } 
+    }
+
+    let payload = {};
+    if (data.responseType === "basic") {
+      payload = {
+        "botId": selectedBot._id,
+        command: data.command,
+        description: data.description,
+        responseLocation: data.responseLocation,
+        responseType: data.responseType,
+        response: data.response,
+        embedTitle: "",
+        embedLinkURL: "",
+        embedColor: "#ffffff",
+        embedThumbnailURL: "",
+        embedMainImageURL: "",
+        embedDescription: "",
+        embedFields: [],
+        embedFooter: "",
+        embedFooterThumbnailURL: "",
+      }
+    } else {
+      payload = {
+        "botId": selectedBot._id,
+        command: data.command,
+        description: data.description,
+        responseLocation: data.responseLocation,
+        responseType: data.responseType,
+        response: "",
+        embedTitle: data.embedTitle,
+        embedLinkURL: data.embedLinkURL,
+        embedColor: data.embedColor,
+        embedThumbnailURL: data.embedThumbnailURL,
+        embedMainImageURL: data.embedThumbnailURL,
+        embedDescription: data.embedDescription,
+        embedFields: data.embedFields,
+        embedFooter: data.embedFooter,
+        embedFooterThumbnailURL: data.embedFooterThumbnailURL,
+      }
+    }
 
     if (module) {
-      submitUpdateModule(data);
+      submitUpdateModule({ ...payload, "moduleId": module._id});
     } else {
-      submitNewModule(data);
+      submitNewModule(payload);
     }
   }
 
-  const submitNewModule = async (data) => {
-    const payload = {
-      ...data,
-      "botId": selectedBot._id,
-    }
-
+  const submitNewModule = async (payload) => {
     const res = await CustomModuleService.addSingleResponseModule(payload);
 
     if (res.status === 200) {
@@ -306,13 +333,7 @@ function CustomCommandSingle(props) {
     }
   }
 
-  const submitUpdateModule = async (data) => {
-    const payload = {
-      ...data,
-      "botId": selectedBot._id,
-      "moduleId": module._id,
-    }
-
+  const submitUpdateModule = async (payload) => {
     const res = await CustomModuleService.updateSingleResponseModule(payload);
 
     if (res.status === 200) {

@@ -121,7 +121,7 @@ function ReturnListItem (props) {
   const classes = listItemStyles();
   const [open, setOpen] = React.useState(false);
   const [deleteMenuAnchor, setDeleteMenuAnchor] = React.useState(null);
-  const {deleteOption, keyword, response, openOptionedDialog} = props;
+  const {deleteOption, option, openOptionedDialog} = props;
 
   const handleClick = () => {
     setOpen(!open);
@@ -146,7 +146,7 @@ function ReturnListItem (props) {
         <ListItemIcon>
           {open ? <ExpandMore  /> : <ExpandMore className={classes.expandMore} />}
         </ListItemIcon>
-        <ListItemText primary={keyword} />
+        <ListItemText primary={option.keyword} />
         <ListItemSecondaryAction  >
           <IconButton aria-label="edit" onClick={openOptionedDialog}>
             <EditIcon className={classes.edit} />
@@ -182,7 +182,7 @@ function ReturnListItem (props) {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItem button className={classes.nested}>
-            <ListItemText secondary={response} />
+            <ListItemText secondary={option.response} />
           </ListItem>
         </List>
       </Collapse>
@@ -192,8 +192,7 @@ function ReturnListItem (props) {
 
 ReturnListItem.propTypes = {
   deleteOption: PropTypes.func.isRequired,
-  keyword: PropTypes.string.isRequired,
-  response: PropTypes.string.isRequired,
+  option: PropTypes.object.isRequired,
   openOptionedDialog: PropTypes.func.isRequired,
 };
 
@@ -301,8 +300,7 @@ function OptionedResponseList(props) {
             <ReturnListItem 
               key={`${option.keyword}-${pos}`} 
               deleteOption={() => deleteOption(option._id)}
-              keyword={option.keyword} 
-              response={option.response}
+              option={option}
               openOptionedDialog={() => openOptionedDialog(option)} 
             />
           );
