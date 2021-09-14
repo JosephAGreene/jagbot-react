@@ -181,7 +181,7 @@ function setResponseDefaultValues(response) {
       responseType: response.responseType,
       response: response.response,
       embedTitle: response.embedTitle,
-      embedLinkURL: response.LinkURL,
+      embedLinkURL: response.embedLinkURL,
       embedColor: response.embedColor,
       embedThumbnailURL: response.embedThumbnailURL,
       embedMainImageURL: response.embedMainImageURL,

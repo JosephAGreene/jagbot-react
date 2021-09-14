@@ -207,7 +207,7 @@ function setOptionDefaultValues(option) {
       responseType: option.responseType,
       response: option.response,
       embedTitle: option.embedTitle,
-      embedLinkURL: option.LinkURL,
+      embedLinkURL: option.embedLinkURL,
       embedColor: option.embedColor,
       embedThumbnailURL: option.embedThumbnailURL,
       embedMainImageURL: option.embedMainImageURL,

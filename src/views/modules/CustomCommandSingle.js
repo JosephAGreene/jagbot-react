@@ -211,7 +211,7 @@ function setDefaultValues(module) {
       responseType: module.responseType,
       response: module.response,
       embedTitle: module.embedTitle,
-      embedLinkURL: module.LinkURL,
+      embedLinkURL: module.embedLinkURL,
       embedColor: module.embedColor,
       embedThumbnailURL: module.embedThumbnailURL,
       embedMainImageURL: module.embedMainImageURL,
