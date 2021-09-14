@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 
+// Import custom views
+import EmbedPreviewDialog from '../dialogs/EmbedPreviewDialog';
 
 // Import custom components
 import OutlinedInput from '../../../components/inputs/OutlinedInputDark';
@@ -22,6 +24,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 
 const styles = (theme) => ({
   header: {
@@ -68,8 +71,15 @@ function EmbedEditor(props) {
     remove,
     watchEmbedDescription,
     watchEmbedColor,
+    embedObject,
     setValue
   } = props;
+
+  const [preview, setPreview] = React.useState(false);
+
+  const togglePreview = () => {
+    setPreview(!preview);
+  }
 
   const addNewfield = () => {
     if (fields.length < 9) {
@@ -249,9 +259,17 @@ function EmbedEditor(props) {
             inputProps={{ ...register("embedFooterThumbnailURL") }}
             error={errors}
           />
-          <Fab />
+          <Fab onClick={togglePreview}>
+            <VisibilityIcon />
+          </Fab>
         </GridItem>
       </GridContainer>
+      <EmbedPreviewDialog
+        open={preview}
+        setOpen={setPreview}
+        keepMounted={true}
+        embedObject={embedObject}
+      />
     </>
   );
 }
@@ -269,6 +287,7 @@ EmbedEditor.propTypes = {
   setValue: PropTypes.func.isRequired,
   watchEmbedColor: PropTypes.string.isRequired,
   watchEmbedDescription: PropTypes.string.isRequired,
+  embedObject: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(EmbedEditor);

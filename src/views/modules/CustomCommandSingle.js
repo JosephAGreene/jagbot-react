@@ -6,7 +6,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import CustomModuleService from "../../services/CustomModuleService.js";
 
 // Import react-hook-form
-import { useForm, useFieldArray } from 'react-hook-form';
+import { useForm, useFieldArray, useWatch } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
 
@@ -250,12 +250,24 @@ function CustomCommandSingle(props) {
   });
 
   const { fields, append, swap, remove } = useFieldArray({ control, name: "embedFields" });
-
+  const watchFields = useWatch({ control, name: "embedFields" }, fields);
   const watchResponse = watch("response", (module ? module.response : ''));
   const watchEmbedDescription = watch("embedDescription", (module ? module.embedDescription : ''));
   const watchResponseType = watch("responseType");
   const watchEmbedColor = watch("embedColor");
   const history = useHistory();
+
+  const embedObject = {
+    title: watch("embedTitle"),
+    linkURL: watch("embedLinkURL"),
+    color: watchEmbedColor,
+    thumbnailURL: watch('embedThumbnailURL'),
+    mainImageURL: watch('embedMainImageURL'),
+    description: watchEmbedDescription,
+    fields: watchFields,
+    footer: watch('embedFooter'),
+    footerThumbnailURL: watch('embedFooterThumbnailURL'),
+  }
 
   const onSubmit = async (data) => {
     if (validMaxCharCount(data)) {
@@ -378,6 +390,7 @@ function CustomCommandSingle(props) {
         register={register}
         watchEmbedDescription={watchEmbedDescription}
         watchEmbedColor={watchEmbedColor}
+        embedObject={embedObject}
         setValue={setValue}
         trigger={trigger}
         errors={errors}

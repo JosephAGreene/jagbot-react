@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 // Import react-hook-form
-import { useForm, useFieldArray } from 'react-hook-form';
+import { useForm, useFieldArray, useWatch } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
 
@@ -239,10 +239,23 @@ function AddResponseDialog(props) {
     reset(setResponseDefaultValues(editResponse));
   }, [reset, editResponse, closeResponseDialog]);
 
-  const watchResponse = watch("response");
-  const watchEmbedDescription = watch("embedDescription");
+  const watchFields = useWatch({ control, name: "embedFields" }, fields);
+  const watchResponse = watch("response", (editResponse ? editResponse.response : ''));
+  const watchEmbedDescription = watch("embedDescription", (editResponse ? editResponse.embedDescription : ''));
   const watchResponseType = watch("responseType");
   const watchEmbedColor = watch("embedColor");
+
+  const embedObject = {
+    title: watch("embedTitle"),
+    linkURL: watch("embedLinkURL"),
+    color: watchEmbedColor,
+    thumbnailURL: watch('embedThumbnailURL'),
+    mainImageURL: watch('embedMainImageURL'),
+    description: watchEmbedDescription,
+    fields: watchFields,
+    footer: watch('embedFooter'),
+    footerThumbnailURL: watch('embedFooterThumbnailURL'),
+  }
 
   const onSubmit = (data) => {
     if (validMaxCharCount(data)) {
@@ -330,6 +343,7 @@ function AddResponseDialog(props) {
         register={register}
         watchEmbedDescription={watchEmbedDescription}
         watchEmbedColor={watchEmbedColor}
+        embedObject={embedObject}
         setValue={setValue}
         trigger={trigger}
         errors={errors}
