@@ -107,10 +107,11 @@ const schema = Joi.object({
     }),
   embedLinkURL: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
-    then: Joi.string().trim().max(2040).allow('').optional(),
+    then: Joi.string().trim().regex(RegExp(/\b(https?:\/\/.*?\.[a-z]{2,4}\b)/)).max(2040).allow('').optional(),
     otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
+      "string.pattern.base": "Urls must be valid and well formed (http or https)",
       "string.max": "Urls cannot be greater than 2040 characters",
     }),
   embedColor: Joi.when('responseType', {
@@ -124,18 +125,20 @@ const schema = Joi.object({
     }),
   embedThumbnailURL: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
-    then: Joi.string().trim().max(2040).allow('').optional(),
+    then: Joi.string().trim().regex(RegExp(/\b(https?:\/\/.*?\.[a-z]{2,4}\b)/)).max(2040).allow('').optional(),
     otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
+      "string.pattern.base": "Urls must be valid and well formed (http or https)",
       "string.max": "Urls cannot be greater than 2040 characters",
     }),
   embedMainImageURL: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
-    then: Joi.string().trim().max(2040).allow('').optional(),
+    then: Joi.string().trim().regex(RegExp(/\b(https?:\/\/.*?\.[a-z]{2,4}\b)/)).max(2040).allow('').optional(),
     otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
+      "string.pattern.base": "Urls must be valid and well formed (http or https)",
       "string.max": "Urls cannot be greater than 2040 characters",
     }),
   embedDescription: Joi.when('responseType', {
@@ -177,10 +180,11 @@ const schema = Joi.object({
     }),
   embedFooterThumbnailURL: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
-    then: Joi.string().trim().max(2040).allow('').optional(),
+    then: Joi.string().trim().regex(RegExp(/\b(https?:\/\/.*?\.[a-z]{2,4}\b)/)).max(2040).allow('').optional(),
     otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
+      "string.pattern.base": "Urls must be valid and well formed (http or https)",
       "string.max": "Urls cannot be greater than 2040 characters",
     }),
 });

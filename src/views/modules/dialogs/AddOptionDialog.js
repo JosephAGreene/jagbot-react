@@ -52,7 +52,7 @@ const addOptionSchema = Joi.object({
       "string.max": 'Keyword cannot be greater than 30 characters',
       "any.required": 'Keyword is required',
     }),
-    responseType: Joi.string().trim().required()
+  responseType: Joi.string().trim().required()
     .messages({
       "string.empty": 'Response Type is required',
       "any.required": 'Response Type is required',
@@ -79,10 +79,11 @@ const addOptionSchema = Joi.object({
     }),
   embedLinkURL: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
-    then: Joi.string().trim().max(2040).allow('').optional(),
+    then: Joi.string().trim().regex(RegExp(/\b(https?:\/\/.*?\.[a-z]{2,4}\b)/)).max(2040).allow('').optional(),
     otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
+      "string.pattern.base": "Urls must be valid and well formed (http or https)",
       "string.max": "Urls cannot be greater than 2040 characters",
     }),
   embedColor: Joi.when('responseType', {
@@ -96,18 +97,20 @@ const addOptionSchema = Joi.object({
     }),
   embedThumbnailURL: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
-    then: Joi.string().trim().max(2040).allow('').optional(),
+    then: Joi.string().trim().regex(RegExp(/\b(https?:\/\/.*?\.[a-z]{2,4}\b)/)).max(2040).allow('').optional(),
     otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
+      "string.pattern.base": "Urls must be valid and well formed (http or https)",
       "string.max": "Urls cannot be greater than 2040 characters",
     }),
   embedMainImageURL: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
-    then: Joi.string().trim().max(2040).allow('').optional(),
+    then: Joi.string().trim().regex(RegExp(/\b(https?:\/\/.*?\.[a-z]{2,4}\b)/)).max(2040).allow('').optional(),
     otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
+      "string.pattern.base": "Urls must be valid and well formed (http or https)",
       "string.max": "Urls cannot be greater than 2040 characters",
     }),
   embedDescription: Joi.when('responseType', {
@@ -149,10 +152,11 @@ const addOptionSchema = Joi.object({
     }),
   embedFooterThumbnailURL: Joi.when('responseType', {
     is: Joi.string().trim().valid("embed"),
-    then: Joi.string().trim().max(2040).allow('').optional(),
+    then: Joi.string().trim().regex(RegExp(/\b(https?:\/\/.*?\.[a-z]{2,4}\b)/)).max(2040).allow('').optional(),
     otherwise: Joi.string().trim().allow('').optional(),
   })
     .messages({
+      "string.pattern.base": "Urls must be valid and well formed (http or https)",
       "string.max": "Urls cannot be greater than 2040 characters",
     }),
 });
@@ -235,25 +239,25 @@ function setOptionDefaultValues(option) {
 }
 
 function AddOptionDialog(props) {
-  const { 
-    classes, 
-    optionsArray, 
-    setOptionsArray, 
-    optionDialog, 
-    editOption, 
-    closeOptionedDialog 
+  const {
+    classes,
+    optionsArray,
+    setOptionsArray,
+    optionDialog,
+    editOption,
+    closeOptionedDialog
   } = props;
 
-  const { 
-    register, 
-    handleSubmit, 
-    control, 
-    watch, 
-    setValue, 
-    reset, 
-    setError, 
-    trigger, 
-    formState: { errors } 
+  const {
+    register,
+    handleSubmit,
+    control,
+    watch,
+    setValue,
+    reset,
+    setError,
+    trigger,
+    formState: { errors }
   } = useForm({
     resolver: joiResolver(addOptionSchema),
   });
@@ -430,8 +434,8 @@ function AddOptionDialog(props) {
         {returnResponseEditor()}
         {errors.maxChar
           ? <FormHelperText className={classes.labelRootError} id={`error-message-maxChar`}>
-              The combined character count of embed title, description, fields, and footer cannot exceed 5,500!
-            </FormHelperText>
+            The combined character count of embed title, description, fields, and footer cannot exceed 5,500!
+          </FormHelperText>
           : <FormHelperText> </FormHelperText>
         }
         <GridContainer justifyContent="flex-end">

@@ -126,8 +126,8 @@ function EmbedEditor(props) {
           <OutlinedInput
             labelText="image url"
             description="Title thumbnail image (optional)"
-            id="embedThumbnailImageURL"
-            name="embedThumbnailImageURL"
+            id="embedThumbnailURL"
+            name="embedThumbnailURL"
             formControlProps={{ fullWidth: true }}
             inputProps={{ ...register("embedThumbnailURL") }}
             error={errors}
