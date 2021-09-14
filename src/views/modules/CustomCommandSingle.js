@@ -299,7 +299,7 @@ function CustomCommandSingle(props) {
         embedLinkURL: data.embedLinkURL,
         embedColor: data.embedColor,
         embedThumbnailURL: data.embedThumbnailURL,
-        embedMainImageURL: data.embedThumbnailURL,
+        embedMainImageURL: data.embedMainImageURL,
         embedDescription: data.embedDescription,
         embedFields: data.embedFields,
         embedFooter: data.embedFooter,
