@@ -14,6 +14,9 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Pagination from '@material-ui/lab/Pagination';
 
+// Import custom views
+import EmbedPreviewPanel from '../../panels/EmbedPreviewPanel';
+
 // Import custom components
 import GridContainer from '../../../components/grid/GridContainer';
 import GridItem from '../../../components/grid/GridItem';
@@ -131,6 +134,18 @@ function ReturnListItem (props) {
   const [deleteMenuAnchor, setDeleteMenuAnchor] = React.useState(null);
   const {deleteResponse, response, openResponseDialog} = props;
 
+  const embedObject = {
+    title: response.embedTitle,
+    linkURL: response.embedLinkURL,
+    color: response.embedColor,
+    thumbnailURL: response.embedThumbnailURL,
+    mainImageURL: response.embedMainImageURL,
+    description: response.embedDescription,
+    fields: response.embedFields,
+    footer: response.embedFooter,
+    footerThumbnailURL: response.embedFooterThumbnailURL,
+  }
+
   const handleClick = () => {
     setOpen(!open);
   };
@@ -154,7 +169,11 @@ function ReturnListItem (props) {
         <ListItemIcon>
           {open ? <ExpandMore  /> : <ExpandMore className={classes.expandMore} />}
         </ListItemIcon>
-        <ListItemText primary={returnResponseSlice(response.response)} />
+        {response.responseType === "basic"
+          ? <ListItemText primary={returnResponseSlice(response.response)} />
+          : <ListItemText primary={returnResponseSlice(response.embedTitle)} />
+        }
+        
         <ListItemSecondaryAction  >
           <IconButton aria-label="edit" onClick={openResponseDialog}>
             <EditIcon className={classes.edit} />
@@ -190,7 +209,10 @@ function ReturnListItem (props) {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItem button className={classes.nested}>
-            <ListItemText secondary={response.response} />
+            {response.responseType === "basic"
+              ? <ListItemText secondary={response.response} />
+              : <EmbedPreviewPanel embedObject={embedObject} />
+            }
           </ListItem>
         </List>
       </Collapse>

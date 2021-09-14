@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
+// Import custom views
+import EmbedPreviewPanel from '../../panels/EmbedPreviewPanel';
+
 // Import Mui components
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -24,8 +27,8 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import { BsExclamationOctagonFill } from 'react-icons/bs';
-import {ImSortAlphaAsc} from 'react-icons/im';
-import {ImSortAlphaDesc} from 'react-icons/im';
+import { ImSortAlphaAsc } from 'react-icons/im';
+import { ImSortAlphaDesc } from 'react-icons/im';
 
 const listItemStyles = makeStyles((theme) => ({
   menuRoot: {
@@ -35,21 +38,21 @@ const listItemStyles = makeStyles((theme) => ({
     },
     '& .MuiButtonBase-root': {
       color: theme.palette.white.dark,
-      '&:hover' : {
+      '&:hover': {
         backgroundColor: theme.palette.gray.light,
       },
-      
+
     },
   },
   edit: {
     color: theme.palette.purple.main,
-    '&:hover' :{
+    '&:hover': {
       color: theme.palette.purple.dark,
     }
   },
   delete: {
     color: theme.palette.error.main,
-    '&:hover' :{
+    '&:hover': {
       color: theme.palette.error.dark,
     },
   },
@@ -77,15 +80,15 @@ const optionedResponseListStyles = (theme) => ({
   },
   sort: {
     color: theme.palette.white.main,
-    '&:hover' :{
+    '&:hover': {
       color: theme.palette.white.dark,
     }
   },
   pagination: {
-    '& .MuiPaginationItem-root' : {
+    '& .MuiPaginationItem-root': {
       color: theme.palette.white.dark,
     },
-    '& .Mui-selected' : {
+    '& .Mui-selected': {
       backgroundColor: theme.palette.gray.dark,
     },
     marginBottom: theme.spacing(6),
@@ -117,11 +120,23 @@ const optionedResponseListStyles = (theme) => ({
   },
 });
 
-function ReturnListItem (props) {
+function ReturnListItem(props) {
   const classes = listItemStyles();
   const [open, setOpen] = React.useState(false);
   const [deleteMenuAnchor, setDeleteMenuAnchor] = React.useState(null);
-  const {deleteOption, option, openOptionedDialog} = props;
+  const { deleteOption, option, openOptionedDialog } = props;
+
+  const embedObject = {
+    title: option.embedTitle,
+    linkURL: option.embedLinkURL,
+    color: option.embedColor,
+    thumbnailURL: option.embedThumbnailURL,
+    mainImageURL: option.embedMainImageURL,
+    description: option.embedDescription,
+    fields: option.embedFields,
+    footer: option.embedFooter,
+    footerThumbnailURL: option.embedFooterThumbnailURL,
+  }
 
   const handleClick = () => {
     setOpen(!open);
@@ -144,7 +159,7 @@ function ReturnListItem (props) {
     <React.Fragment>
       <ListItem button onClick={handleClick}>
         <ListItemIcon>
-          {open ? <ExpandMore  /> : <ExpandMore className={classes.expandMore} />}
+          {open ? <ExpandMore /> : <ExpandMore className={classes.expandMore} />}
         </ListItemIcon>
         <ListItemText primary={option.keyword} />
         <ListItemSecondaryAction  >
@@ -182,7 +197,10 @@ function ReturnListItem (props) {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItem button className={classes.nested}>
-            <ListItemText secondary={option.response} />
+            {option.responseType === "basic"
+              ? <ListItemText secondary={option.response} />
+              : <EmbedPreviewPanel embedObject={embedObject} />
+            }
           </ListItem>
         </List>
       </Collapse>
@@ -196,12 +214,12 @@ ReturnListItem.propTypes = {
   openOptionedDialog: PropTypes.func.isRequired,
 };
 
-function sortOptions (optionsArray, orderBy) {
+function sortOptions(optionsArray, orderBy) {
   let results = optionsArray.splice(0);
 
   const comparator = (a, b) => {
-    if(a.keyword.toLowerCase() < b.keyword.toLowerCase()) { return -1; }
-    if(a.keyword.toLowerCase() > b.keyword.toLowerCase()) { return 1; }
+    if (a.keyword.toLowerCase() < b.keyword.toLowerCase()) { return -1; }
+    if (a.keyword.toLowerCase() > b.keyword.toLowerCase()) { return 1; }
     return 0;
   }
 
@@ -212,11 +230,11 @@ function sortOptions (optionsArray, orderBy) {
   return results;
 }
 
-function searchOptions (value, optionsArray) {
+function searchOptions(value, optionsArray) {
   let results = [];
 
-  for (let i=0; i < optionsArray.length; i++) {
-    if(optionsArray[i].keyword.toLowerCase().search(value.trim().toLowerCase()) > -1) {
+  for (let i = 0; i < optionsArray.length; i++) {
+    if (optionsArray[i].keyword.toLowerCase().search(value.trim().toLowerCase()) > -1) {
       results.push(optionsArray[i]);
     }
   }
@@ -224,7 +242,7 @@ function searchOptions (value, optionsArray) {
 }
 
 function OptionedResponseList(props) {
-  const {classes, optionsArray, setOptionsArray, error, openOptionedDialog} = props;
+  const { classes, optionsArray, setOptionsArray, error, openOptionedDialog } = props;
   const [sort, setSort] = React.useState('asc')
   const [searchValue, setSearchValue] = React.useState('');
   const [page, setPage] = React.useState(1);
@@ -236,13 +254,11 @@ function OptionedResponseList(props) {
   React.useEffect(() => {
     // Decrement page if it's value is beyond what optionCount can display
     // This will result in a page value of 0 if a search turns up empty
-    if ((optionCount <= (page - 1 ) * optionsPerPage) && page !== 0) 
-    {
+    if ((optionCount <= (page - 1) * optionsPerPage) && page !== 0) {
       setPage(page - 1);
-    } 
+    }
     // Reset page to 1 after an empty search is reset
-    else if (!page && optionCount > 0)
-    {
+    else if (!page && optionCount > 0) {
       setPage(1);
     }
   }, [optionCount, page]);
@@ -262,7 +278,7 @@ function OptionedResponseList(props) {
   const deleteOption = (optionId) => {
     let newOptionsArray = [];
 
-    for (let i=0; i < optionsArray.length; i++) {
+    for (let i = 0; i < optionsArray.length; i++) {
       if (optionsArray[i]._id !== optionId) {
         newOptionsArray.push(optionsArray[i]);
       }
@@ -287,45 +303,45 @@ function OptionedResponseList(props) {
           <div className={classes.exclamationIcon}>
             <BsExclamationOctagonFill />
           </div>
-          
+
         </div>
       );
     }
 
     return (
       sortOptions(searchOptions(searchValue, optionsArray), sort)
-        .slice((page - 1 ) * optionsPerPage, (page - 1) * optionsPerPage + optionsPerPage)
+        .slice((page - 1) * optionsPerPage, (page - 1) * optionsPerPage + optionsPerPage)
         .map((option, pos) => {
           return (
-            <ReturnListItem 
-              key={`${option.keyword}-${pos}`} 
+            <ReturnListItem
+              key={`${option.keyword}-${pos}`}
               deleteOption={() => deleteOption(option._id)}
               option={option}
-              openOptionedDialog={() => openOptionedDialog(option)} 
+              openOptionedDialog={() => openOptionedDialog(option)}
             />
           );
-      })
+        })
     );
   }
 
   return (
     <div>
-      <GridContainer 
+      <GridContainer
         justifyContent="space-between"
         alignItems="center"
       >
         <GridItem xs={10} >
           <SearchInput
-            value={searchValue} 
-            onChange={(e) => handleSearch(e.target.value)} 
-            handleSearch={handleSearch} 
+            value={searchValue}
+            onChange={(e) => handleSearch(e.target.value)}
+            handleSearch={handleSearch}
           />
         </GridItem>
         <GridItem xs={2} right>
           <IconButton aria-label="edit" onClick={toggleSort} >
-            {sort === 'asc' 
+            {sort === 'asc'
               ? <ImSortAlphaAsc className={classes.sort} />
-              : <ImSortAlphaDesc className={classes.sort} /> 
+              : <ImSortAlphaDesc className={classes.sort} />
             }
           </IconButton>
         </GridItem>
@@ -339,14 +355,14 @@ function OptionedResponseList(props) {
       </List>
       <GridContainer>
         <GridItem xs right>
-          <Pagination 
-            className={classes.pagination} 
-            page={page} 
-            count={paginationCount} 
+          <Pagination
+            className={classes.pagination}
+            page={page}
+            count={paginationCount}
             onChange={handlePaginationChange}
           />
         </GridItem>
-        </GridContainer>
+      </GridContainer>
     </div>
   );
 }
