@@ -34,6 +34,8 @@ const styles = (theme) => ({
     color: theme.palette.purple.main,
   },
   labelRootError: {
+    width: "100%",
+    textAlign: "right",
     color: theme.palette.error.main
   },
 });
@@ -298,7 +300,7 @@ function AddOptionDialog(props) {
       return;
     }
     // Set form error if character count of embed fields exceeds 5,500
-    if (validMaxCharCount(data)) {
+    if (data.responseType === "embed" && validMaxCharCount(data)) {
       setError("maxChar", { type: "manual" });
       return;
     }

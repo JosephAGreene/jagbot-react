@@ -16,6 +16,7 @@ import ContentWrapper from '../../layouts/ContentWrapper';
 // Import Mui components
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
@@ -52,6 +53,11 @@ const styles = (theme) => ({
   },
   edit: {
     color: theme.palette.purple.main,
+  },
+  labelRootError: {
+    width: "100%",
+    textAlign: "right",
+    color: theme.palette.error.main
   },
 });
 
@@ -193,7 +199,7 @@ const schema = Joi.object({
 // is greater than 5,500 characters
 function validMaxCharCount(data) {
   let count = 0;
-
+console.log('hit')
   count += data.embedTitle.trim().length;
   count += data.embedDescription.trim().length;
   count += data.embedFooter.trim().length;
@@ -274,13 +280,9 @@ function CustomCommandSingle(props) {
   }
 
   const onSubmit = async (data) => {
-    if (validMaxCharCount(data)) {
-      setApiAlert({
-        status: true,
-        duration: 6000,
-        severity: "error",
-        message: "The combined character count of embed title, description, fields, and footer cannot exceed 5,500!"
-      });
+    // Set form error if character count of embed fields exceeds 5,500
+    if (data.responseType === "embed" && validMaxCharCount(data)) {
+      setError("maxChar", { type: "manual" });
       return;
     }
 
@@ -324,7 +326,7 @@ function CustomCommandSingle(props) {
     }
 
     if (module) {
-      submitUpdateModule({ ...payload, "moduleId": module._id});
+      submitUpdateModule({ ...payload, "moduleId": module._id });
     } else {
       submitNewModule(payload);
     }
@@ -470,6 +472,12 @@ function CustomCommandSingle(props) {
             />
           </ControlledRadioGroup>
           {returnResponseEditor()}
+          {errors.maxChar
+            ? <FormHelperText className={classes.labelRootError} id={`error-message-maxChar`}>
+              The combined character count of embed title, description, fields, and footer cannot exceed 5,500!
+            </FormHelperText>
+            : <FormHelperText> </FormHelperText>
+          }
           <GridContainer justifyContent="flex-end">
             <GridItem>
               <Button
