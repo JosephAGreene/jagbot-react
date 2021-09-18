@@ -149,7 +149,7 @@ function AutoModMassMentions(props) {
 
   const onSubmit = async (data) => {
     const payload = {
-      _id: selectedBot._id,
+      botId: selectedBot._id,
       ...data
     };
 
