@@ -327,7 +327,7 @@ function AddOptionDialog(props) {
         responseType: data.responseType,
         response: '',
         embedTitle: data.embedTitle,
-        embedLinkURL: data.LinkURL,
+        embedLinkURL: data.embedLinkURL,
         embedColor: data.embedColor,
         embedThumbnailURL: data.embedThumbnailURL,
         embedMainImageURL: data.embedMainImageURL,
