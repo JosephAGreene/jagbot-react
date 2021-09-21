@@ -75,7 +75,7 @@ const schema = Joi.object({
     .messages({
       "any.only": 'Delete and/or Warn must be checked when Enabled is checked'
     }),
-  location: Joi.string().trim().required()
+  responseLocation: Joi.string().trim().required()
     .messages({
       "string.empty": 'Response Location is required',
       "any.required": 'Response Location is required',
@@ -89,7 +89,13 @@ const schema = Joi.object({
       "string.max": 'Warning cannot be greater than 1000 characters',
       "any.required": 'Warning is required',
     }),
-  ignoredRoles: Joi.array().required(),
+  ignoredRoles: Joi.array().max(10).required()
+    .messages({
+      "any.required": "Ignored roles is required",
+      "array.required": "Ignored roles is required",
+      "array.base": "Ignored roles must be an array",
+      "array.max": "Ignored roles cannot exceed 10",
+    }),
 });
 
 // In practice, a value for the module param will always exist
@@ -102,7 +108,7 @@ function setDefaultValues(module) {
       limit: module.limit,
       delete: module.delete,
       warn: module.warn,
-      location: module.location,
+      responseLocation: module.responseLocation,
       response: module.response,
       ignoredRoles: module.ignoredRoles,
     }
@@ -112,7 +118,7 @@ function setDefaultValues(module) {
       limit: 5,
       delete: false,
       warn: false,
-      location: 'server',
+      responseLocation: 'server',
       response: '',
       ignoredRoles: [],
     }
@@ -185,7 +191,7 @@ function AutoModMassMentions(props) {
         <React.Fragment>
           <ControlledRadioGroup
             control={control}
-            name="location"
+            name="responseLocation"
             description="Where should the bot respond?"
             defaultValue="server"
             error={errors}
