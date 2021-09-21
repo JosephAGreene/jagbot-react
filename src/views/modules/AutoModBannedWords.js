@@ -46,11 +46,15 @@ const schema = Joi.object({
   enabled: Joi.bool().required(),
   triggerWords: Joi.when('enabled', {
     is: Joi.boolean().valid(true),
-    then: Joi.array().min(1).required(),
-    otherwise: Joi.array().optional(),
+    then: Joi.array().min(1).max(50).required(),
+    otherwise: Joi.array().max(50).required(),
   })
     .messages({
-      "array.min": "Trigger words are required when Enabled is checked"
+      "any.required": "Trigger words property is required",
+      "array.required": "Trigger words property is required",
+      "array.base": "Trigger words must be an array",
+      "array.min": "At least 1 trigger word is required when enabled",
+      "array.max": "Trigger words cannot exceed 50",
     }),
   delete: Joi.when('enabled', {
     is: Joi.boolean().valid(true),
