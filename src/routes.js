@@ -25,6 +25,7 @@ import AutoModBannedWords from './views/modules/AutoModBannedWords.js';
 import AutoModInviteLinks from './views/modules/AutoModInviteLinks.js';
 import AutoModMassCaps from './views/modules/AutoModMassCaps.js';
 import AutoModMassMentions from './views/modules/AutoModMassMentions.js';
+import Announcements from './views/modules/Announcements.js';
 
 const routes = [
   {
@@ -59,7 +60,7 @@ const routes = [
       { path: 'develop/moderation', name: 'Moderation', icon: <GavelIcon />, component: Content },
       { path: 'develop/automoderation', name: 'Auto Moderation', icon: <FaUserSecret />, api: "bot", component: AutoModeration },
       { path: 'develop/customcommands', name: 'Custom Commands', icon: <FiCommand />, api: "bot", component: CustomCommands },
-      { path: 'develop/announcements', name: 'Announcements', icon: <GoMegaphone />, component: Content },
+      { path: 'develop/announcements', name: 'Announcements', icon: <GoMegaphone />, api: "bot", component: Announcements },
       { path: 'develop/autorole', name: 'Auto Role', icon: <FaUserCog />, component: Content},
     ],
   },

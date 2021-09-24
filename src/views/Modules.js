@@ -11,8 +11,9 @@ import ModulePanel from './panels/ModulePanel';
 import { FiCommand } from 'react-icons/fi';
 import { SiSteam } from 'react-icons/si';
 
-// Temporary flat image/icon for testing
+// Import Images
 import autoModerator from '../assets/images/automoderator.png';
+import announcementsImage from '../assets/images/announcements.png';
 
 function Modules() {
 
@@ -40,30 +41,16 @@ function Modules() {
           image={autoModerator}
         />
         <ModulePanel 
-          title="Word Filters"
-          description="Wash your sailor talking member mouths out with soap!"
-          path="/dashboard" 
+          title="Announcements"
+          description="Make an announcement when a member joins, leaves, or get's kicked from your server."
+          path="/dashboard/develop/announcements" 
+          image={announcementsImage}
         />
         <ModulePanel 
           title="Generic Module"
           description="Use this space to describe what the module does."
           path="/dashboard" 
 
-        />
-        <ModulePanel 
-          title="Generic Module"
-          description="Use this space to describe what the module does."
-          path="/dashboard" 
-        />
-        <ModulePanel 
-          title="Generic Module"
-          description="Use this space to describe what the module does."
-          path="/dashboard" 
-        />
-        <ModulePanel 
-          title="Generic Module"
-          description="Use this space to describe what the module does."
-          path="/dashboard" 
         />
       </GridContainer>
     </ContentWrapper>
