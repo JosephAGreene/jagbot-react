@@ -26,6 +26,7 @@ import AutoModInviteLinks from './views/modules/AutoModInviteLinks.js';
 import AutoModMassCaps from './views/modules/AutoModMassCaps.js';
 import AutoModMassMentions from './views/modules/AutoModMassMentions.js';
 import Announcements from './views/modules/Announcements.js';
+import AnnouncementsJoin from './views/modules/AnnouncementsJoin.js';
 
 const routes = [
   {
@@ -76,6 +77,7 @@ const routes = [
       { path: 'develop/customcommands/single', api: "bot", component: CustomCommandSingle },
       { path: 'develop/customcommands/optioned', api: "bot", component: CustomCommandOptioned },
       { path: 'develop/customcommands/random', api: "bot", component: CustomCommandRandom },
+      { path: 'develop/announcements/join', api: "bot", component: AnnouncementsJoin },
     ]
   }
 ];
