@@ -15,7 +15,7 @@ import GridContainer from '../../components/grid/GridContainer';
 import announcementsImage from '../../assets/images/announcements.png';
 
 // Import Icons
-import { FaUserSlash, FaUserMinus, FaUserInjured, FaUserPlus } from "react-icons/fa";
+import { FaUserSlash, FaUserMinus, FaUserPlus } from "react-icons/fa";
 
 const styles = (theme) => ({
   categoryHeader: {
@@ -62,13 +62,6 @@ function Announcements(props) {
           path="/dashboard/develop/announcements/leave"
           Icon={FaUserMinus}
           color="#de8f4d"
-        />
-        <ModulePanel
-          title="Kicked"
-          description="Post an announcement when a member is kicked from the server."
-          path="/dashboard/develop/announcements/kicked"
-          Icon={FaUserInjured}
-          color="#c678DD"
         />
         <ModulePanel
           title="Banned"
