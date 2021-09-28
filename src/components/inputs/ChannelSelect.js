@@ -158,7 +158,7 @@ function ChannelSelect(props) {
       </div>
       <Controller
         control={control}
-        name="channel"
+        name={name}
         render={({ field: { onChange, value } }) => (
           <Autocomplete
             className={classes.autocompleteRoot}
