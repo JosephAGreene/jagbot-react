@@ -9,9 +9,9 @@ class AnnouncementService {
   }
 
 
-  addJoinAnnouncement(payload) {
+  addNewAnnouncement(payload) {
     return axios
-      .post(`${ANNOUNCE}/new-join`,
+      .post(`${ANNOUNCE}/new-announcement`,
         {
           ...payload
         },
