@@ -71,6 +71,28 @@ class BotService {
       });
   }
 
+  getBotChannels(payload) {
+    return axios
+      .post(`${BOT}/bot-channels`,
+        {
+          ...payload
+        },
+        {
+          withCredentials: true
+        }
+      )
+      .then(response => {
+        return response;
+      })
+      .catch(error => {
+        if (error.response) {
+          return error.response;
+        } else {
+          return this.networkIssue;
+        }
+      });
+  }
+
 }
 
 export default new BotService();
