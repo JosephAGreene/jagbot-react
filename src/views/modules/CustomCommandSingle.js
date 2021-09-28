@@ -199,7 +199,7 @@ const schema = Joi.object({
 // is greater than 5,500 characters
 function validMaxCharCount(data) {
   let count = 0;
-console.log('hit')
+
   count += data.embedTitle.trim().length;
   count += data.embedDescription.trim().length;
   count += data.embedFooter.trim().length;
