@@ -40,9 +40,17 @@ const styles = (theme) => ({
     color: theme.palette.white.main,
   },
   categoryHeader: {
+    marginTop: theme.spacing(6),
+    marginBottom: theme.spacing(2),
     marginLeft: theme.spacing(1),
     color: theme.palette.white.dark,
     fontSize: 24,
+  },
+  new: {
+    color: theme.palette.green.main,
+  },
+  edit: {
+    color: theme.palette.purple.main,
   },
   largeSpacer: {
     marginTop: theme.spacing(6),
@@ -229,8 +237,8 @@ function AnnouncementsJoin(props) {
   const history = useHistory();
 
   const { register, handleSubmit, control, watch, setValue, setError, trigger, formState: { errors } } = useForm({
-     resolver: joiResolver(schema),
-     defaultValues: setDefaultValues(module),
+    resolver: joiResolver(schema),
+    defaultValues: setDefaultValues(module),
   });
 
   const { fields, append, swap, remove } = useFieldArray({ control, name: "embedFields" });
@@ -296,7 +304,11 @@ function AnnouncementsJoin(props) {
       }
     }
 
+    if (module) {
+      submitUpdateModule({ ...payload, "moduleId": module._id });
+    } else {
       submitNewModule(payload);
+    }
 
   }
 
@@ -315,13 +327,13 @@ function AnnouncementsJoin(props) {
     }
 
     if (res.status === 409 && res.data === "duplicate server") {
-      setError("responseChannel", { type: "manual", message: "Server is already assigned a join announcement."});
+      setError("responseChannel", { type: "manual", message: "Server is already assigned a join announcement." });
     }
 
   }
 
   const submitUpdateModule = async (payload) => {
-    const res = await AnnouncementService.editAnnouncement(payload);
+    const res = await AnnouncementService.updateAnnouncement(payload);
 
     if (res.status === 200) {
       setSelectedBot(res.data);
@@ -329,9 +341,13 @@ function AnnouncementsJoin(props) {
         status: true,
         duration: 2500,
         severity: "success",
-        message: "Your single-response command has been updated!"
+        message: "Your join announcement has been updated!"
       });
-      history.push('/dashboard/develop/customcommands');
+      history.push('/dashboard/develop/announcements');
+    }
+
+    if (res.status === 409 && res.data === "duplicate server") {
+      setError("responseChannel", { type: "manual", message: "Server is already assigned a join announcement." });
     }
   }
 
@@ -385,9 +401,12 @@ function AnnouncementsJoin(props) {
         color="#98c379"
         docs={true}
       />
+      <div className={classes.categoryHeader}>
+        {module ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>} Join Announcement
+      </div>
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
-          <ChannelSelect 
+          <ChannelSelect
             selectedBot={selectedBot}
             setApiAlert={setApiAlert}
             control={control}
