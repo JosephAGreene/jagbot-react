@@ -27,6 +27,7 @@ import AutoModMassCaps from './views/modules/AutoModMassCaps.js';
 import AutoModMassMentions from './views/modules/AutoModMassMentions.js';
 import Announcements from './views/modules/Announcements.js';
 import AnnouncementsJoin from './views/modules/AnnouncementsJoin.js';
+import AnnouncementsLeave from './views/modules/AnnouncementsLeave.js';
 
 const routes = [
   {
@@ -78,6 +79,7 @@ const routes = [
       { path: 'develop/customcommands/optioned', api: "bot", component: CustomCommandOptioned },
       { path: 'develop/customcommands/random', api: "bot", component: CustomCommandRandom },
       { path: 'develop/announcements/join', api: "bot", component: AnnouncementsJoin },
+      { path: 'develop/announcements/leave', api: "bot", component: AnnouncementsLeave },
     ]
   }
 ];

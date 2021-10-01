@@ -8,6 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
+import AnnouncementPanel from '../panels/AnnouncementPanel';
 import ModulePanel from '../panels/ModulePanel';
 import GridContainer from '../../components/grid/GridContainer';
 
@@ -33,7 +34,23 @@ const styles = (theme) => ({
 
 
 function Announcements(props) {
-  const {classes} = props;
+  const { classes, selectedBot, setSelectedBot, setApiAlert } = props;
+
+  const returnAnnouncements = () => {
+    return (
+      selectedBot.announcementModules.map((module, pos) => {
+        return (
+          <AnnouncementPanel
+            key={`${module.command}_${pos}`}
+            module={module}
+            botId={selectedBot._id}
+            setSelectedBot={setSelectedBot}
+            setApiAlert={setApiAlert}
+          />
+        )
+      })
+    )
+  }
 
   return (
     <ContentWrapper>
@@ -71,6 +88,7 @@ function Announcements(props) {
           color="#f44336"
         />
       </GridContainer>
+      {returnAnnouncements()}
     </ContentWrapper>
   );
 }
