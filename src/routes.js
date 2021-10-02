@@ -7,7 +7,7 @@ import {FaRobot } from 'react-icons/fa';
 import HomeIcon from '@material-ui/icons/Home';
 import { FiCommand } from 'react-icons/fi';
 import { FaUserSecret} from 'react-icons/fa';
-import { GoMegaphone } from 'react-icons/go';
+import { ImBullhorn } from "react-icons/im";
 import { FaUserCog } from 'react-icons/fa';
 import GavelIcon from '@material-ui/icons/Gavel';
 
@@ -62,7 +62,7 @@ const routes = [
       { path: 'develop/moderation', name: 'Moderation', icon: <GavelIcon />, component: Content },
       { path: 'develop/automoderation', name: 'Auto Moderation', icon: <FaUserSecret />, api: "bot", component: AutoModeration },
       { path: 'develop/customcommands', name: 'Custom Commands', icon: <FiCommand />, api: "bot", component: CustomCommands },
-      { path: 'develop/announcements', name: 'Announcements', icon: <GoMegaphone />, api: "bot", component: Announcements },
+      { path: 'develop/announcements', name: 'Announcements', icon: <ImBullhorn />, api: "bot", component: Announcements },
       { path: 'develop/autorole', name: 'Auto Role', icon: <FaUserCog />, component: Content},
     ],
   },
