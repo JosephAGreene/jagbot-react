@@ -27,8 +27,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import { BsExclamationOctagonFill } from 'react-icons/bs';
-import { ImSortAlphaAsc } from 'react-icons/im';
-import { ImSortAlphaDesc } from 'react-icons/im';
+import { ImSortAlphaAsc, ImSortAlphaDesc } from 'react-icons/im';
 
 const listItemStyles = makeStyles((theme) => ({
   menuRoot: {
