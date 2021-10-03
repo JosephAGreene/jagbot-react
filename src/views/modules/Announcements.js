@@ -7,6 +7,7 @@ import ContentWrapper from '../../layouts/ContentWrapper';
 import { withStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
 import IconButton from '@material-ui/core/IconButton';
+import Hidden from '@material-ui/core/Hidden';
 
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
@@ -21,6 +22,7 @@ import GridItem from '../../components/grid/GridItem';
 import announcementsImage from '../../assets/images/announcements.png';
 
 // Import Icons
+import { BsExclamationOctagonFill } from 'react-icons/bs';
 import { ImBullhorn, ImSortAlphaAsc, ImSortAlphaDesc } from "react-icons/im";
 
 const styles = (theme) => ({
@@ -29,6 +31,11 @@ const styles = (theme) => ({
   },
   smallSpacer: {
     marginTop: theme.spacing(2),
+  },
+  select: {
+    [theme.breakpoints.down('md')]: {
+      marginTop: theme.spacing(1),
+    },
   },
   sort: {
     color: theme.palette.white.main,
@@ -43,6 +50,19 @@ const styles = (theme) => ({
     '& .Mui-selected': {
       backgroundColor: theme.palette.gray.dark,
     },
+  },
+  noneContainer: {
+    width: "inherit",
+    height: "inherit",
+    textAlign: "center",
+  },
+  noneMessage: {
+    fontSize: "18px",
+    color: theme.palette.white.dark,
+  },
+  exclamationIcon: {
+    fontSize: "180px",
+    color: theme.palette.gray.dark,
   },
 });
 
@@ -174,6 +194,25 @@ function Announcements(props) {
   }
 
   const returnAnnouncements = () => {
+    if (selectedBot.announcementModules.length === 0) {
+      return (
+        <div className={classes.noneContainer}>
+          <div className={classes.noneMessage}>No announcements exist!</div>
+        </div>
+      );
+    }
+
+    if (announcementsArray.length === 0) {
+      return (
+        <div className={classes.noneContainer}>
+          <div className={classes.noneMessage}>No matching announcements found!</div>
+          <div className={classes.exclamationIcon}>
+            <BsExclamationOctagonFill />
+          </div>
+        </div>
+      );
+    }
+
     return (
       announcementsArray
         .slice((page - 1) * modulesPerPage, (page - 1) * modulesPerPage + modulesPerPage)
@@ -197,6 +236,8 @@ function Announcements(props) {
       <TitlePanel
         title="Announcements"
         description="Make an announcement when a member joins, leaves, or gets banned from your server."
+        listTitle="Rules:"
+        listItems={["One announcement type per server"]}
         image={announcementsImage}
         docs={true}
       />
@@ -214,57 +255,72 @@ function Announcements(props) {
             Add Announcement
           </Button>
         </GridItem>
-        <GridItem sm={1} md={1} lg={1}>
-          <IconButton aria-label="edit" onClick={toggleSort} >
-            {sort === 'asc'
-              ? <ImSortAlphaAsc className={classes.sort} />
-              : <ImSortAlphaDesc className={classes.sort} />
-            }
-          </IconButton>
+        <Hidden lgUp>
+          <GridItem sm={1} md={1} lg={1} right>
+            <IconButton aria-label="edit" onClick={toggleSort} >
+              {sort === 'asc'
+                ? <ImSortAlphaAsc className={classes.sort} />
+                : <ImSortAlphaDesc className={classes.sort} />
+              }
+            </IconButton>
+          </GridItem>
+        </Hidden>
+        <GridItem xs={12} sm={6} md={6} lg={4}>
+          <div className={classes.select}>
+            <FreeSelect
+              value={serverFilter}
+              id="server-select"
+              labelId="server-select-label"
+              label="Server Filter"
+              onChange={onServerChange}
+              size="small"
+              items={returnServerList(selectedBot.announcementModules)}
+            />
+          </div>
         </GridItem>
         <GridItem xs={12} sm={6} md={6} lg={4}>
-          <FreeSelect
-            value={serverFilter}
-            id="server-select"
-            labelId="server-select-label"
-            label="Server Filter"
-            onChange={onServerChange}
-            size="small"
-            items={returnServerList(selectedBot.announcementModules)}
-          />
+          <div className={classes.select}>
+            <FreeSelect
+              value={typeFilter}
+              id="type-select"
+              labelId="type-select-label"
+              label="Type Filter"
+              onChange={onTypeChange}
+              size="small"
+              items={[
+                { value: "", name: "none" },
+                { value: "join", name: "join" },
+                { value: "leave", name: "leave" },
+                { value: "banned", name: "banned" }
+              ]}
+            />
+          </div>
         </GridItem>
-        <GridItem xs={12} sm={6} md={6} lg={4}>
-          <FreeSelect
-            value={typeFilter}
-            id="type-select"
-            labelId="type-select-label"
-            label="Type Filter"
-            onChange={onTypeChange}
-            size="small"
-            items={[
-              { value: "", name: "none" },
-              { value: "join", name: "join" },
-              { value: "leave", name: "leave" },
-              { value: "banned", name: "banned" }
-            ]}
-          />
-        </GridItem>
+        <Hidden mdDown>
+          <GridItem sm={1} md={1} lg={1} right>
+            <IconButton aria-label="edit" onClick={toggleSort} >
+              {sort === 'asc'
+                ? <ImSortAlphaAsc className={classes.sort} />
+                : <ImSortAlphaDesc className={classes.sort} />
+              }
+            </IconButton>
+          </GridItem>
+        </Hidden>
       </GridContainer>
-
-      <div className={classes.smallSpacer} />
-
       <div className={classes.smallSpacer} />
       {returnAnnouncements()}
-      <GridContainer>
-        <GridItem xs right>
-          <Pagination
-            className={classes.pagination}
-            page={page}
-            count={paginationCount}
-            onChange={handlePaginationChange}
-          />
-        </GridItem>
-      </GridContainer>
+      {(moduleCount) > 5 &&
+        <GridContainer>
+          <GridItem xs right>
+            <Pagination
+              className={classes.pagination}
+              page={page}
+              count={paginationCount}
+              onChange={handlePaginationChange}
+            />
+          </GridItem>
+        </GridContainer>
+      }
       <AnnouncementDialog
         announcementDialog={announcementDialog}
         closeAnnouncementDialog={closeAnnouncementDialog}
