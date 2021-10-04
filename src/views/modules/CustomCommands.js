@@ -7,8 +7,6 @@ import ContentWrapper from '../../layouts/ContentWrapper';
 // Import MUI components
 import { withStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
 
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
@@ -17,7 +15,7 @@ import AssignedCommandPanel from '../panels/AssignedCommandPanel';
 import GridContainer from '../../components/grid/GridContainer';
 import GridItem from '../../components/grid/GridItem';
 import SearchInput from '../../components/inputs/SearchInput';
-import Button from '../../components/buttons/Button';
+import FreeSelect from '../../components/inputs/FreeSelect';
 
 // Import icons
 import { FiCommand } from 'react-icons/fi';
@@ -25,7 +23,6 @@ import { TiMessage } from 'react-icons/ti';
 import { TiMessages } from 'react-icons/ti';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
 import { BsExclamationOctagonFill } from 'react-icons/bs';
-import FilterListIcon from '@material-ui/icons/FilterList';
 
 const styles = (theme) => ({
   categoryHeader: {
@@ -39,9 +36,6 @@ const styles = (theme) => ({
   smallSpacer: {
     marginTop: theme.spacing(2),
   },
-  icon: {
-    marginLeft: "15px",
-  },
   pagination: {
     '& .MuiPaginationItem-root': {
       color: theme.palette.white.dark,
@@ -50,54 +44,26 @@ const styles = (theme) => ({
       backgroundColor: theme.palette.gray.dark,
     },
   },
-  filterMenuRoot: {
-    '& .MuiPaper-root': {
-      backgroundColor: theme.palette.gray.dark,
-      borderRadius: 2,
-    },
-    '& .MuiButtonBase-root': {
-      color: theme.palette.white.dark,
-      '&:hover': {
-        backgroundColor: theme.palette.gray.light,
-      },
-
+  select: {
+    marginTop: theme.spacing(1),
+    [theme.breakpoints.down('xs')]: {
+      marginTop: theme.spacing(2),
     },
   },
-  infoBar: {
-    float: 'right',
-    marginLeft: "15px",
-    marginRight: "5px",
-    color: theme.palette.white.dark,
-  },
-  emptySearchContainer: {
+  noneContainer: {
     width: "inherit",
     height: "inherit",
-    paddingTop: "50px",
     textAlign: "center",
   },
-  emptySearchMessage: {
+  noneMessage: {
     fontSize: "18px",
     color: theme.palette.white.dark,
   },
   exclamationIcon: {
-    fontSize: "200px",
+    fontSize: "180px",
     color: theme.palette.gray.dark,
   },
 });
-
-// Filter out any module that isn't a custom command type
-function targetTypes(moduleArray) {
-  // Array of module types allowed
-  const moduleTypes = ["single-response", "optioned-response", "random-response"];
-  let results = [];
-
-  moduleArray.forEach((module) => {
-    if (moduleTypes.includes(module.type)) {
-      results.push(module);
-    }
-  });
-  return results;
-}
 
 function searchModules(value, moduleArray) {
   let results = [];
@@ -110,25 +76,9 @@ function searchModules(value, moduleArray) {
   return results;
 }
 
-function filterModules(value, moduleArray) {
-  if (value === "None") {
+function filterModules(filter, moduleArray) {
+  if (!filter) {
     return moduleArray;
-  }
-
-  let filter = "";
-
-  switch (value) {
-    case "Single Response":
-      filter = "single-response"
-      break;
-    case "Optioned Response":
-      filter = "optioned-response";
-      break;
-    case "Random Response":
-      filter = "random-response";
-      break;
-    default:
-      filter = "None";
   }
 
   let results = [];
@@ -143,13 +93,14 @@ function filterModules(value, moduleArray) {
 
 function CustomCommands(props) {
   const { classes, selectedBot, setSelectedBot, setApiAlert } = props;
-  const [filterAnchor, setFilterAnchor] = React.useState(null);
-  const [filter, setFilter] = React.useState('None');
+  const [typeFilter, setTypeFilter] = React.useState('');
   const [moduleSearchInput, setModuleSearchInput] = React.useState('');
   const [page, setPage] = React.useState(1);
 
+  const modulesArray = filterModules(typeFilter, searchModules(moduleSearchInput, selectedBot.commandModules));
+
   const modulesPerPage = 5;
-  const moduleCount = targetTypes(filterModules(filter, searchModules(moduleSearchInput, selectedBot.commandModules))).length;
+  const moduleCount = modulesArray.length;
   const paginationCount = Math.ceil(moduleCount / modulesPerPage);
 
   React.useEffect(() => {
@@ -164,19 +115,6 @@ function CustomCommands(props) {
     }
   }, [moduleCount, page]);
 
-  const handleFilterOpen = (event) => {
-    setFilterAnchor(event.currentTarget);
-  };
-
-  const handleFilterClose = () => {
-    setFilterAnchor(null);
-  };
-
-  const handleFilterChange = (value) => {
-    setFilter(value);
-    handleFilterClose();
-  };
-
   const handlePaginationChange = (event, value) => {
     setPage(value);
   };
@@ -186,20 +124,27 @@ function CustomCommands(props) {
   }
 
   const returnVisibleModules = () => {
-    if (page === 0) {
+    if (selectedBot.announcementModules.length === 0) {
       return (
-        <div className={classes.emptySearchContainer}>
-          <div className={classes.emptySearchMessage}>No matches found!</div>
+        <div className={classes.noneContainer}>
+          <div className={classes.noneMessage}>No commands exist!</div>
+        </div>
+      );
+    }
+
+    if (moduleCount === 0) {
+      return (
+        <div className={classes.noneContainer}>
+          <div className={classes.noneMessage}>No matching commands found!</div>
           <div className={classes.exclamationIcon}>
             <BsExclamationOctagonFill />
           </div>
-
         </div>
       );
     }
 
     return (
-      targetTypes(filterModules(filter, searchModules(moduleSearchInput, selectedBot.commandModules)))
+      modulesArray
         .slice((page - 1) * modulesPerPage, (page - 1) * modulesPerPage + modulesPerPage)
         .map((module, pos) => {
           return (
@@ -220,6 +165,7 @@ function CustomCommands(props) {
       <TitlePanel
         title="Custom Commands"
         description="Assign custom commands to make your bot unique."
+        listItems={["100 custom commands MAX"]}
         Icon={FiCommand}
         docs={true}
         color="#F45142"
@@ -253,65 +199,53 @@ function CustomCommands(props) {
         />
       </GridContainer>
       <div className={classes.largeSpacer} />
-      <GridContainer alignItems="flex-end">
-        <GridItem sm={12} md={6} lg={4}>
-          <div className={classes.categoryHeader}>
-            Assigned Commands
+      <div className={classes.categoryHeader}>
+        Assigned Commands
+      </div>
+      <GridContainer justifyContent="space-between" alignItems="center">
+        <GridItem xs={12} sm={7} md={8} lg={8}>
+          <div className={classes.select}>
+            <SearchInput
+              label="Search Commands"
+              value={moduleSearchInput}
+              onChange={(e) => handleModuleSearch(e.target.value)}
+              handleSearch={handleModuleSearch}
+            />
           </div>
         </GridItem>
-        <GridItem xs sm={12} md={6} lg={8} verticalCenter right>
-          <SearchInput
-            value={moduleSearchInput}
-            onChange={(e) => handleModuleSearch(e.target.value)}
-            handleSearch={handleModuleSearch}
-          />
-          <Button
-            className={classes.icon}
-            onClick={handleFilterOpen}
-            round
-            justIcon
-          >
-            <FilterListIcon />
-          </Button>
-          <Menu
-            id="filter-menu"
-            anchorEl={filterAnchor}
-            open={Boolean(filterAnchor)}
-            onClose={handleFilterClose}
-            className={classes.filterMenuRoot}
-            getContentAnchorEl={null}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'right',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-          >
-            <MenuItem onClick={() => handleFilterChange('None')}>No Filter</MenuItem>
-            <MenuItem onClick={() => handleFilterChange('Single Response')}>Single Response</MenuItem>
-            <MenuItem onClick={() => handleFilterChange('Optioned Response')}>Optioned Response</MenuItem>
-            <MenuItem onClick={() => handleFilterChange('Random Response')}>Random Response</MenuItem>
-          </Menu>
-        </GridItem>
-        <GridItem xs={12}>
-          <div className={classes.infoBar}>Filter: {filter}</div>
-          <div className={classes.infoBar}>Search: {moduleSearchInput ? moduleSearchInput : 'None'}</div>
+        <GridItem xs={12} sm={5} md={4} lg={4}>
+          <div className={classes.select}>
+            <FreeSelect
+              value={typeFilter}
+              id="type-select"
+              labelId="type-select-label"
+              label="Type Filter"
+              onChange={(e) => setTypeFilter(e.target.value)}
+              size="small"
+              items={[
+                { value: "", name: "none" },
+                { value: "single-response", name: "single response" },
+                { value: "optioned-response", name: "optioned response" },
+                { value: "random-response", name: "random response" }
+              ]}
+            />
+          </div>
         </GridItem>
       </GridContainer>
       <div className={classes.smallSpacer} />
       {returnVisibleModules()}
-      <GridContainer>
-        <GridItem xs right>
-          <Pagination
-            className={classes.pagination}
-            page={page}
-            count={paginationCount}
-            onChange={handlePaginationChange}
-          />
-        </GridItem>
-      </GridContainer>
+      {(moduleCount) > 5 &&
+        <GridContainer>
+          <GridItem xs right>
+            <Pagination
+              className={classes.pagination}
+              page={page}
+              count={paginationCount}
+              onChange={handlePaginationChange}
+            />
+          </GridItem>
+        </GridContainer>
+      }
     </ContentWrapper>
   );
 }
