@@ -43,6 +43,11 @@ const styles = (theme) => ({
   smallSpacer: {
     marginTop: theme.spacing(2),
   },
+  labelRootError: {
+    width: "100%",
+    textAlign: "right",
+    color: theme.palette.error.main
+  },
 });
 
 const schema = Joi.object({
@@ -179,7 +184,7 @@ function validMaxCharCount(data) {
   count += data.embedTitle.trim().length;
   count += data.embedDescription.trim().length;
   count += data.embedFooter.trim().length;
-  data.embedFields.forEach((field) => {
+  (data.embedFields ? data.embedFields : []).forEach((field) => {
     count += field.name.trim().length;
     count += field.value.trim().length;
   })
@@ -304,7 +309,7 @@ function AnnouncementDialog(props) {
         embedThumbnailURL: data.embedThumbnailURL,
         embedMainImageURL: data.embedMainImageURL,
         embedDescription: data.embedDescription,
-        embedFields: data.embedFields,
+        embedFields: data.embedFields ? data.embedFields : [],
         embedFooter: data.embedFooter,
         embedFooterThumbnailURL: data.embedFooterThumbnailURL,
       }
