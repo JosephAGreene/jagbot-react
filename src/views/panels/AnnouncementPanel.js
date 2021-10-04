@@ -13,7 +13,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 
 // Import custom views
@@ -22,6 +21,7 @@ import EmbedPreviewPanel from './EmbedPreviewPanel';
 // Import custom components
 import GridContainer from '../../components/grid/GridContainer';
 import GridItem from '../../components/grid/GridItem';
+import Button from '../../components/buttons/Button';
 
 // Import icons
 import ExpandMore from '@material-ui/icons/ExpandMore';
@@ -79,19 +79,7 @@ const styles = (theme) => ({
     backgroundColor: theme.palette.gray.main,
   },
   buttonSpacer: {
-    marginLeft: theme.spacing(2),
-  },
-  edit: {
-    color: theme.palette.purple.main,
-    '&:hover': {
-      color: theme.palette.purple.dark,
-    }
-  },
-  delete: {
-    color: theme.palette.error.main,
-    '&:hover': {
-      color: theme.palette.error.dark,
-    },
+    marginRight: theme.spacing(1),
   },
 });
 
@@ -175,12 +163,12 @@ function AnnouncementPanel(props) {
               </Collapse>
             </GridItem>
             <GridItem xs={12} sm={12} md={4} lg={3} right>
-              <IconButton aria-label="edit" onClick={editModule}>
-                <EditIcon className={classes.edit} />
-              </IconButton>
-              <IconButton className={classes.buttonSpacer} aria-label="delete" onClick={handleDeleteClick} >
-                <DeleteIcon className={classes.delete} />
-              </IconButton>
+              <Button round justIcon size="lg" onClick={editModule} color="purple" className={classes.buttonSpacer}>
+                <EditIcon />
+              </Button>
+              <Button round justIcon size="lg" onClick={handleDeleteClick} color="danger">
+                <DeleteIcon />
+              </Button>
               <Menu
                 id="delete-menu"
                 anchorEl={deleteAnchor}

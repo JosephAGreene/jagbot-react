@@ -108,7 +108,7 @@ function TitlePanel(props) {
                 }
               </GridItem>
               <GridItem>
-                {docs && <Button justIcon round color="teal"><SiReadthedocs /></Button>}
+                {docs && <Button justIcon round size="lg" color="teal"><SiReadthedocs /></Button>}
               </GridItem>
             </GridContainer>
           </Hidden>

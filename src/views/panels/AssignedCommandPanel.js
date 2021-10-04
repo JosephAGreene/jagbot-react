@@ -15,7 +15,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import GridContainer from '../../components/grid/GridContainer';
 import GridItem from '../../components/grid/GridItem';
 import Button from '../../components/buttons/Button';
-
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 const styles = (theme) => ({
   menuRoot: {
     '& .MuiPaper-root': {
@@ -118,11 +119,15 @@ function AssignedCommandPanel(props) {
                     module: module,
                   }} 
                 >
-                  <Button color="purple">Edit</Button>
+                  <Button round justIcon size="lg" color="purple">
+                    <EditIcon />
+                  </Button>
                 </Link>
 
               <div className={classes.buttons}>
-                <Button onClick={handleDeleteClick} color="danger">Delete</Button>
+                <Button round justIcon size="lg" onClick={handleDeleteClick} color="danger">
+                  <DeleteIcon />
+                </Button>
               </div>
               <Menu
                 id="delete-menu"

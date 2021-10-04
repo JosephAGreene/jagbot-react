@@ -45,11 +45,12 @@ const styles = (theme) => ({
 });
 
 function SearchInput (props) {
-  const {classes, id, value, onChange, handleSearch} = props;
+  const {classes, id, label, value, onChange, handleSearch} = props;
 
   return (
     <TextField 
-      id={id} 
+      id={id}
+      label={label}
       variant="outlined"
       fullWidth={true}
       className={classes.inputRoot}
@@ -71,6 +72,7 @@ function SearchInput (props) {
 SearchInput.propTypes = {
   classes: PropTypes.object.isRequired,
   id: PropTypes.string,
+  label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   handleSearch: PropTypes.func.isRequired,
   value: PropTypes.string,

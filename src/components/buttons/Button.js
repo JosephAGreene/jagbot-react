@@ -263,7 +263,7 @@ const styles = (theme) => ({
     padding: "1.125rem 2.25rem",
     fontSize: "0.875rem",
     lineHeight: "1.333333",
-    borderRadius: "0.2rem"
+    borderRadius: "0.2rem",
   },
   sm: {
     padding: "0.40625rem 1.25rem",
@@ -278,20 +278,19 @@ const styles = (theme) => ({
     width: "100% !important"
   },
   justIcon: {
-    paddingLeft: "12px",
-    paddingRight: "12px",
-    fontSize: "20px",
+    padding: "2px",
     height: "41px",
     minWidth: "41px",
     width: "41px",
     "& .fab,& .fas,& .far,& .fal,& svg,& .material-icons": {
-      marginRight: "0px"
+      marginRight: 0,
     },
     "&$lg": {
-      height: "57px",
-      minWidth: "57px",
-      width: "57px",
-      lineHeight: "56px",
+      padding: 0,
+      '& .MuiSvgIcon-root': {
+        height: "25px",
+        width: "25px",
+      },
     },
     "&$sm": {
       paddingLeft: "0",
