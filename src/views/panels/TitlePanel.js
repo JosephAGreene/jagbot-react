@@ -37,6 +37,9 @@ const styles = (theme) => ({
     color: theme.palette.white.main,
     fontSize: 28,
     width: "100%",
+    [theme.breakpoints.down('xs')]: {
+      paddingBottom: theme.spacing(1),
+    },
   },
   description: {
     color: theme.palette.white.dark,
