@@ -236,7 +236,6 @@ function Announcements(props) {
       <TitlePanel
         title="Announcements"
         description="Make an announcement when a member joins, leaves, or gets banned from your server."
-        listTitle="Rules:"
         listItems={["One announcement type per server"]}
         image={announcementsImage}
         docs={true}
