@@ -30,7 +30,6 @@ import AddOptionDialog from './dialogs/AddOptionDialog';
 
 // Import icons
 import { TiMessages } from 'react-icons/ti';
-import { BiMessageAdd } from 'react-icons/bi';
 
 const styles = (theme) => ({
   paper: {
@@ -46,10 +45,6 @@ const styles = (theme) => ({
     marginLeft: theme.spacing(1),
     color: theme.palette.white.dark,
     fontSize: 24,
-  },
-  addOptionButton: {
-    marginLeft: theme.spacing(1),
-    marginBottom: theme.spacing(2),
   },
   new: {
     color: theme.palette.green.main,
@@ -245,14 +240,6 @@ function CustomCommandOptioned (props) {
             />
           </ControlledRadioGroup>
           <input type="hidden" id="options" name="options" {...register("options")} value={watchOptions} />
-          <Button 
-            color="orange"
-            startIcon={<BiMessageAdd />}
-            className={classes.addOptionButton}
-            onClick={() => openOptionedDialog(false)}  
-          >
-            Optioned Response
-          </Button> 
         </form>
         <OptionedResponseList 
           setOptionsArray={setOptionsArray} 

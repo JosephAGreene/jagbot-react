@@ -16,11 +16,13 @@ import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Pagination from '@material-ui/lab/Pagination';
+import Hidden from '@material-ui/core/Hidden';
 
 // Import custom components
 import GridContainer from '../../../components/grid/GridContainer';
 import GridItem from '../../../components/grid/GridItem';
 import SearchInput from '../../../components/inputs/SearchInput';
+import Button from '../../../components/buttons/Button';
 
 // Import icons
 import ExpandMore from '@material-ui/icons/ExpandMore';
@@ -28,6 +30,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import { BsExclamationOctagonFill } from 'react-icons/bs';
 import { ImSortAlphaAsc, ImSortAlphaDesc } from 'react-icons/im';
+import { BiMessageAdd } from 'react-icons/bi';
 
 const listItemStyles = makeStyles((theme) => ({
   menuRoot: {
@@ -40,7 +43,6 @@ const listItemStyles = makeStyles((theme) => ({
       '&:hover': {
         backgroundColor: theme.palette.gray.light,
       },
-
     },
   },
   edit: {
@@ -56,7 +58,7 @@ const listItemStyles = makeStyles((theme) => ({
     },
   },
   buttonSpacer: {
-    marginLeft: theme.spacing(2),
+    marginLeft: theme.spacing(1),
   },
   nested: {
     paddingLeft: theme.spacing(4),
@@ -69,6 +71,7 @@ const listItemStyles = makeStyles((theme) => ({
 const optionedResponseListStyles = (theme) => ({
   root: {
     width: '100%',
+    marginBottom: theme.spacing(1),
     backgroundColor: "inherit",
     '& .MuiListItemText-root': {
       color: theme.palette.white.main,
@@ -92,13 +95,16 @@ const optionedResponseListStyles = (theme) => ({
     },
     marginBottom: theme.spacing(6),
   },
-  emptySearchContainer: {
+  smallSpacer: {
+    height: theme.spacing(1),
+    width: "100%",
+  },
+  noneContainer: {
     width: "inherit",
     height: "inherit",
-    paddingTop: "40px",
     textAlign: "center",
   },
-  emptySearchMessage: {
+  noneMessage: {
     fontSize: "18px",
     color: theme.palette.white.dark,
   },
@@ -107,15 +113,13 @@ const optionedResponseListStyles = (theme) => ({
     color: theme.palette.gray.dark,
   },
   optionsError: {
-    marginLeft: "14px",
+    width: "inherit",
     color: theme.palette.error.main,
     fontSize: '0.75rem',
-    marginTop: '1px',
-    textAlign: 'left',
+    marginTop: theme.spacing(1),
+    textAlign: 'center',
     fontFamily: "Roboto, Helvetica, Arial, sans-serif",
     fontWeight: 400,
-    lineHeight: 1.66,
-    letterSpacing: '0.03333em',
   },
 });
 
@@ -247,7 +251,8 @@ function OptionedResponseList(props) {
   const [page, setPage] = React.useState(1);
 
   const optionsPerPage = 5;
-  const optionCount = searchOptions(searchValue, optionsArray).length;
+  const searchedOptions = sortOptions(searchOptions(searchValue, optionsArray), sort);
+  const optionCount = searchedOptions.length;
   const paginationCount = Math.ceil(optionCount / optionsPerPage);
 
   React.useEffect(() => {
@@ -289,26 +294,28 @@ function OptionedResponseList(props) {
 
     if (optionsArray.length < 1) {
       return (
-        <div className={classes.optionsError} >
-          {error ? error.message : null}
+        <div className={classes.noneContainer}>
+          <div className={classes.noneMessage}>No options exist!</div>
+          <div className={classes.optionsError} >
+            {error ? error.message : null}
+          </div>
         </div>
       );
     }
 
-    if (page === 0) {
+    if (optionCount === 0) {
       return (
-        <div className={classes.emptySearchContainer}>
-          <div className={classes.emptySearchMessage}>No matches found!</div>
+        <div className={classes.noneContainer}>
+          <div className={classes.noneMessage}>No matching options found!</div>
           <div className={classes.exclamationIcon}>
             <BsExclamationOctagonFill />
           </div>
-
         </div>
       );
     }
 
     return (
-      sortOptions(searchOptions(searchValue, optionsArray), sort)
+      searchedOptions
         .slice((page - 1) * optionsPerPage, (page - 1) * optionsPerPage + optionsPerPage)
         .map((option, pos) => {
           return (
@@ -329,14 +336,27 @@ function OptionedResponseList(props) {
         justifyContent="space-between"
         alignItems="center"
       >
-        <GridItem xs={10} >
-          <SearchInput
-            value={searchValue}
-            onChange={(e) => handleSearch(e.target.value)}
-            handleSearch={handleSearch}
-          />
+        <GridItem xs={9} sm={8} md={10} lg={3}>
+          <Button
+            color="orange"
+            startIcon={<BiMessageAdd />}
+            //className={classes.addOptionButton}
+            onClick={() => openOptionedDialog(false)}
+          >
+            Optioned Response
+          </Button>
         </GridItem>
-        <GridItem xs={2} right>
+        <Hidden mdDown>
+          <GridItem lg={8}>
+            <SearchInput
+              className={classes.searchBar}
+              value={searchValue}
+              onChange={(e) => handleSearch(e.target.value)}
+              handleSearch={handleSearch}
+            />
+          </GridItem>
+        </Hidden>
+        <GridItem xs={3} sm={4} md={2} lg={1} right>
           <IconButton aria-label="edit" onClick={toggleSort} >
             {sort === 'asc'
               ? <ImSortAlphaAsc className={classes.sort} />
@@ -344,6 +364,16 @@ function OptionedResponseList(props) {
             }
           </IconButton>
         </GridItem>
+        <Hidden lgUp>
+          <div className={classes.smallSpacer} />
+          <GridItem xs={12}>
+            <SearchInput
+              value={searchValue}
+              onChange={(e) => handleSearch(e.target.value)}
+              handleSearch={handleSearch}
+            />
+          </GridItem>
+        </Hidden>
       </GridContainer>
       <List
         component="ul"
@@ -352,16 +382,18 @@ function OptionedResponseList(props) {
       >
         {returnVisibleOptions()}
       </List>
-      <GridContainer>
-        <GridItem xs right>
-          <Pagination
-            className={classes.pagination}
-            page={page}
-            count={paginationCount}
-            onChange={handlePaginationChange}
-          />
-        </GridItem>
-      </GridContainer>
+      {(optionCount) > 5 &&
+        <GridContainer>
+          <GridItem xs right>
+            <Pagination
+              className={classes.pagination}
+              page={page}
+              count={paginationCount}
+              onChange={handlePaginationChange}
+            />
+          </GridItem>
+        </GridContainer>
+      }
     </div>
   );
 }
