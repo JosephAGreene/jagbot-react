@@ -30,7 +30,6 @@ import AddResponseDialog from './dialogs/AddResponseDialog';
 
 // Import icons
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
-import { BiMessageAdd } from 'react-icons/bi';
 
 const styles = (theme) => ({
   paper: {
@@ -245,14 +244,6 @@ function CustomCommandRandom (props) {
             />
           </ControlledRadioGroup>
           <input type="hidden" id="responses" name="responses" {...register("responses")} value={watchResponses} />
-          <Button 
-            color="orange"
-            startIcon={<BiMessageAdd />}
-            className={classes.addResponseButton}
-            onClick={() => openResponseDialog(false)}  
-          >
-            Potential Response
-          </Button> 
         </form>
         <RandomResponseList 
           setResponsesArray={setResponsesArray} 
