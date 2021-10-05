@@ -348,7 +348,7 @@ function OptionedResponseList(props) {
         <Hidden mdDown>
           <GridItem lg={8}>
             <SearchInput
-              className={classes.searchBar}
+              label="Search Options"
               value={searchValue}
               onChange={(e) => handleSearch(e.target.value)}
               handleSearch={handleSearch}
@@ -367,6 +367,7 @@ function OptionedResponseList(props) {
           <div className={classes.smallSpacer} />
           <GridItem xs={12}>
             <SearchInput
+              label="Search Options"
               value={searchValue}
               onChange={(e) => handleSearch(e.target.value)}
               handleSearch={handleSearch}

@@ -361,7 +361,7 @@ function RandomResponseList(props) {
         <Hidden mdDown>
           <GridItem lg={8}>
             <SearchInput
-              className={classes.searchBar}
+              label="Search Responses"
               value={searchValue}
               onChange={(e) => handleSearch(e.target.value)}
               handleSearch={handleSearch}
@@ -380,6 +380,7 @@ function RandomResponseList(props) {
           <div className={classes.smallSpacer} />
           <GridItem xs={12}>
             <SearchInput
+              label="Search Responses"
               value={searchValue}
               onChange={(e) => handleSearch(e.target.value)}
               handleSearch={handleSearch}
