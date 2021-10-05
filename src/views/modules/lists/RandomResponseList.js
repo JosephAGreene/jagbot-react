@@ -13,6 +13,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Pagination from '@material-ui/lab/Pagination';
+import Hidden from '@material-ui/core/Hidden';
 
 // Import custom views
 import EmbedPreviewPanel from '../../panels/EmbedPreviewPanel';
@@ -21,14 +22,16 @@ import EmbedPreviewPanel from '../../panels/EmbedPreviewPanel';
 import GridContainer from '../../../components/grid/GridContainer';
 import GridItem from '../../../components/grid/GridItem';
 import SearchInput from '../../../components/inputs/SearchInput';
+import Button from '../../../components/buttons/Button';
 
 // Import icons
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import { BsExclamationOctagonFill } from 'react-icons/bs';
-import {ImSortAlphaAsc} from 'react-icons/im';
-import {ImSortAlphaDesc} from 'react-icons/im';
+import { ImSortAlphaAsc } from 'react-icons/im';
+import { ImSortAlphaDesc } from 'react-icons/im';
+import { BiMessageAdd } from 'react-icons/bi';
 
 const listItemStyles = makeStyles((theme) => ({
   menuRoot: {
@@ -38,21 +41,21 @@ const listItemStyles = makeStyles((theme) => ({
     },
     '& .MuiButtonBase-root': {
       color: theme.palette.white.dark,
-      '&:hover' : {
+      '&:hover': {
         backgroundColor: theme.palette.gray.light,
       },
-      
+
     },
   },
   edit: {
     color: theme.palette.purple.main,
-    '&:hover' :{
+    '&:hover': {
       color: theme.palette.purple.dark,
     }
   },
   delete: {
     color: theme.palette.error.main,
-    '&:hover' :{
+    '&:hover': {
       color: theme.palette.error.dark,
     },
   },
@@ -80,26 +83,29 @@ const optionedResponseListStyles = (theme) => ({
   },
   sort: {
     color: theme.palette.white.main,
-    '&:hover' :{
+    '&:hover': {
       color: theme.palette.white.dark,
     }
   },
   pagination: {
-    '& .MuiPaginationItem-root' : {
+    '& .MuiPaginationItem-root': {
       color: theme.palette.white.dark,
     },
-    '& .Mui-selected' : {
+    '& .Mui-selected': {
       backgroundColor: theme.palette.gray.dark,
     },
     marginBottom: theme.spacing(6),
   },
-  emptySearchContainer: {
+  smallSpacer: {
+    height: theme.spacing(1),
+    width: "100%",
+  },
+  noneContainer: {
     width: "inherit",
     height: "inherit",
-    paddingTop: "40px",
     textAlign: "center",
   },
-  emptySearchMessage: {
+  noneMessage: {
     fontSize: "18px",
     color: theme.palette.white.dark,
   },
@@ -107,16 +113,14 @@ const optionedResponseListStyles = (theme) => ({
     fontSize: "180px",
     color: theme.palette.gray.dark,
   },
-  responsesError: {
-    marginLeft: "14px",
+  optionsError: {
+    width: "inherit",
     color: theme.palette.error.main,
     fontSize: '0.75rem',
-    marginTop: '1px',
-    textAlign: 'left',
+    marginTop: theme.spacing(1),
+    textAlign: 'center',
     fontFamily: "Roboto, Helvetica, Arial, sans-serif",
     fontWeight: 400,
-    lineHeight: 1.66,
-    letterSpacing: '0.03333em',
   },
 });
 
@@ -128,11 +132,11 @@ function returnResponseSlice(response) {
   }
 }
 
-function ReturnListItem (props) {
+function ReturnListItem(props) {
   const classes = listItemStyles();
   const [open, setOpen] = React.useState(false);
   const [deleteMenuAnchor, setDeleteMenuAnchor] = React.useState(null);
-  const {deleteResponse, response, openResponseDialog} = props;
+  const { deleteResponse, response, openResponseDialog } = props;
 
   const embedObject = {
     title: response.embedTitle,
@@ -167,13 +171,13 @@ function ReturnListItem (props) {
     <React.Fragment>
       <ListItem button onClick={handleClick}>
         <ListItemIcon>
-          {open ? <ExpandMore  /> : <ExpandMore className={classes.expandMore} />}
+          {open ? <ExpandMore /> : <ExpandMore className={classes.expandMore} />}
         </ListItemIcon>
         {response.responseType === "basic"
           ? <ListItemText primary={returnResponseSlice(response.response)} />
           : <ListItemText primary={returnResponseSlice(response.embedTitle)} />
         }
-        
+
         <ListItemSecondaryAction  >
           <IconButton aria-label="edit" onClick={openResponseDialog}>
             <EditIcon className={classes.edit} />
@@ -208,7 +212,7 @@ function ReturnListItem (props) {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
+          <ListItem className={classes.nested}>
             {response.responseType === "basic"
               ? <ListItemText secondary={response.response} />
               : <EmbedPreviewPanel embedObject={embedObject} />
@@ -226,12 +230,12 @@ ReturnListItem.propTypes = {
   openResponseDialog: PropTypes.func.isRequired,
 };
 
-function sortResponses (responsesArray, orderBy) {
+function sortResponses(responsesArray, orderBy) {
   let results = responsesArray.splice(0);
 
   const comparator = (a, b) => {
-    if(a.response.toLowerCase() < b.response.toLowerCase()) { return -1; }
-    if(a.response.toLowerCase() > b.response.toLowerCase()) { return 1; }
+    if (a.response.toLowerCase() < b.response.toLowerCase()) { return -1; }
+    if (a.response.toLowerCase() > b.response.toLowerCase()) { return 1; }
     return 0;
   }
 
@@ -242,11 +246,11 @@ function sortResponses (responsesArray, orderBy) {
   return results;
 }
 
-function searchResponses (value, responsesArray) {
+function searchResponses(value, responsesArray) {
   let results = [];
 
-  for (let i=0; i < responsesArray.length; i++) {
-    if(responsesArray[i].response.toLowerCase().search(value.trim().toLowerCase()) > -1) {
+  for (let i = 0; i < responsesArray.length; i++) {
+    if (responsesArray[i].response.toLowerCase().search(value.trim().toLowerCase()) > -1) {
       results.push(responsesArray[i]);
     }
   }
@@ -254,25 +258,24 @@ function searchResponses (value, responsesArray) {
 }
 
 function RandomResponseList(props) {
-  const {classes, responsesArray, setResponsesArray, error, openResponseDialog} = props;
+  const { classes, responsesArray, setResponsesArray, error, openResponseDialog } = props;
   const [sort, setSort] = React.useState('asc')
   const [searchValue, setSearchValue] = React.useState('');
   const [page, setPage] = React.useState(1);
 
   const responsesPerPage = 5;
-  const responseCount = searchResponses(searchValue, responsesArray).length;
+  const searchedResponses = sortResponses(searchResponses(searchValue, responsesArray), sort);
+  const responseCount = searchedResponses.length;
   const paginationCount = Math.ceil(responseCount / responsesPerPage);
 
   React.useEffect(() => {
     // Decrement page if it's value is beyond what optionCount can display
     // This will result in a page value of 0 if a search turns up empty
-    if ((responseCount <= (page - 1 ) * responsesPerPage) && page !== 0) 
-    {
+    if ((responseCount <= (page - 1) * responsesPerPage) && page !== 0) {
       setPage(page - 1);
-    } 
+    }
     // Reset page to 1 after an empty search is reset
-    else if (!page && responseCount > 0)
-    {
+    else if (!page && responseCount > 0) {
       setPage(1);
     }
   }, [responseCount, page]);
@@ -292,7 +295,7 @@ function RandomResponseList(props) {
   const deleteResponse = (responseId) => {
     let newResponsesArray = [];
 
-    for (let i=0; i < responsesArray.length; i++) {
+    for (let i = 0; i < responsesArray.length; i++) {
       if (responsesArray[i]._id !== responseId) {
         newResponsesArray.push(responsesArray[i]);
       }
@@ -304,61 +307,85 @@ function RandomResponseList(props) {
 
     if (responsesArray.length < 1) {
       return (
-        <div className={classes.responsesError} >
-          {error ? error.message : null}
+        <div className={classes.noneContainer}>
+          <div className={classes.noneMessage}>No responses exist!</div>
+          <div className={classes.optionsError} >
+            {error ? error.message : null}
+          </div>
         </div>
       );
     }
 
-    if (page === 0) {
+    if (responseCount === 0) {
       return (
-        <div className={classes.emptySearchContainer}>
-          <div className={classes.emptySearchMessage}>No matches found!</div>
+        <div className={classes.noneContainer}>
+          <div className={classes.noneMessage}>No matching responses found!</div>
           <div className={classes.exclamationIcon}>
             <BsExclamationOctagonFill />
           </div>
-          
         </div>
       );
     }
 
     return (
-      sortResponses(searchResponses(searchValue, responsesArray), sort)
-        .slice((page - 1 ) * responsesPerPage, (page - 1) * responsesPerPage + responsesPerPage)
+      searchedResponses
+        .slice((page - 1) * responsesPerPage, (page - 1) * responsesPerPage + responsesPerPage)
         .map((response, pos) => {
           return (
-            <ReturnListItem 
-              key={`${Date.now()}-${pos}`} 
+            <ReturnListItem
+              key={`${Date.now()}-${pos}`}
               deleteResponse={() => deleteResponse(response._id)}
               response={response}
-              openResponseDialog={() => openResponseDialog(response)} 
+              openResponseDialog={() => openResponseDialog(response)}
             />
           );
-      })
+        })
     );
   }
 
   return (
     <div>
-      <GridContainer 
+      <GridContainer
         justifyContent="space-between"
         alignItems="center"
       >
-        <GridItem xs={10} >
-          <SearchInput
-            value={searchValue} 
-            onChange={(e) => handleSearch(e.target.value)} 
-            handleSearch={handleSearch} 
-          />
+        <GridItem xs={9} sm={8} md={10} lg={3}>
+          <Button
+            color="orange"
+            startIcon={<BiMessageAdd />}
+            onClick={() => openResponseDialog(false)}
+          >
+            Potential Response
+          </Button>
         </GridItem>
-        <GridItem xs={2} right>
+        <Hidden mdDown>
+          <GridItem lg={8}>
+            <SearchInput
+              className={classes.searchBar}
+              value={searchValue}
+              onChange={(e) => handleSearch(e.target.value)}
+              handleSearch={handleSearch}
+            />
+          </GridItem>
+        </Hidden>
+        <GridItem xs={3} sm={4} md={2} lg={1} right>
           <IconButton aria-label="edit" onClick={toggleSort} >
-            {sort === 'asc' 
+            {sort === 'asc'
               ? <ImSortAlphaAsc className={classes.sort} />
-              : <ImSortAlphaDesc className={classes.sort} /> 
+              : <ImSortAlphaDesc className={classes.sort} />
             }
           </IconButton>
         </GridItem>
+        <Hidden lgUp>
+          <div className={classes.smallSpacer} />
+          <GridItem xs={12}>
+            <SearchInput
+              value={searchValue}
+              onChange={(e) => handleSearch(e.target.value)}
+              handleSearch={handleSearch}
+            />
+          </GridItem>
+        </Hidden>
       </GridContainer>
       <List
         component="ul"
@@ -367,16 +394,18 @@ function RandomResponseList(props) {
       >
         {returnVisibleResponses()}
       </List>
-      <GridContainer>
-        <GridItem xs right>
-          <Pagination 
-            className={classes.pagination} 
-            page={page} 
-            count={paginationCount} 
-            onChange={handlePaginationChange}
-          />
-        </GridItem>
+      {(responseCount) > 5 &&
+        <GridContainer>
+          <GridItem xs right>
+            <Pagination
+              className={classes.pagination}
+              page={page}
+              count={paginationCount}
+              onChange={handlePaginationChange}
+            />
+          </GridItem>
         </GridContainer>
+      }
     </div>
   );
 }

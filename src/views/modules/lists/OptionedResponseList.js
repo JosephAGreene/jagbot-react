@@ -199,7 +199,7 @@ function ReturnListItem(props) {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
+          <ListItem className={classes.nested}>
             {option.responseType === "basic"
               ? <ListItemText secondary={option.response} />
               : <EmbedPreviewPanel embedObject={embedObject} />
@@ -340,7 +340,6 @@ function OptionedResponseList(props) {
           <Button
             color="orange"
             startIcon={<BiMessageAdd />}
-            //className={classes.addOptionButton}
             onClick={() => openOptionedDialog(false)}
           >
             Optioned Response
