@@ -50,6 +50,8 @@ const styles = (theme) => ({
 
 function getPathname(moduleType) {
   switch (moduleType) {
+    case "auto-role":
+      return "/dashboard/develop/automoderation/autoroles";
     case "invite-filter":
       return "/dashboard/develop/automoderation/invitelinks";
     case "word-filter":

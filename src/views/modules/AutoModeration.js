@@ -10,6 +10,7 @@ import AutoModerationPanel from '../panels/AutoModerationPanel';
 import GridContainer from '../../components/grid/GridContainer';
 
 // Temporary flat image/icon for testing
+import autoroleImage from '../../assets/images/autorole.png';
 import automoderatorImage from '../../assets/images/automoderator.png';
 import bannedwordsImage from '../../assets/images/bannedwords.png';
 import invitelinksImage from '../../assets/images/invitelinks.png';
@@ -29,6 +30,12 @@ function AutoModeration(props) {
       />
       <GridContainer>
         <AutoModerationPanel
+          title="Auto Roles"
+          description="Automatically assign roles to members when they first join your server"
+          module={selectedBot.scanModules.find(module => module.type === "auto-role")}
+          image={autoroleImage}
+        />
+        <AutoModerationPanel
           title="Banned Words"
           description="Create of a list of banned words. Tell your bot what to do when someone posts those words."
           module={selectedBot.scanModules.find(module => module.type === "word-filter")}
@@ -42,7 +49,7 @@ function AutoModeration(props) {
         />
         <AutoModerationPanel
           title="Mass Caps"
-          description="Have some users with a stuck capslock key? Give them motivation to change."
+          description="Have a member with an infatuation for the capslock key? Give them motivation to change."
           module={selectedBot.scanModules.find(module => module.type === "masscaps-filter")}
           image={masscapsImage}
         />

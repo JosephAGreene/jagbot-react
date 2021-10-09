@@ -8,7 +8,6 @@ import HomeIcon from '@material-ui/icons/Home';
 import { FiCommand } from 'react-icons/fi';
 import { FaUserSecret} from 'react-icons/fa';
 import { ImBullhorn } from "react-icons/im";
-import { FaUserCog } from 'react-icons/fa';
 import GavelIcon from '@material-ui/icons/Gavel';
 
 // Import Components
@@ -21,12 +20,12 @@ import CustomCommandSingle from './views/modules/CustomCommandSingle.js';
 import CustomCommandOptioned from './views/modules/CustomCommandOptioned.js';
 import CustomCommandRandom from './views/modules/CustomCommandRandom.js';
 import AutoModeration from './views/modules/AutoModeration.js';
+import AutoModAutoRoles from './views/modules/AutoModAutoRoles.js';
 import AutoModBannedWords from './views/modules/AutoModBannedWords.js';
 import AutoModInviteLinks from './views/modules/AutoModInviteLinks.js';
 import AutoModMassCaps from './views/modules/AutoModMassCaps.js';
 import AutoModMassMentions from './views/modules/AutoModMassMentions.js';
 import Announcements from './views/modules/Announcements.js';
-import AutoRole from './views/modules/AutoRole.js';
 
 const routes = [
   {
@@ -62,7 +61,6 @@ const routes = [
       { path: 'develop/automoderation', name: 'Auto Moderation', icon: <FaUserSecret />, api: "bot", component: AutoModeration },
       { path: 'develop/customcommands', name: 'Custom Commands', icon: <FiCommand />, api: "bot", component: CustomCommands },
       { path: 'develop/announcements', name: 'Announcements', icon: <ImBullhorn />, api: "bot", component: Announcements },
-      { path: 'develop/autorole', name: 'Auto Role', icon: <FaUserCog />, api: "bot", component: AutoRole},
     ],
   },
   {
@@ -70,6 +68,7 @@ const routes = [
     path: 'develop', 
     internal: true,  // Denotes internal routes, will not automatically display on any visible navigation
     children: [
+      { path: 'develop/automoderation/autoroles', api: "bot", component: AutoModAutoRoles },
       { path: 'develop/automoderation/bannedwords', api: "bot", component: AutoModBannedWords },
       { path: 'develop/automoderation/invitelinks', api: "bot", component: AutoModInviteLinks },
       { path: 'develop/automoderation/masscaps', api: "bot", component: AutoModMassCaps },
