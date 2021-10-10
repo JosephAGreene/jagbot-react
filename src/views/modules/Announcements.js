@@ -235,7 +235,7 @@ function Announcements(props) {
     <ContentWrapper>
       <TitlePanel
         title="Announcements"
-        description="Make an announcement when a member joins, leaves, or gets banned from your server."
+        description="Make an announcement when a member joins, leaves, gets kicked, or gets banned from your server."
         listItems={["One announcement type per server"]}
         image={announcementsImage}
         docs={true}
@@ -290,6 +290,7 @@ function Announcements(props) {
                 { value: "", name: "none" },
                 { value: "join", name: "join" },
                 { value: "leave", name: "leave" },
+                { value: "kicked", name: "kicked" },
                 { value: "banned", name: "banned" }
               ]}
             />

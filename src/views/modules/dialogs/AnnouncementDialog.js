@@ -51,7 +51,7 @@ const styles = (theme) => ({
 });
 
 const schema = Joi.object({
-  type: Joi.string().trim().valid('join', 'leave', 'banned').required()
+  type: Joi.string().trim().valid('join', 'leave', 'kicked', 'banned').required()
     .messages({
       "string.empty": "Type is required",
       "any.only": 'Type is required',
@@ -419,6 +419,7 @@ function AnnouncementDialog(props) {
             { value: "", name: "none" }, 
             { value: "join", name: "join" }, 
             { value: "leave", name: "leave" },
+            { value: "kicked", name: "kicked" },
             { value: "banned", name: "banned"}
           ]}
           control={control}
