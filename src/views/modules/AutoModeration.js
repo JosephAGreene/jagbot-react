@@ -6,7 +6,7 @@ import ContentWrapper from '../../layouts/ContentWrapper';
 
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
-import AutoModerationPanel from '../panels/AutoModerationPanel';
+import ModerationPanel from '../panels/ModerationPanel';
 import GridContainer from '../../components/grid/GridContainer';
 
 // Temporary flat image/icon for testing
@@ -29,31 +29,31 @@ function AutoModeration(props) {
         docs={true}
       />
       <GridContainer>
-        <AutoModerationPanel
+        <ModerationPanel
           title="Auto Roles"
           description="Automatically assign roles to members when they first join your server."
           module={selectedBot.autoModModules.find(module => module.type === "auto-role")}
           image={autoroleImage}
         />
-        <AutoModerationPanel
+        <ModerationPanel
           title="Banned Words"
           description="Create of a list of banned words. Tell your bot what to do when someone posts those words."
           module={selectedBot.autoModModules.find(module => module.type === "word-filter")}
           image={bannedwordsImage}
         />
-        <AutoModerationPanel
+        <ModerationPanel
           title="Discord Invite Links"
           description="Have your bot take action when someone posts discord invite links in your server."
           module={selectedBot.autoModModules.find(module => module.type === "invite-filter")}
           image={invitelinksImage}
         />
-        <AutoModerationPanel
+        <ModerationPanel
           title="Mass Caps"
           description="Have a member with an infatuation for the capslock key? Give them motivation to change."
           module={selectedBot.autoModModules.find(module => module.type === "masscaps-filter")}
           image={masscapsImage}
         />
-        <AutoModerationPanel
+        <ModerationPanel
           title="Mass Mentions"
           description="Take action when a member has gone overboard with the mentions. You decide what overboard is."
           module={selectedBot.autoModModules.find(module => module.type === "massmentions-filter")}

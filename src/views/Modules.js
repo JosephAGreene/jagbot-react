@@ -9,10 +9,10 @@ import ModulePanel from './panels/ModulePanel';
 
 // Import icons
 import { FiCommand } from 'react-icons/fi';
-import { SiSteam } from 'react-icons/si';
 
 // Import Images
-import autoModerator from '../assets/images/automoderator.png';
+import moderationImage from '../assets/images/moderation.png';
+import automoderatorImage from '../assets/images/automoderator.png';
 import announcementsImage from '../assets/images/announcements.png';
 
 function Modules() {
@@ -20,37 +20,30 @@ function Modules() {
   return (
     <ContentWrapper>
       <GridContainer>
-        <ModulePanel 
+        <ModulePanel
           title="Custom Commands"
-          description="Set up your own custom commands. Both single and library response options available." 
+          description="Assign your own custom commands to your bot. Have it respond to commands in your own unique way."
           path="/dashboard/develop/customcommands"
           Icon={FiCommand}
           color="#F45142"
         />
-        <ModulePanel 
-          title="Steam News"
-          description="Need to know what's happening with your favorite game? Your bot could keep up with one, a few, or ALL steam titles." 
-          path="/dashboard"
-          Icon={SiSteam}
-          color="#52B1E9"
+        <ModulePanel
+          title="Moderation"
+          description="Moderate your server with a set of powerful commands."
+          path="/dashboard/develop/moderation"
+          image={moderationImage}
         />
-        <ModulePanel 
+        <ModulePanel
           title="Auto Moderation"
-          description="Make your bot swing his billy club on the baddies of your server." 
+          description="Setup your bot to automatically moderate your server according to your specifications."
           path="/dashboard/develop/automoderation"
-          image={autoModerator}
+          image={automoderatorImage}
         />
-        <ModulePanel 
+        <ModulePanel
           title="Announcements"
           description="Make an announcement when a member joins, leaves, or get's kicked from your server."
-          path="/dashboard/develop/announcements" 
+          path="/dashboard/develop/announcements"
           image={announcementsImage}
-        />
-        <ModulePanel 
-          title="Generic Module"
-          description="Use this space to describe what the module does."
-          path="/dashboard" 
-
         />
       </GridContainer>
     </ContentWrapper>
