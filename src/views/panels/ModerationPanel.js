@@ -50,6 +50,8 @@ const styles = (theme) => ({
 
 function getPathname(moduleType) {
   switch (moduleType) {
+    case "ban":
+      return "/dashboard/develop/moderation/ban";
     case "auto-role":
       return "/dashboard/develop/automoderation/autoroles";
     case "invite-filter":
@@ -65,7 +67,7 @@ function getPathname(moduleType) {
   }
 }
 
-function AutoModerationPanel(props) {
+function ModerationPanel(props) {
   const { classes, title, description, color, image, Icon, module } = props;
 
   const pathname = getPathname(module.type);
@@ -128,4 +130,4 @@ function AutoModerationPanel(props) {
 //   color: PropTypes.string,
 // };
 
-export default withStyles(styles)(AutoModerationPanel);
+export default withStyles(styles)(ModerationPanel);
