@@ -19,6 +19,8 @@ import CustomCommands from './views/modules/CustomCommands.js';
 import CustomCommandSingle from './views/modules/CustomCommandSingle.js';
 import CustomCommandOptioned from './views/modules/CustomCommandOptioned.js';
 import CustomCommandRandom from './views/modules/CustomCommandRandom.js';
+import Moderation from './views/modules/Moderation';
+import ModerationBan from './views/modules/ModerationBan.js';
 import AutoModeration from './views/modules/AutoModeration.js';
 import AutoModAutoRoles from './views/modules/AutoModAutoRoles.js';
 import AutoModBannedWords from './views/modules/AutoModBannedWords.js';
@@ -57,7 +59,7 @@ const routes = [
     name: "Develop",
     path: 'develop',
     children: [
-      { path: 'develop/moderation', name: 'Moderation', icon: <GavelIcon />, component: Content },
+      { path: 'develop/moderation', name: 'Moderation', icon: <GavelIcon />, api: "bot", component: Moderation },
       { path: 'develop/automoderation', name: 'Auto Moderation', icon: <FaUserSecret />, api: "bot", component: AutoModeration },
       { path: 'develop/customcommands', name: 'Custom Commands', icon: <FiCommand />, api: "bot", component: CustomCommands },
       { path: 'develop/announcements', name: 'Announcements', icon: <ImBullhorn />, api: "bot", component: Announcements },
@@ -68,6 +70,7 @@ const routes = [
     path: 'develop', 
     internal: true,  // Denotes internal routes, will not automatically display on any visible navigation
     children: [
+      { path: 'develop/moderation/ban', api: "bot", component: ModerationBan },
       { path: 'develop/automoderation/autoroles', api: "bot", component: AutoModAutoRoles },
       { path: 'develop/automoderation/bannedwords', api: "bot", component: AutoModBannedWords },
       { path: 'develop/automoderation/invitelinks', api: "bot", component: AutoModInviteLinks },
