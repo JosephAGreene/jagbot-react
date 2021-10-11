@@ -154,7 +154,7 @@ function ModerationBan(props) {
       ...data
     };
 
-    const res = await ModerationService.updateBan(payload);
+    const res = await ModerationService.updateBaseModeration(payload);
 
     if (res.status === 200) {
       setSelectedBot(res.data);

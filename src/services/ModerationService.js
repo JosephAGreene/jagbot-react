@@ -8,9 +8,9 @@ class ModerationService {
     this.networkIssue = { status: 'dead' };
   }
 
-  updateBan(payload) {
+  updateBaseModeration(payload) {
     return axios
-      .post(`${MOD}/update-ban`,
+      .post(`${MOD}/update-base-moderation`,
         {
           ...payload
         },
