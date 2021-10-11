@@ -97,7 +97,7 @@ function CustomCommands(props) {
   const [moduleSearchInput, setModuleSearchInput] = React.useState('');
   const [page, setPage] = React.useState(1);
 
-  const modulesArray = filterModules(typeFilter, searchModules(moduleSearchInput, selectedBot.commandModules));
+  const modulesArray = filterModules(typeFilter, searchModules(moduleSearchInput, selectedBot.customModules));
 
   const modulesPerPage = 5;
   const moduleCount = modulesArray.length;
