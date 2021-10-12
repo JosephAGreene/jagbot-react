@@ -54,6 +54,8 @@ function getPathname(moduleType) {
       return "/dashboard/develop/moderation/ban";
     case "kick":
       return "/dashboard/develop/moderation/kick";
+    case "purge":
+      return "/dashboard/develop/moderation/purge";
     case "auto-role":
       return "/dashboard/develop/automoderation/autoroles";
     case "invite-filter":
@@ -89,11 +91,6 @@ function ModerationPanel(props) {
               <Typography variant="h6">
                 {title}
               </Typography>
-              {prefix &&
-                <Typography variant="subtitle2">
-                  {prefix}{module.command}
-                </Typography>
-              }
             </GridItem>
             <GridItem>
               <div className={classes.description}>
@@ -105,9 +102,10 @@ function ModerationPanel(props) {
         <div className={classes.spacer} />
         <GridContainer alignItems="flex-end" justifyContent="space-between">
           <GridItem>
+            <div>{prefix}{module.command}</div>
             {module.enabled
-              ? <div>Status: <span className={classes.enabled}>Enabled</span></div>
-              : <div>Status: <span className={classes.disabled}>Disabled</span></div>
+              ? <span className={classes.enabled}>Enabled</span>
+              : <span className={classes.disabled}>Disabled</span>
             }
 
           </GridItem>

@@ -13,6 +13,7 @@ import GridContainer from '../../components/grid/GridContainer';
 import moderationImage from '../../assets/images/moderation.png';
 import banUserImage from '../../assets/images/banuser.png';
 import kickUserImage from '../../assets/images/kickuser.png'
+import purgeImage from '../../assets/images/purge.png';
 
 function Moderation(props) {
   const { selectedBot } = props;
@@ -39,6 +40,13 @@ function Moderation(props) {
           prefix={selectedBot.prefix}
           module={selectedBot.moderationModules.find(module => module.type === "kick")}
           image={kickUserImage}
+        />
+        <ModerationPanel
+          title="Purge"
+          description="Bulk deletes up to 100 messages at a time in a single channel."
+          prefix={selectedBot.prefix}
+          module={selectedBot.moderationModules.find(module => module.type === "purge")}
+          image={purgeImage}
         />
       </GridContainer>
     </ContentWrapper>

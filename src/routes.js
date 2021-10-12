@@ -22,6 +22,7 @@ import CustomCommandRandom from './views/modules/CustomCommandRandom.js';
 import Moderation from './views/modules/Moderation';
 import ModerationBan from './views/modules/ModerationBan.js';
 import ModerationKick from './views/modules/ModerationKick.js';
+import ModerationPurge from './views/modules/ModerationPurge.js';
 import AutoModeration from './views/modules/AutoModeration.js';
 import AutoModAutoRoles from './views/modules/AutoModAutoRoles.js';
 import AutoModBannedWords from './views/modules/AutoModBannedWords.js';
@@ -73,6 +74,7 @@ const routes = [
     children: [
       { path: 'develop/moderation/ban', api: "bot", component: ModerationBan },
       { path: 'develop/moderation/kick', api: "bot", component: ModerationKick },
+      { path: 'develop/moderation/purge', api: "bot", component: ModerationPurge },
       { path: 'develop/automoderation/autoroles', api: "bot", component: AutoModAutoRoles },
       { path: 'develop/automoderation/bannedwords', api: "bot", component: AutoModBannedWords },
       { path: 'develop/automoderation/invitelinks', api: "bot", component: AutoModInviteLinks },
