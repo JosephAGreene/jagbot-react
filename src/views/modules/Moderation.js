@@ -12,10 +12,10 @@ import GridContainer from '../../components/grid/GridContainer';
 // Temporary flat image/icon for testing
 import moderationImage from '../../assets/images/moderation.png';
 import banUserImage from '../../assets/images/banuser.png';
+import kickUserImage from '../../assets/images/kickuser.png'
 
 function Moderation(props) {
   const { selectedBot } = props;
-  const prefix = selectedBot.prefix;
 
   return (
     <ContentWrapper>
@@ -27,10 +27,18 @@ function Moderation(props) {
       />
       <GridContainer>
         <ModerationPanel
-          title={`${prefix}Ban`}
+          title="Ban"
           description="Bans a user from your server."
+          prefix={selectedBot.prefix}
           module={selectedBot.moderationModules.find(module => module.type === "ban")}
           image={banUserImage}
+        />
+        <ModerationPanel
+          title="Kick"
+          description="Kicks a user from your server."
+          prefix={selectedBot.prefix}
+          module={selectedBot.moderationModules.find(module => module.type === "kick")}
+          image={kickUserImage}
         />
       </GridContainer>
     </ContentWrapper>

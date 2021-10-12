@@ -21,6 +21,7 @@ import CustomCommandOptioned from './views/modules/CustomCommandOptioned.js';
 import CustomCommandRandom from './views/modules/CustomCommandRandom.js';
 import Moderation from './views/modules/Moderation';
 import ModerationBan from './views/modules/ModerationBan.js';
+import ModerationKick from './views/modules/ModerationKick.js';
 import AutoModeration from './views/modules/AutoModeration.js';
 import AutoModAutoRoles from './views/modules/AutoModAutoRoles.js';
 import AutoModBannedWords from './views/modules/AutoModBannedWords.js';
@@ -71,6 +72,7 @@ const routes = [
     internal: true,  // Denotes internal routes, will not automatically display on any visible navigation
     children: [
       { path: 'develop/moderation/ban', api: "bot", component: ModerationBan },
+      { path: 'develop/moderation/kick', api: "bot", component: ModerationKick },
       { path: 'develop/automoderation/autoroles', api: "bot", component: AutoModAutoRoles },
       { path: 'develop/automoderation/bannedwords', api: "bot", component: AutoModBannedWords },
       { path: 'develop/automoderation/invitelinks', api: "bot", component: AutoModInviteLinks },

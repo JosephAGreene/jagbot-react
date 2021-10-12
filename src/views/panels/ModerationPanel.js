@@ -52,6 +52,8 @@ function getPathname(moduleType) {
   switch (moduleType) {
     case "ban":
       return "/dashboard/develop/moderation/ban";
+    case "kick":
+      return "/dashboard/develop/moderation/kick";
     case "auto-role":
       return "/dashboard/develop/automoderation/autoroles";
     case "invite-filter":
@@ -68,33 +70,38 @@ function getPathname(moduleType) {
 }
 
 function ModerationPanel(props) {
-  const { classes, title, description, color, image, Icon, module } = props;
+  const { classes, title, description, color, image, Icon, prefix, module } = props;
 
   const pathname = getPathname(module.type);
 
   return (
     <GridItem sm={12} md={6} lg={4} classes={{ root: classes.root }}>
       <Paper elevation={2} className={classes.paper} >
-      <GridContainer>
+        <GridContainer>
+          <GridItem>
+            {image
+              ? <Avatar className={classes.avatar} variant="rounded" src={image} />
+              : <Avatar className={classes.avatar} style={{ "color": color }} variant="rounded" component={Icon} />
+            }
+          </GridItem>
+          <GridContainer item xs direction="column">
             <GridItem>
-              {image 
-                ? <Avatar className={classes.avatar} variant="rounded" src={image} />
-                : <Avatar className={classes.avatar} style={{"color": color}} variant="rounded" component={Icon} />
+              <Typography variant="h6">
+                {title}
+              </Typography>
+              {prefix &&
+                <Typography variant="subtitle2">
+                  {prefix}{module.command}
+                </Typography>
               }
             </GridItem>
-            <GridContainer item xs direction="column">
-              <GridItem>
-                <Typography variant="h6">
-                  {title}
-                </Typography>
-              </GridItem>
-              <GridItem>
-                <div className={classes.description}>
-                  {description}
-                </div>
-              </GridItem>
-            </GridContainer>
+            <GridItem>
+              <div className={classes.description}>
+                {description}
+              </div>
+            </GridItem>
           </GridContainer>
+        </GridContainer>
         <div className={classes.spacer} />
         <GridContainer alignItems="flex-end" justifyContent="space-between">
           <GridItem>
