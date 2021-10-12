@@ -21,6 +21,7 @@ import CustomCommandOptioned from './views/modules/CustomCommandOptioned.js';
 import CustomCommandRandom from './views/modules/CustomCommandRandom.js';
 import Moderation from './views/modules/Moderation';
 import ModerationBan from './views/modules/ModerationBan.js';
+import ModerationSoftBan from './views/modules/ModerationSoftBan.js';
 import ModerationKick from './views/modules/ModerationKick.js';
 import ModerationPurge from './views/modules/ModerationPurge.js';
 import AutoModeration from './views/modules/AutoModeration.js';
@@ -73,6 +74,7 @@ const routes = [
     internal: true,  // Denotes internal routes, will not automatically display on any visible navigation
     children: [
       { path: 'develop/moderation/ban', api: "bot", component: ModerationBan },
+      { path: 'develop/moderation/softban', api: "bot", component: ModerationSoftBan },
       { path: 'develop/moderation/kick', api: "bot", component: ModerationKick },
       { path: 'develop/moderation/purge', api: "bot", component: ModerationPurge },
       { path: 'develop/automoderation/autoroles', api: "bot", component: AutoModAutoRoles },

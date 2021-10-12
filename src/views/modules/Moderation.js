@@ -12,6 +12,7 @@ import GridContainer from '../../components/grid/GridContainer';
 // Temporary flat image/icon for testing
 import moderationImage from '../../assets/images/moderation.png';
 import banUserImage from '../../assets/images/banuser.png';
+import softBanUserImage from '../../assets/images/softbanuser.png';
 import kickUserImage from '../../assets/images/kickuser.png'
 import purgeImage from '../../assets/images/purge.png';
 
@@ -29,10 +30,17 @@ function Moderation(props) {
       <GridContainer>
         <ModerationPanel
           title="Ban"
-          description="Bans a user from your server."
+          description="Bans a user from your server, deletes their messages from the last 7 days, and sends them a ban notice."
           prefix={selectedBot.prefix}
           module={selectedBot.moderationModules.find(module => module.type === "ban")}
           image={banUserImage}
+        />
+        <ModerationPanel
+          title="Soft Ban"
+          description="Kicks a user from your server, deletes their messages from the last 7 days, and sends them a soft-ban notice."
+          prefix={selectedBot.prefix}
+          module={selectedBot.moderationModules.find(module => module.type === "soft-ban")}
+          image={softBanUserImage}
         />
         <ModerationPanel
           title="Kick"
