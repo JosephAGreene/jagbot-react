@@ -15,6 +15,7 @@ import banUserImage from '../../assets/images/banuser.png';
 import softBanUserImage from '../../assets/images/softbanuser.png';
 import kickUserImage from '../../assets/images/kickuser.png'
 import purgeImage from '../../assets/images/purge.png';
+import pingImage from '../../assets/images/ping.png';
 
 function Moderation(props) {
   const { selectedBot } = props;
@@ -48,6 +49,13 @@ function Moderation(props) {
           prefix={selectedBot.prefix}
           module={selectedBot.moderationModules.find(module => module.type === "kick")}
           image={kickUserImage}
+        />
+        <ModerationPanel
+          title="Ping"
+          description="Returns the latency of your bot and the discord API."
+          prefix={selectedBot.prefix}
+          module={selectedBot.moderationModules.find(module => module.type === "ping")}
+          image={pingImage}
         />
         <ModerationPanel
           title="Purge"

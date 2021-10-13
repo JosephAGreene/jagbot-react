@@ -56,6 +56,8 @@ function getPathname(moduleType) {
       return "/dashboard/develop/moderation/softban";
     case "kick":
       return "/dashboard/develop/moderation/kick";
+    case "ping":
+      return "/dashboard/develop/moderation/ping";
     case "purge":
       return "/dashboard/develop/moderation/purge";
     case "auto-role":

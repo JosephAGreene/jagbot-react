@@ -23,6 +23,7 @@ import Moderation from './views/modules/Moderation';
 import ModerationBan from './views/modules/ModerationBan.js';
 import ModerationSoftBan from './views/modules/ModerationSoftBan.js';
 import ModerationKick from './views/modules/ModerationKick.js';
+import ModerationPing from './views/modules/ModerationPing.js';
 import ModerationPurge from './views/modules/ModerationPurge.js';
 import AutoModeration from './views/modules/AutoModeration.js';
 import AutoModAutoRoles from './views/modules/AutoModAutoRoles.js';
@@ -76,6 +77,7 @@ const routes = [
       { path: 'develop/moderation/ban', api: "bot", component: ModerationBan },
       { path: 'develop/moderation/softban', api: "bot", component: ModerationSoftBan },
       { path: 'develop/moderation/kick', api: "bot", component: ModerationKick },
+      { path: 'develop/moderation/ping', api: "bot", component: ModerationPing },
       { path: 'develop/moderation/purge', api: "bot", component: ModerationPurge },
       { path: 'develop/automoderation/autoroles', api: "bot", component: AutoModAutoRoles },
       { path: 'develop/automoderation/bannedwords', api: "bot", component: AutoModBannedWords },
