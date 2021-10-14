@@ -16,6 +16,7 @@ import softBanUserImage from '../../assets/images/softbanuser.png';
 import kickUserImage from '../../assets/images/kickuser.png'
 import purgeImage from '../../assets/images/purge.png';
 import pingImage from '../../assets/images/ping.png';
+import helpImage from '../../assets/images/help.png';
 
 function Moderation(props) {
   const { selectedBot } = props;
@@ -29,6 +30,27 @@ function Moderation(props) {
         docs={true}
       />
       <GridContainer>
+        <ModerationPanel
+          title="Help"
+          description="Provides overview of available bot commands, their descriptions, and how to use them."
+          prefix={selectedBot.prefix}
+          module={selectedBot.moderationModules.find(module => module.type === "help")}
+          image={helpImage}
+        />
+        <ModerationPanel
+          title="Ping"
+          description="Returns the latency of your bot and the discord API."
+          prefix={selectedBot.prefix}
+          module={selectedBot.moderationModules.find(module => module.type === "ping")}
+          image={pingImage}
+        />
+        <ModerationPanel
+          title="Purge"
+          description="Bulk deletes up to 100 messages at a time in a single channel."
+          prefix={selectedBot.prefix}
+          module={selectedBot.moderationModules.find(module => module.type === "purge")}
+          image={purgeImage}
+        />
         <ModerationPanel
           title="Ban"
           description="Bans a user from your server, deletes their messages from the last 7 days, and sends them a ban notice."
@@ -49,20 +71,6 @@ function Moderation(props) {
           prefix={selectedBot.prefix}
           module={selectedBot.moderationModules.find(module => module.type === "kick")}
           image={kickUserImage}
-        />
-        <ModerationPanel
-          title="Ping"
-          description="Returns the latency of your bot and the discord API."
-          prefix={selectedBot.prefix}
-          module={selectedBot.moderationModules.find(module => module.type === "ping")}
-          image={pingImage}
-        />
-        <ModerationPanel
-          title="Purge"
-          description="Bulk deletes up to 100 messages at a time in a single channel."
-          prefix={selectedBot.prefix}
-          module={selectedBot.moderationModules.find(module => module.type === "purge")}
-          image={purgeImage}
         />
       </GridContainer>
     </ContentWrapper>

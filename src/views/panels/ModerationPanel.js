@@ -52,6 +52,8 @@ function getPathname(moduleType) {
   switch (moduleType) {
     case "ban":
       return "/dashboard/develop/moderation/ban";
+    case "help":
+      return "/dashboard/develop/moderation/help";
     case "soft-ban":
       return "/dashboard/develop/moderation/softban";
     case "kick":
