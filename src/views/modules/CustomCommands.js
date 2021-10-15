@@ -65,11 +65,11 @@ const styles = (theme) => ({
   },
 });
 
-function searchModules(value, moduleArray) {
+function searchModules(value, moduleArray, prefix) {
   let results = [];
 
   for (let i = 0; i < moduleArray.length; i++) {
-    if (moduleArray[i].command.toLowerCase().search(value.trim().toLowerCase()) > -1) {
+    if (`${prefix}${moduleArray[i].command}`.toLowerCase().search(value.trim().toLowerCase()) > -1) {
       results.push(moduleArray[i]);
     }
   }
@@ -97,7 +97,7 @@ function CustomCommands(props) {
   const [moduleSearchInput, setModuleSearchInput] = React.useState('');
   const [page, setPage] = React.useState(1);
 
-  const modulesArray = filterModules(typeFilter, searchModules(moduleSearchInput, selectedBot.customModules));
+  const modulesArray = filterModules(typeFilter, searchModules(moduleSearchInput, selectedBot.customModules, selectedBot.prefix));
 
   const modulesPerPage = 5;
   const moduleCount = modulesArray.length;
@@ -150,6 +150,7 @@ function CustomCommands(props) {
           return (
             <AssignedCommandPanel
               key={`${module.command}_${pos}`}
+              prefix={selectedBot.prefix}
               module={module}
               botId={selectedBot._id}
               setSelectedBot={setSelectedBot}

@@ -65,7 +65,7 @@ function getPathname (moduleType) {
 }
 
 function AssignedCommandPanel(props) {
-  const {classes, botId, module, setSelectedBot, setApiAlert} = props;
+  const {classes, botId, prefix, module, setSelectedBot, setApiAlert} = props;
   const [deleteAnchor, setDeleteAnchor] = React.useState(null);
 
   const pathname = getPathname(module.type);
@@ -104,7 +104,7 @@ function AssignedCommandPanel(props) {
           <GridContainer>
             <GridItem xs={12} sm={12} md={8} lg={8}>
               <div className={classes.command}>
-                {module.command}
+                {prefix}{module.command}
               </div>
               <div className={classes.description}>
                 {module.description}
