@@ -7,6 +7,8 @@ import ContentWrapper from '../../layouts/ContentWrapper';
 // Import MUI components
 import { withStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
+import IconButton from '@material-ui/core/IconButton';
+import Hidden from '@material-ui/core/Hidden';
 
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
@@ -23,6 +25,7 @@ import { TiMessage } from 'react-icons/ti';
 import { TiMessages } from 'react-icons/ti';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
 import { BsExclamationOctagonFill } from 'react-icons/bs';
+import { ImSortAlphaAsc, ImSortAlphaDesc } from "react-icons/im";
 
 const styles = (theme) => ({
   categoryHeader: {
@@ -43,6 +46,12 @@ const styles = (theme) => ({
     '& .Mui-selected': {
       backgroundColor: theme.palette.gray.dark,
     },
+  },
+  sort: {
+    color: theme.palette.white.main,
+    '&:hover': {
+      color: theme.palette.white.dark,
+    }
   },
   select: {
     marginTop: theme.spacing(1),
@@ -91,13 +100,32 @@ function filterModules(filter, moduleArray) {
   return results;
 }
 
+function sortModules(moduleArray, orderBy) {
+  let results = [...moduleArray]
+
+  const comparator = (a, b) => {
+    if (a < b) { return -1; }
+    if (a > b) { return 1; }
+    return 0;
+  }
+
+  results.sort((a, b) => {
+    return orderBy === 'asc'
+      ? comparator(a.command.toLowerCase(), b.command.toLowerCase())
+      : -comparator(a.command.toLowerCase(), b.command.toLowerCase());
+  });
+
+  return results;
+}
+
 function CustomCommands(props) {
   const { classes, selectedBot, setSelectedBot, setApiAlert } = props;
   const [typeFilter, setTypeFilter] = React.useState('');
+  const [sort, setSort] = React.useState('asc');
   const [moduleSearchInput, setModuleSearchInput] = React.useState('');
   const [page, setPage] = React.useState(1);
 
-  const modulesArray = filterModules(typeFilter, searchModules(moduleSearchInput, selectedBot.customModules, selectedBot.prefix));
+  const modulesArray = sortModules(filterModules(typeFilter, searchModules(moduleSearchInput, selectedBot.customModules, selectedBot.prefix)), sort);
 
   const modulesPerPage = 5;
   const moduleCount = modulesArray.length;
@@ -118,6 +146,10 @@ function CustomCommands(props) {
   const handlePaginationChange = (event, value) => {
     setPage(value);
   };
+
+  const toggleSort = () => {
+    setSort(sort === 'asc' ? 'desc' : 'asc');
+  }
 
   const handleModuleSearch = (value) => {
     setModuleSearchInput(value);
@@ -199,12 +231,26 @@ function CustomCommands(props) {
           color="#c678DD"
         />
       </GridContainer>
-      <div className={classes.largeSpacer} />
-      <div className={classes.categoryHeader}>
-        Assigned Commands
-      </div>
+      <GridContainer justifyContent="space-between" alignItems="flex-end">
+        <GridItem xs={10} sm={10} md={8} lg={12}>
+          <div className={classes.largeSpacer} />
+          <div className={classes.categoryHeader}>
+            Assigned Commands
+          </div>
+        </GridItem>
+        <Hidden lgUp>
+          <GridItem xs={2} sm={2} md={4} right>
+            <IconButton aria-label="edit" onClick={toggleSort} >
+              {sort === 'asc'
+                ? <ImSortAlphaAsc className={classes.sort} />
+                : <ImSortAlphaDesc className={classes.sort} />
+              }
+            </IconButton>
+          </GridItem>
+        </Hidden>
+      </GridContainer>
       <GridContainer justifyContent="space-between" alignItems="center">
-        <GridItem xs={12} sm={7} md={8} lg={8}>
+        <GridItem xs={12} sm={7} md={8} lg={7}>
           <div className={classes.select}>
             <SearchInput
               label="Search Commands"
@@ -232,6 +278,16 @@ function CustomCommands(props) {
             />
           </div>
         </GridItem>
+        <Hidden mdDown>
+          <GridItem lg={1} right>
+            <IconButton aria-label="edit" onClick={toggleSort} >
+              {sort === 'asc'
+                ? <ImSortAlphaAsc className={classes.sort} />
+                : <ImSortAlphaDesc className={classes.sort} />
+              }
+            </IconButton>
+          </GridItem>
+        </Hidden>
       </GridContainer>
       <div className={classes.smallSpacer} />
       {returnVisibleModules()}

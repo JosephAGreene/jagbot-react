@@ -144,7 +144,7 @@ function Announcements(props) {
   const { classes, selectedBot, setSelectedBot, setApiAlert } = props;
   const [announcementDialog, setAnnouncementDialog] = React.useState(false);
   const [module, setModule] = React.useState(null);
-  const [sort, setSort] = React.useState('asc')
+  const [sort, setSort] = React.useState('asc');
   const [serverFilter, setServerFilter] = React.useState("");
   const [typeFilter, setTypeFilter] = React.useState("");
   const [page, setPage] = React.useState(1);
