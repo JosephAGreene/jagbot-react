@@ -14,6 +14,7 @@ import GavelIcon from '@material-ui/icons/Gavel';
 import Stash from "./views/Stash.js";
 import Content from "./views/Content.js";
 import CreateBot from "./views/CreateBot.js";
+import Settings from "./views/settings/Settings.js";
 import Modules from "./views/Modules.js";
 import CustomCommands from './views/modules/CustomCommands.js';
 import CustomCommandSingle from './views/modules/CustomCommandSingle.js';
@@ -57,7 +58,7 @@ const routes = [
     path: 'develop',
     children: [
       { path: 'develop/modules', name: 'Modules', icon: <HomeIcon />, component: Modules },
-      { path: 'develop/settings', name: 'Settings', icon: <SettingsIcon />, component: Content },
+      { path: 'develop/settings', name: 'Settings', icon: <SettingsIcon />, component: Settings },
     ]
   },
   {
