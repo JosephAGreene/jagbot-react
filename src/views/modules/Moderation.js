@@ -35,6 +35,7 @@ function Moderation(props) {
           description="Provides overview of available bot commands, their descriptions, and how to use them."
           prefix={selectedBot.prefix}
           module={selectedBot.moderationModules.find(module => module.type === "help")}
+          pathname="/dashboard/develop/moderation/help"
           image={helpImage}
         />
         <ModerationPanel
@@ -42,6 +43,7 @@ function Moderation(props) {
           description="Returns the latency of your bot and the discord API."
           prefix={selectedBot.prefix}
           module={selectedBot.moderationModules.find(module => module.type === "ping")}
+          pathname="/dashboard/develop/moderation/ping"
           image={pingImage}
         />
         <ModerationPanel
@@ -49,6 +51,7 @@ function Moderation(props) {
           description="Bulk deletes up to 100 messages at a time in a single channel."
           prefix={selectedBot.prefix}
           module={selectedBot.moderationModules.find(module => module.type === "purge")}
+          pathname="/dashboard/develop/moderation/purge"
           image={purgeImage}
         />
         <ModerationPanel
@@ -56,6 +59,7 @@ function Moderation(props) {
           description="Bans a user from your server, deletes their messages from the last 7 days, and sends them a ban notice."
           prefix={selectedBot.prefix}
           module={selectedBot.moderationModules.find(module => module.type === "ban")}
+          pathname="/dashboard/develop/moderation/ban"
           image={banUserImage}
         />
         <ModerationPanel
@@ -63,6 +67,7 @@ function Moderation(props) {
           description="Kicks a user from your server, deletes their messages from the last 7 days, and sends them a soft-ban notice."
           prefix={selectedBot.prefix}
           module={selectedBot.moderationModules.find(module => module.type === "soft-ban")}
+          pathname="/dashboard/develop/moderation/softban"
           image={softBanUserImage}
         />
         <ModerationPanel
@@ -70,6 +75,7 @@ function Moderation(props) {
           description="Kicks a user from your server."
           prefix={selectedBot.prefix}
           module={selectedBot.moderationModules.find(module => module.type === "kick")}
+          pathname="/dashboard/develop/moderation/kick"
           image={kickUserImage}
         />
       </GridContainer>

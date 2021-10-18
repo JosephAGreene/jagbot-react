@@ -48,39 +48,8 @@ const styles = (theme) => ({
   },
 });
 
-function getPathname(moduleType) {
-  switch (moduleType) {
-    case "ban":
-      return "/dashboard/develop/moderation/ban";
-    case "help":
-      return "/dashboard/develop/moderation/help";
-    case "soft-ban":
-      return "/dashboard/develop/moderation/softban";
-    case "kick":
-      return "/dashboard/develop/moderation/kick";
-    case "ping":
-      return "/dashboard/develop/moderation/ping";
-    case "purge":
-      return "/dashboard/develop/moderation/purge";
-    case "auto-role":
-      return "/dashboard/develop/automoderation/autoroles";
-    case "invite-filter":
-      return "/dashboard/develop/automoderation/invitelinks";
-    case "word-filter":
-      return "/dashboard/develop/automoderation/bannedwords";
-    case "masscaps-filter":
-      return "/dashboard/develop/automoderation/masscaps";
-    case "massmentions-filter":
-      return "/dashboard/develop/automoderation/massmentions";
-    default:
-      return "/dashboard";
-  }
-}
-
 function ModerationPanel(props) {
-  const { classes, title, description, color, image, Icon, prefix, module } = props;
-
-  const pathname = getPathname(module.type);
+  const { classes, title, description, color, image, Icon, prefix, module, pathname } = props;
 
   return (
     <GridItem sm={12} md={6} lg={4} classes={{ root: classes.root }}>
