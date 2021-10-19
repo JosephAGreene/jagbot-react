@@ -70,7 +70,7 @@ function TitlePanel(props) {
 
   return (
     <GridContainer>
-      <GridItem sm={12}>
+      <GridItem xs={12} sm={12}>
         <Paper elevation={2} className={classes.paper} >
           <Hidden smUp>
             <div className={classes.title}>
@@ -83,7 +83,7 @@ function TitlePanel(props) {
                   : <Avatar className={classes.avatar} style={{ "color": color }} variant="rounded" component={Icon} />
                 }
               </GridItem>
-              <GridItem xs right>
+              <GridItem xs>
                 <div className={classes.description}>
                   {description}
                 </div>
