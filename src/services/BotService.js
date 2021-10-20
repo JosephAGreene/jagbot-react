@@ -93,6 +93,28 @@ class BotService {
       });
   }
 
+  updateBotPrefix(payload) {
+    return axios
+      .post(`${BOT}/update-prefix`,
+        {
+          ...payload
+        },
+        {
+          withCredentials: true
+        }
+      )
+      .then(response => {
+        return response;
+      })
+      .catch(error => {
+        if (error.response) {
+          return error.response;
+        } else {
+          return this.networkIssue;
+        }
+      });
+  }
+
 }
 
 export default new BotService();
