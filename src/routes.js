@@ -58,7 +58,7 @@ const routes = [
     path: 'develop',
     children: [
       { path: 'develop/modules', name: 'Modules', icon: <HomeIcon />, component: Modules },
-      { path: 'develop/settings', name: 'Settings', icon: <SettingsIcon />, component: Settings },
+      { path: 'develop/settings', name: 'Settings', icon: <SettingsIcon />, api: "bot", component: Settings },
     ]
   },
   {
