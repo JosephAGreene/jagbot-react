@@ -84,6 +84,7 @@ function CustomOutlinedInputDark(props) {
     multiline,
     rows,
     disabled,
+    labelProps,
     classes,
   } = props;
 
@@ -109,6 +110,7 @@ function CustomOutlinedInputDark(props) {
         type={type}
         name={name}
         inputProps={{...inputProps}}
+        InputLabelProps={{...labelProps}}
         label={labelText}
         error={error[name] ? true : false}
         variant="outlined"
