@@ -45,6 +45,123 @@ function isDifferent(originalValue, currentValue) {
   }
 }
 
+function UpdateName(props) {
+  const { botName, botId, setSelectedBot, setApiAlert } = props;
+  const classes = updateStyles();
+
+  const { register, handleSubmit, watch, reset, setError, formState: { errors } } = useForm({
+    resolver: joiResolver(
+      Joi.object({
+        name: Joi.string().trim().max(30).required()
+          .messages({
+            "string.empty": 'Bot name is required',
+            "string.max": "Bot's name cannot be greater than 30 characters",
+            "any.required": 'Bot name is required',
+          }),
+      })
+    ),
+    defaultValues: {
+      name: botName ? botName : "",
+    },
+  });
+
+  const currentName = watch("name");
+  const edited = isDifferent(botName, currentName);
+
+  const onSubmit = async (data) => {
+    const payload = {
+      botId: botId,
+      prefix: data.prefix
+    }
+    const res = await BotService.updateBotName(payload);
+
+    if (res.status === 200) {
+      setSelectedBot(res.data);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "success",
+        message: "Bot name has been updated!"
+      });
+    } else 
+
+    if (res.status === 409 && res.data === "duplicate prefix") {
+      setError("name", { type: "manual", message: "Another bot you own already has this name!" });
+    }
+
+    if (res.status === 429 && res.data === "name change limit") {
+      setError("name", { type: "manual", message: "You've been rate limited. Name changes are limited to 2 per hour." });
+    }
+  }
+
+  const resetField = () => {
+    reset();
+  }
+
+  return (
+    <Paper elevation={2} className={classes.paper} >
+      <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
+        <GridContainer justifyContent="flex-end" alignItems="center">
+          <GridItem xs={12}>
+            <OutlinedInput
+              labelText="Name"
+              description="Your bot's username"
+              id="name"
+              name="name"
+              formControlProps={{ fullWidth: true }}
+              inputProps={{ ...register("name"), maxLength: 30 }}
+              error={errors}
+              labelProps={{ shrink: true }}
+            />
+          </GridItem>
+          <GridItem right>
+            {edited
+              ?
+              <>
+                <Button
+                  onClick={resetField}
+                  variant="contained"
+                  color="orange"
+                  className={classes.button}
+                >
+                  Reset
+                </Button>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="purple"
+                  className={classes.button}
+                >
+                  Update
+                </Button>
+              </>
+              :
+              <>
+                <Button
+                  variant="contained"
+                  color="gray"
+                  disabled
+                  className={classes.button}
+                >
+                  Reset
+                </Button>
+                <Button
+                  variant="contained"
+                  color="gray"
+                  disabled
+                  className={classes.button}
+                >
+                  Update
+                </Button>
+              </>
+            }
+          </GridItem>
+        </GridContainer>
+      </form>
+    </Paper >
+  )
+}
+
 function UpdatePrefix(props) {
   const { botPrefix, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
@@ -83,11 +200,11 @@ function UpdatePrefix(props) {
         severity: "success",
         message: "Bot prefix has been updated!"
       });
-    } else 
+    } else
 
-    if (res.status === 409 && res.data === "duplicate prefix") {
-      setError("prefix", { type: "manual", message: "Another bot you own already has this prefix!" });
-    }
+      if (res.status === 409 && res.data === "duplicate prefix") {
+        setError("prefix", { type: "manual", message: "Another bot you own already has this prefix!" });
+      }
   }
 
   const resetField = () => {
@@ -100,15 +217,14 @@ function UpdatePrefix(props) {
         <GridContainer justifyContent="flex-end" alignItems="center">
           <GridItem xs={12}>
             <OutlinedInput
-              value={currentPrefix}
               labelText="Prefix"
               description="The prefix used to trigger bot commands."
               id="prefix"
               name="prefix"
               formControlProps={{ fullWidth: true }}
-              inputProps={{ ...register("prefix"), maxLength: 4}}
+              inputProps={{ ...register("prefix"), maxLength: 4 }}
               error={errors}
-              labelProps={{shrink: true}}
+              labelProps={{ shrink: true }}
             />
           </GridItem>
           <GridItem right>
@@ -169,6 +285,12 @@ function Settings(props) {
         description="Your bot's settings."
         image={settingsImage}
         docs={true}
+      />
+      <UpdateName
+        botName={selectedBot.name}
+        botId={selectedBot._id}
+        setSelectedBot={setSelectedBot}
+        setApiAlert={setApiAlert}
       />
       <UpdatePrefix
         botPrefix={selectedBot.prefix}
