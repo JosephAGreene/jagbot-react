@@ -71,7 +71,7 @@ function UpdateName(props) {
   const onSubmit = async (data) => {
     const payload = {
       botId: botId,
-      prefix: data.prefix
+      name: data.name,
     }
     const res = await BotService.updateBotName(payload);
 
@@ -83,14 +83,25 @@ function UpdateName(props) {
         severity: "success",
         message: "Bot name has been updated!"
       });
-    } else 
-
-    if (res.status === 409 && res.data === "duplicate prefix") {
-      setError("name", { type: "manual", message: "Another bot you own already has this name!" });
-    }
-
-    if (res.status === 429 && res.data === "name change limit") {
+    } else if (res.status === 429) {
       setError("name", { type: "manual", message: "You've been rate limited. Name changes are limited to 2 per hour." });
+    } else if (res.status === 418) {
+      setError("name", { type: "manual", message: "Bot's name cannot be changed while it is offline." });
+    } else if (res.status === "dead") {
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "error",
+        message: "Server is busy or offline. Try again later."
+      });
+    } else {
+      console.log(res.data);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "error",
+        message: "Something went wrong. Hint: Check the console!"
+      });
     }
   }
 
@@ -275,6 +286,132 @@ function UpdatePrefix(props) {
   )
 }
 
+function UpdateToken(props) {
+  const  { botToken, botId, setSelectedBot, setApiAlert } = props;
+  const classes = updateStyles();
+
+  const { register, handleSubmit, watch, reset, setError, formState: { errors } } = useForm({
+    resolver: joiResolver(
+      Joi.object({
+        token: Joi.string().trim().max(30).required()
+          .messages({
+            "string.empty": "Bot token is required",
+            "string.max": "Bot's token cannot be greater than 100 characters",
+            "any.required": 'Bot token is required',
+          }),
+      })
+    ),
+    defaultValues: {
+      token: botToken ? botToken : "",
+    },
+  });
+
+  const currentToken = watch("token");
+  const edited = isDifferent(botToken, currentToken);
+
+  const onSubmit = async (data) => {
+    const payload = {
+      botId: botId,
+      token: data.token,
+    }
+    const res = await BotService.updateBotToken(payload);
+
+    if (res.status === 200) {
+      setSelectedBot(res.data);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "success",
+        message: "Bot token has been updated!"
+      });
+    }  else if (res.status === 418) {
+      setError("name", { type: "manual", message: "Token is invalid!" });
+    } else if (res.status === "dead") {
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "error",
+        message: "Server is busy or offline. Try again later."
+      });
+    } else {
+      console.log(res.data);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "error",
+        message: "Something went wrong. Hint: Check the console!"
+      });
+    }
+  }
+
+  const resetField = () => {
+    reset();
+  }
+
+  return (
+    <Paper elevation={2} className={classes.paper} >
+      <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
+        <GridContainer justifyContent="flex-end" alignItems="center">
+          <GridItem xs={12}>
+            <OutlinedInput
+              labelText="Token"
+              description="Your bot's token"
+              id="token"
+              name="token"
+              formControlProps={{ fullWidth: true }}
+              inputProps={{ ...register("token"), type: "password", maxLength: 100 }}
+              error={errors}
+              labelProps={{ shrink: true }}
+            />
+          </GridItem>
+          <GridItem right>
+            {edited
+              ?
+              <>
+                <Button
+                  onClick={resetField}
+                  variant="contained"
+                  color="orange"
+                  className={classes.button}
+                >
+                  Reset
+                </Button>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="purple"
+                  className={classes.button}
+                >
+                  Update
+                </Button>
+              </>
+              :
+              <>
+                <Button
+                  variant="contained"
+                  color="gray"
+                  disabled
+                  className={classes.button}
+                >
+                  Reset
+                </Button>
+                <Button
+                  variant="contained"
+                  color="gray"
+                  disabled
+                  className={classes.button}
+                >
+                  Update
+                </Button>
+              </>
+            }
+          </GridItem>
+        </GridContainer>
+      </form>
+    </Paper >
+  )
+}
+
 function Settings(props) {
   const { selectedBot, setSelectedBot, setApiAlert } = props;
 
@@ -294,6 +431,12 @@ function Settings(props) {
       />
       <UpdatePrefix
         botPrefix={selectedBot.prefix}
+        botId={selectedBot._id}
+        setSelectedBot={setSelectedBot}
+        setApiAlert={setApiAlert}
+      />
+      <UpdateToken
+        botToken={selectedBot.botToken}
         botId={selectedBot._id}
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}
