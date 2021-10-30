@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 // Import layouts
 import ContentWrapper from '../../layouts/ContentWrapper';
@@ -332,5 +333,12 @@ function Announcements(props) {
     </ContentWrapper>
   );
 }
+
+Announcements.propTypes = {
+  classes: PropTypes.object.isRequired,
+  selectedBot: PropTypes.object.isRequired,
+  setSelectedBot: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
+};
 
 export default withStyles(styles)(Announcements);
