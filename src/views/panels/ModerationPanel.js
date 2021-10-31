@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 // Import MUI components
 import { withStyles } from '@material-ui/core/styles';
@@ -101,13 +101,16 @@ function ModerationPanel(props) {
   );
 }
 
-// AutoModerationPanel.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   description: PropTypes.string.isRequired,
-//   path: PropTypes.string.isRequired,
-//   Icon: PropTypes.elementType,
-//   image: PropTypes.string,
-//   color: PropTypes.string,
-// };
+ModerationPanel.propTypes = {
+  classes: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  pathName: PropTypes.string.isRequired,
+  prefix: PropTypes.string.isRequired,
+  module: PropTypes.object.isRequired,
+  Icon: PropTypes.elementType,
+  image: PropTypes.string,
+  color: PropTypes.string,
+};
 
 export default withStyles(styles)(ModerationPanel);
