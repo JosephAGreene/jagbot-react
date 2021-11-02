@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 // Import react-hook-form
 import { useForm } from 'react-hook-form';
@@ -445,6 +446,10 @@ function Settings(props) {
   );
 }
 
-
+Settings.propTypes = {
+  setSelectedBot: PropTypes.func.isRequired,
+  selectedBot: PropTypes.object.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
+};
 
 export default Settings;
