@@ -294,7 +294,7 @@ function UpdateToken(props) {
   const { register, handleSubmit, watch, reset, setError, formState: { errors } } = useForm({
     resolver: joiResolver(
       Joi.object({
-        token: Joi.string().trim().max(30).required()
+        token: Joi.string().trim().max(100).required()
           .messages({
             "string.empty": "Bot token is required",
             "string.max": "Bot's token cannot be greater than 100 characters",
@@ -326,7 +326,7 @@ function UpdateToken(props) {
         message: "Bot token has been updated!"
       });
     }  else if (res.status === 418) {
-      setError("name", { type: "manual", message: "Token is invalid!" });
+      setError("token", { type: "manual", message: res.data });
     } else if (res.status === "dead") {
       setApiAlert({
         status: true,
@@ -448,7 +448,10 @@ function Settings(props) {
 
 Settings.propTypes = {
   setSelectedBot: PropTypes.func.isRequired,
-  selectedBot: PropTypes.object.isRequired,
+  selectedBot: PropTypes.oneOfType([
+    PropTypes.object.isRequired,
+    PropTypes.bool.isRequired,
+  ]),
   setApiAlert: PropTypes.func.isRequired,
 };
 
