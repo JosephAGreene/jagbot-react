@@ -573,6 +573,14 @@ function UpdateStatus(props) {
   )
 }
 
+UpdateStatus.propTypes = {
+  botStatusType: PropTypes.string.isRequired,
+  botStatusName: PropTypes.string.isRequired,
+  botId: PropTypes.string.isRequired,
+  setSelectedBot: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
+};
+
 function Settings(props) {
   const { selectedBot, setSelectedBot, setApiAlert } = props;
 
