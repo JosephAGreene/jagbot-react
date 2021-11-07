@@ -22,6 +22,7 @@ import GridContainer from '../../components/grid/GridContainer';
 import GridItem from '../../components/grid/GridItem';
 import Button from '../../components/buttons/Button';
 import OutlinedInput from '../../components/inputs/OutlinedInputDark';
+import ControlledSelect from '../../components/inputs/ControlledSelect.js';
 
 // Import images
 import settingsImage from '../../assets/images/settings.png';
@@ -36,6 +37,16 @@ const updateStyles = makeStyles((theme) => ({
   button: {
     marginLeft: theme.spacing(1),
   }
+}));
+
+const settingsStyles = makeStyles((theme) => ({
+  categoryHeader: {
+    marginTop: theme.spacing(6),
+    marginBottom: theme.spacing(2),
+    marginLeft: theme.spacing(1),
+    color: theme.palette.white.dark,
+    fontSize: 24,
+  },
 }));
 
 function isDifferent(originalValue, currentValue) {
@@ -438,7 +449,7 @@ function UpdateStatus(props) {
   const { botStatusType, botStatusName, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
 
-  const { register, handleSubmit, watch, reset, setError, formState: { errors } } = useForm({
+  const { register, handleSubmit, watch, reset, control, setError, formState: { errors } } = useForm({
     resolver: joiResolver(
       Joi.object({
         statusType: Joi.string().trim().valid('none', 'playing', 'streaming', 'listening', 'watching', 'competing').required()
@@ -504,23 +515,32 @@ function UpdateStatus(props) {
       <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
         <GridContainer justifyContent="flex-end" alignItems="center">
           <GridItem xs={12}>
+            <ControlledSelect
+              name="statusType"
+              description="Your bot's status type"
+              id="statusType"
+              label="Type"
+              labelId="type-select-label"
+              defaultValue=""
+              items={[
+                { value: "none", name: "none" },
+                { value: "playing", name: "playing" },
+                { value: "streaming", name: "streaming" },
+                { value: "listening", name: "listening" },
+                { value: "watching", name: "watching" },
+                { value: "competing", name: "competing" },
+                { value: 'invalid', name: "invalid" },
+              ]}
+              control={control}
+              error={errors}
+            />
             <OutlinedInput
               labelText="Activity"
-              description="Your bot's activity text"
+              description="Your bot's status text"
               id="statusName"
               name="statusName"
               formControlProps={{ fullWidth: true }}
               inputProps={{ ...register("statusName"), maxLength: 30 }}
-              error={errors}
-              labelProps={{ shrink: true }}
-            />
-            <OutlinedInput
-              labelText="Type"
-              description="Your bot's activity type"
-              id="statusType"
-              name="statusType"
-              formControlProps={{ fullWidth: true }}
-              inputProps={{ ...register("statusType"), maxLength: 30 }}
               error={errors}
               labelProps={{ shrink: true }}
             />
@@ -583,6 +603,7 @@ UpdateStatus.propTypes = {
 
 function Settings(props) {
   const { selectedBot, setSelectedBot, setApiAlert } = props;
+  const classes = settingsStyles();
 
   return (
     <ContentWrapper>
@@ -592,6 +613,9 @@ function Settings(props) {
         image={settingsImage}
         docs={true}
       />
+      <div className={classes.categoryHeader}>
+        General Settings
+      </div>
       <UpdateName
         botName={selectedBot.name}
         botId={selectedBot._id}
@@ -604,15 +628,18 @@ function Settings(props) {
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}
       />
-      <UpdateToken
-        botToken={selectedBot.botToken}
+      <UpdateStatus
+        botStatusType={selectedBot.botStatusType ? selectedBot.botStatusType : ""}
+        botStatusName={selectedBot.botStatusName ? selectedBot.botStatusName : ""}
         botId={selectedBot._id}
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}
       />
-      <UpdateStatus
-        botStatusType={selectedBot.botStatusType ? selectedBot.botStatusType : ""}
-        botStatusName={selectedBot.botStatusName ? selectedBot.botStatusName: ""}
+      <div className={classes.categoryHeader}>
+        Application Settings
+      </div>
+      <UpdateToken
+        botToken={selectedBot.botToken}
         botId={selectedBot._id}
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}
