@@ -137,28 +137,6 @@ class BotService {
       });
   }
 
-  updateBotPresence(payload) {
-    return axios
-      .post(`${BOT}/update-presence`,
-        {
-          ...payload
-        },
-        {
-          withCredentials: true
-        }
-      )
-      .then(response => {
-        return response;
-      })
-      .catch(error => {
-        if (error.response) {
-          return error.response;
-        } else {
-          return this.networkIssue;
-        }
-      });
-  }
-
   updateBotToken(payload) {
     return axios
       .post(`${BOT}/update-token`,
