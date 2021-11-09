@@ -445,69 +445,81 @@ UpdateToken.propTypes = {
   setApiAlert: PropTypes.func.isRequired,
 };
 
-function UpdateStatus(props) {
-  const { botStatusType, botStatusName, botId, setSelectedBot, setApiAlert } = props;
+function UpdateActivity(props) {
+  const { botActivityType, botActivityText, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
 
   const { register, handleSubmit, watch, reset, control, setError, formState: { errors } } = useForm({
     resolver: joiResolver(
       Joi.object({
-        statusType: Joi.string().trim().valid('none', 'playing', 'streaming', 'listening', 'watching', 'competing').required()
+        activityType: Joi.string().trim().valid('none', 'playing', 'streaming', 'listening', 'watching', 'competing').required()
           .messages({
             "string.empty": 'Activity type is required ("None" is valid)',
             "any.required": 'Activity type is required ("None" is valid)',
           }),
-        statusName: Joi.string().trim().max(30),
+        activityText: Joi.when('activityType', {
+          is: Joi.string().trim().valid("none"),
+          then: Joi.string().allow('').trim().max(30).optional(),
+          otherwise: Joi.string().trim().max(30),
+        })
+          .messages({
+            "string.empty": 'Activity name is required',
+            "string.max": 'Activity name cannot be greater than 30 characters',
+            "any.required": 'Activity name property is required',
+          }),
       })
     ),
     defaultValues: {
-      statusType: botStatusType ? botStatusType : "none",
-      statusName: botStatusName ? botStatusName : "",
+      activityType: botActivityType,
+      activityText: botActivityText,
     },
   });
 
-  const currentStatusType = watch("statusType");
-  const currentStatusName = watch("statusName");
-  const edited = isDifferent(botStatusType, currentStatusType) || isDifferent(botStatusName, currentStatusName);
+  const currentActivityType = watch("activityType");
+  const currentActivityText = watch("activityText");
+  const edited = isDifferent(botActivityType, currentActivityType) || isDifferent(botActivityText, currentActivityText);
 
   const onSubmit = async (data) => {
-    console.log(data);
-    // const payload = {
-    //   botId: botId,
-    //   token: data.token,
-    // }
-    // const res = await BotService.updateBotToken(payload);
+    const payload = {
+      botId: botId,
+      activityType: data.activityType,
+      activityText: data.activityText,
+    }
+    const res = await BotService.updateBotActivity(payload);
 
-    // if (res.status === 200) {
-    //   setSelectedBot(res.data);
-    //   setApiAlert({
-    //     status: true,
-    //     duration: 2500,
-    //     severity: "success",
-    //     message: "Bot token has been updated!"
-    //   });
-    // }  else if (res.status === 418) {
-    //   setError("token", { type: "manual", message: res.data });
-    // } else if (res.status === "dead") {
-    //   setApiAlert({
-    //     status: true,
-    //     duration: 2500,
-    //     severity: "error",
-    //     message: "Server is busy or offline. Try again later."
-    //   });
-    // } else {
-    //   console.log(res.data);
-    //   setApiAlert({
-    //     status: true,
-    //     duration: 2500,
-    //     severity: "error",
-    //     message: "Something went wrong. Hint: Check the console!"
-    //   });
-    // }
+    if (res.status === 200) {
+      setSelectedBot(res.data);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "success",
+        message: "Bot activity has been updated!"
+      });
+    } else if (res.status === 418) {
+      setError("activityText", { type: "manual", message: res.data });
+    } else if (res.status === "dead") {
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "error",
+        message: "Server is busy or offline. Try again later."
+      });
+    } else {
+      console.log(res.data);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "error",
+        message: "Something went wrong. Hint: Check the console!"
+      });
+    }
   }
 
   const resetField = () => {
-    reset();
+    reset({
+      activityType: botActivityType,
+      activityText: botActivityText,
+    });
   }
 
   return (
@@ -516,9 +528,9 @@ function UpdateStatus(props) {
         <GridContainer justifyContent="flex-end" alignItems="center">
           <GridItem xs={12}>
             <ControlledSelect
-              name="statusType"
-              description="Your bot's status type"
-              id="statusType"
+              name="activityType"
+              description="Your bot's activity type (Select 'none' to remove current activity)"
+              id="activityType"
               label="Type"
               labelId="type-select-label"
               defaultValue=""
@@ -529,18 +541,17 @@ function UpdateStatus(props) {
                 { value: "listening", name: "listening" },
                 { value: "watching", name: "watching" },
                 { value: "competing", name: "competing" },
-                { value: 'invalid', name: "invalid" },
               ]}
               control={control}
               error={errors}
             />
             <OutlinedInput
-              labelText="Activity"
-              description="Your bot's status text"
-              id="statusName"
-              name="statusName"
+              labelText="Activity name"
+              description="The name of your bot's activity"
+              id="activityText"
+              name="activityText"
               formControlProps={{ fullWidth: true }}
-              inputProps={{ ...register("statusName"), maxLength: 30 }}
+              inputProps={{ ...register("activityText"), maxLength: 30 }}
               error={errors}
               labelProps={{ shrink: true }}
             />
@@ -593,9 +604,9 @@ function UpdateStatus(props) {
   )
 }
 
-UpdateStatus.propTypes = {
-  botStatusType: PropTypes.string.isRequired,
-  botStatusName: PropTypes.string.isRequired,
+UpdateActivity.propTypes = {
+  botActivityType: PropTypes.string.isRequired,
+  botActivityText: PropTypes.string.isRequired,
   botId: PropTypes.string.isRequired,
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
@@ -628,9 +639,9 @@ function Settings(props) {
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}
       />
-      <UpdateStatus
-        botStatusType={selectedBot.botStatusType ? selectedBot.botStatusType : ""}
-        botStatusName={selectedBot.botStatusName ? selectedBot.botStatusName : ""}
+      <UpdateActivity
+        botActivityType={selectedBot.activityType}
+        botActivityText={selectedBot.activityText}
         botId={selectedBot._id}
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}
