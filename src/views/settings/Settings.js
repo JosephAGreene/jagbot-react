@@ -452,7 +452,7 @@ function UpdateActivity(props) {
   const { register, handleSubmit, watch, reset, control, setError, formState: { errors } } = useForm({
     resolver: joiResolver(
       Joi.object({
-        activityType: Joi.string().trim().valid('none', 'playing', 'streaming', 'listening', 'watching', 'competing').required()
+        activityType: Joi.string().trim().valid('none', 'playing', 'listening', 'watching', 'competing').required()
           .messages({
             "string.empty": 'Activity type is required ("None" is valid)',
             "any.required": 'Activity type is required ("None" is valid)',
@@ -537,7 +537,6 @@ function UpdateActivity(props) {
               items={[
                 { value: "none", name: "none" },
                 { value: "playing", name: "playing" },
-                { value: "streaming", name: "streaming" },
                 { value: "listening", name: "listening" },
                 { value: "watching", name: "watching" },
                 { value: "competing", name: "competing" },
