@@ -449,7 +449,7 @@ function UpdateActivity(props) {
   const { botActivityType, botActivityText, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
 
-  const { register, handleSubmit, watch, reset, control, setError, formState: { errors } } = useForm({
+  const { register, handleSubmit, watch, reset, control, setError, formState: { isSubmitSuccessful, errors } } = useForm({
     resolver: joiResolver(
       Joi.object({
         activityType: Joi.string().trim().valid('none', 'playing', 'listening', 'watching', 'competing').required()
@@ -478,6 +478,24 @@ function UpdateActivity(props) {
   const currentActivityType = watch("activityType");
   const currentActivityText = watch("activityText");
   const edited = isDifferent(botActivityType, currentActivityType) || isDifferent(botActivityText, currentActivityText);
+
+  // Memoized with useCallback so that the function maybe be used
+  // in conjuction with useEffect in order to maintain updated values for 
+  // botActivityType and botActivityText without forcing unceccessary re-renders.
+  const resetFields = React.useCallback(() => {
+    reset({
+      activityType: botActivityType,
+      activityText: botActivityText,
+    });
+  }, [botActivityType, botActivityText, reset]);
+
+  // useEffect required in order to reset field values once setSelectedBot
+  // has been called on submission.
+  React.useEffect(() => {
+    if(isSubmitSuccessful) {
+      resetFields();
+    }
+  }, [isSubmitSuccessful, resetFields])
 
   const onSubmit = async (data) => {
     const payload = {
@@ -515,13 +533,6 @@ function UpdateActivity(props) {
     }
   }
 
-  const resetField = () => {
-    reset({
-      activityType: botActivityType,
-      activityText: botActivityText,
-    });
-  }
-
   return (
     <Paper elevation={2} className={classes.paper} >
       <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
@@ -535,11 +546,11 @@ function UpdateActivity(props) {
               labelId="type-select-label"
               defaultValue=""
               items={[
-                { value: "none", name: "none" },
-                { value: "playing", name: "playing" },
-                { value: "listening", name: "listening" },
-                { value: "watching", name: "watching" },
-                { value: "competing", name: "competing" },
+                { value: "none", name: "None" },
+                { value: "playing", name: "Playing" },
+                { value: "listening", name: "Listening" },
+                { value: "watching", name: "Watching" },
+                { value: "competing", name: "Competing" },
               ]}
               control={control}
               error={errors}
@@ -560,7 +571,7 @@ function UpdateActivity(props) {
               ?
               <>
                 <Button
-                  onClick={resetField}
+                  onClick={resetFields}
                   variant="contained"
                   color="orange"
                   className={classes.button}
