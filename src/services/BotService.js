@@ -181,6 +181,28 @@ class BotService {
       });
   }
 
+  updateBotActive(payload) {
+    return axios
+      .post(`${BOT}/update-active`,
+        {
+          ...payload
+        },
+        {
+          withCredentials: true
+        }
+      )
+      .then(response => {
+        return response;
+      })
+      .catch(error => {
+        if (error.response) {
+          return error.response;
+        } else {
+          return this.networkIssue;
+        }
+      });
+  }
+
 }
 
 export default new BotService();
