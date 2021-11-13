@@ -181,9 +181,9 @@ class BotService {
       });
   }
 
-  updateBotActive(payload) {
+  updateBotStatus(payload) {
     return axios
-      .post(`${BOT}/update-active`,
+      .post(`${BOT}/update-status`,
         {
           ...payload
         },
