@@ -39,6 +39,28 @@ const updateStyles = makeStyles((theme) => ({
   }
 }));
 
+const updateActiveStyles = makeStyles((theme) => ({
+  paper: {
+    padding: "20px",
+    marginBottom: theme.spacing(3),
+    backgroundColor: theme.palette.gray.main,
+  },
+  button: {
+    marginLeft: theme.spacing(1),
+  },
+  command: {
+    fontSize: 18,
+    letterSpacing: 0.5,
+    color: theme.palette.white.main,
+  },
+  online: {
+    color: theme.palette.success.main,
+  },
+  offline: {
+    color: theme.palette.error.main,
+  }
+}));
+
 const settingsStyles = makeStyles((theme) => ({
   categoryHeader: {
     marginTop: theme.spacing(6),
@@ -492,7 +514,7 @@ function UpdateActivity(props) {
   // useEffect required in order to reset field values once setSelectedBot
   // has been called on submission.
   React.useEffect(() => {
-    if(isSubmitSuccessful) {
+    if (isSubmitSuccessful) {
       resetFields();
     }
   }, [isSubmitSuccessful, resetFields])
@@ -622,6 +644,95 @@ UpdateActivity.propTypes = {
   setApiAlert: PropTypes.func.isRequired,
 };
 
+function UpdateStatus(props) {
+  const { botStatus, botId, setSelectedBot, setApiAlert } = props;
+  const classes = updateActiveStyles();
+
+  const updateStatus = async (enabled) => {
+    const payload = {
+      botId: botId,
+      enabled: enabled, 
+    }
+    const res = await BotService.updateBotStatus(payload);
+    
+    if (res.status === 200) {
+      setSelectedBot(res.data);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "success",
+        message: enabled ? "Bot has been restarted!" : "Bot has been stopped!",
+      });
+    } else if (res.status === 418) {
+      setApiAlert({
+        status: true,
+        duration: 4000,
+        severity: "error",
+        message: res.data,
+      });
+    } else if (res.status === "dead") {
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "error",
+        message: "Server is busy or offline. Try again later."
+      });
+    } else {
+      console.log(res.data);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "error",
+        message: "Something went wrong. Hint: Check the console!"
+      });
+    }
+  }
+
+  return (
+    <Paper elevation={2} className={classes.paper} >
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={8} lg={8}>
+          <div className={classes.command}>
+            Bot Status
+          </div>
+          <div className={botStatus ? classes.online : classes.offline}>
+            {botStatus ? 'Online' : 'Offline'}
+          </div>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={4} lg={4} right>
+          {botStatus
+            ?
+            <Button
+              onClick={() => updateStatus(false)}
+              variant="contained"
+              color="danger"
+              className={classes.button}
+            >
+              Stop
+            </Button>
+            :
+            <Button
+              onClick={() => updateStatus(true)}
+              variant="contained"
+              color="teal"
+              className={classes.button}
+            >
+              Restart
+            </Button>
+          }
+        </GridItem>
+      </GridContainer>
+    </Paper >
+  )
+}
+
+UpdateStatus.propTypes = {
+  botStatus: PropTypes.bool.isRequired,
+  botId: PropTypes.string.isRequired,
+  setSelectedBot: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
+};
+
 function Settings(props) {
   const { selectedBot, setSelectedBot, setApiAlert } = props;
   const classes = settingsStyles();
@@ -661,6 +772,12 @@ function Settings(props) {
       </div>
       <UpdateToken
         botToken={selectedBot.botToken}
+        botId={selectedBot._id}
+        setSelectedBot={setSelectedBot}
+        setApiAlert={setApiAlert}
+      />
+      <UpdateStatus
+        botStatus={selectedBot.status}
         botId={selectedBot._id}
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}
