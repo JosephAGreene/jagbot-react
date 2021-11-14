@@ -196,6 +196,7 @@ function CustomCommandOptioned (props) {
       <TitlePanel 
         title="Optioned Responses"
         description="A single command with a supplied option keyword, for which a range of multiple responses can be returned."
+        listItems={["Max 50 options"]}
         Icon={TiMessages}
         docs={true}
         color="#de8f4d"

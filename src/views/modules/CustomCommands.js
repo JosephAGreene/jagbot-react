@@ -198,7 +198,7 @@ function CustomCommands(props) {
       <TitlePanel
         title="Custom Commands"
         description="Assign custom commands to make your bot unique."
-        listItems={["100 custom commands MAX"]}
+        listItems={["Max 50 custom commands"]}
         Icon={FiCommand}
         docs={true}
         color="#F45142"

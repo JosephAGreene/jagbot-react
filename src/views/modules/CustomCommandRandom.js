@@ -199,6 +199,7 @@ function CustomCommandRandom (props) {
       <TitlePanel 
         title="Random Response"
         description="A single command that returns a randomly choosen response from a list of potential responses."
+        listItems={["Max 50 responses"]}
         docs={true}
         Icon={GiPerspectiveDiceSixFacesRandom}
         color="#c678DD"
