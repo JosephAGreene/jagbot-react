@@ -36,22 +36,14 @@ const updateStyles = makeStyles((theme) => ({
   },
   button: {
     marginLeft: theme.spacing(1),
-  }
-}));
-
-const updateActiveStyles = makeStyles((theme) => ({
-  paper: {
-    padding: "20px",
-    marginBottom: theme.spacing(3),
-    backgroundColor: theme.palette.gray.main,
   },
-  button: {
-    marginLeft: theme.spacing(1),
-  },
-  command: {
+  heading: {
     fontSize: 18,
     letterSpacing: 0.5,
     color: theme.palette.white.main,
+  },
+  content: {
+    color: theme.palette.white.dark,
   },
   online: {
     color: theme.palette.success.main,
@@ -60,6 +52,7 @@ const updateActiveStyles = makeStyles((theme) => ({
     color: theme.palette.error.main,
   }
 }));
+
 
 const settingsStyles = makeStyles((theme) => ({
   categoryHeader: {
@@ -646,15 +639,15 @@ UpdateActivity.propTypes = {
 
 function UpdateStatus(props) {
   const { botStatus, botId, setSelectedBot, setApiAlert } = props;
-  const classes = updateActiveStyles();
+  const classes = updateStyles();
 
   const updateStatus = async (enabled) => {
     const payload = {
       botId: botId,
-      enabled: enabled, 
+      enabled: enabled,
     }
     const res = await BotService.updateBotStatus(payload);
-    
+
     if (res.status === 200) {
       setSelectedBot(res.data);
       setApiAlert({
@@ -692,7 +685,7 @@ function UpdateStatus(props) {
     <Paper elevation={2} className={classes.paper} >
       <GridContainer>
         <GridItem xs={12} sm={12} md={8} lg={8}>
-          <div className={classes.command}>
+          <div className={classes.heading}>
             Bot Status
           </div>
           <div className={botStatus ? classes.online : classes.offline}>
@@ -728,6 +721,42 @@ function UpdateStatus(props) {
 
 UpdateStatus.propTypes = {
   botStatus: PropTypes.bool.isRequired,
+  botId: PropTypes.string.isRequired,
+  setSelectedBot: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
+};
+
+function DeleteBot(props) {
+  const { botId, setSelectedBot, setApiAlert } = props;
+  const classes = updateStyles();
+
+  return (
+    <Paper elevation={2} className={classes.paper} >
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={8} lg={8}>
+          <div className={classes.heading}>
+            Delete Bot
+          </div>
+          <div className={classes.content}>
+            Permanently delete this bot.
+          </div>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={4} lg={4} right>
+          <Button
+            onClick={() => console.log("deleted")}
+            variant="contained"
+            color="danger"
+            className={classes.button}
+          >
+            Delete Bot
+          </Button>
+        </GridItem>
+      </GridContainer>
+    </Paper >
+  )
+}
+
+DeleteBot.propTypes = {
   botId: PropTypes.string.isRequired,
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
@@ -778,6 +807,11 @@ function Settings(props) {
       />
       <UpdateStatus
         botStatus={selectedBot.status}
+        botId={selectedBot._id}
+        setSelectedBot={setSelectedBot}
+        setApiAlert={setApiAlert}
+      />
+      <DeleteBot
         botId={selectedBot._id}
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}
