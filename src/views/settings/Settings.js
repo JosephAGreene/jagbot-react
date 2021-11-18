@@ -22,7 +22,8 @@ import GridContainer from '../../components/grid/GridContainer';
 import GridItem from '../../components/grid/GridItem';
 import Button from '../../components/buttons/Button';
 import OutlinedInput from '../../components/inputs/OutlinedInputDark';
-import ControlledSelect from '../../components/inputs/ControlledSelect.js';
+import ControlledSelect from '../../components/inputs/ControlledSelect';
+import MinDialoag from '../../components/dialogs/MinDialog';
 
 // Import images
 import settingsImage from '../../assets/images/settings.png';
@@ -727,8 +728,9 @@ UpdateStatus.propTypes = {
 };
 
 function DeleteBot(props) {
-  const { botId, setSelectedBot, setApiAlert } = props;
+  const { botId, botName, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
+  const [open, setOpen] = React.useState(false);
 
   return (
     <Paper elevation={2} className={classes.paper} >
@@ -743,7 +745,7 @@ function DeleteBot(props) {
         </GridItem>
         <GridItem xs={12} sm={12} md={4} lg={4} right>
           <Button
-            onClick={() => console.log("deleted")}
+            onClick={() => setOpen(true)}
             variant="contained"
             color="danger"
             className={classes.button}
@@ -752,12 +754,47 @@ function DeleteBot(props) {
           </Button>
         </GridItem>
       </GridContainer>
+      <MinDialoag
+        open={open}
+        setOpen={setOpen}
+        keepMounted={false}
+      >
+        <div style={{ padding: "20px" }}>
+          <div className={classes.heading}>
+            You are about to delete the following bot:
+          </div>
+          <div className={classes.content} style={{marginBottom: "20px"}}>
+            {botName}
+          </div>
+          <GridContainer>
+            <GridItem xs={12} right>
+            <Button
+                onClick={() => setOpen(false)}
+                variant="contained"
+                color="danger"
+                className={classes.button}
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={() => console.log("deleted")}
+                variant="contained"
+                color="teal"
+                className={classes.button}
+              >
+                Confirm Deletion
+              </Button>
+            </GridItem>
+          </GridContainer>
+        </div>
+      </MinDialoag>
     </Paper >
   )
 }
 
 DeleteBot.propTypes = {
   botId: PropTypes.string.isRequired,
+  botName: PropTypes.string.isRequired,
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
 };
@@ -813,6 +850,7 @@ function Settings(props) {
       />
       <DeleteBot
         botId={selectedBot._id}
+        botName={selectedBot.name}
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}
       />
