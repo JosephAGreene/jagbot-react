@@ -203,15 +203,13 @@ class BotService {
       });
   }
 
-  deleteBot(payload) {
+  deleteBot(botId) {
     return axios
-    .delete(`${BOT}/bot`,
-      {
-        ...payload
+    .delete(`${BOT}/delete-bot`,
+      { 
+        data: { botId: botId},
+        withCredentials: true,
       },
-      {
-        withCredentials: true
-      }
     )
     .then(response => {
       return response;
