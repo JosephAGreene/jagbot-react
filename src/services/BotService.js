@@ -181,9 +181,9 @@ class BotService {
       });
   }
 
-  updateBotStatus(payload) {
+  updateBotEnabled(payload) {
     return axios
-      .post(`${BOT}/update-status`,
+      .post(`${BOT}/update-enabled`,
         {
           ...payload
         },

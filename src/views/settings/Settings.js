@@ -638,16 +638,18 @@ UpdateActivity.propTypes = {
   setApiAlert: PropTypes.func.isRequired,
 };
 
-function UpdateStatus(props) {
+// bot.enabled is the actual user requested state
+// bot.status is the actual server state of the bot
+function UpdateEnabled(props) {
   const { botStatus, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
 
-  const updateStatus = async (enabled) => {
+  const updateEnabled = async (enabled) => {
     const payload = {
       botId: botId,
       enabled: enabled,
     }
-    const res = await BotService.updateBotStatus(payload);
+    const res = await BotService.updateBotEnabled(payload);
 
     if (res.status === 200) {
       setSelectedBot(res.data);
@@ -697,7 +699,7 @@ function UpdateStatus(props) {
           {botStatus
             ?
             <Button
-              onClick={() => updateStatus(false)}
+              onClick={() => updateEnabled(false)}
               variant="contained"
               color="danger"
               className={classes.button}
@@ -706,7 +708,7 @@ function UpdateStatus(props) {
             </Button>
             :
             <Button
-              onClick={() => updateStatus(true)}
+              onClick={() => updateEnabled(true)}
               variant="contained"
               color="teal"
               className={classes.button}
@@ -720,7 +722,7 @@ function UpdateStatus(props) {
   )
 }
 
-UpdateStatus.propTypes = {
+UpdateEnabled.propTypes = {
   botStatus: PropTypes.bool.isRequired,
   botId: PropTypes.string.isRequired,
   setSelectedBot: PropTypes.func.isRequired,
@@ -731,6 +733,11 @@ function DeleteBot(props) {
   const { botId, botName, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
   const [open, setOpen] = React.useState(false);
+
+  const deleteBot = async () => {
+    const res = await BotService.deleteBot(botId);
+    console.log(res);
+  }
 
   return (
     <Paper elevation={2} className={classes.paper} >
@@ -777,7 +784,7 @@ function DeleteBot(props) {
                 Cancel
               </Button>
               <Button
-                onClick={() => console.log("deleted")}
+                onClick={deleteBot}
                 variant="contained"
                 color="teal"
                 className={classes.button}
@@ -842,7 +849,7 @@ function Settings(props) {
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}
       />
-      <UpdateStatus
+      <UpdateEnabled
         botStatus={selectedBot.status}
         botId={selectedBot._id}
         setSelectedBot={setSelectedBot}
