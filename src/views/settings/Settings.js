@@ -657,7 +657,7 @@ function UpdateEnabled(props) {
         status: true,
         duration: 2500,
         severity: "success",
-        message: enabled ? "Bot has been restarted!" : "Bot has been stopped!",
+        message: enabled ? "Bot has been enabled!" : "Bot has been disabled!",
       });
     } else if (res.status === 418) {
       setApiAlert({
@@ -704,7 +704,7 @@ function UpdateEnabled(props) {
               color="danger"
               className={classes.button}
             >
-              Stop
+              Disable
             </Button>
             :
             <Button
@@ -713,7 +713,7 @@ function UpdateEnabled(props) {
               color="teal"
               className={classes.button}
             >
-              Restart
+              Enable
             </Button>
           }
         </GridItem>
