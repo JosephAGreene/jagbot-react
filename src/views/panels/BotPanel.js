@@ -53,7 +53,7 @@ const styles = (theme) => ({
 
 function BotPanel(props) {
   const {classes, bot, onClick} = props;
-  const {name, creationDate, status, avatarURL} = bot;
+  const {name, creationDate, enabled, avatarURL} = bot;
 
   return (
     <GridItem sm={12} md={6} lg={4} classes={{root: classes.root}}>
@@ -88,7 +88,7 @@ function BotPanel(props) {
                 Status
               </div>
               <div className={classes.info}>
-                {status 
+                {enabled
                   ? <div className={classes.online}>online</div> 
                   : <div className={classes.offline}>offline</div>
                 }

@@ -641,7 +641,7 @@ UpdateActivity.propTypes = {
 // bot.enabled is the actual user requested state
 // bot.status is the actual server state of the bot
 function UpdateEnabled(props) {
-  const { botStatus, botId, setSelectedBot, setApiAlert } = props;
+  const { botEnabled, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
 
   const updateEnabled = async (enabled) => {
@@ -691,12 +691,12 @@ function UpdateEnabled(props) {
           <div className={classes.heading}>
             Bot Status
           </div>
-          <div className={botStatus ? classes.online : classes.offline}>
-            {botStatus ? 'Online' : 'Offline'}
+          <div className={botEnabled ? classes.online : classes.offline}>
+            {botEnabled ? 'Online' : 'Offline'}
           </div>
         </GridItem>
         <GridItem xs={12} sm={12} md={4} lg={4} right>
-          {botStatus
+          {botEnabled
             ?
             <Button
               onClick={() => updateEnabled(false)}
@@ -723,7 +723,7 @@ function UpdateEnabled(props) {
 }
 
 UpdateEnabled.propTypes = {
-  botStatus: PropTypes.bool.isRequired,
+  botEnabled: PropTypes.bool.isRequired,
   botId: PropTypes.string.isRequired,
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
@@ -850,7 +850,7 @@ function Settings(props) {
         setApiAlert={setApiAlert}
       />
       <UpdateEnabled
-        botStatus={selectedBot.status}
+        botEnabled={selectedBot.enabled}
         botId={selectedBot._id}
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}

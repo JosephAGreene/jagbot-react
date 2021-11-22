@@ -26,7 +26,7 @@ function Stash(props) {
       _id: bot._id,
       avatarURL: bot.avatarURL,
       name: bot.name,
-      status: bot.status,
+      enabled: bot.enabled,
     }
     const res = await BotService.checkoutBot(payload);
 
