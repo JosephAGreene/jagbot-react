@@ -14,19 +14,29 @@ const styles = (theme) => ({
       paddingLeft: "250px",
     },
   },
-  loadingMessage: {
+  progress: {
     textAlign: "center",
+  }, 
+  message: {
+    textAlign: "center",
+    fontSize: 18,
+    letterSpacing: 0.5,
+    marginTop: theme.spacing(1),
   }
 });
 
 function CircularBackdrop(props) {
-  const { classes, loading } = props;
+  const { classes, loading, message } = props;
 
   return (
     <Backdrop className={classes.backdrop} open={loading}>
-      <div className={classes.loadingMessage}>
+      <div className={classes.progress}>
         <CircularProgress size={50} color="inherit" />
+        <div className={classes.message}>
+        {message}
       </div>
+      </div>
+      
     </Backdrop>
   );
 }
@@ -34,6 +44,7 @@ function CircularBackdrop(props) {
 CircularBackdrop.propTypes = {
   classes: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
+  message: PropTypes.string,
 };
 
 export default withStyles(styles)(CircularBackdrop);
