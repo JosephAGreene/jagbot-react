@@ -17,11 +17,28 @@ import CircularBackdrop from '../components/progress/CircularBackdrop.js';
 import stashImage from '../assets/images/stash.png';
 
 function Stash(props) {
-  const { bots, handleBotSelection, setApiAlert } = props;
-  const [loading, setLoading] = React.useState(false);
+  const { handleBotSelection, setApiAlert } = props;
+  const [bots, setBots] = React.useState([]);
+  const [loading, setLoading] = React.useState({loading: false, message: ''});
+
+  React.useEffect(() => {
+    setLoading({loading: true, message: 'Grabbing stashed bots...'});
+    const getBotSummary = async () => {
+      const res = await BotService.getBotSummary();
+
+      if (res.status === 200) {
+        setBots(res.data);
+      } else {
+        console.log("No Bots!")
+      }
+    }
+
+    getBotSummary();
+    setLoading({loading: false, message: ''});
+  }, []);
 
   const selectBot = async (bot) => {
-    setLoading(true);
+    setLoading({loading: true, message: `Unpacking ${bot.name}`});
     const payload = {
       _id: bot._id,
       avatarURL: bot.avatarURL,
@@ -31,11 +48,11 @@ function Stash(props) {
     const res = await BotService.checkoutBot(payload);
 
     if (res.status === 200) {
-      setLoading(false);
+      setLoading({loading: false, message: ''});
       handleBotSelection(res.data);
     } else {
       console.log(res);
-      setLoading(false);
+      setLoading({loading: false, message: ''});
       setApiAlert({
         status: true,
         duration: 2500,
@@ -61,14 +78,14 @@ function Stash(props) {
               />
       })}
       </GridContainer>
-      <CircularBackdrop loading={loading} />
+      <CircularBackdrop loading={loading.loading} message={loading.message} />
     </ContentWrapper>
   );
 }
 
 Stash.propTypes = {
-  bots: PropTypes.array.isRequired,
   handleBotSelection: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
 };
 
 export default Stash;

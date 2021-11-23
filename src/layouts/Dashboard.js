@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 
 // Import API service
 import AuthService from "../services/AuthService.js";
-import BotService from "../services/BotService.js";
 
 // Import MUI components
 import { withStyles } from '@material-ui/core/styles';
@@ -66,7 +65,7 @@ const styles = (theme) => ({
 });
 
 // Returns react routes inside a switch based on routes.js routes
-function buildSwitchRoutes(bots, handleBotSelection, selectedBot, setSelectedBot, setApiAlert) {
+function buildSwitchRoutes(handleBotSelection, selectedBot, setSelectedBot, setApiAlert) {
   let routeArray = [];
 
   // Separate child routes from their parent into their own array
@@ -86,7 +85,7 @@ function buildSwitchRoutes(bots, handleBotSelection, selectedBot, setSelectedBot
             key={key}
           >
             {route.path === 'stash/mybots'
-              ? <route.component bots={bots} handleBotSelection={handleBotSelection} setApiAlert={setApiAlert} />
+              ? <route.component handleBotSelection={handleBotSelection} setApiAlert={setApiAlert} />
               : (route.api && route.api === "bot")
                 ? <route.component
                     selectedBot={selectedBot}
@@ -107,9 +106,8 @@ function Dashboard(props) {
   const { classes } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [user, setUser] = React.useState(null);
-  const [bots, setBots] = React.useState([]);
   const [selectedBot, setSelectedBot] = React.useState(false);
-  const [apiAlert, setApiAlert] = React.useState({ status: false, duration: 5000, severity: "success" });
+  const [apiAlert, setApiAlert] = React.useState({ status: false, duration: 2500, severity: "success" });
   const [logoutDialog, setLogoutDialog] = React.useState(false);
 
   const history = useHistory();
@@ -125,20 +123,8 @@ function Dashboard(props) {
       }
     }
 
-    const getBotSummary = async () => {
-      const res = await BotService.getBotSummary();
-
-      if (res.status === 200) {
-        setBots(res.data);
-      } else {
-        console.log("No Bots!")
-      }
-    }
-
     getCurrentUser();
-    getBotSummary();
   }, [history]);
-
 
 
   // Sets active path to the last sub directory. 
@@ -217,7 +203,7 @@ function Dashboard(props) {
       <div className={classes.app}>
         <Header onDrawerToggle={handleDrawerToggle} />
         <main className={classes.main}>
-          {buildSwitchRoutes(bots, handleBotSelection, selectedBot, setSelectedBot, setApiAlert)}
+          {buildSwitchRoutes(handleBotSelection, selectedBot, setSelectedBot, setApiAlert)}
         </main>
       </div>
       <Alert open={apiAlert.status} autoHideDuration={apiAlert.duration} onClose={apiAlertClose} severity={apiAlert.severity}>
