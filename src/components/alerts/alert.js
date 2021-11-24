@@ -1,14 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
+
+// Import Mui components
+import { withStyles } from '@material-ui/core/styles';
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 
-export default function Alert(props) {
-  const { open, autoHideDuration, onClose, severity } = props;
+const styles = (theme) => ({
+  alert: {
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: "250px",
+    },
+  },
+});
+function Alert(props) {
+  const { classes, open, autoHideDuration, onClose, severity } = props;
 
   return(
     <Snackbar open={open} autoHideDuration={autoHideDuration} onClose={onClose}>
-      <MuiAlert elevation={6} variant='filled' onClose={onClose} severity={severity}>
+      <MuiAlert className={classes.alert} elevation={6} variant='filled' onClose={onClose} severity={severity}>
         {props.children}
       </MuiAlert>
     </Snackbar>
@@ -16,8 +26,11 @@ export default function Alert(props) {
 }
 
 Alert.propTypes = {
+  classes: PropTypes.object.isRequired,
   open: PropTypes.bool.isRequired,
   autoHideDuration: PropTypes.number.isRequired,
   onClose: PropTypes.func.isRequired,
   severity: PropTypes.string.isRequired,
 };
+
+export default withStyles(styles)(Alert);
