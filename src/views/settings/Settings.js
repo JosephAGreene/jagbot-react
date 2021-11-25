@@ -638,8 +638,6 @@ UpdateActivity.propTypes = {
   setApiAlert: PropTypes.func.isRequired,
 };
 
-// bot.enabled is the actual user requested state
-// bot.status is the actual server state of the bot
 function UpdateEnabled(props) {
   const { botEnabled, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
@@ -736,7 +734,16 @@ function DeleteBot(props) {
 
   const deleteBot = async () => {
     const res = await BotService.deleteBot(botId);
-    console.log(res);
+    if (res.status === 200) {
+      const name = botName;
+      setSelectedBot(false);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "success",
+        message: `${name} bot has been deleted!`,
+      });
+    }
   }
 
   return (
