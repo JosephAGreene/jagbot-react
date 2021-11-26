@@ -4,12 +4,13 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 // Import custom components
+import TitlePanel from './panels/TitlePanel';
 import OutlinedInput from '../components/inputs/OutlinedInputDark';
 
 // Import layouts
 import ContentWrapper from '../layouts/ContentWrapper';
 
-function CreateBot() {
+function NewBot() {
   const { register, handleSubmit, formState:{ errors } } = useForm();
 
   const onSubmit = (data) => {
@@ -18,6 +19,11 @@ function CreateBot() {
 
   return (
     <ContentWrapper>
+      <TitlePanel 
+        title="Create New Bot"
+        description="This is where your bots are stashed. Take one to The Lab to teach it new tricks!"
+        //image={stashImage}
+      />
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
           <OutlinedInput
             labelText="E-Mail"
@@ -32,4 +38,4 @@ function CreateBot() {
   );
 }
 
-export default CreateBot;
+export default NewBot;

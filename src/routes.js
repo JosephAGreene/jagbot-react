@@ -13,7 +13,7 @@ import GavelIcon from '@material-ui/icons/Gavel';
 // Import Components
 import Stash from "./views/Stash.js";
 import Content from "./views/Content.js";
-import CreateBot from "./views/CreateBot.js";
+import NewBot from "./views/NewBot.js";
 import Settings from "./views/settings/Settings.js";
 import Modules from "./views/Modules.js";
 import CustomCommands from './views/modules/CustomCommands.js';
@@ -41,7 +41,7 @@ const routes = [
     path: 'stash',
     children: [
       { path: 'stash/mybots', name: 'Stashed Bots', icon: <FaRobot />, component: Stash },
-      { path: 'stash/createbot', name: 'Build New Bot', icon: <BuildIcon />, component: CreateBot},
+      { path: 'stash/newbot', name: 'Build New Bot', icon: <BuildIcon />, component: NewBot},
     ],
   },
   {
