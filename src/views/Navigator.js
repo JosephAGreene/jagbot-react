@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
@@ -95,14 +95,7 @@ function Navigator(props) {
           handleLogoutDialogOpen, 
           ...other } = props;
 
-  const history = useHistory();
-
   const bannedSubDirectory = (activeSubDirectory === 'develop') ? 'stash' : 'develop';
-
-  const handleBackToStash = () => {
-    history.push("/dashboard/stash/mybots");
-    setSelectedBot(false);
-  }
 
   return (
     <Drawer variant="permanent" onClick={other.onClose} {...other}>
@@ -127,7 +120,7 @@ function Navigator(props) {
           <React.Fragment>
             <ListItem 
               className={clsx(classes.item, classes.itemCategory)}
-              onClick={handleBackToStash}
+              onClick={() => setSelectedBot(false)}
               button
             >
               <ListItemIcon className={classes.itemIcon}>
