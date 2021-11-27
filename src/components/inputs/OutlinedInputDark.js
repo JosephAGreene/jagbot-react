@@ -80,6 +80,7 @@ function CustomOutlinedInputDark(props) {
     name,
     type,
     inputProps,
+    InputProps,
     error,
     multiline,
     rows,
@@ -110,6 +111,7 @@ function CustomOutlinedInputDark(props) {
         type={type}
         name={name}
         inputProps={{...inputProps}}
+        InputProps={{...InputProps}}
         InputLabelProps={{...labelProps}}
         label={labelText}
         error={error[name] ? true : false}
@@ -131,6 +133,7 @@ CustomOutlinedInputDark.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   inputProps: PropTypes.object,
+  InputProps: PropTypes.object,
   formControlProps: PropTypes.object,
   error: PropTypes.object,
   success: PropTypes.bool,
