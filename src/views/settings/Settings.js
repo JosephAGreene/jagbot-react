@@ -15,6 +15,7 @@ import ContentWrapper from '../../layouts/ContentWrapper';
 // Import MUI components
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
@@ -27,6 +28,10 @@ import MinDialoag from '../../components/dialogs/MinDialog';
 
 // Import images
 import settingsImage from '../../assets/images/settings.png';
+
+// Import icons
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 
 const updateStyles = makeStyles((theme) => ({
@@ -331,6 +336,7 @@ UpdatePrefix.propTypes = {
 function UpdateToken(props) {
   const { botToken, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
+  const [ visibility, setVisibility ] = React.useState(false);
 
   const { register, handleSubmit, watch, reset, setError, formState: { errors } } = useForm({
     resolver: joiResolver(
@@ -390,6 +396,10 @@ function UpdateToken(props) {
     reset();
   }
 
+  const toggleVisibility = () => {
+    setVisibility(!visibility);
+  }
+
   return (
     <Paper elevation={2} className={classes.paper} >
       <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
@@ -401,7 +411,14 @@ function UpdateToken(props) {
               id="token"
               name="token"
               formControlProps={{ fullWidth: true }}
-              inputProps={{ ...register("token"), type: "password", maxLength: 100 }}
+              inputProps={{ ...register("token"), type: (visibility ? "text" : "password"), maxLength: 100 }}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end" onClick={toggleVisibility} style={{cursor: "pointer",}}>
+                    {visibility ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                  </InputAdornment>
+                ),
+              }} 
               error={errors}
               labelProps={{ shrink: true }}
             />
