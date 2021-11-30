@@ -13,7 +13,7 @@ import TitlePanel from './panels/TitlePanel';
 import BotPanel from './panels/BotPanel';
 import CircularBackdrop from '../components/progress/CircularBackdrop.js';
 
-// Temporary flat image/icon for testing
+// Import images
 import stashImage from '../assets/images/stash.png';
 
 function Stash(props) {
