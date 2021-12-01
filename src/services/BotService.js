@@ -49,6 +49,28 @@ class BotService {
       });
   }
 
+  addNewBot(payload) {
+    return axios
+      .post(`${BOT}/add-new-bot`,
+        {
+          ...payload
+        },
+        {
+          withCredentials: true
+        }
+      )
+      .then(response => {
+        return response;
+      })
+      .catch(error => {
+        if (error.response) {
+          return error.response;
+        } else {
+          return this.networkIssue;
+        }
+      });
+  }
+
   getServerRoles(payload) {
     return axios
       .post(`${BOT}/server-roles`,
