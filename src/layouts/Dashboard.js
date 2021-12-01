@@ -86,13 +86,15 @@ function buildSwitchRoutes(handleBotSelection, selectedBot, setSelectedBot, setA
           >
             {route.path === 'stash/mybots'
               ? <route.component handleBotSelection={handleBotSelection} setApiAlert={setApiAlert} />
-              : (route.api && route.api === "bot")
-                ? <route.component
+              : (route.path === 'stash/newbot')
+                ? <route.component setApiAlert={setApiAlert} />
+                : (route.api && route.api === "bot")
+                  ? <route.component
                     selectedBot={selectedBot}
                     setSelectedBot={setSelectedBot}
                     setApiAlert={setApiAlert}
                   />
-                : <route.component />
+                  : <route.component />
             }
           </Route>
         );
