@@ -5,6 +5,7 @@ import clsx from 'clsx';
 // Import MUI components
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 // Converts from hex color to rgb color
 const hexToRgb = input => {
@@ -33,7 +34,7 @@ const hexToRgb = input => {
   );
 };
 
-const shadowModifier="#424242";
+const shadowModifier = "#424242";
 
 const styles = (theme) => ({
   button: {
@@ -112,13 +113,13 @@ const styles = (theme) => ({
     "&:hover,&:focus": {
       backgroundColor: theme.palette.primary.main,
       boxShadow:
-      "0px 2px 4px -1px rgba(" +
-      hexToRgb(theme.palette.primary.main) +
-      ", 0.42), 0px 4px 5px 0px rgba(" +
-      hexToRgb(shadowModifier) +
-      ", 0.12), 0px 1px 10px 0px rgba(" +
-      hexToRgb(theme.palette.primary.main) +
-      ", 0.2)"
+        "0px 2px 4px -1px rgba(" +
+        hexToRgb(theme.palette.primary.main) +
+        ", 0.42), 0px 4px 5px 0px rgba(" +
+        hexToRgb(shadowModifier) +
+        ", 0.12), 0px 1px 10px 0px rgba(" +
+        hexToRgb(theme.palette.primary.main) +
+        ", 0.2)"
     }
   },
   secondary: {
@@ -134,13 +135,13 @@ const styles = (theme) => ({
     "&:hover,&:focus": {
       backgroundColor: theme.palette.secondary.main,
       boxShadow:
-      "0px 2px 4px -1px rgba(" +
-      hexToRgb(theme.palette.secondary.main) +
-      ", 0.42), 0px 4px 5px 0px rgba(" +
-      hexToRgb(shadowModifier) +
-      ", 0.12), 0px 1px 10px 0px rgba(" +
-      hexToRgb(theme.palette.secondary.main) +
-      ", 0.2)"
+        "0px 2px 4px -1px rgba(" +
+        hexToRgb(theme.palette.secondary.main) +
+        ", 0.42), 0px 4px 5px 0px rgba(" +
+        hexToRgb(shadowModifier) +
+        ", 0.12), 0px 1px 10px 0px rgba(" +
+        hexToRgb(theme.palette.secondary.main) +
+        ", 0.2)"
     }
   },
   danger: {
@@ -156,13 +157,13 @@ const styles = (theme) => ({
     "&:hover,&:focus": {
       backgroundColor: theme.palette.error.dark,
       boxShadow:
-      "0px 2px 4px -1px rgba(" +
-      hexToRgb(theme.palette.error.dark) +
-      ", 0.42), 0px 4px 5px 0px rgba(" +
-      hexToRgb(shadowModifier) +
-      ", 0.12), 0px 1px 10px 0px rgba(" +
-      hexToRgb(theme.palette.error.dark) +
-      ", 0.2)"
+        "0px 2px 4px -1px rgba(" +
+        hexToRgb(theme.palette.error.dark) +
+        ", 0.42), 0px 4px 5px 0px rgba(" +
+        hexToRgb(shadowModifier) +
+        ", 0.12), 0px 1px 10px 0px rgba(" +
+        hexToRgb(theme.palette.error.dark) +
+        ", 0.2)"
     }
   },
   purple: {
@@ -178,13 +179,13 @@ const styles = (theme) => ({
     "&:hover,&:focus": {
       backgroundColor: theme.palette.purple.dark,
       boxShadow:
-      "0px 2px 4px -1px rgba(" +
-      hexToRgb(theme.palette.purple.dark) +
-      ", 0.42), 0px 4px 5px 0px rgba(" +
-      hexToRgb(shadowModifier) +
-      ", 0.12), 0px 1px 10px 0px rgba(" +
-      hexToRgb(theme.palette.purple.dark) +
-      ", 0.2)"
+        "0px 2px 4px -1px rgba(" +
+        hexToRgb(theme.palette.purple.dark) +
+        ", 0.42), 0px 4px 5px 0px rgba(" +
+        hexToRgb(shadowModifier) +
+        ", 0.12), 0px 1px 10px 0px rgba(" +
+        hexToRgb(theme.palette.purple.dark) +
+        ", 0.2)"
     }
   },
   teal: {
@@ -200,13 +201,13 @@ const styles = (theme) => ({
     "&:hover,&:focus": {
       backgroundColor: theme.palette.teal.dark,
       boxShadow:
-      "0px 2px 4px -1px rgba(" +
-      hexToRgb(theme.palette.teal.dark) +
-      ", 0.42), 0px 4px 5px 0px rgba(" +
-      hexToRgb(shadowModifier) +
-      ", 0.12), 0px 1px 10px 0px rgba(" +
-      hexToRgb(theme.palette.teal.dark) +
-      ", 0.2)"
+        "0px 2px 4px -1px rgba(" +
+        hexToRgb(theme.palette.teal.dark) +
+        ", 0.42), 0px 4px 5px 0px rgba(" +
+        hexToRgb(shadowModifier) +
+        ", 0.12), 0px 1px 10px 0px rgba(" +
+        hexToRgb(theme.palette.teal.dark) +
+        ", 0.2)"
     }
   },
   orange: {
@@ -222,13 +223,13 @@ const styles = (theme) => ({
     "&:hover,&:focus": {
       backgroundColor: theme.palette.orange.dark,
       boxShadow:
-      "0px 2px 4px -1px rgba(" +
-      hexToRgb(theme.palette.orange.dark) +
-      ", 0.42), 0px 4px 5px 0px rgba(" +
-      hexToRgb(shadowModifier) +
-      ", 0.12), 0px 1px 10px 0px rgba(" +
-      hexToRgb(theme.palette.orange.dark) +
-      ", 0.2)"
+        "0px 2px 4px -1px rgba(" +
+        hexToRgb(theme.palette.orange.dark) +
+        ", 0.42), 0px 4px 5px 0px rgba(" +
+        hexToRgb(shadowModifier) +
+        ", 0.12), 0px 1px 10px 0px rgba(" +
+        hexToRgb(theme.palette.orange.dark) +
+        ", 0.2)"
     }
   },
   gray: {
@@ -244,13 +245,13 @@ const styles = (theme) => ({
     "&:hover,&:focus": {
       backgroundColor: theme.palette.gray.dark,
       boxShadow:
-      "0px 2px 4px -1px rgba(" +
-      hexToRgb(theme.palette.gray.dark) +
-      ", 0.42), 0px 4px 5px 0px rgba(" +
-      hexToRgb(shadowModifier) +
-      ", 0.12), 0px 1px 10px 0px rgba(" +
-      hexToRgb(theme.palette.gray.dark) +
-      ", 0.2)"
+        "0px 2px 4px -1px rgba(" +
+        hexToRgb(theme.palette.gray.dark) +
+        ", 0.42), 0px 4px 5px 0px rgba(" +
+        hexToRgb(shadowModifier) +
+        ", 0.12), 0px 1px 10px 0px rgba(" +
+        hexToRgb(theme.palette.gray.dark) +
+        ", 0.2)"
     }
   },
   simple: {
@@ -323,6 +324,22 @@ const styles = (theme) => ({
       margin: 0,
     },
   },
+  progressRoot: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  progressWrapper: {
+    margin: theme.spacing(1),
+    position: 'relative',
+  },
+  progressCircle: {
+    color: theme.palette.white.main,
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginTop: -12,
+    marginLeft: -12,
+  },
 });
 
 function CustomButton(props) {
@@ -339,6 +356,8 @@ function CustomButton(props) {
     link,
     justIcon,
     className,
+    progress,
+    loading,
     ...rest
   } = props;
 
@@ -347,13 +366,26 @@ function CustomButton(props) {
     [classes[size]]: size,
     [classes[color]]: color,
     [classes.round]: round,
-    [classes.disabled]: disabled,
+    [classes.disabled]: disabled || loading,
     [classes.simple]: simple,
     [classes.block]: block,
     [classes.link]: link,
     [classes.justIcon]: justIcon,
     [className]: className
   });
+
+  if (progress) {
+    return (
+      <div className={classes.progressRoot}>
+        <div className={classes.progressWrapper}>
+          <Button className={btnClasses} {...rest}>
+            {children}
+          </Button>
+          {loading && <CircularProgress size={24} className={classes.progressCircle} />}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <Button className={btnClasses} {...rest}>
@@ -380,6 +412,8 @@ CustomButton.propTypes = {
   link: PropTypes.bool,
   justIcon: PropTypes.bool,
   className: PropTypes.string,
+  progress: PropTypes.bool,
+  loading: PropTypes.bool,
   children: PropTypes.node
 };
 
