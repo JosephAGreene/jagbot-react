@@ -213,6 +213,60 @@ UpdateName.propTypes = {
   setApiAlert: PropTypes.func.isRequired,
 };
 
+function UpdateAvatar(props) {
+  const { botId, setSelectedBot, setApiAlert } = props;
+  const classes = updateStyles();
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    defaultValues: {
+      avatar: "",
+    },
+  });
+
+  const onSubmit = async (data) => {
+    console.log(data);
+  }
+
+  return (
+    <Paper elevation={2} className={classes.paper} >
+      <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
+        <GridContainer justifyContent="flex-end" alignItems="center">
+          <GridItem xs={12}>
+            <OutlinedInput
+              labelText="New avatar"
+              description="Your bot's avatar"
+              id="avatar"
+              name="avatar"
+              formControlProps={{ fullWidth: true }}
+              inputProps={{...register("avatar")}}
+              error={errors}
+              labelProps={{ shrink: true }}
+              type="file"
+              display="none"
+            />
+          </GridItem>
+          <GridItem right>
+            <Button
+              type="submit"
+              variant="contained"
+              color="purple"
+              className={classes.button}
+            >
+              Update
+            </Button>
+          </GridItem>
+        </GridContainer>
+      </form>
+    </Paper >
+  )
+}
+
+UpdateAvatar.propTypes = {
+  botId: PropTypes.string.isRequired,
+  setSelectedBot: PropTypes.func.isRequired,
+  setApiAlert: PropTypes.func.isRequired,
+};
+
 function UpdatePrefix(props) {
   const { botPrefix, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
@@ -336,7 +390,7 @@ UpdatePrefix.propTypes = {
 function UpdateToken(props) {
   const { botToken, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
-  const [ visibility, setVisibility ] = React.useState(false);
+  const [visibility, setVisibility] = React.useState(false);
 
   const { register, handleSubmit, watch, reset, setError, formState: { errors } } = useForm({
     resolver: joiResolver(
@@ -414,11 +468,11 @@ function UpdateToken(props) {
               inputProps={{ ...register("token"), type: (visibility ? "text" : "password"), maxLength: 100 }}
               InputProps={{
                 endAdornment: (
-                  <InputAdornment position="end" onClick={toggleVisibility} style={{cursor: "pointer",}}>
+                  <InputAdornment position="end" onClick={toggleVisibility} style={{ cursor: "pointer", }}>
                     {visibility ? <VisibilityIcon /> : <VisibilityOffIcon />}
                   </InputAdornment>
                 ),
-              }} 
+              }}
               error={errors}
               labelProps={{ shrink: true }}
             />
@@ -794,12 +848,12 @@ function DeleteBot(props) {
           <div className={classes.heading}>
             You are about to delete the following bot:
           </div>
-          <div className={classes.content} style={{marginBottom: "20px"}}>
+          <div className={classes.content} style={{ marginBottom: "20px" }}>
             {botName}
           </div>
           <GridContainer>
             <GridItem xs={12} right>
-            <Button
+              <Button
                 onClick={() => setOpen(false)}
                 variant="contained"
                 color="danger"
@@ -847,6 +901,11 @@ function Settings(props) {
       </div>
       <UpdateName
         botName={selectedBot.name}
+        botId={selectedBot._id}
+        setSelectedBot={setSelectedBot}
+        setApiAlert={setApiAlert}
+      />
+      <UpdateAvatar 
         botId={selectedBot._id}
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}
