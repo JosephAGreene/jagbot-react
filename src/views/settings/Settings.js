@@ -217,14 +217,60 @@ function UpdateAvatar(props) {
   const { botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, reset, setError, formState: { errors } } = useForm({
+    resolver: joiResolver(
+      Joi.object({
+        avatar: Joi.custom((value, helper) => {
+          if (value[0] === undefined) {
+            return helper.message("Avatar must be an image file");
+          }
+          else if (value[0].size > 8000000) {
+            return helper.message("Avater must be less than 8mb");
+          } else {
+            return value;
+          }
+        })
+      })
+    ),
     defaultValues: {
       avatar: "",
     },
   });
 
   const onSubmit = async (data) => {
-    console.log(data);
+    const payload = {
+      botId: botId,
+      avatar: data.avatar[0],
+    }
+    const res = await BotService.updateBotAvatar(payload);
+
+    if (res.status === 200) {
+      setSelectedBot(res.data);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "success",
+        message: "Bot avatar has been updated!"
+      });
+      reset();
+    } else if (res.status === 418) {
+      setError("avatar", { type: "manual", message: res.data });
+    } else if (res.status === "dead") {
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "error",
+        message: "Server is busy or offline. Try again later."
+      });
+    } else {
+      console.log(res.data);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "error",
+        message: "Something went wrong. Hint: Check the console!"
+      });
+    }
   }
 
   return (
@@ -238,11 +284,10 @@ function UpdateAvatar(props) {
               id="avatar"
               name="avatar"
               formControlProps={{ fullWidth: true }}
-              inputProps={{...register("avatar")}}
+              inputProps={{ ...register("avatar") }}
               error={errors}
               labelProps={{ shrink: true }}
               type="file"
-              display="none"
             />
           </GridItem>
           <GridItem right>
@@ -305,11 +350,9 @@ function UpdatePrefix(props) {
         severity: "success",
         message: "Bot prefix has been updated!"
       });
-    } else
-
-      if (res.status === 409 && res.data === "duplicate prefix") {
-        setError("prefix", { type: "manual", message: "Another bot you own already has this prefix!" });
-      }
+    } else if (res.status === 409 && res.data === "duplicate prefix") {
+      setError("prefix", { type: "manual", message: "Another bot you own already has this prefix!" });
+    }
   }
 
   const resetField = () => {
@@ -905,7 +948,7 @@ function Settings(props) {
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}
       />
-      <UpdateAvatar 
+      <UpdateAvatar
         botId={selectedBot._id}
         setSelectedBot={setSelectedBot}
         setApiAlert={setApiAlert}
