@@ -159,6 +159,31 @@ class BotService {
       });
   }
 
+  updateBotAvatar(payload) {
+    let formData = new FormData();
+    formData.append('botId', payload.botId);
+    formData.append('avatar', payload.avatar);
+    return axios
+      .post(`${BOT}/update-avatar`, formData,
+        {
+          withCredentials: true
+        },
+        {
+          headers: { 'Content-Type': 'multipart/form-data' }
+        },
+      )
+      .then(response => {
+        return response;
+      })
+      .catch(error => {
+        if (error.response) {
+          return error.response;
+        } else {
+          return this.networkIssue;
+        }
+      });
+  }
+
   updateBotToken(payload) {
     return axios
       .post(`${BOT}/update-token`,
@@ -227,22 +252,22 @@ class BotService {
 
   deleteBot(botId) {
     return axios
-    .delete(`${BOT}/delete-bot`,
-      { 
-        data: { botId: botId},
-        withCredentials: true,
-      },
-    )
-    .then(response => {
-      return response;
-    })
-    .catch(error => {
-      if (error.response) {
-        return error.response;
-      } else {
-        return this.networkIssue;
-      }
-    });
+      .delete(`${BOT}/delete-bot`,
+        {
+          data: { botId: botId },
+          withCredentials: true,
+        },
+      )
+      .then(response => {
+        return response;
+      })
+      .catch(error => {
+        if (error.response) {
+          return error.response;
+        } else {
+          return this.networkIssue;
+        }
+      });
   }
 
 }
