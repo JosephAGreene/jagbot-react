@@ -82,7 +82,7 @@ function UpdateName(props) {
   const { botName, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
 
-  const { register, handleSubmit, watch, reset, setError, formState: { errors } } = useForm({
+  const { register, handleSubmit, watch, setValue, setError, formState: { errors } } = useForm({
     resolver: joiResolver(
       Joi.object({
         name: Joi.string().trim().max(30).required()
@@ -116,10 +116,8 @@ function UpdateName(props) {
         severity: "success",
         message: "Bot name has been updated!"
       });
-    } else if (res.status === 429) {
-      setError("name", { type: "manual", message: "You've been rate limited. Name changes are limited to 2 per hour." });
     } else if (res.status === 418) {
-      setError("name", { type: "manual", message: "Bot's name cannot be changed while it is offline." });
+      setError("name", { type: "manual", message: res.data });
     } else if (res.status === "dead") {
       setApiAlert({
         status: true,
@@ -139,7 +137,7 @@ function UpdateName(props) {
   }
 
   const resetField = () => {
-    reset();
+    setValue('name', botName, {shouldValidate: true});
   }
 
   return (
