@@ -81,6 +81,7 @@ function isDifferent(originalValue, currentValue) {
 function UpdateName(props) {
   const { botName, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
+  const [loading, setLoading] = React.useState(false);
 
   const { register, handleSubmit, watch, setValue, setError, formState: { errors } } = useForm({
     resolver: joiResolver(
@@ -102,6 +103,7 @@ function UpdateName(props) {
   const edited = isDifferent(botName, currentName);
 
   const onSubmit = async (data) => {
+    setLoading(true);
     const payload = {
       botId: botId,
       name: data.name,
@@ -134,10 +136,11 @@ function UpdateName(props) {
         message: "Something went wrong. Hint: Check the console!"
       });
     }
+    setLoading(false);
   }
 
   const resetField = () => {
-    setValue('name', botName, {shouldValidate: true});
+    setValue('name', botName, { shouldValidate: true });
   }
 
   return (
@@ -161,18 +164,20 @@ function UpdateName(props) {
               ?
               <>
                 <Button
+                  className={classes.button}
                   onClick={resetField}
                   variant="contained"
                   color="orange"
-                  className={classes.button}
+                  disabled={loading}
                 >
                   Reset
                 </Button>
                 <Button
+                  className={classes.button}
                   type="submit"
                   variant="contained"
                   color="purple"
-                  className={classes.button}
+                  loading={loading}
                 >
                   Update
                 </Button>
@@ -180,18 +185,18 @@ function UpdateName(props) {
               :
               <>
                 <Button
+                  className={classes.button}
                   variant="contained"
                   color="gray"
                   disabled
-                  className={classes.button}
                 >
                   Reset
                 </Button>
                 <Button
+                  className={classes.button}
                   variant="contained"
                   color="gray"
                   disabled
-                  className={classes.button}
                 >
                   Update
                 </Button>
@@ -313,8 +318,9 @@ UpdateAvatar.propTypes = {
 function UpdatePrefix(props) {
   const { botPrefix, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
+  const [loading, setLoading] = React.useState(false);
 
-  const { register, handleSubmit, watch, reset, setError, formState: { errors } } = useForm({
+  const { register, handleSubmit, watch, setValue, setError, formState: { errors } } = useForm({
     resolver: joiResolver(
       Joi.object({
         prefix: Joi.string().trim().max(4).required()
@@ -334,6 +340,7 @@ function UpdatePrefix(props) {
   const edited = isDifferent(botPrefix, currentPrefix);
 
   const onSubmit = async (data) => {
+    setLoading(true);
     const payload = {
       botId: botId,
       prefix: data.prefix
@@ -351,10 +358,11 @@ function UpdatePrefix(props) {
     } else if (res.status === 409 && res.data === "duplicate prefix") {
       setError("prefix", { type: "manual", message: "Another bot you own already has this prefix!" });
     }
+    setLoading(false);
   }
 
   const resetField = () => {
-    reset();
+    setValue('prefix', botPrefix, { shouldValidate: true });
   }
 
   return (
@@ -378,18 +386,20 @@ function UpdatePrefix(props) {
               ?
               <>
                 <Button
+                  className={classes.button}
                   onClick={resetField}
                   variant="contained"
                   color="orange"
-                  className={classes.button}
+                  disabled={loading}
                 >
                   Reset
                 </Button>
                 <Button
+                  className={classes.button}
                   type="submit"
                   variant="contained"
                   color="purple"
-                  className={classes.button}
+                  loading={loading}
                 >
                   Update
                 </Button>
@@ -397,18 +407,18 @@ function UpdatePrefix(props) {
               :
               <>
                 <Button
+                  className={classes.button}
                   variant="contained"
                   color="gray"
                   disabled
-                  className={classes.button}
                 >
                   Reset
                 </Button>
                 <Button
+                  className={classes.button}
                   variant="contained"
                   color="gray"
                   disabled
-                  className={classes.button}
                 >
                   Update
                 </Button>
@@ -431,9 +441,10 @@ UpdatePrefix.propTypes = {
 function UpdateToken(props) {
   const { botToken, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
+  const [loading, setLoading] = React.useState(false);
   const [visibility, setVisibility] = React.useState(false);
 
-  const { register, handleSubmit, watch, reset, setError, formState: { errors } } = useForm({
+  const { register, handleSubmit, watch, setValue, setError, formState: { errors } } = useForm({
     resolver: joiResolver(
       Joi.object({
         token: Joi.string().trim().max(100).required()
@@ -453,6 +464,7 @@ function UpdateToken(props) {
   const edited = isDifferent(botToken, currentToken);
 
   const onSubmit = async (data) => {
+    setLoading(true);
     const payload = {
       botId: botId,
       token: data.token,
@@ -485,10 +497,11 @@ function UpdateToken(props) {
         message: "Something went wrong. Hint: Check the console!"
       });
     }
+    setLoading(false);
   }
 
   const resetField = () => {
-    reset();
+    setValue('token', botToken, { shouldValidate: true });
   }
 
   const toggleVisibility = () => {
@@ -523,18 +536,20 @@ function UpdateToken(props) {
               ?
               <>
                 <Button
+                  className={classes.button}
                   onClick={resetField}
                   variant="contained"
                   color="orange"
-                  className={classes.button}
+                  disabled={loading}
                 >
                   Reset
                 </Button>
                 <Button
+                  className={classes.button}
                   type="submit"
                   variant="contained"
                   color="purple"
-                  className={classes.button}
+                  loading={loading}
                 >
                   Update
                 </Button>
@@ -542,18 +557,18 @@ function UpdateToken(props) {
               :
               <>
                 <Button
+                  className={classes.button}
                   variant="contained"
                   color="gray"
                   disabled
-                  className={classes.button}
                 >
                   Reset
                 </Button>
                 <Button
+                  className={classes.button}
                   variant="contained"
                   color="gray"
                   disabled
-                  className={classes.button}
                 >
                   Update
                 </Button>
@@ -576,6 +591,7 @@ UpdateToken.propTypes = {
 function UpdateActivity(props) {
   const { botActivityType, botActivityText, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
+  const [loading, setLoading] = React.useState(false);
 
   const { register, handleSubmit, watch, reset, control, setError, formState: { isSubmitSuccessful, errors } } = useForm({
     resolver: joiResolver(
@@ -626,6 +642,7 @@ function UpdateActivity(props) {
   }, [isSubmitSuccessful, resetFields])
 
   const onSubmit = async (data) => {
+    setLoading(true);
     const payload = {
       botId: botId,
       activityType: data.activityType,
@@ -659,6 +676,7 @@ function UpdateActivity(props) {
         message: "Something went wrong. Hint: Check the console!"
       });
     }
+    setLoading(false);
   }
 
   return (
@@ -699,18 +717,20 @@ function UpdateActivity(props) {
               ?
               <>
                 <Button
+                  className={classes.button}
                   onClick={resetFields}
                   variant="contained"
                   color="orange"
-                  className={classes.button}
+                  disabled={loading}
                 >
                   Reset
                 </Button>
                 <Button
+                  className={classes.button}
                   type="submit"
                   variant="contained"
                   color="purple"
-                  className={classes.button}
+                  loading={loading}
                 >
                   Update
                 </Button>
@@ -718,18 +738,18 @@ function UpdateActivity(props) {
               :
               <>
                 <Button
+                  className={classes.button}
                   variant="contained"
                   color="gray"
                   disabled
-                  className={classes.button}
                 >
                   Reset
                 </Button>
                 <Button
+                  className={classes.button}
                   variant="contained"
                   color="gray"
                   disabled
-                  className={classes.button}
                 >
                   Update
                 </Button>
@@ -753,8 +773,10 @@ UpdateActivity.propTypes = {
 function UpdateEnabled(props) {
   const { botEnabled, botId, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
+  const [loading, setLoading] = React.useState(false);
 
   const updateEnabled = async (enabled) => {
+    setLoading(true);
     const payload = {
       botId: botId,
       enabled: enabled,
@@ -792,6 +814,7 @@ function UpdateEnabled(props) {
         message: "Something went wrong. Hint: Check the console!"
       });
     }
+    setLoading(false);
   }
 
   return (
@@ -809,19 +832,21 @@ function UpdateEnabled(props) {
           {botEnabled
             ?
             <Button
+              className={classes.button}
               onClick={() => updateEnabled(false)}
               variant="contained"
               color="danger"
-              className={classes.button}
+              loading={loading}
             >
               Disable
             </Button>
             :
             <Button
+              className={classes.button}
               onClick={() => updateEnabled(true)}
               variant="contained"
               color="teal"
-              className={classes.button}
+              loading={loading}
             >
               Enable
             </Button>
@@ -843,8 +868,10 @@ function DeleteBot(props) {
   const { botId, botName, setSelectedBot, setApiAlert } = props;
   const classes = updateStyles();
   const [open, setOpen] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   const deleteBot = async () => {
+    setLoading(true);
     const res = await BotService.deleteBot(botId);
     if (res.status === 200) {
       const name = botName;
@@ -856,6 +883,7 @@ function DeleteBot(props) {
         message: `${name} bot has been deleted!`,
       });
     }
+    setLoading(false);
   }
 
   return (
@@ -895,18 +923,20 @@ function DeleteBot(props) {
           <GridContainer>
             <GridItem xs={12} right>
               <Button
+                className={classes.button}
                 onClick={() => setOpen(false)}
                 variant="contained"
                 color="danger"
-                className={classes.button}
+                loading={loading}
               >
                 Cancel
               </Button>
               <Button
+                className={classes.button}
                 onClick={deleteBot}
                 variant="contained"
                 color="teal"
-                className={classes.button}
+                loading={loading}
               >
                 Confirm Deletion
               </Button>
