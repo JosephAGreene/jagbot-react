@@ -329,7 +329,6 @@ const styles = (theme) => ({
     alignItems: 'center',
   },
   progressWrapper: {
-    margin: theme.spacing(1),
     position: 'relative',
   },
   progressCircle: {
@@ -356,7 +355,6 @@ function CustomButton(props) {
     link,
     justIcon,
     className,
-    progress,
     loading,
     ...rest
   } = props;
@@ -374,23 +372,15 @@ function CustomButton(props) {
     [className]: className
   });
 
-  if (progress) {
-    return (
-      <div className={classes.progressRoot}>
-        <div className={classes.progressWrapper}>
-          <Button className={btnClasses} {...rest}>
-            {children}
-          </Button>
-          {loading && <CircularProgress size={24} className={classes.progressCircle} />}
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <Button className={btnClasses} {...rest}>
-      {children}
-    </Button>
+    <div className={classes.progressRoot}>
+      <div className={classes.progressWrapper}>
+        <Button className={btnClasses} {...rest}>
+          {children}
+        </Button>
+        {loading && <CircularProgress size={24} className={classes.progressCircle} />}
+      </div>
+    </div>
   );
 }
 
@@ -412,7 +402,6 @@ CustomButton.propTypes = {
   link: PropTypes.bool,
   justIcon: PropTypes.bool,
   className: PropTypes.string,
-  progress: PropTypes.bool,
   loading: PropTypes.bool,
   children: PropTypes.node
 };
