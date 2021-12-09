@@ -355,8 +355,23 @@ function UpdatePrefix(props) {
         severity: "success",
         message: "Bot prefix has been updated!"
       });
-    } else if (res.status === 409 && res.data === "duplicate prefix") {
-      setError("prefix", { type: "manual", message: "Another bot you own already has this prefix!" });
+    } else if (res.status === 418) {
+      setError("prefix", { type: "manual", message: res.data });
+    } else if (res.status === "dead") {
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "error",
+        message: "Server is busy or offline. Try again later."
+      });
+    } else {
+      console.log(res.data);
+      setApiAlert({
+        status: true,
+        duration: 2500,
+        severity: "error",
+        message: "Something went wrong. Hint: Check the console!"
+      });
     }
     setLoading(false);
   }
