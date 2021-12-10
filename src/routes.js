@@ -5,7 +5,7 @@ import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup';
 import BuildIcon from '@material-ui/icons/Build';
 import {FaRobot } from 'react-icons/fa';
 import HomeIcon from '@material-ui/icons/Home';
-import { FiCommand } from 'react-icons/fi';
+import { FiCommand, FiLink } from 'react-icons/fi';
 import { FaUserSecret} from 'react-icons/fa';
 import { ImBullhorn } from "react-icons/im";
 import GavelIcon from '@material-ui/icons/Gavel';
@@ -15,6 +15,7 @@ import Stash from "./views/Stash.js";
 import Content from "./views/Content.js";
 import NewBot from "./views/NewBot.js";
 import Settings from "./views/settings/Settings.js";
+import Invite from "./views/settings/Invite.js";
 import Modules from "./views/Modules.js";
 import CustomCommands from './views/modules/CustomCommands.js';
 import CustomCommandSingle from './views/modules/CustomCommandSingle.js';
@@ -59,6 +60,7 @@ const routes = [
     children: [
       { path: 'develop/modules', name: 'Modules', icon: <HomeIcon />, component: Modules },
       { path: 'develop/settings', name: 'Settings', icon: <SettingsIcon />, api: "bot", component: Settings },
+      { path: 'develop/invite', name: 'Invite Link', icon: <FiLink />, api: "bot", component: Invite },
     ]
   },
   {
