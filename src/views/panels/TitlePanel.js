@@ -15,6 +15,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import GridContainer from '../../components/grid/GridContainer';
 import GridItem from '../../components/grid/GridItem';
 import Button from '../../components/buttons/Button';
+import ResponsiveDialog from '../../components/dialogs/ResponsiveDialog';
 
 // Import icons
 import { SiReadthedocs } from 'react-icons/si';
@@ -67,91 +68,131 @@ const styles = (theme) => ({
 
 function TitlePanel(props) {
   const { classes, title, description, listItems, Icon, image, docs, color } = props;
+  const [docsDialog, setDocsDialog] = React.useState(false);
+
+  const returnDocsButton = () => {
+    if (docs && docs.length > 0) {
+      return (
+        <Button
+          justIcon
+          round
+          size="lg"
+          color="teal"
+          onClick={() => setDocsDialog(true)}
+        >
+          <SiReadthedocs />
+        </Button>
+      );
+    }
+  }
+
+  const returnDocsDialog = () => {
+    if (docs && docs.length > 0) {
+      return (
+        <ResponsiveDialog
+          open={docsDialog}
+          keepMounted={true}
+        >
+          {docs.map((document, index) => {
+            return <div key={index}> {document} </div>;
+          })}
+          <GridContainer>
+            <GridItem xs={12} right>
+              <Button color="teal" onClick={() => setDocsDialog(false)}>Close</Button>
+            </GridItem>
+          </GridContainer>
+        </ResponsiveDialog>
+      );
+    }
+  }
 
   return (
-    <GridContainer>
-      <GridItem xs={12} sm={12}>
-        <Paper elevation={2} className={classes.paper} >
-          <Hidden smUp>
-            <div className={classes.title}>
-              {title}
-            </div>
-            <GridContainer justifyContent="flex-start">
-              <GridItem>
-                {image
-                  ? <Avatar className={classes.avatar} variant="rounded" src={image} />
-                  : <Avatar className={classes.avatar} style={{ "color": color }} variant="rounded" component={Icon} />
-                }
-              </GridItem>
-              <GridItem xs>
-                <div className={classes.description}>
-                  {description}
-                </div>
-              </GridItem>
-            </GridContainer>
-            <div className={classes.spacer} />
-            <GridContainer justifyContent="space-between" alignItems="flex-end">
-              <GridItem xs left>
-                {listItems &&
-                  <List className={classes.list} dense>
-                    {listItems.map((item, pos) => {
-                      return (
-                        <ListItem key={`${item}-${pos}`}>
-                          <ListItemIcon>
-                            <ArrowRightIcon />
-                          </ListItemIcon>
-                          <ListItemText primary={item} />
-                        </ListItem>
-                      )
-                    })}
-                  </List>
-                }
-              </GridItem>
-              <GridItem>
-                {docs && <Button justIcon round size="lg" color="teal"><SiReadthedocs /></Button>}
-              </GridItem>
-            </GridContainer>
-          </Hidden>
-          <Hidden xsDown>
-            <GridContainer>
-              <GridItem>
-                {image
-                  ? <Avatar className={classes.avatar} variant="rounded" src={image} />
-                  : <Avatar className={classes.avatar} style={{ "color": color }} variant="rounded" component={Icon} />
-                }
-              </GridItem>
-              <GridItem xs>
-                <div className={classes.title}>
-                  {title}
-                </div>
-                <div className={classes.description}>
-                  {description}
-                </div>
-              </GridItem>
-              <GridItem>
-                {docs && <Button justIcon round color="teal"><SiReadthedocs /></Button>}
-              </GridItem>
-              <GridItem xs={12}>
-                {listItems &&
-                  <List className={classes.list} dense>
-                    {listItems.map((item, pos) => {
-                      return (
-                        <ListItem key={`${item}-${pos}`}>
-                          <ListItemIcon>
-                            <ArrowRightIcon />
-                          </ListItemIcon>
-                          <ListItemText primary={item} />
-                        </ListItem>
-                      )
-                    })}
-                  </List>
-                }
-              </GridItem>
-            </GridContainer>
-          </Hidden>
-        </Paper>
-      </GridItem>
-    </GridContainer >
+    <>
+      <GridContainer>
+        <GridItem xs={12} sm={12}>
+          <Paper elevation={2} className={classes.paper} >
+            <Hidden smUp>
+              <div className={classes.title}>
+                {title}
+              </div>
+              <GridContainer justifyContent="flex-start">
+                <GridItem>
+                  {image
+                    ? <Avatar className={classes.avatar} variant="rounded" src={image} />
+                    : <Avatar className={classes.avatar} style={{ "color": color }} variant="rounded" component={Icon} />
+                  }
+                </GridItem>
+                <GridItem xs>
+                  <div className={classes.description}>
+                    {description}
+                  </div>
+                </GridItem>
+              </GridContainer>
+              <div className={classes.spacer} />
+              <GridContainer justifyContent="space-between" alignItems="flex-end">
+                <GridItem xs left>
+                  {listItems &&
+                    <List className={classes.list} dense>
+                      {listItems.map((item, pos) => {
+                        return (
+                          <ListItem key={`${item}-${pos}`}>
+                            <ListItemIcon>
+                              <ArrowRightIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={item} />
+                          </ListItem>
+                        )
+                      })}
+                    </List>
+                  }
+                </GridItem>
+                <GridItem>
+                  {returnDocsButton()}
+                </GridItem>
+              </GridContainer>
+            </Hidden>
+            <Hidden xsDown>
+              <GridContainer>
+                <GridItem>
+                  {image
+                    ? <Avatar className={classes.avatar} variant="rounded" src={image} />
+                    : <Avatar className={classes.avatar} style={{ "color": color }} variant="rounded" component={Icon} />
+                  }
+                </GridItem>
+                <GridItem xs>
+                  <div className={classes.title}>
+                    {title}
+                  </div>
+                  <div className={classes.description}>
+                    {description}
+                  </div>
+                </GridItem>
+                <GridItem>
+                  {returnDocsButton()}
+                </GridItem>
+                <GridItem xs={12}>
+                  {listItems &&
+                    <List className={classes.list} dense>
+                      {listItems.map((item, pos) => {
+                        return (
+                          <ListItem key={`${item}-${pos}`}>
+                            <ListItemIcon>
+                              <ArrowRightIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={item} />
+                          </ListItem>
+                        )
+                      })}
+                    </List>
+                  }
+                </GridItem>
+              </GridContainer>
+            </Hidden>
+          </Paper>
+        </GridItem>
+      </GridContainer >
+      {returnDocsDialog()}
+    </>
   );
 }
 
@@ -159,7 +200,7 @@ TitlePanel.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   listItems: PropTypes.array,
-  docs: PropTypes.bool,
+  docs: PropTypes.array,
   Icon: PropTypes.elementType,
   image: PropTypes.string,
   color: PropTypes.string,
