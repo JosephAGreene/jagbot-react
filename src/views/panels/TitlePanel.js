@@ -98,7 +98,7 @@ function TitlePanel(props) {
           })}
           <GridContainer>
             <GridItem xs={12} right>
-              <Button color="teal" onClick={() => setDocsDialog(false)}>Close</Button>
+              <Button color="orange" onClick={() => setDocsDialog(false)}>Close</Button>
             </GridItem>
           </GridContainer>
         </ResponsiveDialog>
