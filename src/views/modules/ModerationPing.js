@@ -54,66 +54,34 @@ const schema = Joi.object({
       "string.max": 'Command cannot be greater than 30 characters',
       "any.required": 'Command is required',
     }),
-  allowedRoles: Joi.when('enabled', {
-    is: Joi.boolean().valid(true),
-    then: Joi.array().min(1).max(50).required().items(
-      Joi.object({
-        serverId: Joi.string().trim().required()
-          .messages({
-            "string.empty": 'Server id cannot be blank',
-            "any.required": 'Server id property is required',
-          }),
-        serverName: Joi.string().trim().required()
-          .messages({
-            "string.empty": 'Server name cannot be blank',
-            "any.required": 'Server name property is required',
-          }),
-        roleId: Joi.string().trim().required()
-          .messages({
-            "string.empty": 'Role id cannot be blank',
-            "any.required": 'Role id property is required',
-          }),
-        roleName: Joi.string().trim().required()
-          .messages({
-            "string.empty": 'Role name cannot be blank',
-            "any.required": 'Role name property is required',
-          }),
-      }))
-      .messages({
-        "array.base": 'Allowed roles property must be an array',
-        "array.min": 'At least 1 role is required when enabled is checked',
-        "array.max": 'Number of roles cannot be greater than 50',
-        "any.required": `Allowed roles property is required`,
-      }),
-    otherwise: Joi.array().max(50).required().items(
-      Joi.object({
-        serverId: Joi.string().trim().required()
-          .messages({
-            "string.empty": 'Server id cannot be blank',
-            "any.required": 'Server id property is required',
-          }),
-        serverName: Joi.string().trim().required()
-          .messages({
-            "string.empty": 'Server name cannot be blank',
-            "any.required": 'Server name property is required',
-          }),
-        roleId: Joi.string().trim().required()
-          .messages({
-            "string.empty": 'Role id cannot be blank',
-            "any.required": 'Role id property is required',
-          }),
-        roleName: Joi.string().trim().required()
-          .messages({
-            "string.empty": 'Role name cannot be blank',
-            "any.required": 'Role name property is required',
-          }),
-      }))
-      .messages({
-        "array.base": 'Allowed roles property must be an array',
-        "array.max": 'Number of roles cannot be greater than 50',
-        "any.required": `Allowed roles property is required`,
-      }),
-  })
+  allowedRoles: Joi.array().max(50).required().items(
+    Joi.object({
+      serverId: Joi.string().trim().required()
+        .messages({
+          "string.empty": 'Server id cannot be blank',
+          "any.required": 'Server id property is required',
+        }),
+      serverName: Joi.string().trim().required()
+        .messages({
+          "string.empty": 'Server name cannot be blank',
+          "any.required": 'Server name property is required',
+        }),
+      roleId: Joi.string().trim().required()
+        .messages({
+          "string.empty": 'Role id cannot be blank',
+          "any.required": 'Role id property is required',
+        }),
+      roleName: Joi.string().trim().required()
+        .messages({
+          "string.empty": 'Role name cannot be blank',
+          "any.required": 'Role name property is required',
+        }),
+    }))
+    .messages({
+      "array.base": 'Allowed roles property must be an array',
+      "array.max": 'Number of roles cannot be greater than 50',
+      "any.required": `Allowed roles property is required`,
+    }),
 });
 
 // In practice, a value for the module param will always exist
@@ -185,7 +153,7 @@ function ModerationPing(props) {
       <TitlePanel
         title="Ping"
         description="Returns the latency of your bot and the discord API."
-        listItems={["Roles are server specific", "You may assign multiple roles from multiple servers", "Be careful"]}
+        listItems={["Leave allowed roles BLANK to let EVERYONE use Ping", "Roles are server specific", "You may assign multiple roles from multiple servers", "Be careful"]}
         image={pingImage}
         docs={true}
       />
@@ -210,7 +178,7 @@ function ModerationPing(props) {
             value={watchRoles}
             setValue={setValue}
             labelText="Roles"
-            description="Roles that may utilized this command."
+            description="Roles that may utilized this command. Leave blank to allow EVERYONE to use this command."
             id="allowedRoles"
             name="allowedRoles"
             serverRoles={selectedBot.serverRoles}
