@@ -81,8 +81,8 @@ function Header(props) {
               <Grid item>
                 <Headline 
                   iconComponent={AiOutlineRobot}
-                  start="Jag"
-                  end="Bot"
+                  start="ez"
+                  end="bot"
                   color="#98c379"
                   title
                 />
@@ -100,8 +100,8 @@ function Header(props) {
               <Grid item>
                 <Headline 
                   iconComponent={AiOutlineRobot}
-                  start="Jag"
-                  end="Bot"
+                  start="ez"
+                  end="bot"
                   color="#98c379"
                   title
                 />
