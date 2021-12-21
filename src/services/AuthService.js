@@ -25,28 +25,6 @@ class AuthService {
     });
   }
 
-  acknowledgeWarning(payload) {
-    return axios
-    .post(`${AUTH}/acknowledge-warning`, 
-      {
-        ...payload
-      },
-      {
-        withCredentials: true
-      }
-    )
-    .then(response => {
-      return response;
-    })
-    .catch(error => {
-      if (error.response) {
-        return error.response;
-      } else {
-        return this.networkIssue;
-      }
-    });
-  }
-
   logout() {
     return axios
     .get(`${AUTH}/logout`, {
