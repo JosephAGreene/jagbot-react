@@ -17,6 +17,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 // Import custom components
 import TitlePanel from './panels/TitlePanel';
 import OutlinedInput from '../components/inputs/OutlinedInputDark';
+import ControlledCheckbox from '../components/inputs/ControlledCheckbox';
 import Button from '../components/buttons/Button';
 import GridContainer from '../components/grid/GridContainer';
 import GridItem from '../components/grid/GridItem';
@@ -39,12 +40,22 @@ const styles = (theme) => ({
     overflow: "hidden",
     color: theme.palette.white.main,
   },
+  warningHeading: {
+    color: theme.palette.white.main,
+    margin: "25px 0 10px 0",
+    fontSize: "18px",
+  },
+  warningBody: {
+    color: theme.palette.white.dark,
+    margin: "0 0 10px 0",
+    fontSize: "16px",
+  },
 });
 
 function NewBot(props) {
   const { classes, setApiAlert } = props;
   const [visibility, setVisibility] = React.useState(false);
-  const { register, handleSubmit, setError, formState: { errors } } = useForm({
+  const { register, handleSubmit, control, setError, formState: { errors } } = useForm({
     resolver: joiResolver(
       Joi.object({
         prefix: Joi.string().trim().max(4).required()
@@ -59,18 +70,28 @@ function NewBot(props) {
             "string.max": "Token cannot be greater than 100 characters",
             "any.required": 'Token is required',
           }),
+        warningAcknowledged: Joi.boolean().required().invalid(false)
+          .messages({
+            "string.empty": 'Acknowledgement is required!',
+            "any.invalid": 'Acknowledgement is required!',
+            "any.required": 'Acknowledgement is required!',
+          }),
       })
     ),
     defaultValues: {
+      prefix: "",
       token: "",
+      warningAcknowledged: false,
     },
   });
   let history = useHistory();
 
   const onSubmit = async (data) => {
-    const res = await BotService.addNewBot({ 
+    console.log(data);
+    const res = await BotService.addNewBot({
       prefix: data.prefix,
-      botToken: data.token, 
+      botToken: data.token,
+      warningAcknowledged: data.warningAcknowledged,
     });
 
     if (res.status === 200) {
@@ -111,7 +132,6 @@ function NewBot(props) {
         title="Create New Bot"
         description="Generic descript to take up room for now."
         image={newBotImage}
-        docs={true}
       />
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
@@ -141,6 +161,24 @@ function NewBot(props) {
             }}
             error={errors}
           />
+
+              <div className={classes.warningHeading}>
+                Use Of Service Acknowledgement  
+              </div>
+              <div className={classes.warningBody}>
+                EzBot exists soley as a "show of skill" for it's developer to attract employement.
+                Your account, and any data related to it, may be lost at any time due to revisions, updates, server costs, or etc.
+                No warranties or gaurantees are made in relation to EzBot's services. 
+                You are free to enjoy the services offered by EzBot for as long as they exist.  
+              </div>
+
+              <ControlledCheckbox
+                control={control}
+                name="warningAcknowledged"
+                error={errors}
+                label="Acknowledged"
+              />
+
           <GridContainer justifyContent="flex-end">
             <GridItem>
               <Button
