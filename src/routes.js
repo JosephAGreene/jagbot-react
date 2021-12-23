@@ -42,7 +42,7 @@ const routes = [
     path: 'stash',
     children: [
       { path: 'stash/mybots', name: 'Stashed Bots', icon: <FaRobot />, component: Stash },
-      { path: 'stash/newbot', name: 'Build New Bot', icon: <BuildIcon />, component: NewBot},
+      { path: 'stash/newbot', name: 'Add New Bot', icon: <BuildIcon />, component: NewBot},
     ],
   },
   {
