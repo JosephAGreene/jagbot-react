@@ -129,8 +129,12 @@ function NewBot(props) {
   return (
     <ContentWrapper>
       <TitlePanel
-        title="Create New Bot"
-        description="Generic descript to take up room for now."
+        title="Add New Bot"
+        description={"We only need a few things from you in order to setup your new bot. Please refer to the docs or watch the setup video if you need help."}
+        listItems={[
+          "Bot prefix must be unique", 
+          "Generate a bot token through the Discord Developer Portal",
+        ]}
         image={newBotImage}
       />
       <Paper className={classes.paper}>
@@ -147,7 +151,7 @@ function NewBot(props) {
           />
           <OutlinedInput
             labelText="Token"
-            description="Bot application token from Discord's developer portal."
+            description="Bot token from Discord Developer Portal."
             id="token"
             name="token"
             formControlProps={{ fullWidth: true }}
@@ -168,7 +172,7 @@ function NewBot(props) {
               <div className={classes.warningBody}>
                 EzBot exists soley as a "show of skill" for it's developer to attract employement.
                 Your account, and any data related to it, may be lost at any time due to revisions, updates, server costs, or etc.
-                No warranties or gaurantees are made in relation to EzBot's services. 
+                No warranties or gaurantees are made in relation to EzBot. 
                 You are free to enjoy the services offered by EzBot for as long as they exist.  
               </div>
 
