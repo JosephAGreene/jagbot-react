@@ -65,7 +65,7 @@ const styles = (theme) => ({
 });
 
 // Returns react routes inside a switch based on routes.js routes
-function buildSwitchRoutes(handleBotSelection, selectedBot, setSelectedBot, setApiAlert) {
+function buildSwitchRoutes(warningAcknowledged, handleBotSelection, selectedBot, setSelectedBot, setApiAlert) {
   let routeArray = [];
 
   // Separate child routes from their parent into their own array
@@ -85,9 +85,9 @@ function buildSwitchRoutes(handleBotSelection, selectedBot, setSelectedBot, setA
             key={key}
           >
             {route.path === 'stash/mybots'
-              ? <route.component handleBotSelection={handleBotSelection} setApiAlert={setApiAlert} />
+              ? <route.component warningAcknowledged={warningAcknowledged} handleBotSelection={handleBotSelection} setApiAlert={setApiAlert} />
               : (route.path === 'stash/newbot')
-                ? <route.component setApiAlert={setApiAlert} />
+                ? <route.component warningAcknowledged={warningAcknowledged} setApiAlert={setApiAlert} />
                 : (route.api && route.api === "bot")
                   ? <route.component
                     selectedBot={selectedBot}
@@ -205,7 +205,7 @@ function Dashboard(props) {
       <div className={classes.app}>
         <Header onDrawerToggle={handleDrawerToggle} />
         <main className={classes.main}>
-          {buildSwitchRoutes(handleBotSelection, selectedBot, setSelectedBot, setApiAlert)}
+          {buildSwitchRoutes(user.warningAcknowledged, handleBotSelection, selectedBot, setSelectedBot, setApiAlert)}
         </main>
       </div>
       <Alert open={apiAlert.status} autoHideDuration={apiAlert.duration} onClose={apiAlertClose} severity={apiAlert.severity}>
