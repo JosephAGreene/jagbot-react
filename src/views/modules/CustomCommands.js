@@ -126,7 +126,7 @@ function CustomCommands(props) {
   const [page, setPage] = React.useState(1);
 
   const modulesArray = sortModules(filterModules(typeFilter, searchModules(moduleSearchInput, selectedBot.customModules, selectedBot.prefix)), sort);
-
+  
   const modulesPerPage = 5;
   const moduleCount = modulesArray.length;
   const paginationCount = Math.ceil(moduleCount / modulesPerPage);
@@ -156,7 +156,7 @@ function CustomCommands(props) {
   }
 
   const returnVisibleModules = () => {
-    if (selectedBot.announcementModules.length === 0) {
+    if (selectedBot.customModules.length === 0) {
       return (
         <div className={classes.noneContainer}>
           <div className={classes.noneMessage}>No commands exist!</div>
