@@ -28,7 +28,7 @@ import GridContainer from '../../components/grid/GridContainer';
 import GridItem from '../../components/grid/GridItem';
 import ControlledRadioGroup from '../../components/inputs/ControlledRadioGroup';
 import ControlledRadio from '../../components/inputs/ControlledRadio';
-
+import {SingleResponseDoc} from '../documents/CustomCommands';
 
 // Import icons
 import { TiMessage } from 'react-icons/ti';
@@ -413,7 +413,7 @@ function CustomCommandSingle(props) {
         title="Single Response"
         description="A single command that returns a single response"
         Icon={TiMessage}
-        docs={true}
+        docs={[<SingleResponseDoc />]}
         color="#98c379"
       />
       <div className={classes.categoryHeader}>
