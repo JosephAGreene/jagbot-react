@@ -15,14 +15,14 @@ import AuthService from "../services/AuthService.js";
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
-import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 // Import custom components
 import Alert from '../components/alerts/alert';
 import Button from '../components/buttons/Button';
-import CircularBackdrop from '../components/progress/CircularBackdrop.js';
+import CircularBackdrop from '../components/progress/CircularBackdrop';
+import MinDialog from '../components/dialogs/MinDialog';
 
 // Import Views
 import Navigator from '../views/Navigator';
@@ -155,10 +155,6 @@ function Dashboard(props) {
     setLogoutDialog(true);
   }
 
-  const handleLogoutDialogClose = () => {
-    setLogoutDialog(false);
-  }
-
   const handleLogout = async () => {
     await AuthService.logout();
     history.push('/');
@@ -211,23 +207,21 @@ function Dashboard(props) {
       <Alert open={apiAlert.status} autoHideDuration={apiAlert.duration} onClose={apiAlertClose} severity={apiAlert.severity}>
         {apiAlert.message}
       </Alert>
-      <Dialog
-        PaperProps={{ className: classes.logoutDialog }}
+      <MinDialog
         open={logoutDialog}
-        onClose={handleLogoutDialogClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
+        setOpen={setLogoutDialog}
+        keepMounted={false}
       >
-        <DialogTitle id="alert-dialog-title">{"Confirm Logout"}</DialogTitle>
+        <DialogTitle id="confirm-logout">{"Confirm Logout"}</DialogTitle>
         <DialogActions>
-          <Button onClick={handleLogoutDialogClose} color="purple">
+          <Button onClick={()=> setLogoutDialog(false)} color="danger">
             Cancel
           </Button>
-          <Button onClick={handleLogout} color="danger">
+          <Button onClick={handleLogout} color="teal">
             Confirm
           </Button>
         </DialogActions>
-      </Dialog>
+      </MinDialog>
     </div>
   );
 }
