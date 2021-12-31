@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // Import API service
@@ -38,8 +38,13 @@ function Stash(props) {
   const { classes, warningAcknowledged, handleBotSelection, setApiAlert } = props;
   const [bots, setBots] = React.useState([]);
   const [loading, setLoading] = React.useState({ loading: false, message: '' });
+  const history = useHistory();
 
   React.useEffect(() => {
+    if (!warningAcknowledged) {
+      history.push('newbot');
+    }
+
     setLoading({ loading: true, message: 'Grabbing stashed bots...' });
     const getBotSummary = async () => {
       const res = await BotService.getBotSummary();
@@ -52,9 +57,10 @@ function Stash(props) {
     }
 
     getBotSummary();
+
     setLoading({ loading: false, message: '' });
 
-  }, []);
+  }, [history, warningAcknowledged]);
 
   const selectBot = async (bot) => {
     setLoading({ loading: true, message: `Unpacking ${bot.name}` });
