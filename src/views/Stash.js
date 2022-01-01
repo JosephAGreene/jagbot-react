@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // Import API service
@@ -38,15 +38,10 @@ function Stash(props) {
   const { classes, warningAcknowledged, handleBotSelection, setApiAlert } = props;
   const [bots, setBots] = React.useState([]);
   const [loading, setLoading] = React.useState({ loading: false, message: '' });
-  const history = useHistory();
 
   React.useEffect(() => {
-    if (!warningAcknowledged) {
-      history.push('newbot');
-    }
-
-    setLoading({ loading: true, message: 'Grabbing stashed bots...' });
     const getBotSummary = async () => {
+      setLoading({ loading: true, message: 'Grabbing stashed bots...' });
       const res = await BotService.getBotSummary();
 
       if (res.status === 200) {
@@ -54,13 +49,12 @@ function Stash(props) {
       } else {
         console.log("No Bots!")
       }
+      setLoading({ loading: false, message: '' });
     }
 
     getBotSummary();
 
-    setLoading({ loading: false, message: '' });
-
-  }, [history, warningAcknowledged]);
+  }, []);
 
   const selectBot = async (bot) => {
     setLoading({ loading: true, message: `Unpacking ${bot.name}` });
@@ -88,6 +82,11 @@ function Stash(props) {
   }
 
   const returnBots = () => {
+
+    if (bots.length < 1 && !warningAcknowledged) {
+      return <Redirect to="newbot" />
+    }
+
     if (bots.length > 0) {
       return (
         <GridContainer>
@@ -100,33 +99,34 @@ function Stash(props) {
           })}
         </GridContainer>
       );
-    } else {
-      return (
-        <>
-          <GridContainer justifyContent="center">
-            <GridItem>
-              <div className={classes.empty}>
-                You don't have any bots!
-              </div>
-            </GridItem>
-          </GridContainer>
-          <GridContainer justifyContent="center">
-            <GridItem>
-              <Link
-                className={classes.links}
-                to={{
-                  pathname: 'newbot',
-                }}
-              >
-                <Button color="teal">
-                  Add New Bot
-                </Button>
-              </Link>
-            </GridItem>
-          </GridContainer>
-        </>
-      );
     }
+    
+    return (
+      <>
+        <GridContainer justifyContent="center">
+          <GridItem>
+            <div className={classes.empty}>
+              You don't have any bots!
+            </div>
+          </GridItem>
+        </GridContainer>
+        <GridContainer justifyContent="center">
+          <GridItem>
+            <Link
+              className={classes.links}
+              to={{
+                pathname: 'newbot',
+              }}
+            >
+              <Button color="teal">
+                Add New Bot
+              </Button>
+            </Link>
+          </GridItem>
+        </GridContainer>
+      </>
+    );
+
   }
 
   return (
