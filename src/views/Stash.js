@@ -37,27 +37,36 @@ const styles = (theme) => ({
 function Stash(props) {
   const { classes, warningAcknowledged, handleBotSelection, setApiAlert } = props;
   const [bots, setBots] = React.useState([]);
-  const [loading, setLoading] = React.useState({ loading: false, message: '' });
+  const [loading, setLoading] = React.useState(true);
+  const [unpacking, setUnpacking] = React.useState({unpacking: false, message: ''});
 
   React.useEffect(() => {
+    let mounted = true;
+
     const getBotSummary = async () => {
-      setLoading({ loading: true, message: 'Grabbing stashed bots...' });
       const res = await BotService.getBotSummary();
 
-      if (res.status === 200) {
-        setBots(res.data);
-      } else {
-        console.log("No Bots!")
+      if (mounted) {
+        setLoading(true);
+        if (res.status === 200) {
+          setBots(res.data);
+        } else {
+          console.log("No Bots!")
+        }
+        setLoading(false);
       }
-      setLoading({ loading: false, message: '' });
     }
 
     getBotSummary();
-
+    
+    // cleanup function
+    return () => {
+      mounted = false;
+    }
   }, []);
 
   const selectBot = async (bot) => {
-    setLoading({ loading: true, message: `Unpacking ${bot.name}` });
+    setUnpacking({ unpacking: true, message: `Unpacking ${bot.name}` });
     const payload = {
       _id: bot._id,
       avatarURL: bot.avatarURL,
@@ -67,11 +76,11 @@ function Stash(props) {
     const res = await BotService.checkoutBot(payload);
 
     if (res.status === 200) {
-      setLoading({ loading: false, message: '' });
+      setUnpacking({ unpacking: false, message: '' });
       handleBotSelection(res.data);
     } else {
       console.log(res);
-      setLoading({ loading: false, message: '' });
+      setUnpacking({ unpacking: false, message: '' });
       setApiAlert({
         status: true,
         duration: 2500,
@@ -82,7 +91,14 @@ function Stash(props) {
   }
 
   const returnBots = () => {
+    if (loading) {
+      return (
+        <CircularBackdrop loading={true} message='Grabbing stashed bots...' />
+      );
+    }
 
+    // If user has no bots, and has never acknowledged the terms of service 
+    // warning, then we can assume they are new and should forward them to newbot
     if (bots.length < 1 && !warningAcknowledged) {
       return <Redirect to="newbot" />
     }
@@ -97,12 +113,15 @@ function Stash(props) {
               onClick={() => selectBot(bot)}
             />
           })}
+          <CircularBackdrop loading={unpacking.unpacking} message={unpacking.message} />
         </GridContainer>
       );
     }
-    
+
+    // User currently has no bots, but has in the past, so we can show them
+    // an empty bot stash area
     return (
-      <>
+      <div>
         <GridContainer justifyContent="center">
           <GridItem>
             <div className={classes.empty}>
@@ -124,9 +143,8 @@ function Stash(props) {
             </Link>
           </GridItem>
         </GridContainer>
-      </>
+      </div>
     );
-
   }
 
   return (
@@ -137,7 +155,6 @@ function Stash(props) {
         image={stashImage}
       />
       {returnBots()}
-      <CircularBackdrop loading={loading.loading} message={loading.message} />
     </ContentWrapper>
   );
 }
