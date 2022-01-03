@@ -38,16 +38,15 @@ function Stash(props) {
   const { classes, warningAcknowledged, handleBotSelection, setApiAlert } = props;
   const [bots, setBots] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
-  const [unpacking, setUnpacking] = React.useState({unpacking: false, message: ''});
+  const [unpacking, setUnpacking] = React.useState({ unpacking: false, message: '' });
 
   React.useEffect(() => {
     let mounted = true;
 
     const getBotSummary = async () => {
+      if (mounted) setLoading(true);
       const res = await BotService.getBotSummary();
-
       if (mounted) {
-        setLoading(true);
         if (res.status === 200) {
           setBots(res.data);
         } else {
@@ -58,7 +57,7 @@ function Stash(props) {
     }
 
     getBotSummary();
-    
+
     // cleanup function
     return () => {
       mounted = false;
@@ -96,14 +95,13 @@ function Stash(props) {
         <CircularBackdrop loading={true} message='Grabbing stashed bots...' />
       );
     }
-
     // If user has no bots, and has never acknowledged the terms of service 
     // warning, then we can assume they are new and should forward them to newbot
-    if (bots.length < 1 && !warningAcknowledged) {
+    else if (bots.length < 1 && !warningAcknowledged) {
       return <Redirect to="newbot" />
-    }
-
-    if (bots.length > 0) {
+    } 
+    // If user has bots, display them
+    else if (bots.length > 0) {
       return (
         <GridContainer>
           {bots && bots.map((bot, key) => {
@@ -117,34 +115,35 @@ function Stash(props) {
         </GridContainer>
       );
     }
-
     // User currently has no bots, but has in the past, so we can show them
     // an empty bot stash area
-    return (
-      <div>
-        <GridContainer justifyContent="center">
-          <GridItem>
-            <div className={classes.empty}>
-              You don't have any bots!
-            </div>
-          </GridItem>
-        </GridContainer>
-        <GridContainer justifyContent="center">
-          <GridItem>
-            <Link
-              className={classes.links}
-              to={{
-                pathname: 'newbot',
-              }}
-            >
-              <Button color="teal">
-                Add New Bot
-              </Button>
-            </Link>
-          </GridItem>
-        </GridContainer>
-      </div>
-    );
+    else {
+      return (
+        <div>
+          <GridContainer justifyContent="center">
+            <GridItem>
+              <div className={classes.empty}>
+                You don't have any bots!
+              </div>
+            </GridItem>
+          </GridContainer>
+          <GridContainer justifyContent="center">
+            <GridItem>
+              <Link
+                className={classes.links}
+                to={{
+                  pathname: 'newbot',
+                }}
+              >
+                <Button color="teal">
+                  Add New Bot
+                </Button>
+              </Link>
+            </GridItem>
+          </GridContainer>
+        </div>
+      );
+    }
   }
 
   return (
