@@ -6,7 +6,7 @@ import BuildIcon from '@material-ui/icons/Build';
 import {FaRobot } from 'react-icons/fa';
 import HomeIcon from '@material-ui/icons/Home';
 import { FiCommand, FiLink } from 'react-icons/fi';
-import { FaUserSecret} from 'react-icons/fa';
+import { FaUserSecret, FaBookReader} from 'react-icons/fa';
 import { ImBullhorn } from "react-icons/im";
 import GavelIcon from '@material-ui/icons/Gavel';
 
@@ -35,6 +35,7 @@ import AutoModInviteLinks from './views/modules/AutoModInviteLinks.js';
 import AutoModMassCaps from './views/modules/AutoModMassCaps.js';
 import AutoModMassMentions from './views/modules/AutoModMassMentions.js';
 import Announcements from './views/modules/Announcements.js';
+import GettingStarted from './views/documents/GettingStarted.js';
 
 const routes = [
   {
@@ -49,7 +50,7 @@ const routes = [
     name: 'Documentation',
     path: "stash",
     children: [
-      { path: 'stash/documentation/analytics', name: 'Analytics', icon: <SettingsIcon />, component: Content },
+      { path: 'stash/documentation/gettingstarted', name: 'Getting Started', icon: <FaBookReader />, component: GettingStarted },
       { path: 'stash/documentation/performance', name: 'Performance', icon: <TimerIcon />, component: Content },
       { path: 'stash/documentation/testlab', name: 'Test Lab', icon: <PhonelinkSetupIcon />, component: Content },
     ],
