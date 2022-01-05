@@ -98,8 +98,15 @@ function Stash(props) {
     // If user has no bots, and has never acknowledged the terms of service 
     // warning, then we can assume they are new and should forward them to newbot
     else if (bots.length < 1 && !warningAcknowledged) {
-      return <Redirect to="newbot" />
-    } 
+      return (
+        <Redirect
+          to={{
+            pathname: "documentation/gettingstarted",
+            newUser: true,
+          }}
+        />
+      );
+    }
     // If user has bots, display them
     else if (bots.length > 0) {
       return (
