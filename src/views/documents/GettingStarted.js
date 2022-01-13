@@ -14,6 +14,7 @@ import ContentWrapper from '../../layouts/ContentWrapper';
 import TitlePanel from '../panels/TitlePanel';
 import GridContainer from '../../components/grid/GridContainer';
 import GridItem from '../../components/grid/GridItem';
+import YoutubeEmbed from '../../components/YoutubeEmbed';
 
 // Import images
 import gettingStartedImage from '../../assets/images/gettingStarted.png';
@@ -23,7 +24,7 @@ const styles = makeStyles((theme) => ({
   paper: {
     padding: "20px",
     marginBottom: theme.spacing(3),
-    backgroundColor: theme.palette.teal.dark,
+    backgroundColor: theme.palette.purple.light,
     overflow: "hidden",
     color: theme.palette.white.main,
   },
@@ -58,7 +59,7 @@ function NewUserGreeting() {
               </GridItem>
               <GridItem xs>
                 <div className={classes.title}>
-                  Hey!
+                  Welcome!
                 </div>
                 <div className={classes.description}>
                   It looks like you are new, so we brought you here to get you started on the right foot!
@@ -73,7 +74,7 @@ function NewUserGreeting() {
               </GridItem>
               <GridItem xs>
                 <div className={classes.title}>
-                  Hey!
+                  Welcome!
                 </div>
                 <div className={classes.description}>
                   It looks like you are new, so we brought you here to get you started on the right foot!
@@ -98,6 +99,8 @@ export default function GettingStarted(props) {
         description="Everything you need to know in order to get your custom bot online and running!"
         image={gettingStartedImage}
       />
+      <YoutubeEmbed embedId="E7wJTI-1dvQ" />
+      testing
     </ContentWrapper>
   );
 }
