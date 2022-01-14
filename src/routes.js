@@ -1,7 +1,5 @@
 // Import Icons
-import TimerIcon from '@material-ui/icons/Timer';
 import SettingsIcon from '@material-ui/icons/Settings';
-import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup';
 import BuildIcon from '@material-ui/icons/Build';
 import {FaRobot } from 'react-icons/fa';
 import HomeIcon from '@material-ui/icons/Home';
@@ -12,7 +10,7 @@ import GavelIcon from '@material-ui/icons/Gavel';
 
 // Import Components
 import Stash from "./views/Stash.js";
-import Content from "./views/Content.js";
+//import Content from "./views/Content.js";
 import NewBot from "./views/NewBot.js";
 import Settings from "./views/settings/Settings.js";
 import Invite from "./views/settings/Invite.js";
@@ -51,8 +49,6 @@ const routes = [
     path: "stash",
     children: [
       { path: 'stash/documentation/gettingstarted', name: 'Getting Started', icon: <FaBookReader />, component: GettingStarted },
-      { path: 'stash/documentation/performance', name: 'Performance', icon: <TimerIcon />, component: Content },
-      { path: 'stash/documentation/testlab', name: 'Test Lab', icon: <PhonelinkSetupIcon />, component: Content },
     ],
   },
   {
