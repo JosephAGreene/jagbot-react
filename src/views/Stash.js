@@ -49,8 +49,23 @@ function Stash(props) {
       if (mounted) {
         if (res.status === 200) {
           setBots(res.data);
-        } else {
-          console.log("No Bots!")
+        } 
+        else if (res.status === "dead") {
+          setApiAlert({
+            status: true,
+            duration: 5000,
+            severity: "error",
+            message: `The server appears to be down. Try again later!`
+          });
+        }
+        else {
+          console.log(res);
+          setApiAlert({
+            status: true,
+            duration: 2500,
+            severity: "error",
+            message: `Something went wrong. Check console.`
+          });
         }
         setLoading(false);
       }
@@ -62,7 +77,7 @@ function Stash(props) {
     return () => {
       mounted = false;
     }
-  }, []);
+  }, [setApiAlert]);
 
   const selectBot = async (bot) => {
     setUnpacking({ unpacking: true, message: `Unpacking ${bot.name}` });
@@ -73,7 +88,7 @@ function Stash(props) {
       enabled: bot.enabled,
     }
     const res = await BotService.checkoutBot(payload);
-
+    
     if (res.status === 200) {
       setUnpacking({ unpacking: false, message: '' });
       handleBotSelection(res.data);
