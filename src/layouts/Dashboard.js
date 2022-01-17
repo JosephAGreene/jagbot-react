@@ -131,7 +131,7 @@ function Dashboard(props) {
 
   // Sets active path to the last sub directory. 
   // I.E. The same pathname acquired from 'path' keys in the routes array.
-  const activePath = useLocation().pathname.split('/').filter(param => param).slice(1, 3).join('/');
+  const activePath = useLocation().pathname.split('/').filter(param => param).slice(1).join('/');
   const activeSubDirectory = activePath.split('/').slice(0, 1)[0];
 
   if (activeSubDirectory === 'develop' && !selectedBot) {
