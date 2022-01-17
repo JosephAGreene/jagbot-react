@@ -7,7 +7,7 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-export default function DocAlert(props) {
+export default function ExpandHint (props) {
   const {children} = props;
   const [expanded, setExpanded] = React.useState(false);
 
