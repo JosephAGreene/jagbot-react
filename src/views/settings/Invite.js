@@ -9,7 +9,6 @@ export default function Invite (props) {
   React.useEffect(() => {
     window.open(inviteLink, "_blank");
     history.goBack();
-    console.log('hit')
   }, [history, inviteLink])
 
   return null;
