@@ -27,7 +27,7 @@ function Moderation(props) {
         title="Moderation"
         description="Moderate your server with a set of powerful commands."
         image={moderationImage}
-        docs={true}
+        docs={[]}
       />
       <GridContainer>
         <ModerationPanel
