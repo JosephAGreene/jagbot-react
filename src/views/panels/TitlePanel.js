@@ -197,6 +197,7 @@ function TitlePanel(props) {
 }
 
 TitlePanel.propTypes = {
+  classes: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   listItems: PropTypes.array,
