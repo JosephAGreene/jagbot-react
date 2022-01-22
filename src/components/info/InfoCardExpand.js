@@ -14,9 +14,26 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const styles = (theme) => ({
   root: {
     width: "100%",
+    backgroundColor: theme.palette.gray.dark,
+    '& .MuiCardHeader-action': {
+      alignSelf: "flex-end",
+      '& .MuiIconButton-root' : {
+        color: theme.palette.white.main,
+      },
+    },
+    '& .MuiCardHeader-title': {
+      color: theme.palette.white.main,
+    }, 
+    '& .MuiCardHeader-subheader': {
+      color: theme.palette.white.dark,
+    },
+  },
+  header: {
+    cursor: "pointer",
   },
   expand: {
     transform: 'rotate(0deg)',
+    marginTop: 'auto',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
@@ -26,7 +43,7 @@ const styles = (theme) => ({
     transform: 'rotate(180deg)',
   },
   avatar: {
-    backgroundColor: "yellow",
+    backgroundColor: theme.palette.primary.main,
   },
 });
 
@@ -41,6 +58,7 @@ function InfoCardExpand(props) {
   return (
     <Card className={classes.root}>
       <CardHeader
+        className={classes.header}
         onClick={handleExpandClick}
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
