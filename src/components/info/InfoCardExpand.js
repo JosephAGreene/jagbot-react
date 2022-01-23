@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types"; 
 import clsx from 'clsx';
 
 // Import MUI components
@@ -89,5 +90,11 @@ function InfoCardExpand(props) {
     </Card>
   );
 }
+
+InfoCardExpand.propTypes = {
+  classes: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  subheader: PropTypes.string,
+};
 
 export default withStyles(styles)(InfoCardExpand);
