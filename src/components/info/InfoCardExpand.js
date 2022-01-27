@@ -24,10 +24,14 @@ const styles = (theme) => ({
     },
     '& .MuiCardHeader-title': {
       color: theme.palette.white.main,
+      fontSize: "18px"
     },
     '& .MuiCardHeader-subheader': {
       color: theme.palette.white.dark,
     },
+    '& .MuiCardContent-root': {
+      color: theme.palette.white.dark,
+    }
   },
   header: {
     cursor: "pointer",
@@ -144,6 +148,7 @@ InfoCardExpand.propTypes = {
   icon: PropTypes.object,
   title: PropTypes.string.isRequired,
   subheader: PropTypes.string,
+  content: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(InfoCardExpand);
