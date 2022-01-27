@@ -26,9 +26,9 @@ const styles = (theme) => ({
     '& .MuiCardHeader-subheader': {
       color: theme.palette.white.dark,
     },
-  },
-  header: {
-    cursor: "pointer",
+    '& .MuiCardContent-root': {
+      color: theme.palette.white.dark,
+    }
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -108,9 +108,11 @@ function InfoCardStandard(props) {
         title={title}
         subheader={subheader}
       />
-      <CardContent>
-        {content}
-      </CardContent>
+      {content &&
+        <CardContent>
+          {content}
+        </CardContent>
+      }
     </Card>
   );
 }
@@ -122,6 +124,7 @@ InfoCardStandard.propTypes = {
   icon: PropTypes.object,
   title: PropTypes.string.isRequired,
   subheader: PropTypes.string,
+  content: PropTypes.elementType,
 };
 
 export default withStyles(styles)(InfoCardStandard);
