@@ -11,16 +11,45 @@ const styles = (theme) => ({
     backgroundColor: theme.palette.gray.main,
     overflow: "hidden",
     color: theme.palette.white.main,
-  }
+  },
+  header: {
+    marginTop: theme.spacing(6),
+    marginBottom: theme.spacing(2),
+    marginLeft: theme.spacing(1),
+    color: theme.palette.white.dark,
+    fontSize: 24,
+  },
+  new: {
+    display: "inline",
+    color: theme.palette.green.main,
+  },
+  edit: {
+    display: "inline",
+    color: theme.palette.purple.main,
+  },
 });
 
+// headerPhase = New or Edit
+// header = the heading of the categorey
+
 function ContentPanel(props) {
-  const {classes, children} = props;
+  const { classes, headerPhase, header, children } = props;
 
   return (
-    <Paper className={classes.paper}>
-      {children}
-    </Paper>
+    <div>
+      <div className={classes.header}>
+        {headerPhase === 'New'
+          ? <div className={classes.new}>New </div>
+          : headerPhase === 'Edit'
+            ? <div className={classes.edit}>Edit </div>
+            : null
+        }
+        {header}
+      </div>
+      <Paper className={classes.paper}>
+        {children}
+      </Paper>
+    </div>
   );
 }
 
