@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 // Import Mui components
 import { withStyles } from '@material-ui/core/styles';
@@ -52,5 +53,11 @@ function ContentPanel(props) {
     </div>
   );
 }
+
+ContentPanel.propTypes = {
+  classes: PropTypes.object.isRequired,
+  headerPhase: PropTypes.string,
+  header: PropTypes.string,
+};
 
 export default withStyles(styles)(ContentPanel);
