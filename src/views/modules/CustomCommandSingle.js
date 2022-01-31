@@ -15,11 +15,11 @@ import ContentWrapper from '../../layouts/ContentWrapper';
 
 // Import Mui components
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
+import ContentPanel from '../panels/ContentPanel';
 import OutlinedInput from '../../components/inputs/OutlinedInputDark';
 import ResponseEditor from '../../components/inputs/ResponseEditor';
 import EmbedEditor from './editors/EmbedEditor';
@@ -34,26 +34,6 @@ import {SingleResponseDoc} from '../documents/CustomCommands';
 import { TiMessage } from 'react-icons/ti';
 
 const styles = (theme) => ({
-  paper: {
-    padding: "20px",
-    marginBottom: theme.spacing(3),
-    backgroundColor: theme.palette.gray.main,
-    overflow: "hidden",
-    color: theme.palette.white.main,
-  },
-  categoryHeader: {
-    marginTop: theme.spacing(6),
-    marginBottom: theme.spacing(2),
-    marginLeft: theme.spacing(1),
-    color: theme.palette.white.dark,
-    fontSize: 24,
-  },
-  new: {
-    color: theme.palette.green.main,
-  },
-  edit: {
-    color: theme.palette.purple.main,
-  },
   labelRootError: {
     width: "100%",
     textAlign: "right",
@@ -416,10 +396,10 @@ function CustomCommandSingle(props) {
         docs={[<SingleResponseDoc />]}
         color="#98c379"
       />
-      <div className={classes.categoryHeader}>
-        {module ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Single Response
-      </div>
-      <Paper className={classes.paper}>
+      <ContentPanel
+        headerPhase={module ? "Edit" : "New"}
+        header={'Single Response'}
+      >
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
           <OutlinedInput
             labelText="Command"
@@ -500,7 +480,7 @@ function CustomCommandSingle(props) {
           </GridContainer>
 
         </form>
-      </Paper>
+      </ContentPanel>
     </ContentWrapper>
   );
 }
