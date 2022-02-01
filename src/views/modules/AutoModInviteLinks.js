@@ -240,7 +240,7 @@ function AutoModInviteLinks(props) {
         title="Discord Invite Links"
         description="Have your bot take actions when someone posts a discord invite link in your server."
         image={invitelinksImage}
-        docs={true}
+        docs={[]}
       />
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >

@@ -250,7 +250,7 @@ function AutoModMassMentions(props) {
         title="Mass Mentions"
         description="Take action when a member has gone overboard with the mentions. You decide what overboard is."
         image={massMentionsImage}
-        docs={true}
+        docs={[]}
       />
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >

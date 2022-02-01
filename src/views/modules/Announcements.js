@@ -239,7 +239,7 @@ function Announcements(props) {
         description="Make an announcement when a member joins, leaves, gets kicked, or gets banned from your server."
         listItems={["One announcement type per server"]}
         image={announcementsImage}
-        docs={true}
+        docs={[]}
       />
       <div className={classes.smallSpacer} />
       <GridContainer

@@ -26,7 +26,7 @@ function AutoModeration(props) {
         title="Auto Moderation"
         description="Automatically moderate your server."
         image={automoderatorImage}
-        docs={true}
+        docs={[]}
       />
       <GridContainer>
         <ModerationPanel

@@ -164,7 +164,7 @@ function ModerationHelp(props) {
         description="Provides overview of available bot commands, their descriptions, and how to use them."
         listItems={["Leave allowed roles BLANK to let EVERYONE use Help", "Roles are server specific", "You may assign multiple roles from multiple servers"]}
         image={helpImage}
-        docs={true}
+        docs={[]}
       />
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >

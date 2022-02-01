@@ -200,7 +200,7 @@ function CustomCommandRandom (props) {
         title="Random Response"
         description="A single command that returns a randomly choosen response from a list of potential responses."
         listItems={["Max 50 responses"]}
-        docs={true}
+        docs={[]}
         Icon={GiPerspectiveDiceSixFacesRandom}
         color="#c678DD"
       />

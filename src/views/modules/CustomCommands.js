@@ -200,7 +200,7 @@ function CustomCommands(props) {
         description="Assign custom commands to make your bot unique."
         listItems={["Max 50 custom commands"]}
         Icon={FiCommand}
-        docs={true}
+        docs={[]}
         color="#F45142"
       />
       <div className={classes.largeSpacer} />

@@ -155,7 +155,7 @@ function ModerationPing(props) {
         description="Returns the latency of your bot and the discord API."
         listItems={["Leave allowed roles BLANK to let EVERYONE use Ping", "Roles are server specific", "You may assign multiple roles from multiple servers", "Be careful"]}
         image={pingImage}
-        docs={true}
+        docs={[]}
       />
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >

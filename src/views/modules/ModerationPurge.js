@@ -187,7 +187,7 @@ function ModerationPurge(props) {
         description="Bulk deletes up to 100 messages in a single channel."
         listItems={["Roles are server specific", "You may assign multiple roles from multiple servers", "Be careful"]}
         image={purgeImage}
-        docs={true}
+        docs={[]}
       />
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >

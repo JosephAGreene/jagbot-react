@@ -198,7 +198,7 @@ function CustomCommandOptioned (props) {
         description="A single command with a supplied option keyword, for which a range of multiple responses can be returned."
         listItems={["Max 50 options"]}
         Icon={TiMessages}
-        docs={true}
+        docs={[]}
         color="#de8f4d"
       />
       <div className={classes.categoryHeader}>

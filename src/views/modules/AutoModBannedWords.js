@@ -254,7 +254,7 @@ function AutoModBannedWords(props) {
         title="Banned Words"
         description="Take action when a member has posted banned words on your server."
         image={bannedWordsImage}
-        docs={true}
+        docs={[]}
       />
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >

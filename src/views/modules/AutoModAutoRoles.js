@@ -170,7 +170,7 @@ function AutoRole(props) {
         description="Automatically assign roles to members when they first join your server."
         listItems={["Roles are server specific", "You may assign multiple roles from multiple servers", "Assigning roles with privledges to new members is dangerous.", "Be careful."]}
         image={autoroleImage}
-        docs={true}
+        docs={[]}
       />
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >

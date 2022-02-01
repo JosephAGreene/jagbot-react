@@ -238,7 +238,7 @@ function AutoModMassCaps(props) {
         title="Mass Caps"
         description="Have some users with a stuck capslock key? Give them motivation to change."
         image={massCapsImage}
-        docs={true}
+        docs={[]}
       />
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >

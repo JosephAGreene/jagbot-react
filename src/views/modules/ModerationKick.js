@@ -187,7 +187,7 @@ function ModerationKick(props) {
         description="Kicks a user from your server."
         listItems={["Roles are server specific", "You may assign multiple roles from multiple servers", "Be careful"]}
         image={kickuserImage}
-        docs={true}
+        docs={[]}
       />
       <Paper className={classes.paper}>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
