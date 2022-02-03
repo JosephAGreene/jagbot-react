@@ -13,12 +13,9 @@ import Joi from 'joi';
 // Import layouts
 import ContentWrapper from '../../layouts/ContentWrapper';
 
-// Import Mui components
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
+import ContentPanel from '../panels/ContentPanel';
 import ResponseEditor from '../../components/inputs/ResponseEditor';
 import RoleChipInput from '../../components/inputs/RoleChipInput';
 import Button from '../../components/buttons/Button';
@@ -31,16 +28,6 @@ import WordChipInput from '../../components/inputs/WordChipInput.js';
 
 // Import images
 import bannedWordsImage from '../../assets/images/bannedwords.png';
-
-const styles = (theme) => ({
-  paper: {
-    padding: "20px",
-    marginBottom: theme.spacing(3),
-    backgroundColor: theme.palette.gray.main,
-    overflow: "hidden",
-    color: theme.palette.white.main,
-  },
-});
 
 const schema = Joi.object({
   enabled: Joi.bool().required(),
@@ -148,8 +135,8 @@ function setDefaultValues(module) {
   }
 }
 
-function AutoModBannedWords(props) {
-  const { classes, selectedBot, setSelectedBot, setApiAlert } = props;
+export default function AutoModBannedWords(props) {
+  const { selectedBot, setSelectedBot, setApiAlert } = props;
   const { module } = useLocation();
   const history = useHistory();
 
@@ -256,7 +243,7 @@ function AutoModBannedWords(props) {
         image={bannedWordsImage}
         docs={[]}
       />
-      <Paper className={classes.paper}>
+      <ContentPanel>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
           <ControlledCheckbox
             control={control}
@@ -321,7 +308,7 @@ function AutoModBannedWords(props) {
             </GridItem>
           </GridContainer>
         </form>
-      </Paper>
+      </ContentPanel>
     </ContentWrapper>
   );
 }
@@ -332,5 +319,3 @@ AutoModBannedWords.propTypes = {
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
 };
-
-export default withStyles(styles)(AutoModBannedWords);
