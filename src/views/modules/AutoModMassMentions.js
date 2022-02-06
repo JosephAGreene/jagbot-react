@@ -13,12 +13,9 @@ import Joi from 'joi';
 // Import layouts
 import ContentWrapper from '../../layouts/ContentWrapper';
 
-// Import Mui components
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
+import ContentPanel from '../panels/ContentPanel';
 import ResponseEditor from '../../components/inputs/ResponseEditor';
 import RoleChipInput from '../../components/inputs/RoleChipInput';
 import Button from '../../components/buttons/Button';
@@ -31,16 +28,6 @@ import OutlinedInput from '../../components/inputs/OutlinedInputDark.js';
 
 // Import images
 import massMentionsImage from '../../assets/images/massmentions.png';
-
-const styles = (theme) => ({
-  paper: {
-    padding: "20px",
-    marginBottom: theme.spacing(3),
-    backgroundColor: theme.palette.gray.main,
-    overflow: "hidden",
-    color: theme.palette.white.main,
-  },
-});
 
 const schema = Joi.object({
   enabled: Joi.bool().required(),
@@ -145,8 +132,8 @@ function setDefaultValues(module) {
   }
 }
 
-function AutoModMassMentions(props) {
-  const { classes, selectedBot, setSelectedBot, setApiAlert } = props;
+export default function AutoModMassMentions(props) {
+  const { selectedBot, setSelectedBot, setApiAlert } = props;
   const { module } = useLocation();
   const history = useHistory();
 
@@ -252,7 +239,7 @@ function AutoModMassMentions(props) {
         image={massMentionsImage}
         docs={[]}
       />
-      <Paper className={classes.paper}>
+      <ContentPanel>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
           <ControlledCheckbox
             control={control}
@@ -315,7 +302,7 @@ function AutoModMassMentions(props) {
             </GridItem>
           </GridContainer>
         </form>
-      </Paper>
+      </ContentPanel>
     </ContentWrapper>
   );
 }
@@ -326,5 +313,3 @@ AutoModMassMentions.propTypes = {
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
 };
-
-export default withStyles(styles)(AutoModMassMentions);
