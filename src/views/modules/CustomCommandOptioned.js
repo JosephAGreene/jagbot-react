@@ -13,12 +13,9 @@ import Joi from 'joi';
 // Import layouts
 import ContentWrapper from '../../layouts/ContentWrapper';
 
-// Import Mui components
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper'
-
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
+import ContentPanel from '../panels/ContentPanel.js';
 import OutlinedInput from '../../components/inputs/OutlinedInputDark';
 import Button from '../../components/buttons/Button';
 import GridContainer from '../../components/grid/GridContainer';
@@ -30,29 +27,6 @@ import AddOptionDialog from './dialogs/AddOptionDialog';
 
 // Import icons
 import { TiMessages } from 'react-icons/ti';
-
-const styles = (theme) => ({
-  paper: {
-    padding: "20px",
-    marginBottom: theme.spacing(3),
-    backgroundColor: theme.palette.gray.main,
-    overflow: "hidden",
-    color: theme.palette.white.main,
-  },
-  categoryHeader: {
-    marginTop: theme.spacing(6),
-    marginBottom: theme.spacing(2),
-    marginLeft: theme.spacing(1),
-    color: theme.palette.white.dark,
-    fontSize: 24,
-  },
-  new: {
-    color: theme.palette.green.main,
-  },
-  edit: {
-    color: theme.palette.purple.main,
-  }
-});
 
 const schema = Joi.object({
   command: Joi.string().trim().max(30).required()
@@ -105,7 +79,7 @@ function setDefaultValues(module) {
   }
 } 
 
-function CustomCommandOptioned (props) {
+export default function CustomCommandOptioned (props) {
   const {classes, selectedBot, setSelectedBot, setApiAlert} = props;
   const {module} = useLocation();
   const [optionDialog, setOptionDialog] = React.useState(false);
@@ -201,10 +175,10 @@ function CustomCommandOptioned (props) {
         docs={[]}
         color="#de8f4d"
       />
-      <div className={classes.categoryHeader}>
-        {module ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Optioned Responses
-      </div>
-      <Paper className={classes.paper}>
+      <ContentPanel
+        headerPhase={module ? "Edit" : "New"}
+        header={'Optoined Response'}
+      >
         <form autoComplete="off">
           <OutlinedInput
             labelText="Command"
@@ -268,7 +242,7 @@ function CustomCommandOptioned (props) {
             </Button>
           </GridItem>
         </GridContainer>
-      </Paper>
+      </ContentPanel>
       <AddOptionDialog 
         optionsArray={watchOptions}
         setOptionsArray={setOptionsArray} 
@@ -287,5 +261,3 @@ CustomCommandOptioned.propTypes = {
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
 };
-
-export default withStyles(styles)(CustomCommandOptioned);
