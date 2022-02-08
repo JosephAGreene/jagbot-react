@@ -177,7 +177,7 @@ export default function CustomCommandOptioned (props) {
       />
       <ContentPanel
         headerPhase={module ? "Edit" : "New"}
-        header={'Optoined Response'}
+        header={'Optioned Response'}
       >
         <form autoComplete="off">
           <OutlinedInput
@@ -256,7 +256,6 @@ export default function CustomCommandOptioned (props) {
 }
 
 CustomCommandOptioned.propTypes = {
-  classes: PropTypes.object.isRequired,
   selectedBot: PropTypes.object.isRequired,
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
