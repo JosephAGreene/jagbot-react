@@ -13,12 +13,9 @@ import Joi from 'joi';
 // Import layouts
 import ContentWrapper from '../../layouts/ContentWrapper';
 
-// Import Mui components
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper'
-
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
+import ContentPanel from '../panels/ContentPanel.js';
 import OutlinedInput from '../../components/inputs/OutlinedInputDark';
 import Button from '../../components/buttons/Button';
 import GridContainer from '../../components/grid/GridContainer';
@@ -109,7 +106,7 @@ function setDefaultValues(module) {
 } 
 
 function CustomCommandRandom (props) {
-  const {classes, selectedBot, setSelectedBot, setApiAlert} = props;
+  const {selectedBot, setSelectedBot, setApiAlert} = props;
   const {module} = useLocation();
   const [responseDialog, setResponseDialog] = React.useState(false);
   const [editResponse, setEditResponse] = React.useState(false);
@@ -204,10 +201,10 @@ function CustomCommandRandom (props) {
         Icon={GiPerspectiveDiceSixFacesRandom}
         color="#c678DD"
       />
-      <div className={classes.categoryHeader}>
-        {module ? <span className={classes.edit}>Edit</span> : <span className={classes.new}>New</span>}  Random Response
-      </div>
-      <Paper className={classes.paper}>
+      <ContentPanel
+        headerPhase={module ? "Edit" : "New"}
+        header={'Random Response'}
+      >
         <form autoComplete="off">
           <OutlinedInput
             labelText="Command"
@@ -272,7 +269,7 @@ function CustomCommandRandom (props) {
             </Button>
           </GridItem>
         </GridContainer>
-      </Paper>
+      </ContentPanel>
       <AddResponseDialog 
         responsesArray={watchResponses}
         setResponsesArray={setResponsesArray} 
@@ -287,10 +284,7 @@ function CustomCommandRandom (props) {
 }
 
 CustomCommandRandom.propTypes = {
-  classes: PropTypes.object.isRequired,
   selectedBot: PropTypes.object.isRequired,
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
 };
-
-export default withStyles(styles)(CustomCommandRandom);
