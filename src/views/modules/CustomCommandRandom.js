@@ -28,33 +28,6 @@ import AddResponseDialog from './dialogs/AddResponseDialog';
 // Import icons
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
 
-const styles = (theme) => ({
-  paper: {
-    padding: "20px",
-    marginBottom: theme.spacing(3),
-    backgroundColor: theme.palette.gray.main,
-    overflow: "hidden",
-    color: theme.palette.white.main,
-  },
-  categoryHeader: {
-    marginTop: theme.spacing(6),
-    marginBottom: theme.spacing(2),
-    marginLeft: theme.spacing(1),
-    color: theme.palette.white.dark,
-    fontSize: 24,
-  },
-  addResponseButton: {
-    marginLeft: theme.spacing(1),
-    marginBottom: theme.spacing(2),
-  },
-  new: {
-    color: theme.palette.green.main,
-  },
-  edit: {
-    color: theme.palette.purple.main,
-  }
-});
-
 const schema = Joi.object({
   command: Joi.string().trim().max(30).required()
     .custom((value, helper) => {
