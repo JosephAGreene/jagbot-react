@@ -121,7 +121,7 @@ function setDefaultValues(module) {
 }
 
 export default function AutoModInviteLinks(props) {
-  const { classes, selectedBot, setSelectedBot, setApiAlert } = props;
+  const { selectedBot, setSelectedBot, setApiAlert } = props;
   const { module } = useLocation();
   const history = useHistory();
 
@@ -289,10 +289,7 @@ export default function AutoModInviteLinks(props) {
 }
 
 AutoModInviteLinks.propTypes = {
-  classes: PropTypes.object.isRequired,
   selectedBot: PropTypes.object.isRequired,
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
 };
-
-export default withStyles(styles)(AutoModInviteLinks);
