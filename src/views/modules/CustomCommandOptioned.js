@@ -80,7 +80,7 @@ function setDefaultValues(module) {
 } 
 
 export default function CustomCommandOptioned (props) {
-  const {classes, selectedBot, setSelectedBot, setApiAlert} = props;
+  const {selectedBot, setSelectedBot, setApiAlert} = props;
   const {module} = useLocation();
   const [optionDialog, setOptionDialog] = React.useState(false);
   const [editOption, setEditOption] = React.useState(false);
