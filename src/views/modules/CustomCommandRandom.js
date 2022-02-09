@@ -105,7 +105,7 @@ function setDefaultValues(module) {
   }
 } 
 
-function CustomCommandRandom (props) {
+export default function CustomCommandRandom (props) {
   const {selectedBot, setSelectedBot, setApiAlert} = props;
   const {module} = useLocation();
   const [responseDialog, setResponseDialog] = React.useState(false);
