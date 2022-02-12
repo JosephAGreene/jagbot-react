@@ -10,15 +10,12 @@ import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
 
-// Import Mui components
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-
 // Import layouts
 import ContentWrapper from '../../layouts/ContentWrapper';
 
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
+import ContentPanel from '../panels/ContentPanel.js';
 import OutlinedInput from '../../components/inputs/OutlinedInputDark';
 import RoleChipInput from '../../components/inputs/RoleChipInput';
 import Button from '../../components/buttons/Button';
@@ -28,16 +25,6 @@ import ControlledCheckbox from '../../components/inputs/ControlledCheckbox';
 
 // Import images
 import kickuserImage from '../../assets/images/kickuser.png';
-
-const styles = (theme) => ({
-  paper: {
-    padding: "20px",
-    marginBottom: theme.spacing(3),
-    backgroundColor: theme.palette.gray.main,
-    overflow: "hidden",
-    color: theme.palette.white.main,
-  },
-});
 
 const schema = Joi.object({
   enabled: Joi.bool().required(),
@@ -135,8 +122,8 @@ function setDefaultValues(module) {
   }
 }
 
-function ModerationKick(props) {
-  const { classes, selectedBot, setSelectedBot, setApiAlert } = props;
+export default function ModerationKick(props) {
+  const { selectedBot, setSelectedBot, setApiAlert } = props;
   const { module } = useLocation();
   const history = useHistory();
 
@@ -189,7 +176,7 @@ function ModerationKick(props) {
         image={kickuserImage}
         docs={[]}
       />
-      <Paper className={classes.paper}>
+      <ContentPanel>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
           <ControlledCheckbox
             control={control}
@@ -239,16 +226,13 @@ function ModerationKick(props) {
             </GridItem>
           </GridContainer>
         </form>
-      </Paper>
+      </ContentPanel>
     </ContentWrapper>
   );
 }
 
 ModerationKick.propTypes = {
-  classes: PropTypes.object.isRequired,
   selectedBot: PropTypes.object.isRequired,
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
 };
-
-export default withStyles(styles)(ModerationKick);
