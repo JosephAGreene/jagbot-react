@@ -38,15 +38,17 @@ function ContentPanel(props) {
 
   return (
     <div>
-      <div className={classes.header}>
-        {headerPhase === 'New'
-          ? <div className={classes.new}>New </div>
-          : headerPhase === 'Edit'
-            ? <div className={classes.edit}>Edit </div>
-            : null
-        }
-        {header}
-      </div>
+      {header &&
+        <div className={classes.header}>
+          {headerPhase === 'New'
+            ? <div className={classes.new}>New </div>
+            : headerPhase === 'Edit'
+              ? <div className={classes.edit}>Edit </div>
+              : null
+          }
+          {header}
+        </div>
+      }
       <Paper className={classes.paper}>
         {children}
       </Paper>
