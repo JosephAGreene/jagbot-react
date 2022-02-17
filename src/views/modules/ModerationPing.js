@@ -91,7 +91,7 @@ function setDefaultValues(module) {
 }
 
 export default function ModerationPing(props) {
-  const { classes, selectedBot, setSelectedBot, setApiAlert } = props;
+  const { selectedBot, setSelectedBot, setApiAlert } = props;
   const { module } = useLocation();
   const history = useHistory();
 
