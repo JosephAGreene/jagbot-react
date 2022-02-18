@@ -308,7 +308,6 @@ export default function AutoModMassMentions(props) {
 }
 
 AutoModMassMentions.propTypes = {
-  classes: PropTypes.object.isRequired,
   selectedBot: PropTypes.object.isRequired,
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,

@@ -126,7 +126,7 @@ export default function ModerationPurge(props) {
   const { selectedBot, setSelectedBot, setApiAlert } = props;
   const { module } = useLocation();
   const history = useHistory();
-
+console.log(selectedBot);
   const { register, handleSubmit, control, watch, setValue, formState: { errors } } = useForm({
     resolver: joiResolver(schema),
     defaultValues: setDefaultValues(module),

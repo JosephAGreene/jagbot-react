@@ -314,7 +314,6 @@ export default function AutoModBannedWords(props) {
 }
 
 AutoModBannedWords.propTypes = {
-  classes: PropTypes.object.isRequired,
   selectedBot: PropTypes.object.isRequired,
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
