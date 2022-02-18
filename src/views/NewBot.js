@@ -11,11 +11,11 @@ import BotService from "../services/BotService.js";
 
 // Import MUI components
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
 // Import custom components
 import TitlePanel from './panels/TitlePanel';
+import ContentPanel from './panels/ContentPanel';
 import OutlinedInput from '../components/inputs/OutlinedInputDark';
 import ControlledCheckbox from '../components/inputs/ControlledCheckbox';
 import Button from '../components/buttons/Button';
@@ -33,13 +33,6 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 const styles = (theme) => ({
-  paper: {
-    padding: "20px",
-    marginBottom: theme.spacing(3),
-    backgroundColor: theme.palette.gray.main,
-    overflow: "hidden",
-    color: theme.palette.white.main,
-  },
   warningHeading: {
     color: theme.palette.white.main,
     margin: "25px 0 10px 0",
@@ -137,7 +130,7 @@ function NewBot(props) {
         ]}
         image={newBotImage}
       />
-      <Paper className={classes.paper}>
+      <ContentPanel>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
           <OutlinedInput
             labelText="Prefix"
@@ -195,7 +188,7 @@ function NewBot(props) {
             </GridItem>
           </GridContainer>
         </form>
-      </Paper>
+      </ContentPanel>
     </ContentWrapper>
   );
 }
