@@ -13,13 +13,10 @@ import Joi from 'joi';
 // Import layouts
 import ContentWrapper from '../../layouts/ContentWrapper';
 
-// Import Mui components
-import { withStyles } from '@material-ui/core/styles';
-import FormHelperText from '@material-ui/core/FormHelperText';
-
 // Import custom components
 import TitlePanel from '../panels/TitlePanel';
 import ContentPanel from '../panels/ContentPanel';
+import ErrorText from '../../components/info/ErrorText.js';
 import OutlinedInput from '../../components/inputs/OutlinedInputDark';
 import ResponseEditor from '../../components/inputs/ResponseEditor';
 import EmbedEditor from './editors/EmbedEditor';
@@ -32,14 +29,6 @@ import {SingleResponseDoc} from '../documents/CustomCommands';
 
 // Import icons
 import { TiMessage } from 'react-icons/ti';
-
-const styles = (theme) => ({
-  labelRootError: {
-    width: "100%",
-    textAlign: "right",
-    color: theme.palette.error.main
-  },
-});
 
 const schema = Joi.object({
   command: Joi.string().trim().max(30).required()
@@ -230,8 +219,8 @@ function setDefaultValues(module) {
   }
 }
 
-function CustomCommandSingle(props) {
-  const { classes, selectedBot, setSelectedBot, setApiAlert } = props;
+export default function CustomCommandSingle(props) {
+  const { selectedBot, setSelectedBot, setApiAlert } = props;
   const { module } = useLocation();
 
   const { register, handleSubmit, control, watch, setValue, setError, trigger, formState: { errors } } = useForm({
@@ -452,12 +441,10 @@ function CustomCommandSingle(props) {
             />
           </ControlledRadioGroup>
           {returnResponseEditor()}
-          {errors.maxChar
-            ? <FormHelperText className={classes.labelRootError} id={`error-message-maxChar`}>
-              The combined character count of embed title, description, fields, and footer cannot exceed 5,500!
-            </FormHelperText>
-            : <FormHelperText> </FormHelperText>
-          }
+          <ErrorText 
+            error={errors.maxChar}
+            text="The combined character count of embed title, description, fields, and footer cannot exceed 5,500!"
+          />
           <GridContainer justifyContent="flex-end">
             <GridItem>
               <Button
@@ -486,10 +473,7 @@ function CustomCommandSingle(props) {
 }
 
 CustomCommandSingle.propTypes = {
-  classes: PropTypes.object.isRequired,
   selectedBot: PropTypes.object.isRequired,
   setSelectedBot: PropTypes.func.isRequired,
   setApiAlert: PropTypes.func.isRequired,
 };
-
-export default withStyles(styles)(CustomCommandSingle);
