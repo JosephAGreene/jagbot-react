@@ -1036,10 +1036,7 @@ function Settings(props) {
 
 Settings.propTypes = {
   setSelectedBot: PropTypes.func.isRequired,
-  selectedBot: PropTypes.oneOfType([
-    PropTypes.object.isRequired,
-    PropTypes.bool.isRequired,
-  ]),
+  selectedBot: PropTypes.object.isRequired,
   setApiAlert: PropTypes.func.isRequired,
 };
 
