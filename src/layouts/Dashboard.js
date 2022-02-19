@@ -64,6 +64,10 @@ const styles = (theme) => ({
   }
 });
 
+function isEmptyObject(obj){
+  return JSON.stringify(obj) === '{}';
+}
+
 // Returns react routes inside a switch based on routes.js routes
 function buildSwitchRoutes(warningAcknowledged, handleBotSelection, selectedBot, setSelectedBot, setApiAlert) {
   let routeArray = [];
@@ -108,7 +112,7 @@ function Dashboard(props) {
   const { classes } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [user, setUser] = React.useState(null);
-  const [selectedBot, setSelectedBot] = React.useState(false);
+  const [selectedBot, setSelectedBot] = React.useState({});
   const [apiAlert, setApiAlert] = React.useState({ status: false, duration: 2500, severity: "success" });
   const [logoutDialog, setLogoutDialog] = React.useState(false);
 
@@ -134,7 +138,7 @@ function Dashboard(props) {
   const activePath = useLocation().pathname.split('/').filter(param => param).slice(1).join('/');
   const activeSubDirectory = activePath.split('/').slice(0, 1)[0];
 
-  if (activeSubDirectory === 'develop' && !selectedBot) {
+  if (activeSubDirectory === 'develop' && isEmptyObject(selectedBot)) {
     return <Redirect to="/dashboard" />;
   }
 

@@ -84,6 +84,9 @@ const styles = (theme) => ({
   },
 });
 
+function isEmptyObject(obj){
+  return JSON.stringify(obj) === '{}';
+}
 function Navigator(props) {
   const { classes, 
           routes, 
@@ -101,7 +104,7 @@ function Navigator(props) {
     <Drawer variant="permanent" onClick={other.onClose} {...other}>
       <List disablePadding>
         <ListItem className={clsx(classes.firebase, classes.psuedoItem, classes.itemCategory)}>
-          {(selectedBot && activeSubDirectory === 'develop') 
+          {(!isEmptyObject(selectedBot) && activeSubDirectory === 'develop') 
             ? <Headline 
                 iconComponent={GoBeaker}
                 start="The"
@@ -116,11 +119,11 @@ function Navigator(props) {
               />
           }
         </ListItem>
-        {(selectedBot && activeSubDirectory === 'develop') &&
+        {(!isEmptyObject(selectedBot) && activeSubDirectory === 'develop') &&
           <React.Fragment>
             <ListItem 
               className={clsx(classes.item, classes.itemCategory)}
-              onClick={() => setSelectedBot(false)}
+              onClick={() => setSelectedBot({})}
               button
             >
               <ListItemIcon className={classes.itemIcon}>
