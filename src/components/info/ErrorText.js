@@ -13,7 +13,7 @@ const styles = (theme) => ({
   },
 });
 
-function FormHelperText(props) {
+function ErrorText(props) {
   const { classes, error, text} = props;
 
   if (error) {
@@ -29,11 +29,11 @@ function FormHelperText(props) {
   );
 }
 
-FormHelperText.propTypes = {
+ErrorText.propTypes = {
   classes: PropTypes.object.isRequired,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.object,
   text: PropTypes.string.isRequired,
 };
 
-export default withStyles(styles)(FormHelperText);
+export default withStyles(styles)(ErrorText);
 
