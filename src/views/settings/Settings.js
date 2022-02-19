@@ -980,7 +980,7 @@ function Settings(props) {
         title="Settings"
         description="Your bot's settings."
         image={settingsImage}
-        docs={true}
+        docs={[]}
       />
       <div className={classes.categoryHeader}>
         General Settings
