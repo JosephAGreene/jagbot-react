@@ -16,16 +16,10 @@ const styles = (theme) => ({
 function ErrorText(props) {
   const { classes, error, text} = props;
 
-  if (error) {
-    return (
-      <FormHelperText className={classes.labelRootError} id={`error-message-maxChar`}>
-        {text}
-      </FormHelperText>
-    );
-  }
-
   return (
-    <FormHelperText> </FormHelperText>
+    <FormHelperText className={classes.labelRootError} id={`error-message-maxChar`}>
+      {error ? text : " "}
+    </FormHelperText>
   );
 }
 
