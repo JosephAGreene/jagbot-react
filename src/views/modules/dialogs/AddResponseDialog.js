@@ -8,9 +8,9 @@ import Joi from 'joi';
 
 // Import Mui components
 import { withStyles } from '@material-ui/core/styles';
-import FormHelperText from '@material-ui/core/FormHelperText';
 
 // Import custom components
+import ErrorText from '../../../components/info/ErrorText';
 import Button from '../../../components/buttons/Button';
 import GridContainer from '../../../components/grid/GridContainer';
 import GridItem from '../../../components/grid/GridItem';
@@ -31,12 +31,7 @@ const styles = (theme) => ({
   },
   edit: {
     color: theme.palette.purple.main,
-  },
-  labelRootError: {
-    width: "100%",
-    textAlign: "right",
-    color: theme.palette.error.main
-  },
+  }
 });
 
 const addResponseSchema = Joi.object({
@@ -387,12 +382,10 @@ function AddResponseDialog(props) {
           />
         </ControlledRadioGroup>
         {returnResponseEditor()}
-        {errors.maxChar
-          ? <FormHelperText className={classes.labelRootError} id={`error-message-maxChar`}>
-            The combined character count of embed title, description, fields, and footer cannot exceed 5,500!
-          </FormHelperText>
-          : <FormHelperText> </FormHelperText>
-        }
+        <ErrorText
+          error={errors.maxChar}
+          text="The combined character count of embed title, description, fields, and footer cannot exceed 5,500!"
+        />
         <GridContainer justifyContent="flex-end">
           <GridItem>
             <Button
